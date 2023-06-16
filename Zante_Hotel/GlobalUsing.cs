@@ -1,0 +1,13 @@
+﻿global using System;
+global using Zante_Hotel;
+global using Zante_Hotel.Models;
+global using Zante_Hotel.Models.Base;
+global using Zante_Hotel.Areas.AppAdmin.DAL;
+global using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
+global using Microsoft.AspNetCore.Identity;
+global using Zante_Hotel.Areas.AppAdmin.Models;
+global using Microsoft.EntityFrameworkCore;
+global using Zante_Hotel.ViewModels;
+global using System.ComponentModel.DataAnnotations;
+global using System.ComponentModel.DataAnnotations.Schema;
+global using Zante_Hotel.Utilities.Extensions;

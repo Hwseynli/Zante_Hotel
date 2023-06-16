@@ -1,0 +1,3 @@
+﻿<Project>
+  <Import Project="../build/Zante_Hotel.props" />
+</Project>

@@ -1,0 +1,50 @@
+﻿@model ICollection<Service>
+@{
+    int count = 0;
+}
+
+<div class="content">
+    <div class="animated fadeIn">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="card">
+                    <div class="card-header">
+                        <strong class="card-title">Service Table</strong>
+                    </div>
+                    <div class="col-lg-4">
+                        <a asp-action="Create" asp-controller="Service" asp-area="AppAdmin" class="btn btn-danger">Create</a>
+                    </div>
+                    <div class="card-body">
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th scope="col">Id</th>
+                                    <th scope="col">Name</th>
+                                    <th scope="col">Room Count</th>
+                                    <th scope="col">Settings</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach (var item in Model)
+                                {
+                                    count++;
+                                    <tr>
+                                        <th scope="row">@count</th>
+                                        <td>@item.Name</td>
+                                        <td>@item.Rooms.Count</td>
+                                        <td>
+                                            <a class="text-warning btn btn-dark" asp-action="Update" asp-controller="Service" asp-area="AppAdmin" asp-route-id="@item.Id"><b>Update</b></a>
+                                            <a class="text-danger btn btn-dark" asp-action="Delete" asp-controller="Service" asp-area="AppAdmin" asp-route-id="@item.Id"><b> Delete</b></a>
+                                        </td>
+                                    </tr>
+                                }
+
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div><!-- .animated -->
+</div><!-- .content -->

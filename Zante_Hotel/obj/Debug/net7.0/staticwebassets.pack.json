@@ -1,0 +1,1057 @@
+{
+  "Files": [
+    {
+      "Id": "/Users/zeyneb/Projects/Zante_Hotel/wwwroot/.DS_Store",
+      "PackagePath": "staticwebassets/.DS_Store"
+    },
+    {
+      "Id": "/Users/zeyneb/Projects/Zante_Hotel/wwwroot/admin/.DS_Store",
+      "PackagePath": "staticwebassets/admin/.DS_Store"
+    },
+    {
+      "Id": "/Users/zeyneb/Projects/Zante_Hotel/wwwroot/admin/adminform/assets/css/layout-dark.css",
+      "PackagePath": "staticwebassets/admin/adminform/assets/css/layout-dark.css"
+    },
+    {
+      "Id": "/Users/zeyneb/Projects/Zante_Hotel/wwwroot/admin/adminform/assets/css/layout-rtl.css",
+      "PackagePath": "staticwebassets/admin/adminform/assets/css/layout-rtl.css"
+    },
+    {
+      "Id": "/Users/zeyneb/Projects/Zante_Hotel/wwwroot/admin/adminform/assets/css/plugins/animate.min.css",
+      "PackagePath": "staticwebassets/admin/adminform/assets/css/plugins/animate.min.css"
+    },
+    {
+      "Id": "/Users/zeyneb/Projects/Zante_Hotel/wwwroot/admin/adminform/assets/css/plugins/bootstrap.min.css",
+      "PackagePath": "staticwebassets/admin/adminform/assets/css/plugins/bootstrap.min.css"
+    },
+    {
+      "Id": "/Users/zeyneb/Projects/Zante_Hotel/wwwroot/admin/adminform/assets/css/plugins/perfect-scrollbar.css",
+      "PackagePath": "staticwebassets/admin/adminform/assets/css/plugins/perfect-scrollbar.css"
+    },
+    {
+      "Id": "/Users/zeyneb/Projects/Zante_Hotel/wwwroot/admin/adminform/assets/css/plugins/prism-coy.css",
+      "PackagePath": "staticwebassets/admin/adminform/assets/css/plugins/prism-coy.css"
+    },
+    {
+      "Id": "/Users/zeyneb/Projects/Zante_Hotel/wwwroot/admin/adminform/assets/css/style.css",
+      "PackagePath": "staticwebassets/admin/adminform/assets/css/style.css"
+    },
+    {
+      "Id": "/Users/zeyneb/Projects/Zante_Hotel/wwwroot/admin/adminform/assets/fonts/Flaticon.eot",
+      "PackagePath": "staticwebassets/admin/adminform/assets/fonts/Flaticon.eot"
+    },
+    {
+      "Id": "/Users/zeyneb/Projects/Zante_Hotel/wwwroot/admin/adminform/assets/fonts/Flaticon.svg",
+      "PackagePath": "staticwebassets/admin/adminform/assets/fonts/Flaticon.svg"
+    },
+    {
+      "Id": "/Users/zeyneb/Projects/Zante_Hotel/wwwroot/admin/adminform/assets/fonts/Flaticon.ttf",
+      "PackagePath": "staticwebassets/admin/adminform/assets/fonts/Flaticon.ttf"
+    },
+    {
+      "Id": "/Users/zeyneb/Projects/Zante_Hotel/wwwroot/admin/adminform/assets/fonts/Flaticon.woff",
+      "PackagePath": "staticwebassets/admin/adminform/assets/fonts/Flaticon.woff"
+    },
+    {
+      "Id": "/Users/zeyneb/Projects/Zante_Hotel/wwwroot/admin/adminform/assets/fonts/Flaticon.woff2",
+      "PackagePath": "staticwebassets/admin/adminform/assets/fonts/Flaticon.woff2"
+    },
+    {
+      "Id": "/Users/zeyneb/Projects/Zante_Hotel/wwwroot/admin/adminform/assets/fonts/fa-brands-400.eot",
+      "PackagePath": "staticwebassets/admin/adminform/assets/fonts/fa-brands-400.eot"
+    },
+    {
+      "Id": "/Users/zeyneb/Projects/Zante_Hotel/wwwroot/admin/adminform/assets/fonts/fa-brands-400.svg",
+      "PackagePath": "staticwebassets/admin/adminform/assets/fonts/fa-brands-400.svg"
+    },
+    {
+      "Id": "/Users/zeyneb/Projects/Zante_Hotel/wwwroot/admin/adminform/assets/fonts/fa-brands-400.ttf",
+      "PackagePath": "staticwebassets/admin/adminform/assets/fonts/fa-brands-400.ttf"
+    },
+    {
+      "Id": "/Users/zeyneb/Projects/Zante_Hotel/wwwroot/admin/adminform/assets/fonts/fa-brands-400.woff",
+      "PackagePath": "staticwebassets/admin/adminform/assets/fonts/fa-brands-400.woff"
+    },
+    {
+      "Id": "/Users/zeyneb/Projects/Zante_Hotel/wwwroot/admin/adminform/assets/fonts/fa-brands-400.woff2",
+      "PackagePath": "staticwebassets/admin/adminform/assets/fonts/fa-brands-400.woff2"
+    },
+    {
+      "Id": "/Users/zeyneb/Projects/Zante_Hotel/wwwroot/admin/adminform/assets/fonts/fa-regular-400.eot",
+      "PackagePath": "staticwebassets/admin/adminform/assets/fonts/fa-regular-400.eot"
+    },
+    {
+      "Id": "/Users/zeyneb/Projects/Zante_Hotel/wwwroot/admin/adminform/assets/fonts/fa-regular-400.svg",
+      "PackagePath": "staticwebassets/admin/adminform/assets/fonts/fa-regular-400.svg"
+    },
+    {
+      "Id": "/Users/zeyneb/Projects/Zante_Hotel/wwwroot/admin/adminform/assets/fonts/fa-regular-400.ttf",
+      "PackagePath": "staticwebassets/admin/adminform/assets/fonts/fa-regular-400.ttf"
+    },
+    {
+      "Id": "/Users/zeyneb/Projects/Zante_Hotel/wwwroot/admin/adminform/assets/fonts/fa-regular-400.woff",
+      "PackagePath": "staticwebassets/admin/adminform/assets/fonts/fa-regular-400.woff"
+    },
+    {
+      "Id": "/Users/zeyneb/Projects/Zante_Hotel/wwwroot/admin/adminform/assets/fonts/fa-regular-400.woff2",
+      "PackagePath": "staticwebassets/admin/adminform/assets/fonts/fa-regular-400.woff2"
+    },
+    {
+      "Id": "/Users/zeyneb/Projects/Zante_Hotel/wwwroot/admin/adminform/assets/fonts/fa-solid-900.eot",
+      "PackagePath": "staticwebassets/admin/adminform/assets/fonts/fa-solid-900.eot"
+    },
+    {
+      "Id": "/Users/zeyneb/Projects/Zante_Hotel/wwwroot/admin/adminform/assets/fonts/fa-solid-900.svg",
+      "PackagePath": "staticwebassets/admin/adminform/assets/fonts/fa-solid-900.svg"
+    },
+    {
+      "Id": "/Users/zeyneb/Projects/Zante_Hotel/wwwroot/admin/adminform/assets/fonts/fa-solid-900.ttf",
+      "PackagePath": "staticwebassets/admin/adminform/assets/fonts/fa-solid-900.ttf"
+    },
+    {
+      "Id": "/Users/zeyneb/Projects/Zante_Hotel/wwwroot/admin/adminform/assets/fonts/fa-solid-900.woff",
+      "PackagePath": "staticwebassets/admin/adminform/assets/fonts/fa-solid-900.woff"
+    },
+    {
+      "Id": "/Users/zeyneb/Projects/Zante_Hotel/wwwroot/admin/adminform/assets/fonts/fa-solid-900.woff2",
+      "PackagePath": "staticwebassets/admin/adminform/assets/fonts/fa-solid-900.woff2"
+    },
+    {
+      "Id": "/Users/zeyneb/Projects/Zante_Hotel/wwwroot/admin/adminform/assets/fonts/feather.eot",
+      "PackagePath": "staticwebassets/admin/adminform/assets/fonts/feather.eot"
+    },
+    {
+      "Id": "/Users/zeyneb/Projects/Zante_Hotel/wwwroot/admin/adminform/assets/fonts/feather.svg",
+      "PackagePath": "staticwebassets/admin/adminform/assets/fonts/feather.svg"
+    },
+    {
+      "Id": "/Users/zeyneb/Projects/Zante_Hotel/wwwroot/admin/adminform/assets/fonts/feather.ttf",
+      "PackagePath": "staticwebassets/admin/adminform/assets/fonts/feather.ttf"
+    },
+    {
+      "Id": "/Users/zeyneb/Projects/Zante_Hotel/wwwroot/admin/adminform/assets/fonts/feather.woff",
+      "PackagePath": "staticwebassets/admin/adminform/assets/fonts/feather.woff"
+    },
+    {
+      "Id": "/Users/zeyneb/Projects/Zante_Hotel/wwwroot/admin/adminform/assets/fonts/opensans/mem5YaGs126MiZpBA-UNirkOUehpOqc.woff2",
+      "PackagePath": "staticwebassets/admin/adminform/assets/fonts/opensans/mem5YaGs126MiZpBA-UNirkOUehpOqc.woff2"
+    },
+    {
+      "Id": "/Users/zeyneb/Projects/Zante_Hotel/wwwroot/admin/adminform/assets/fonts/opensans/mem5YaGs126MiZpBA-UNirkOVuhpOqc.woff2",
+      "PackagePath": "staticwebassets/admin/adminform/assets/fonts/opensans/mem5YaGs126MiZpBA-UNirkOVuhpOqc.woff2"
+    },
+    {
+      "Id": "/Users/zeyneb/Projects/Zante_Hotel/wwwroot/admin/adminform/assets/fonts/opensans/mem5YaGs126MiZpBA-UNirkOX-hpOqc.woff2",
+      "PackagePath": "staticwebassets/admin/adminform/assets/fonts/opensans/mem5YaGs126MiZpBA-UNirkOX-hpOqc.woff2"
+    },
+    {
+      "Id": "/Users/zeyneb/Projects/Zante_Hotel/wwwroot/admin/adminform/assets/fonts/opensans/mem5YaGs126MiZpBA-UNirkOXOhpOqc.woff2",
+      "PackagePath": "staticwebassets/admin/adminform/assets/fonts/opensans/mem5YaGs126MiZpBA-UNirkOXOhpOqc.woff2"
+    },
+    {
+      "Id": "/Users/zeyneb/Projects/Zante_Hotel/wwwroot/admin/adminform/assets/fonts/opensans/mem5YaGs126MiZpBA-UNirkOXehpOqc.woff2",
+      "PackagePath": "staticwebassets/admin/adminform/assets/fonts/opensans/mem5YaGs126MiZpBA-UNirkOXehpOqc.woff2"
+    },
+    {
+      "Id": "/Users/zeyneb/Projects/Zante_Hotel/wwwroot/admin/adminform/assets/fonts/opensans/mem5YaGs126MiZpBA-UNirkOXuhpOqc.woff2",
+      "PackagePath": "staticwebassets/admin/adminform/assets/fonts/opensans/mem5YaGs126MiZpBA-UNirkOXuhpOqc.woff2"
+    },
+    {
+      "Id": "/Users/zeyneb/Projects/Zante_Hotel/wwwroot/admin/adminform/assets/fonts/opensans/mem8YaGs126MiZpBA-UFUZ0bbck.woff2",
+      "PackagePath": "staticwebassets/admin/adminform/assets/fonts/opensans/mem8YaGs126MiZpBA-UFUZ0bbck.woff2"
+    },
+    {
+      "Id": "/Users/zeyneb/Projects/Zante_Hotel/wwwroot/admin/adminform/assets/fonts/opensans/mem8YaGs126MiZpBA-UFVZ0b.woff2",
+      "PackagePath": "staticwebassets/admin/adminform/assets/fonts/opensans/mem8YaGs126MiZpBA-UFVZ0b.woff2"
+    },
+    {
+      "Id": "/Users/zeyneb/Projects/Zante_Hotel/wwwroot/admin/adminform/assets/fonts/opensans/mem8YaGs126MiZpBA-UFVp0bbck.woff2",
+      "PackagePath": "staticwebassets/admin/adminform/assets/fonts/opensans/mem8YaGs126MiZpBA-UFVp0bbck.woff2"
+    },
+    {
+      "Id": "/Users/zeyneb/Projects/Zante_Hotel/wwwroot/admin/adminform/assets/fonts/opensans/mem8YaGs126MiZpBA-UFW50bbck.woff2",
+      "PackagePath": "staticwebassets/admin/adminform/assets/fonts/opensans/mem8YaGs126MiZpBA-UFW50bbck.woff2"
+    },
+    {
+      "Id": "/Users/zeyneb/Projects/Zante_Hotel/wwwroot/admin/adminform/assets/fonts/opensans/mem8YaGs126MiZpBA-UFWJ0bbck.woff2",
+      "PackagePath": "staticwebassets/admin/adminform/assets/fonts/opensans/mem8YaGs126MiZpBA-UFWJ0bbck.woff2"
+    },
+    {
+      "Id": "/Users/zeyneb/Projects/Zante_Hotel/wwwroot/admin/adminform/assets/fonts/opensans/mem8YaGs126MiZpBA-UFWZ0bbck.woff2",
+      "PackagePath": "staticwebassets/admin/adminform/assets/fonts/opensans/mem8YaGs126MiZpBA-UFWZ0bbck.woff2"
+    },
+    {
+      "Id": "/Users/zeyneb/Projects/Zante_Hotel/wwwroot/admin/adminform/assets/fonts/opensans/mem8YaGs126MiZpBA-UFWp0bbck.woff2",
+      "PackagePath": "staticwebassets/admin/adminform/assets/fonts/opensans/mem8YaGs126MiZpBA-UFWp0bbck.woff2"
+    },
+    {
+      "Id": "/Users/zeyneb/Projects/Zante_Hotel/wwwroot/admin/adminform/assets/fonts/pct.eot",
+      "PackagePath": "staticwebassets/admin/adminform/assets/fonts/pct.eot"
+    },
+    {
+      "Id": "/Users/zeyneb/Projects/Zante_Hotel/wwwroot/admin/adminform/assets/fonts/pct.svg",
+      "PackagePath": "staticwebassets/admin/adminform/assets/fonts/pct.svg"
+    },
+    {
+      "Id": "/Users/zeyneb/Projects/Zante_Hotel/wwwroot/admin/adminform/assets/fonts/pct.ttf",
+      "PackagePath": "staticwebassets/admin/adminform/assets/fonts/pct.ttf"
+    },
+    {
+      "Id": "/Users/zeyneb/Projects/Zante_Hotel/wwwroot/admin/adminform/assets/fonts/pct.woff",
+      "PackagePath": "staticwebassets/admin/adminform/assets/fonts/pct.woff"
+    },
+    {
+      "Id": "/Users/zeyneb/Projects/Zante_Hotel/wwwroot/admin/adminform/assets/images/auth/auth-logo-dark.png",
+      "PackagePath": "staticwebassets/admin/adminform/assets/images/auth/auth-logo-dark.png"
+    },
+    {
+      "Id": "/Users/zeyneb/Projects/Zante_Hotel/wwwroot/admin/adminform/assets/images/auth/auth-logo.png",
+      "PackagePath": "staticwebassets/admin/adminform/assets/images/auth/auth-logo.png"
+    },
+    {
+      "Id": "/Users/zeyneb/Projects/Zante_Hotel/wwwroot/admin/adminform/assets/images/auth/img-auth-big.jpg",
+      "PackagePath": "staticwebassets/admin/adminform/assets/images/auth/img-auth-big.jpg"
+    },
+    {
+      "Id": "/Users/zeyneb/Projects/Zante_Hotel/wwwroot/admin/adminform/assets/images/browser/chrome.png",
+      "PackagePath": "staticwebassets/admin/adminform/assets/images/browser/chrome.png"
+    },
+    {
+      "Id": "/Users/zeyneb/Projects/Zante_Hotel/wwwroot/admin/adminform/assets/images/browser/firefox.png",
+      "PackagePath": "staticwebassets/admin/adminform/assets/images/browser/firefox.png"
+    },
+    {
+      "Id": "/Users/zeyneb/Projects/Zante_Hotel/wwwroot/admin/adminform/assets/images/browser/ie.png",
+      "PackagePath": "staticwebassets/admin/adminform/assets/images/browser/ie.png"
+    },
+    {
+      "Id": "/Users/zeyneb/Projects/Zante_Hotel/wwwroot/admin/adminform/assets/images/browser/opera.png",
+      "PackagePath": "staticwebassets/admin/adminform/assets/images/browser/opera.png"
+    },
+    {
+      "Id": "/Users/zeyneb/Projects/Zante_Hotel/wwwroot/admin/adminform/assets/images/browser/safari.png",
+      "PackagePath": "staticwebassets/admin/adminform/assets/images/browser/safari.png"
+    },
+    {
+      "Id": "/Users/zeyneb/Projects/Zante_Hotel/wwwroot/admin/adminform/assets/images/cd-arrow.svg",
+      "PackagePath": "staticwebassets/admin/adminform/assets/images/cd-arrow.svg"
+    },
+    {
+      "Id": "/Users/zeyneb/Projects/Zante_Hotel/wwwroot/admin/adminform/assets/images/close.png",
+      "PackagePath": "staticwebassets/admin/adminform/assets/images/close.png"
+    },
+    {
+      "Id": "/Users/zeyneb/Projects/Zante_Hotel/wwwroot/admin/adminform/assets/images/complete.png",
+      "PackagePath": "staticwebassets/admin/adminform/assets/images/complete.png"
+    },
+    {
+      "Id": "/Users/zeyneb/Projects/Zante_Hotel/wwwroot/admin/adminform/assets/images/favicon.ico",
+      "PackagePath": "staticwebassets/admin/adminform/assets/images/favicon.ico"
+    },
+    {
+      "Id": "/Users/zeyneb/Projects/Zante_Hotel/wwwroot/admin/adminform/assets/images/gallery-grid/img-grd-gal-1.jpg",
+      "PackagePath": "staticwebassets/admin/adminform/assets/images/gallery-grid/img-grd-gal-1.jpg"
+    },
+    {
+      "Id": "/Users/zeyneb/Projects/Zante_Hotel/wwwroot/admin/adminform/assets/images/gallery-grid/img-grd-gal-2.jpg",
+      "PackagePath": "staticwebassets/admin/adminform/assets/images/gallery-grid/img-grd-gal-2.jpg"
+    },
+    {
+      "Id": "/Users/zeyneb/Projects/Zante_Hotel/wwwroot/admin/adminform/assets/images/gallery-grid/img-grd-gal-3.jpg",
+      "PackagePath": "staticwebassets/admin/adminform/assets/images/gallery-grid/img-grd-gal-3.jpg"
+    },
+    {
+      "Id": "/Users/zeyneb/Projects/Zante_Hotel/wwwroot/admin/adminform/assets/images/gallery-grid/img-grd-gal-4.jpg",
+      "PackagePath": "staticwebassets/admin/adminform/assets/images/gallery-grid/img-grd-gal-4.jpg"
+    },
+    {
+      "Id": "/Users/zeyneb/Projects/Zante_Hotel/wwwroot/admin/adminform/assets/images/gallery-grid/img-grd-gal-5.jpg",
+      "PackagePath": "staticwebassets/admin/adminform/assets/images/gallery-grid/img-grd-gal-5.jpg"
+    },
+    {
+      "Id": "/Users/zeyneb/Projects/Zante_Hotel/wwwroot/admin/adminform/assets/images/gallery-grid/img-grd-gal-6.jpg",
+      "PackagePath": "staticwebassets/admin/adminform/assets/images/gallery-grid/img-grd-gal-6.jpg"
+    },
+    {
+      "Id": "/Users/zeyneb/Projects/Zante_Hotel/wwwroot/admin/adminform/assets/images/gallery-grid/masonry-1.jpg",
+      "PackagePath": "staticwebassets/admin/adminform/assets/images/gallery-grid/masonry-1.jpg"
+    },
+    {
+      "Id": "/Users/zeyneb/Projects/Zante_Hotel/wwwroot/admin/adminform/assets/images/gallery-grid/masonry-2.jpg",
+      "PackagePath": "staticwebassets/admin/adminform/assets/images/gallery-grid/masonry-2.jpg"
+    },
+    {
+      "Id": "/Users/zeyneb/Projects/Zante_Hotel/wwwroot/admin/adminform/assets/images/gallery-grid/masonry-3.jpg",
+      "PackagePath": "staticwebassets/admin/adminform/assets/images/gallery-grid/masonry-3.jpg"
+    },
+    {
+      "Id": "/Users/zeyneb/Projects/Zante_Hotel/wwwroot/admin/adminform/assets/images/gallery-grid/masonry-4.jpg",
+      "PackagePath": "staticwebassets/admin/adminform/assets/images/gallery-grid/masonry-4.jpg"
+    },
+    {
+      "Id": "/Users/zeyneb/Projects/Zante_Hotel/wwwroot/admin/adminform/assets/images/gallery-grid/masonry-5.jpg",
+      "PackagePath": "staticwebassets/admin/adminform/assets/images/gallery-grid/masonry-5.jpg"
+    },
+    {
+      "Id": "/Users/zeyneb/Projects/Zante_Hotel/wwwroot/admin/adminform/assets/images/gallery-grid/masonry-6.jpg",
+      "PackagePath": "staticwebassets/admin/adminform/assets/images/gallery-grid/masonry-6.jpg"
+    },
+    {
+      "Id": "/Users/zeyneb/Projects/Zante_Hotel/wwwroot/admin/adminform/assets/images/gallery-grid/masonry-7.jpg",
+      "PackagePath": "staticwebassets/admin/adminform/assets/images/gallery-grid/masonry-7.jpg"
+    },
+    {
+      "Id": "/Users/zeyneb/Projects/Zante_Hotel/wwwroot/admin/adminform/assets/images/gallery-grid/masonry-8.jpg",
+      "PackagePath": "staticwebassets/admin/adminform/assets/images/gallery-grid/masonry-8.jpg"
+    },
+    {
+      "Id": "/Users/zeyneb/Projects/Zante_Hotel/wwwroot/admin/adminform/assets/images/hover-effect/triangle.svg",
+      "PackagePath": "staticwebassets/admin/adminform/assets/images/hover-effect/triangle.svg"
+    },
+    {
+      "Id": "/Users/zeyneb/Projects/Zante_Hotel/wwwroot/admin/adminform/assets/images/hover-effect/triangle2.svg",
+      "PackagePath": "staticwebassets/admin/adminform/assets/images/hover-effect/triangle2.svg"
+    },
+    {
+      "Id": "/Users/zeyneb/Projects/Zante_Hotel/wwwroot/admin/adminform/assets/images/light-box/l1.jpg",
+      "PackagePath": "staticwebassets/admin/adminform/assets/images/light-box/l1.jpg"
+    },
+    {
+      "Id": "/Users/zeyneb/Projects/Zante_Hotel/wwwroot/admin/adminform/assets/images/light-box/l2.jpg",
+      "PackagePath": "staticwebassets/admin/adminform/assets/images/light-box/l2.jpg"
+    },
+    {
+      "Id": "/Users/zeyneb/Projects/Zante_Hotel/wwwroot/admin/adminform/assets/images/light-box/l3.jpg",
+      "PackagePath": "staticwebassets/admin/adminform/assets/images/light-box/l3.jpg"
+    },
+    {
+      "Id": "/Users/zeyneb/Projects/Zante_Hotel/wwwroot/admin/adminform/assets/images/light-box/l4.jpg",
+      "PackagePath": "staticwebassets/admin/adminform/assets/images/light-box/l4.jpg"
+    },
+    {
+      "Id": "/Users/zeyneb/Projects/Zante_Hotel/wwwroot/admin/adminform/assets/images/light-box/l5.jpg",
+      "PackagePath": "staticwebassets/admin/adminform/assets/images/light-box/l5.jpg"
+    },
+    {
+      "Id": "/Users/zeyneb/Projects/Zante_Hotel/wwwroot/admin/adminform/assets/images/light-box/l6.jpg",
+      "PackagePath": "staticwebassets/admin/adminform/assets/images/light-box/l6.jpg"
+    },
+    {
+      "Id": "/Users/zeyneb/Projects/Zante_Hotel/wwwroot/admin/adminform/assets/images/light-box/mixin.jpg",
+      "PackagePath": "staticwebassets/admin/adminform/assets/images/light-box/mixin.jpg"
+    },
+    {
+      "Id": "/Users/zeyneb/Projects/Zante_Hotel/wwwroot/admin/adminform/assets/images/light-box/sl1.jpg",
+      "PackagePath": "staticwebassets/admin/adminform/assets/images/light-box/sl1.jpg"
+    },
+    {
+      "Id": "/Users/zeyneb/Projects/Zante_Hotel/wwwroot/admin/adminform/assets/images/light-box/sl2.jpg",
+      "PackagePath": "staticwebassets/admin/adminform/assets/images/light-box/sl2.jpg"
+    },
+    {
+      "Id": "/Users/zeyneb/Projects/Zante_Hotel/wwwroot/admin/adminform/assets/images/light-box/sl3.jpg",
+      "PackagePath": "staticwebassets/admin/adminform/assets/images/light-box/sl3.jpg"
+    },
+    {
+      "Id": "/Users/zeyneb/Projects/Zante_Hotel/wwwroot/admin/adminform/assets/images/light-box/sl4.jpg",
+      "PackagePath": "staticwebassets/admin/adminform/assets/images/light-box/sl4.jpg"
+    },
+    {
+      "Id": "/Users/zeyneb/Projects/Zante_Hotel/wwwroot/admin/adminform/assets/images/light-box/sl5.jpg",
+      "PackagePath": "staticwebassets/admin/adminform/assets/images/light-box/sl5.jpg"
+    },
+    {
+      "Id": "/Users/zeyneb/Projects/Zante_Hotel/wwwroot/admin/adminform/assets/images/light-box/sl6.jpg",
+      "PackagePath": "staticwebassets/admin/adminform/assets/images/light-box/sl6.jpg"
+    },
+    {
+      "Id": "/Users/zeyneb/Projects/Zante_Hotel/wwwroot/admin/adminform/assets/images/light-box/smixin.jpg",
+      "PackagePath": "staticwebassets/admin/adminform/assets/images/light-box/smixin.jpg"
+    },
+    {
+      "Id": "/Users/zeyneb/Projects/Zante_Hotel/wwwroot/admin/adminform/assets/images/light-box/v1.jpg",
+      "PackagePath": "staticwebassets/admin/adminform/assets/images/light-box/v1.jpg"
+    },
+    {
+      "Id": "/Users/zeyneb/Projects/Zante_Hotel/wwwroot/admin/adminform/assets/images/light-box/v2.jpg",
+      "PackagePath": "staticwebassets/admin/adminform/assets/images/light-box/v2.jpg"
+    },
+    {
+      "Id": "/Users/zeyneb/Projects/Zante_Hotel/wwwroot/admin/adminform/assets/images/light-box/v3.jpg",
+      "PackagePath": "staticwebassets/admin/adminform/assets/images/light-box/v3.jpg"
+    },
+    {
+      "Id": "/Users/zeyneb/Projects/Zante_Hotel/wwwroot/admin/adminform/assets/images/light-box/v4.jpg",
+      "PackagePath": "staticwebassets/admin/adminform/assets/images/light-box/v4.jpg"
+    },
+    {
+      "Id": "/Users/zeyneb/Projects/Zante_Hotel/wwwroot/admin/adminform/assets/images/loading.gif",
+      "PackagePath": "staticwebassets/admin/adminform/assets/images/loading.gif"
+    },
+    {
+      "Id": "/Users/zeyneb/Projects/Zante_Hotel/wwwroot/admin/adminform/assets/images/logo-dark.png",
+      "PackagePath": "staticwebassets/admin/adminform/assets/images/logo-dark.png"
+    },
+    {
+      "Id": "/Users/zeyneb/Projects/Zante_Hotel/wwwroot/admin/adminform/assets/images/logo-docs.png",
+      "PackagePath": "staticwebassets/admin/adminform/assets/images/logo-docs.png"
+    },
+    {
+      "Id": "/Users/zeyneb/Projects/Zante_Hotel/wwwroot/admin/adminform/assets/images/logo-icon.png",
+      "PackagePath": "staticwebassets/admin/adminform/assets/images/logo-icon.png"
+    },
+    {
+      "Id": "/Users/zeyneb/Projects/Zante_Hotel/wwwroot/admin/adminform/assets/images/logo-old.png",
+      "PackagePath": "staticwebassets/admin/adminform/assets/images/logo-old.png"
+    },
+    {
+      "Id": "/Users/zeyneb/Projects/Zante_Hotel/wwwroot/admin/adminform/assets/images/logo-thumb.png",
+      "PackagePath": "staticwebassets/admin/adminform/assets/images/logo-thumb.png"
+    },
+    {
+      "Id": "/Users/zeyneb/Projects/Zante_Hotel/wwwroot/admin/adminform/assets/images/logo.png",
+      "PackagePath": "staticwebassets/admin/adminform/assets/images/logo.png"
+    },
+    {
+      "Id": "/Users/zeyneb/Projects/Zante_Hotel/wwwroot/admin/adminform/assets/images/maintance/404.png",
+      "PackagePath": "staticwebassets/admin/adminform/assets/images/maintance/404.png"
+    },
+    {
+      "Id": "/Users/zeyneb/Projects/Zante_Hotel/wwwroot/admin/adminform/assets/images/maintance/maintance.png",
+      "PackagePath": "staticwebassets/admin/adminform/assets/images/maintance/maintance.png"
+    },
+    {
+      "Id": "/Users/zeyneb/Projects/Zante_Hotel/wwwroot/admin/adminform/assets/images/maintance/sark.svg",
+      "PackagePath": "staticwebassets/admin/adminform/assets/images/maintance/sark.svg"
+    },
+    {
+      "Id": "/Users/zeyneb/Projects/Zante_Hotel/wwwroot/admin/adminform/assets/images/maintance/ship.svg",
+      "PackagePath": "staticwebassets/admin/adminform/assets/images/maintance/ship.svg"
+    },
+    {
+      "Id": "/Users/zeyneb/Projects/Zante_Hotel/wwwroot/admin/adminform/assets/images/maintance/sparcle-1.png",
+      "PackagePath": "staticwebassets/admin/adminform/assets/images/maintance/sparcle-1.png"
+    },
+    {
+      "Id": "/Users/zeyneb/Projects/Zante_Hotel/wwwroot/admin/adminform/assets/images/maintance/sparcle-2.png",
+      "PackagePath": "staticwebassets/admin/adminform/assets/images/maintance/sparcle-2.png"
+    },
+    {
+      "Id": "/Users/zeyneb/Projects/Zante_Hotel/wwwroot/admin/adminform/assets/images/next.png",
+      "PackagePath": "staticwebassets/admin/adminform/assets/images/next.png"
+    },
+    {
+      "Id": "/Users/zeyneb/Projects/Zante_Hotel/wwwroot/admin/adminform/assets/images/prev.png",
+      "PackagePath": "staticwebassets/admin/adminform/assets/images/prev.png"
+    },
+    {
+      "Id": "/Users/zeyneb/Projects/Zante_Hotel/wwwroot/admin/adminform/assets/images/product/prod-1.jpg",
+      "PackagePath": "staticwebassets/admin/adminform/assets/images/product/prod-1.jpg"
+    },
+    {
+      "Id": "/Users/zeyneb/Projects/Zante_Hotel/wwwroot/admin/adminform/assets/images/profile/bg-1.jpg",
+      "PackagePath": "staticwebassets/admin/adminform/assets/images/profile/bg-1.jpg"
+    },
+    {
+      "Id": "/Users/zeyneb/Projects/Zante_Hotel/wwwroot/admin/adminform/assets/images/profile/bg-2.jpg",
+      "PackagePath": "staticwebassets/admin/adminform/assets/images/profile/bg-2.jpg"
+    },
+    {
+      "Id": "/Users/zeyneb/Projects/Zante_Hotel/wwwroot/admin/adminform/assets/images/profile/bg-3.jpg",
+      "PackagePath": "staticwebassets/admin/adminform/assets/images/profile/bg-3.jpg"
+    },
+    {
+      "Id": "/Users/zeyneb/Projects/Zante_Hotel/wwwroot/admin/adminform/assets/images/profile/bg-4.jpg",
+      "PackagePath": "staticwebassets/admin/adminform/assets/images/profile/bg-4.jpg"
+    },
+    {
+      "Id": "/Users/zeyneb/Projects/Zante_Hotel/wwwroot/admin/adminform/assets/images/profile/cover.jpg",
+      "PackagePath": "staticwebassets/admin/adminform/assets/images/profile/cover.jpg"
+    },
+    {
+      "Id": "/Users/zeyneb/Projects/Zante_Hotel/wwwroot/admin/adminform/assets/images/slider/img-slide-1.jpg",
+      "PackagePath": "staticwebassets/admin/adminform/assets/images/slider/img-slide-1.jpg"
+    },
+    {
+      "Id": "/Users/zeyneb/Projects/Zante_Hotel/wwwroot/admin/adminform/assets/images/slider/img-slide-2.jpg",
+      "PackagePath": "staticwebassets/admin/adminform/assets/images/slider/img-slide-2.jpg"
+    },
+    {
+      "Id": "/Users/zeyneb/Projects/Zante_Hotel/wwwroot/admin/adminform/assets/images/slider/img-slide-3.jpg",
+      "PackagePath": "staticwebassets/admin/adminform/assets/images/slider/img-slide-3.jpg"
+    },
+    {
+      "Id": "/Users/zeyneb/Projects/Zante_Hotel/wwwroot/admin/adminform/assets/images/slider/img-slide-4.jpg",
+      "PackagePath": "staticwebassets/admin/adminform/assets/images/slider/img-slide-4.jpg"
+    },
+    {
+      "Id": "/Users/zeyneb/Projects/Zante_Hotel/wwwroot/admin/adminform/assets/images/slider/img-slide-5.jpg",
+      "PackagePath": "staticwebassets/admin/adminform/assets/images/slider/img-slide-5.jpg"
+    },
+    {
+      "Id": "/Users/zeyneb/Projects/Zante_Hotel/wwwroot/admin/adminform/assets/images/slider/img-slide-6.jpg",
+      "PackagePath": "staticwebassets/admin/adminform/assets/images/slider/img-slide-6.jpg"
+    },
+    {
+      "Id": "/Users/zeyneb/Projects/Zante_Hotel/wwwroot/admin/adminform/assets/images/slider/img-slide-7.jpg",
+      "PackagePath": "staticwebassets/admin/adminform/assets/images/slider/img-slide-7.jpg"
+    },
+    {
+      "Id": "/Users/zeyneb/Projects/Zante_Hotel/wwwroot/admin/adminform/assets/images/ticket/p1.jpg",
+      "PackagePath": "staticwebassets/admin/adminform/assets/images/ticket/p1.jpg"
+    },
+    {
+      "Id": "/Users/zeyneb/Projects/Zante_Hotel/wwwroot/admin/adminform/assets/images/ticket/p2.jpg",
+      "PackagePath": "staticwebassets/admin/adminform/assets/images/ticket/p2.jpg"
+    },
+    {
+      "Id": "/Users/zeyneb/Projects/Zante_Hotel/wwwroot/admin/adminform/assets/images/ticket/p3.jpg",
+      "PackagePath": "staticwebassets/admin/adminform/assets/images/ticket/p3.jpg"
+    },
+    {
+      "Id": "/Users/zeyneb/Projects/Zante_Hotel/wwwroot/admin/adminform/assets/images/ticket/p4.jpg",
+      "PackagePath": "staticwebassets/admin/adminform/assets/images/ticket/p4.jpg"
+    },
+    {
+      "Id": "/Users/zeyneb/Projects/Zante_Hotel/wwwroot/admin/adminform/assets/images/ticket/p5.jpg",
+      "PackagePath": "staticwebassets/admin/adminform/assets/images/ticket/p5.jpg"
+    },
+    {
+      "Id": "/Users/zeyneb/Projects/Zante_Hotel/wwwroot/admin/adminform/assets/images/user/avatar-1.jpg",
+      "PackagePath": "staticwebassets/admin/adminform/assets/images/user/avatar-1.jpg"
+    },
+    {
+      "Id": "/Users/zeyneb/Projects/Zante_Hotel/wwwroot/admin/adminform/assets/images/user/avatar-2.jpg",
+      "PackagePath": "staticwebassets/admin/adminform/assets/images/user/avatar-2.jpg"
+    },
+    {
+      "Id": "/Users/zeyneb/Projects/Zante_Hotel/wwwroot/admin/adminform/assets/images/user/avatar-3.jpg",
+      "PackagePath": "staticwebassets/admin/adminform/assets/images/user/avatar-3.jpg"
+    },
+    {
+      "Id": "/Users/zeyneb/Projects/Zante_Hotel/wwwroot/admin/adminform/assets/images/user/avatar-4.jpg",
+      "PackagePath": "staticwebassets/admin/adminform/assets/images/user/avatar-4.jpg"
+    },
+    {
+      "Id": "/Users/zeyneb/Projects/Zante_Hotel/wwwroot/admin/adminform/assets/images/user/avatar-5.jpg",
+      "PackagePath": "staticwebassets/admin/adminform/assets/images/user/avatar-5.jpg"
+    },
+    {
+      "Id": "/Users/zeyneb/Projects/Zante_Hotel/wwwroot/admin/adminform/assets/images/user/cover.jpg",
+      "PackagePath": "staticwebassets/admin/adminform/assets/images/user/cover.jpg"
+    },
+    {
+      "Id": "/Users/zeyneb/Projects/Zante_Hotel/wwwroot/admin/adminform/assets/images/user/img-avatar-1.jpg",
+      "PackagePath": "staticwebassets/admin/adminform/assets/images/user/img-avatar-1.jpg"
+    },
+    {
+      "Id": "/Users/zeyneb/Projects/Zante_Hotel/wwwroot/admin/adminform/assets/images/user/img-avatar-2.jpg",
+      "PackagePath": "staticwebassets/admin/adminform/assets/images/user/img-avatar-2.jpg"
+    },
+    {
+      "Id": "/Users/zeyneb/Projects/Zante_Hotel/wwwroot/admin/adminform/assets/images/user/img-avatar-3.jpg",
+      "PackagePath": "staticwebassets/admin/adminform/assets/images/user/img-avatar-3.jpg"
+    },
+    {
+      "Id": "/Users/zeyneb/Projects/Zante_Hotel/wwwroot/admin/adminform/assets/images/widget/AUSTRALIA.jpg",
+      "PackagePath": "staticwebassets/admin/adminform/assets/images/widget/AUSTRALIA.jpg"
+    },
+    {
+      "Id": "/Users/zeyneb/Projects/Zante_Hotel/wwwroot/admin/adminform/assets/images/widget/BRAZIL.jpg",
+      "PackagePath": "staticwebassets/admin/adminform/assets/images/widget/BRAZIL.jpg"
+    },
+    {
+      "Id": "/Users/zeyneb/Projects/Zante_Hotel/wwwroot/admin/adminform/assets/images/widget/GERMANY.jpg",
+      "PackagePath": "staticwebassets/admin/adminform/assets/images/widget/GERMANY.jpg"
+    },
+    {
+      "Id": "/Users/zeyneb/Projects/Zante_Hotel/wwwroot/admin/adminform/assets/images/widget/PHONE1.jpg",
+      "PackagePath": "staticwebassets/admin/adminform/assets/images/widget/PHONE1.jpg"
+    },
+    {
+      "Id": "/Users/zeyneb/Projects/Zante_Hotel/wwwroot/admin/adminform/assets/images/widget/PHONE2.jpg",
+      "PackagePath": "staticwebassets/admin/adminform/assets/images/widget/PHONE2.jpg"
+    },
+    {
+      "Id": "/Users/zeyneb/Projects/Zante_Hotel/wwwroot/admin/adminform/assets/images/widget/PHONE3.jpg",
+      "PackagePath": "staticwebassets/admin/adminform/assets/images/widget/PHONE3.jpg"
+    },
+    {
+      "Id": "/Users/zeyneb/Projects/Zante_Hotel/wwwroot/admin/adminform/assets/images/widget/PHONE4.jpg",
+      "PackagePath": "staticwebassets/admin/adminform/assets/images/widget/PHONE4.jpg"
+    },
+    {
+      "Id": "/Users/zeyneb/Projects/Zante_Hotel/wwwroot/admin/adminform/assets/images/widget/UK.jpg",
+      "PackagePath": "staticwebassets/admin/adminform/assets/images/widget/UK.jpg"
+    },
+    {
+      "Id": "/Users/zeyneb/Projects/Zante_Hotel/wwwroot/admin/adminform/assets/images/widget/USA.jpg",
+      "PackagePath": "staticwebassets/admin/adminform/assets/images/widget/USA.jpg"
+    },
+    {
+      "Id": "/Users/zeyneb/Projects/Zante_Hotel/wwwroot/admin/adminform/assets/images/widget/blur-bg.png",
+      "PackagePath": "staticwebassets/admin/adminform/assets/images/widget/blur-bg.png"
+    },
+    {
+      "Id": "/Users/zeyneb/Projects/Zante_Hotel/wwwroot/admin/adminform/assets/images/widget/dashborad-1.jpg",
+      "PackagePath": "staticwebassets/admin/adminform/assets/images/widget/dashborad-1.jpg"
+    },
+    {
+      "Id": "/Users/zeyneb/Projects/Zante_Hotel/wwwroot/admin/adminform/assets/images/widget/dashborad-2.jpg",
+      "PackagePath": "staticwebassets/admin/adminform/assets/images/widget/dashborad-2.jpg"
+    },
+    {
+      "Id": "/Users/zeyneb/Projects/Zante_Hotel/wwwroot/admin/adminform/assets/images/widget/dashborad-3.jpg",
+      "PackagePath": "staticwebassets/admin/adminform/assets/images/widget/dashborad-3.jpg"
+    },
+    {
+      "Id": "/Users/zeyneb/Projects/Zante_Hotel/wwwroot/admin/adminform/assets/images/widget/dashborad-4.jpg",
+      "PackagePath": "staticwebassets/admin/adminform/assets/images/widget/dashborad-4.jpg"
+    },
+    {
+      "Id": "/Users/zeyneb/Projects/Zante_Hotel/wwwroot/admin/adminform/assets/images/widget/dashborad-5.jpg",
+      "PackagePath": "staticwebassets/admin/adminform/assets/images/widget/dashborad-5.jpg"
+    },
+    {
+      "Id": "/Users/zeyneb/Projects/Zante_Hotel/wwwroot/admin/adminform/assets/images/widget/emoticon.jpg",
+      "PackagePath": "staticwebassets/admin/adminform/assets/images/widget/emoticon.jpg"
+    },
+    {
+      "Id": "/Users/zeyneb/Projects/Zante_Hotel/wwwroot/admin/adminform/assets/images/widget/img-round1.jpg",
+      "PackagePath": "staticwebassets/admin/adminform/assets/images/widget/img-round1.jpg"
+    },
+    {
+      "Id": "/Users/zeyneb/Projects/Zante_Hotel/wwwroot/admin/adminform/assets/images/widget/p1.jpg",
+      "PackagePath": "staticwebassets/admin/adminform/assets/images/widget/p1.jpg"
+    },
+    {
+      "Id": "/Users/zeyneb/Projects/Zante_Hotel/wwwroot/admin/adminform/assets/images/widget/p2.jpg",
+      "PackagePath": "staticwebassets/admin/adminform/assets/images/widget/p2.jpg"
+    },
+    {
+      "Id": "/Users/zeyneb/Projects/Zante_Hotel/wwwroot/admin/adminform/assets/images/widget/p3.jpg",
+      "PackagePath": "staticwebassets/admin/adminform/assets/images/widget/p3.jpg"
+    },
+    {
+      "Id": "/Users/zeyneb/Projects/Zante_Hotel/wwwroot/admin/adminform/assets/images/widget/p4.jpg",
+      "PackagePath": "staticwebassets/admin/adminform/assets/images/widget/p4.jpg"
+    },
+    {
+      "Id": "/Users/zeyneb/Projects/Zante_Hotel/wwwroot/admin/adminform/assets/images/widget/profile-person1.jpg",
+      "PackagePath": "staticwebassets/admin/adminform/assets/images/widget/profile-person1.jpg"
+    },
+    {
+      "Id": "/Users/zeyneb/Projects/Zante_Hotel/wwwroot/admin/adminform/assets/images/widget/slider5.jpg",
+      "PackagePath": "staticwebassets/admin/adminform/assets/images/widget/slider5.jpg"
+    },
+    {
+      "Id": "/Users/zeyneb/Projects/Zante_Hotel/wwwroot/admin/adminform/assets/images/widget/slider6.jpg",
+      "PackagePath": "staticwebassets/admin/adminform/assets/images/widget/slider6.jpg"
+    },
+    {
+      "Id": "/Users/zeyneb/Projects/Zante_Hotel/wwwroot/admin/adminform/assets/images/widget/slider7.jpg",
+      "PackagePath": "staticwebassets/admin/adminform/assets/images/widget/slider7.jpg"
+    },
+    {
+      "Id": "/Users/zeyneb/Projects/Zante_Hotel/wwwroot/admin/adminform/assets/images/widget/user-blur-bg.png",
+      "PackagePath": "staticwebassets/admin/adminform/assets/images/widget/user-blur-bg.png"
+    },
+    {
+      "Id": "/Users/zeyneb/Projects/Zante_Hotel/wwwroot/admin/adminform/assets/images/widget/wather2bottom.png",
+      "PackagePath": "staticwebassets/admin/adminform/assets/images/widget/wather2bottom.png"
+    },
+    {
+      "Id": "/Users/zeyneb/Projects/Zante_Hotel/wwwroot/admin/adminform/assets/images/widget/watherbottom.png",
+      "PackagePath": "staticwebassets/admin/adminform/assets/images/widget/watherbottom.png"
+    },
+    {
+      "Id": "/Users/zeyneb/Projects/Zante_Hotel/wwwroot/admin/adminform/assets/images/widget/wathernature.png",
+      "PackagePath": "staticwebassets/admin/adminform/assets/images/widget/wathernature.png"
+    },
+    {
+      "Id": "/Users/zeyneb/Projects/Zante_Hotel/wwwroot/admin/adminform/assets/images/widget/watherstar1.png",
+      "PackagePath": "staticwebassets/admin/adminform/assets/images/widget/watherstar1.png"
+    },
+    {
+      "Id": "/Users/zeyneb/Projects/Zante_Hotel/wwwroot/admin/adminform/assets/images/widget/watherstar2.png",
+      "PackagePath": "staticwebassets/admin/adminform/assets/images/widget/watherstar2.png"
+    },
+    {
+      "Id": "/Users/zeyneb/Projects/Zante_Hotel/wwwroot/admin/adminform/assets/js/analytics.js",
+      "PackagePath": "staticwebassets/admin/adminform/assets/js/analytics.js"
+    },
+    {
+      "Id": "/Users/zeyneb/Projects/Zante_Hotel/wwwroot/admin/adminform/assets/js/analytics.min.js",
+      "PackagePath": "staticwebassets/admin/adminform/assets/js/analytics.min.js"
+    },
+    {
+      "Id": "/Users/zeyneb/Projects/Zante_Hotel/wwwroot/admin/adminform/assets/js/horizontal-menu.js",
+      "PackagePath": "staticwebassets/admin/adminform/assets/js/horizontal-menu.js"
+    },
+    {
+      "Id": "/Users/zeyneb/Projects/Zante_Hotel/wwwroot/admin/adminform/assets/js/pages/chart-apex.js",
+      "PackagePath": "staticwebassets/admin/adminform/assets/js/pages/chart-apex.js"
+    },
+    {
+      "Id": "/Users/zeyneb/Projects/Zante_Hotel/wwwroot/admin/adminform/assets/js/pages/dashboard-main.js",
+      "PackagePath": "staticwebassets/admin/adminform/assets/js/pages/dashboard-main.js"
+    },
+    {
+      "Id": "/Users/zeyneb/Projects/Zante_Hotel/wwwroot/admin/adminform/assets/js/pages/google-maps.js",
+      "PackagePath": "staticwebassets/admin/adminform/assets/js/pages/google-maps.js"
+    },
+    {
+      "Id": "/Users/zeyneb/Projects/Zante_Hotel/wwwroot/admin/adminform/assets/js/pcoded.js",
+      "PackagePath": "staticwebassets/admin/adminform/assets/js/pcoded.js"
+    },
+    {
+      "Id": "/Users/zeyneb/Projects/Zante_Hotel/wwwroot/admin/adminform/assets/js/pcoded.min.js",
+      "PackagePath": "staticwebassets/admin/adminform/assets/js/pcoded.min.js"
+    },
+    {
+      "Id": "/Users/zeyneb/Projects/Zante_Hotel/wwwroot/admin/adminform/assets/js/plugins/apexcharts.min.js",
+      "PackagePath": "staticwebassets/admin/adminform/assets/js/plugins/apexcharts.min.js"
+    },
+    {
+      "Id": "/Users/zeyneb/Projects/Zante_Hotel/wwwroot/admin/adminform/assets/js/plugins/bootstrap.min.js",
+      "PackagePath": "staticwebassets/admin/adminform/assets/js/plugins/bootstrap.min.js"
+    },
+    {
+      "Id": "/Users/zeyneb/Projects/Zante_Hotel/wwwroot/admin/adminform/assets/js/plugins/gmaps.min.js",
+      "PackagePath": "staticwebassets/admin/adminform/assets/js/plugins/gmaps.min.js"
+    },
+    {
+      "Id": "/Users/zeyneb/Projects/Zante_Hotel/wwwroot/admin/adminform/assets/js/plugins/jquery-ui.min.js",
+      "PackagePath": "staticwebassets/admin/adminform/assets/js/plugins/jquery-ui.min.js"
+    },
+    {
+      "Id": "/Users/zeyneb/Projects/Zante_Hotel/wwwroot/admin/adminform/assets/js/plugins/perfect-scrollbar.min.js",
+      "PackagePath": "staticwebassets/admin/adminform/assets/js/plugins/perfect-scrollbar.min.js"
+    },
+    {
+      "Id": "/Users/zeyneb/Projects/Zante_Hotel/wwwroot/admin/adminform/assets/js/plugins/prism.js",
+      "PackagePath": "staticwebassets/admin/adminform/assets/js/plugins/prism.js"
+    },
+    {
+      "Id": "/Users/zeyneb/Projects/Zante_Hotel/wwwroot/admin/adminform/assets/js/uikit.js",
+      "PackagePath": "staticwebassets/admin/adminform/assets/js/uikit.js"
+    },
+    {
+      "Id": "/Users/zeyneb/Projects/Zante_Hotel/wwwroot/admin/adminform/assets/js/uikit.min.js",
+      "PackagePath": "staticwebassets/admin/adminform/assets/js/uikit.min.js"
+    },
+    {
+      "Id": "/Users/zeyneb/Projects/Zante_Hotel/wwwroot/admin/adminform/assets/js/vendor-all.js",
+      "PackagePath": "staticwebassets/admin/adminform/assets/js/vendor-all.js"
+    },
+    {
+      "Id": "/Users/zeyneb/Projects/Zante_Hotel/wwwroot/admin/adminform/assets/js/vendor-all.min.js",
+      "PackagePath": "staticwebassets/admin/adminform/assets/js/vendor-all.min.js"
+    },
+    {
+      "Id": "/Users/zeyneb/Projects/Zante_Hotel/wwwroot/admin/adminform/assets/json/2500.txt",
+      "PackagePath": "staticwebassets/admin/adminform/assets/json/2500.txt"
+    },
+    {
+      "Id": "/Users/zeyneb/Projects/Zante_Hotel/wwwroot/admin/adminform/assets/json/cities.json",
+      "PackagePath": "staticwebassets/admin/adminform/assets/json/cities.json"
+    },
+    {
+      "Id": "/Users/zeyneb/Projects/Zante_Hotel/wwwroot/admin/adminform/assets/json/citynames.json",
+      "PackagePath": "staticwebassets/admin/adminform/assets/json/citynames.json"
+    },
+    {
+      "Id": "/Users/zeyneb/Projects/Zante_Hotel/wwwroot/admin/adminform/assets/json/file-upload.php",
+      "PackagePath": "staticwebassets/admin/adminform/assets/json/file-upload.php"
+    },
+    {
+      "Id": "/Users/zeyneb/Projects/Zante_Hotel/wwwroot/admin/assets/css/cs-skin-elastic.css",
+      "PackagePath": "staticwebassets/admin/assets/css/cs-skin-elastic.css"
+    },
+    {
+      "Id": "/Users/zeyneb/Projects/Zante_Hotel/wwwroot/admin/assets/css/lib/chosen/chosen-sprite.png",
+      "PackagePath": "staticwebassets/admin/assets/css/lib/chosen/chosen-sprite.png"
+    },
+    {
+      "Id": "/Users/zeyneb/Projects/Zante_Hotel/wwwroot/admin/assets/css/lib/chosen/chosen-sprite@2x.png",
+      "PackagePath": "staticwebassets/admin/assets/css/lib/chosen/chosen-sprite@2x.png"
+    },
+    {
+      "Id": "/Users/zeyneb/Projects/Zante_Hotel/wwwroot/admin/assets/css/lib/chosen/chosen.css",
+      "PackagePath": "staticwebassets/admin/assets/css/lib/chosen/chosen.css"
+    },
+    {
+      "Id": "/Users/zeyneb/Projects/Zante_Hotel/wwwroot/admin/assets/css/lib/chosen/chosen.min.css",
+      "PackagePath": "staticwebassets/admin/assets/css/lib/chosen/chosen.min.css"
+    },
+    {
+      "Id": "/Users/zeyneb/Projects/Zante_Hotel/wwwroot/admin/assets/css/lib/datatable/buttons.bootstrap.min.css",
+      "PackagePath": "staticwebassets/admin/assets/css/lib/datatable/buttons.bootstrap.min.css"
+    },
+    {
+      "Id": "/Users/zeyneb/Projects/Zante_Hotel/wwwroot/admin/assets/css/lib/datatable/buttons.dataTables.min.css",
+      "PackagePath": "staticwebassets/admin/assets/css/lib/datatable/buttons.dataTables.min.css"
+    },
+    {
+      "Id": "/Users/zeyneb/Projects/Zante_Hotel/wwwroot/admin/assets/css/lib/datatable/dataTables.bootstrap.min.css",
+      "PackagePath": "staticwebassets/admin/assets/css/lib/datatable/dataTables.bootstrap.min.css"
+    },
+    {
+      "Id": "/Users/zeyneb/Projects/Zante_Hotel/wwwroot/admin/assets/css/lib/vector-map/jqvmap.min.css",
+      "PackagePath": "staticwebassets/admin/assets/css/lib/vector-map/jqvmap.min.css"
+    },
+    {
+      "Id": "/Users/zeyneb/Projects/Zante_Hotel/wwwroot/admin/assets/css/style.css",
+      "PackagePath": "staticwebassets/admin/assets/css/style.css"
+    },
+    {
+      "Id": "/Users/zeyneb/Projects/Zante_Hotel/wwwroot/admin/assets/css/style.css.map",
+      "PackagePath": "staticwebassets/admin/assets/css/style.css.map"
+    },
+    {
+      "Id": "/Users/zeyneb/Projects/Zante_Hotel/wwwroot/admin/assets/fonts/icomoon/icomoon.eot",
+      "PackagePath": "staticwebassets/admin/assets/fonts/icomoon/icomoon.eot"
+    },
+    {
+      "Id": "/Users/zeyneb/Projects/Zante_Hotel/wwwroot/admin/assets/fonts/icomoon/icomoon.svg",
+      "PackagePath": "staticwebassets/admin/assets/fonts/icomoon/icomoon.svg"
+    },
+    {
+      "Id": "/Users/zeyneb/Projects/Zante_Hotel/wwwroot/admin/assets/fonts/icomoon/icomoon.ttf",
+      "PackagePath": "staticwebassets/admin/assets/fonts/icomoon/icomoon.ttf"
+    },
+    {
+      "Id": "/Users/zeyneb/Projects/Zante_Hotel/wwwroot/admin/assets/fonts/icomoon/icomoon.woff",
+      "PackagePath": "staticwebassets/admin/assets/fonts/icomoon/icomoon.woff"
+    },
+    {
+      "Id": "/Users/zeyneb/Projects/Zante_Hotel/wwwroot/admin/assets/fonts/icomoon/index.html",
+      "PackagePath": "staticwebassets/admin/assets/fonts/icomoon/index.html"
+    },
+    {
+      "Id": "/Users/zeyneb/Projects/Zante_Hotel/wwwroot/admin/assets/js/dashboard.js",
+      "PackagePath": "staticwebassets/admin/assets/js/dashboard.js"
+    },
+    {
+      "Id": "/Users/zeyneb/Projects/Zante_Hotel/wwwroot/admin/assets/js/init/chartjs-init.js",
+      "PackagePath": "staticwebassets/admin/assets/js/init/chartjs-init.js"
+    },
+    {
+      "Id": "/Users/zeyneb/Projects/Zante_Hotel/wwwroot/admin/assets/js/init/datatables-init.js",
+      "PackagePath": "staticwebassets/admin/assets/js/init/datatables-init.js"
+    },
+    {
+      "Id": "/Users/zeyneb/Projects/Zante_Hotel/wwwroot/admin/assets/js/init/flot-chart-init.js",
+      "PackagePath": "staticwebassets/admin/assets/js/init/flot-chart-init.js"
+    },
+    {
+      "Id": "/Users/zeyneb/Projects/Zante_Hotel/wwwroot/admin/assets/js/init/fullcalendar-init.js",
+      "PackagePath": "staticwebassets/admin/assets/js/init/fullcalendar-init.js"
+    },
+    {
+      "Id": "/Users/zeyneb/Projects/Zante_Hotel/wwwroot/admin/assets/js/init/gmap-init.js",
+      "PackagePath": "staticwebassets/admin/assets/js/init/gmap-init.js"
+    },
+    {
+      "Id": "/Users/zeyneb/Projects/Zante_Hotel/wwwroot/admin/assets/js/init/peitychart-init.js",
+      "PackagePath": "staticwebassets/admin/assets/js/init/peitychart-init.js"
+    },
+    {
+      "Id": "/Users/zeyneb/Projects/Zante_Hotel/wwwroot/admin/assets/js/init/vector-init.js",
+      "PackagePath": "staticwebassets/admin/assets/js/init/vector-init.js"
+    },
+    {
+      "Id": "/Users/zeyneb/Projects/Zante_Hotel/wwwroot/admin/assets/js/init/weather-init.js",
+      "PackagePath": "staticwebassets/admin/assets/js/init/weather-init.js"
+    },
+    {
+      "Id": "/Users/zeyneb/Projects/Zante_Hotel/wwwroot/admin/assets/js/lib/chosen/chosen.jquery.js",
+      "PackagePath": "staticwebassets/admin/assets/js/lib/chosen/chosen.jquery.js"
+    },
+    {
+      "Id": "/Users/zeyneb/Projects/Zante_Hotel/wwwroot/admin/assets/js/lib/chosen/chosen.jquery.min.js",
+      "PackagePath": "staticwebassets/admin/assets/js/lib/chosen/chosen.jquery.min.js"
+    },
+    {
+      "Id": "/Users/zeyneb/Projects/Zante_Hotel/wwwroot/admin/assets/js/lib/chosen/chosen.proto.js",
+      "PackagePath": "staticwebassets/admin/assets/js/lib/chosen/chosen.proto.js"
+    },
+    {
+      "Id": "/Users/zeyneb/Projects/Zante_Hotel/wwwroot/admin/assets/js/lib/chosen/chosen.proto.min.js",
+      "PackagePath": "staticwebassets/admin/assets/js/lib/chosen/chosen.proto.min.js"
+    },
+    {
+      "Id": "/Users/zeyneb/Projects/Zante_Hotel/wwwroot/admin/assets/js/lib/data-table/buttons.bootstrap.min.js",
+      "PackagePath": "staticwebassets/admin/assets/js/lib/data-table/buttons.bootstrap.min.js"
+    },
+    {
+      "Id": "/Users/zeyneb/Projects/Zante_Hotel/wwwroot/admin/assets/js/lib/data-table/buttons.colVis.min.js",
+      "PackagePath": "staticwebassets/admin/assets/js/lib/data-table/buttons.colVis.min.js"
+    },
+    {
+      "Id": "/Users/zeyneb/Projects/Zante_Hotel/wwwroot/admin/assets/js/lib/data-table/buttons.flash.min.js",
+      "PackagePath": "staticwebassets/admin/assets/js/lib/data-table/buttons.flash.min.js"
+    },
+    {
+      "Id": "/Users/zeyneb/Projects/Zante_Hotel/wwwroot/admin/assets/js/lib/data-table/buttons.html5.min.js",
+      "PackagePath": "staticwebassets/admin/assets/js/lib/data-table/buttons.html5.min.js"
+    },
+    {
+      "Id": "/Users/zeyneb/Projects/Zante_Hotel/wwwroot/admin/assets/js/lib/data-table/buttons.print.min.js",
+      "PackagePath": "staticwebassets/admin/assets/js/lib/data-table/buttons.print.min.js"
+    },
+    {
+      "Id": "/Users/zeyneb/Projects/Zante_Hotel/wwwroot/admin/assets/js/lib/data-table/dataTables.bootstrap.min.js",
+      "PackagePath": "staticwebassets/admin/assets/js/lib/data-table/dataTables.bootstrap.min.js"
+    },
+    {
+      "Id": "/Users/zeyneb/Projects/Zante_Hotel/wwwroot/admin/assets/js/lib/data-table/dataTables.buttons.min.js",
+      "PackagePath": "staticwebassets/admin/assets/js/lib/data-table/dataTables.buttons.min.js"
+    },
+    {
+      "Id": "/Users/zeyneb/Projects/Zante_Hotel/wwwroot/admin/assets/js/lib/data-table/datatables.min.js",
+      "PackagePath": "staticwebassets/admin/assets/js/lib/data-table/datatables.min.js"
+    },
+    {
+      "Id": "/Users/zeyneb/Projects/Zante_Hotel/wwwroot/admin/assets/js/lib/data-table/jquery-1.12.4.js",
+      "PackagePath": "staticwebassets/admin/assets/js/lib/data-table/jquery-1.12.4.js"
+    },
+    {
+      "Id": "/Users/zeyneb/Projects/Zante_Hotel/wwwroot/admin/assets/js/lib/data-table/jquery.dataTables.min.js",
+      "PackagePath": "staticwebassets/admin/assets/js/lib/data-table/jquery.dataTables.min.js"
+    },
+    {
+      "Id": "/Users/zeyneb/Projects/Zante_Hotel/wwwroot/admin/assets/js/lib/data-table/jszip.min.js",
+      "PackagePath": "staticwebassets/admin/assets/js/lib/data-table/jszip.min.js"
+    },
+    {
+      "Id": "/Users/zeyneb/Projects/Zante_Hotel/wwwroot/admin/assets/js/lib/data-table/pdfmake.min.js",
+      "PackagePath": "staticwebassets/admin/assets/js/lib/data-table/pdfmake.min.js"
+    },
+    {
+      "Id": "/Users/zeyneb/Projects/Zante_Hotel/wwwroot/admin/assets/js/lib/data-table/vfs_fonts.js",
+      "PackagePath": "staticwebassets/admin/assets/js/lib/data-table/vfs_fonts.js"
+    },
+    {
+      "Id": "/Users/zeyneb/Projects/Zante_Hotel/wwwroot/admin/assets/js/lib/gmap/gmapApi.js",
+      "PackagePath": "staticwebassets/admin/assets/js/lib/gmap/gmapApi.js"
+    },
+    {
+      "Id": "/Users/zeyneb/Projects/Zante_Hotel/wwwroot/admin/assets/js/lib/gmap/gmaps.js",
+      "PackagePath": "staticwebassets/admin/assets/js/lib/gmap/gmaps.js"
+    },
+    {
+      "Id": "/Users/zeyneb/Projects/Zante_Hotel/wwwroot/admin/assets/js/lib/gmap/gmaps.min.js",
+      "PackagePath": "staticwebassets/admin/assets/js/lib/gmap/gmaps.min.js"
+    },
+    {
+      "Id": "/Users/zeyneb/Projects/Zante_Hotel/wwwroot/admin/assets/js/main.js",
+      "PackagePath": "staticwebassets/admin/assets/js/main.js"
+    },
+    {
+      "Id": "/Users/zeyneb/Projects/Zante_Hotel/wwwroot/admin/assets/js/vmap.sampledata.js",
+      "PackagePath": "staticwebassets/admin/assets/js/vmap.sampledata.js"
+    },
+    {
+      "Id": "/Users/zeyneb/Projects/Zante_Hotel/wwwroot/admin/assets/js/widgets.js",
+      "PackagePath": "staticwebassets/admin/assets/js/widgets.js"
+    },
+    {
+      "Id": "/Users/zeyneb/Projects/Zante_Hotel/wwwroot/admin/assets/scss/style.css",
+      "PackagePath": "staticwebassets/admin/assets/scss/style.css"
+    },
+    {
+      "Id": "/Users/zeyneb/Projects/Zante_Hotel/wwwroot/admin/assets/scss/style.css.map",
+      "PackagePath": "staticwebassets/admin/assets/scss/style.css.map"
+    },
+    {
+      "Id": "/Users/zeyneb/Projects/Zante_Hotel/wwwroot/admin/assets/scss/style.scss",
+      "PackagePath": "staticwebassets/admin/assets/scss/style.scss"
+    },
+    {
+      "Id": "/Users/zeyneb/Projects/Zante_Hotel/wwwroot/admin/images/.gitignore",
+      "PackagePath": "staticwebassets/admin/images/.gitignore"
+    },
+    {
+      "Id": "/Users/zeyneb/Projects/Zante_Hotel/wwwroot/admin/images/admin.jpg",
+      "PackagePath": "staticwebassets/admin/images/admin.jpg"
+    },
+    {
+      "Id": "/Users/zeyneb/Projects/Zante_Hotel/wwwroot/admin/images/avatar/1.jpg",
+      "PackagePath": "staticwebassets/admin/images/avatar/1.jpg"
+    },
+    {
+      "Id": "/Users/zeyneb/Projects/Zante_Hotel/wwwroot/admin/images/avatar/2.jpg",
+      "PackagePath": "staticwebassets/admin/images/avatar/2.jpg"
+    },
+    {
+      "Id": "/Users/zeyneb/Projects/Zante_Hotel/wwwroot/admin/images/avatar/3.jpg",
+      "PackagePath": "staticwebassets/admin/images/avatar/3.jpg"
+    },
+    {
+      "Id": "/Users/zeyneb/Projects/Zante_Hotel/wwwroot/admin/images/avatar/4.jpg",
+      "PackagePath": "staticwebassets/admin/images/avatar/4.jpg"
+    },
+    {
+      "Id": "/Users/zeyneb/Projects/Zante_Hotel/wwwroot/admin/images/avatar/5.jpg",
+      "PackagePath": "staticwebassets/admin/images/avatar/5.jpg"
+    },
+    {
+      "Id": "/Users/zeyneb/Projects/Zante_Hotel/wwwroot/admin/images/avatar/6.jpg",
+      "PackagePath": "staticwebassets/admin/images/avatar/6.jpg"
+    },
+    {
+      "Id": "/Users/zeyneb/Projects/Zante_Hotel/wwwroot/admin/images/avatar/64-1.jpg",
+      "PackagePath": "staticwebassets/admin/images/avatar/64-1.jpg"
+    },
+    {
+      "Id": "/Users/zeyneb/Projects/Zante_Hotel/wwwroot/admin/images/avatar/64-2.jpg",
+      "PackagePath": "staticwebassets/admin/images/avatar/64-2.jpg"
+    },
+    {
+      "Id": "/Users/zeyneb/Projects/Zante_Hotel/wwwroot/admin/images/favicon.png",
+      "PackagePath": "staticwebassets/admin/images/favicon.png"
+    },
+    {
+      "Id": "/Users/zeyneb/Projects/Zante_Hotel/wwwroot/admin/images/logo.png",
+      "PackagePath": "staticwebassets/admin/images/logo.png"
+    },
+    {
+      "Id": "/Users/zeyneb/Projects/Zante_Hotel/wwwroot/admin/images/logo.psd",
+      "PackagePath": "staticwebassets/admin/images/logo.psd"
+    },
+    {
+      "Id": "/Users/zeyneb/Projects/Zante_Hotel/wwwroot/admin/images/logo2.png",
+      "PackagePath": "staticwebassets/admin/images/logo2.png"
+    },
+    {
+      "Id": "/Users/zeyneb/Projects/Zante_Hotel/wwwroot/admin/login/.DS_Store",
+      "PackagePath": "staticwebassets/admin/login/.DS_Store"
+    },
+    {
+      "Id": "/Users/zeyneb/Projects/Zante_Hotel/wwwroot/admin/login/bg.jpg",
+      "PackagePath": "staticwebassets/admin/login/bg.jpg"
+    },
+    {
+      "Id": "/Users/zeyneb/Projects/Zante_Hotel/wwwroot/admin/login/style.css",
+      "PackagePath": "staticwebassets/admin/login/style.css"
+    },
+    {
+      "Id": "obj/Debug/net7.0/staticwebassets/msbuild.Zante_Hotel.Microsoft.AspNetCore.StaticWebAssets.props",
+      "PackagePath": "build\\Microsoft.AspNetCore.StaticWebAssets.props"
+    },
+    {
+      "Id": "obj/Debug/net7.0/staticwebassets/msbuild.build.Zante_Hotel.props",
+      "PackagePath": "build\\Zante_Hotel.props"
+    },
+    {
+      "Id": "obj/Debug/net7.0/staticwebassets/msbuild.buildMultiTargeting.Zante_Hotel.props",
+      "PackagePath": "buildMultiTargeting\\Zante_Hotel.props"
+    },
+    {
+      "Id": "obj/Debug/net7.0/staticwebassets/msbuild.buildTransitive.Zante_Hotel.props",
+      "PackagePath": "buildTransitive\\Zante_Hotel.props"
+    }
+  ],
+  "ElementsToRemove": []
+}

@@ -1,0 +1,30 @@
+﻿@model CreateServiceVM
+<section>
+    <div class="pcoded-content">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="mt-5">Create Service</h5>
+                        <hr>
+                        <form method="post">
+                            <div class="form-row">
+                                <div class="form-group col-md-6">
+                                    <label asp-for="Name">Name</label>
+                                    <input asp-for="Name" class="form-control" placeholder="Name">
+                                    <span asp-validation-for="Name"></span>
+                                </div>
+                            </div>
+                            <button type="submit" class="btn  btn-primary">Create</button>
+                            <div class="form-group col-md-6" asp-validation-summary="ModelOnly">
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <!-- [ form-element ] end -->
+        </div>
+        <!-- [ Main Content ] end -->
+
+    </div>
+</section>

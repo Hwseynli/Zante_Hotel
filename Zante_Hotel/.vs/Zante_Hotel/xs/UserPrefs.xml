@@ -1,0 +1,26 @@
+﻿<Properties StartupConfiguration="{6E2AD9F4-671F-4A46-82C7-E15857056413}|https">
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.ItemProperties.Zante__Hotel PreferredExecutionTarget="/Applications/Google Chrome.app" />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Areas/AppAdmin/Models/AppUser.cs">
+    <Files>
+      <File FileName="Areas/AppAdmin/Controllers/AccountController.cs" Line="87" Column="6" />
+      <File FileName="Areas/AppAdmin/Models/AppUser.cs" Line="12" Column="14" />
+    </Files>
+    <Pads>
+      <Pad Id="ProjectPad">
+        <State name="__root__">
+          <Node name="Zante_Hotel" expanded="True">
+            <Node name="Zante_Hotel" expanded="True">
+              <Node name="GlobalUsing.cs" selected="True" />
+            </Node>
+          </Node>
+        </State>
+      </Pad>
+    </Pads>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MultiItemStartupConfigurations />
+</Properties>

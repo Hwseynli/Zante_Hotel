@@ -1,0 +1,65 @@
+﻿@{
+    Layout = "_LoginLayout";
+}
+@model RegistrVM
+<header>Registr Form</header>
+<form method="post" enctype="multipart/form-data">
+    <div class="input-field">
+        <label asp-for="UserPhoto">UserPhoto</label>
+        <input asp-for="UserPhoto" accept="image/*" />
+        <span asp-validation-for="UserPhoto"></span>
+    </div>
+    <div class="input-field">
+        <input asp-for="Name" required />
+        <label asp-for="Name">Name</label>
+        <span asp-validation-for="Name"></span>
+    </div>
+    <div class="input-field">
+        <input asp-for="Surname" required />
+        <label asp-for="Surname">Surname</label>
+        <span asp-validation-for="Surname"></span>
+    </div>
+    <div class="input-field">
+        <label asp-for="Gender">Gender</label>
+            <input name="gender" type="radio" asp-for="Gender" value="Male" /> Male
+            <input name="gender" type="radio" asp-for="Gender" value="Female" /> Female
+            <input name="gender" type="radio" asp-for="Gender" value="Other" /> Other
+        <span asp-validation-for="Gender"></span>
+    </div>
+    <div class="input-field">
+        <label asp-for="Age">Age</label>
+        <input type="number" asp-for="Age" required />
+        <span asp-validation-for="Age"></span>
+    </div>
+    <div class="input-field">
+        <input asp-for="Username" required />
+        <label asp-for="Username">Username</label>
+        <span asp-validation-for="Username"></span>
+    </div>
+    <div class="input-field">
+        <input type="email" asp-for="Email" required />
+        <label asp-for="Email">Email</label>
+        <span asp-validation-for="Email"></span>
+    </div>
+    <div class="input-field">
+        <input class="pswrd" asp-for="Password" required>
+        <span class="show">SHOW</span>
+        <label asp-for="Password">Password</label>
+        <span asp-validation-for="Password"></span>
+    </div>
+    <div class="input-field">
+        <input class="pswrd" asp-for="ConfirmPassword" required>
+        <span class="show">SHOW</span>
+        <label asp-for="ConfirmPassword">Confirm Password</label>
+        <span asp-validation-for="ConfirmPassword"></span>
+    </div>
+    <div class="button">
+        <div class="inner"></div>
+        <button type="submit">Registr</button>
+    </div>
+    <div asp-validation-summary="ModelOnly">
+    </div>
+</form>
+<div class="signup">
+    Have your account? <a asp-action="Login" asp-controller="Account" asp-area="AppAdmin">SignIn now</a>
+</div>
