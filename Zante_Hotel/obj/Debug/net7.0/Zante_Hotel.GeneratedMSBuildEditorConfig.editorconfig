@@ -9,93 +9,93 @@ build_property.EnforceExtendedAnalyzerRules =
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = Zante_Hotel
 build_property.RootNamespace = Zante_Hotel
-build_property.ProjectDir = /Users/zeyneb/Projects/Zante_Hotel/
+build_property.ProjectDir = /Users/zeyneb/Zante_Hotel/Zante_Hotel/
 build_property.RazorLangVersion = 7.0
 build_property.SupportLocalizedComponentNames = 
 build_property.GenerateRazorMetadataSourceChecksumAttributes = 
-build_property.MSBuildProjectDirectory = /Users/zeyneb/Projects/Zante_Hotel
+build_property.MSBuildProjectDirectory = /Users/zeyneb/Zante_Hotel/Zante_Hotel
 build_property._RazorSourceGeneratorDebug = 
 
-[/Users/zeyneb/Projects/Zante_Hotel/Areas/AppAdmin/Views/Account/Login.cshtml]
+[/Users/zeyneb/Zante_Hotel/Zante_Hotel/Areas/AppAdmin/Views/Account/Login.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXMvQXBwQWRtaW4vVmlld3MvQWNjb3VudC9Mb2dpbi5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[/Users/zeyneb/Projects/Zante_Hotel/Areas/AppAdmin/Views/Account/Registr.cshtml]
+[/Users/zeyneb/Zante_Hotel/Zante_Hotel/Areas/AppAdmin/Views/Account/Registr.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXMvQXBwQWRtaW4vVmlld3MvQWNjb3VudC9SZWdpc3RyLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[/Users/zeyneb/Projects/Zante_Hotel/Areas/AppAdmin/Views/Category/Create.cshtml]
+[/Users/zeyneb/Zante_Hotel/Zante_Hotel/Areas/AppAdmin/Views/Category/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXMvQXBwQWRtaW4vVmlld3MvQ2F0ZWdvcnkvQ3JlYXRlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[/Users/zeyneb/Projects/Zante_Hotel/Areas/AppAdmin/Views/Category/Index.cshtml]
+[/Users/zeyneb/Zante_Hotel/Zante_Hotel/Areas/AppAdmin/Views/Category/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXMvQXBwQWRtaW4vVmlld3MvQ2F0ZWdvcnkvSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[/Users/zeyneb/Projects/Zante_Hotel/Areas/AppAdmin/Views/Category/Update.cshtml]
+[/Users/zeyneb/Zante_Hotel/Zante_Hotel/Areas/AppAdmin/Views/Category/Update.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXMvQXBwQWRtaW4vVmlld3MvQ2F0ZWdvcnkvVXBkYXRlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[/Users/zeyneb/Projects/Zante_Hotel/Areas/AppAdmin/Views/Home/Index.cshtml]
+[/Users/zeyneb/Zante_Hotel/Zante_Hotel/Areas/AppAdmin/Views/Home/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXMvQXBwQWRtaW4vVmlld3MvSG9tZS9JbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[/Users/zeyneb/Projects/Zante_Hotel/Areas/AppAdmin/Views/Service/Create.cshtml]
+[/Users/zeyneb/Zante_Hotel/Zante_Hotel/Areas/AppAdmin/Views/Service/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXMvQXBwQWRtaW4vVmlld3MvU2VydmljZS9DcmVhdGUuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[/Users/zeyneb/Projects/Zante_Hotel/Areas/AppAdmin/Views/Service/Index.cshtml]
+[/Users/zeyneb/Zante_Hotel/Zante_Hotel/Areas/AppAdmin/Views/Service/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXMvQXBwQWRtaW4vVmlld3MvU2VydmljZS9JbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[/Users/zeyneb/Projects/Zante_Hotel/Areas/AppAdmin/Views/Service/Update.cshtml]
+[/Users/zeyneb/Zante_Hotel/Zante_Hotel/Areas/AppAdmin/Views/Service/Update.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXMvQXBwQWRtaW4vVmlld3MvU2VydmljZS9VcGRhdGUuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[/Users/zeyneb/Projects/Zante_Hotel/Areas/AppAdmin/Views/Shared/_AdminLayout.cshtml]
+[/Users/zeyneb/Zante_Hotel/Zante_Hotel/Areas/AppAdmin/Views/Shared/_AdminLayout.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXMvQXBwQWRtaW4vVmlld3MvU2hhcmVkL19BZG1pbkxheW91dC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[/Users/zeyneb/Projects/Zante_Hotel/Areas/AppAdmin/Views/Shared/_FormLayout.cshtml]
+[/Users/zeyneb/Zante_Hotel/Zante_Hotel/Areas/AppAdmin/Views/Shared/_FormLayout.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXMvQXBwQWRtaW4vVmlld3MvU2hhcmVkL19Gb3JtTGF5b3V0LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[/Users/zeyneb/Projects/Zante_Hotel/Areas/AppAdmin/Views/Shared/_LoginLayout.cshtml]
+[/Users/zeyneb/Zante_Hotel/Zante_Hotel/Areas/AppAdmin/Views/Shared/_LoginLayout.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXMvQXBwQWRtaW4vVmlld3MvU2hhcmVkL19Mb2dpbkxheW91dC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[/Users/zeyneb/Projects/Zante_Hotel/Areas/AppAdmin/Views/View/Create.cshtml]
+[/Users/zeyneb/Zante_Hotel/Zante_Hotel/Areas/AppAdmin/Views/View/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXMvQXBwQWRtaW4vVmlld3MvVmlldy9DcmVhdGUuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[/Users/zeyneb/Projects/Zante_Hotel/Areas/AppAdmin/Views/View/Index.cshtml]
+[/Users/zeyneb/Zante_Hotel/Zante_Hotel/Areas/AppAdmin/Views/View/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXMvQXBwQWRtaW4vVmlld3MvVmlldy9JbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[/Users/zeyneb/Projects/Zante_Hotel/Areas/AppAdmin/Views/View/Update.cshtml]
+[/Users/zeyneb/Zante_Hotel/Zante_Hotel/Areas/AppAdmin/Views/View/Update.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXMvQXBwQWRtaW4vVmlld3MvVmlldy9VcGRhdGUuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[/Users/zeyneb/Projects/Zante_Hotel/Areas/AppAdmin/Views/_ViewImports.cshtml]
+[/Users/zeyneb/Zante_Hotel/Zante_Hotel/Areas/AppAdmin/Views/_ViewImports.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXMvQXBwQWRtaW4vVmlld3MvX1ZpZXdJbXBvcnRzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[/Users/zeyneb/Projects/Zante_Hotel/Areas/AppAdmin/Views/_ViewStart.cshtml]
+[/Users/zeyneb/Zante_Hotel/Zante_Hotel/Areas/AppAdmin/Views/_ViewStart.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXMvQXBwQWRtaW4vVmlld3MvX1ZpZXdTdGFydC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[/Users/zeyneb/Projects/Zante_Hotel/Views/Home/Index.cshtml]
+[/Users/zeyneb/Zante_Hotel/Zante_Hotel/Views/Home/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3MvSG9tZS9JbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[/Users/zeyneb/Projects/Zante_Hotel/Views/Shared/_Layout.cshtml]
+[/Users/zeyneb/Zante_Hotel/Zante_Hotel/Views/Shared/_Layout.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3MvU2hhcmVkL19MYXlvdXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[/Users/zeyneb/Projects/Zante_Hotel/Views/_ViewImports.cshtml]
+[/Users/zeyneb/Zante_Hotel/Zante_Hotel/Views/_ViewImports.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3MvX1ZpZXdJbXBvcnRzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[/Users/zeyneb/Projects/Zante_Hotel/Views/_ViewStart.cshtml]
+[/Users/zeyneb/Zante_Hotel/Zante_Hotel/Views/_ViewStart.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3MvX1ZpZXdTdGFydC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 

@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "0mveI2Ldr+oHjN38EwPa4A4m+yk7yOlQJeO6A6ocygkutMUC2z8/WChvRvT7Fdjm0CDyHWvDojUJIVAmyZX+hw==",
+  "dgSpecHash": "Qbfl9UDMjPHXRZCe2PNTIvBvLD4KOAVYzMjL+t9WkHc7U1hVj6AW3HZ7razDGjINLiDe9FVcB1q2LirXwQ4d5g==",
   "success": true,
-  "projectFilePath": "/Users/zeyneb/Projects/Zante_Hotel/Zante_Hotel.csproj",
+  "projectFilePath": "/Users/zeyneb/Zante_Hotel/Zante_Hotel/Zante_Hotel.csproj",
   "expectedPackageFiles": [
     "/Users/zeyneb/.nuget/packages/automapper/12.0.1/automapper.12.0.1.nupkg.sha512",
     "/Users/zeyneb/.nuget/packages/automapper.extensions.microsoft.dependencyinjection/12.0.1/automapper.extensions.microsoft.dependencyinjection.12.0.1.nupkg.sha512",
