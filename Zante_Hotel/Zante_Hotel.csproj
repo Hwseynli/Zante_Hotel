@@ -14,6 +14,7 @@
     <Content Remove="wwwroot\Admin\images\user-images\" />
     <Content Remove="wwwroot\Admin\login\" />
     <Content Remove="wwwroot\admin\adminform\" />
+    <Content Remove="wwwroot\assets\" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="wwwroot\" />
@@ -42,6 +43,13 @@
     <Folder Include="Areas\AppAdmin\Views\View\" />
     <Folder Include="Areas\AppAdmin\Views\Service\" />
     <Folder Include="ViewModels\Service\" />
+    <Folder Include="Models\Blog\" />
+    <Folder Include="Models\Commentary\" />
+    <Folder Include="Models\Reservations\" />
+    <Folder Include="wwwroot\assets\" />
+    <Folder Include="Views\Blog\" />
+    <Folder Include="Areas\AppAdmin\Views\Blogger\" />
+    <Folder Include="ViewModels\Blog\" />
   </ItemGroup>
   <ItemGroup>
     <None Remove="Models\" />
@@ -66,6 +74,12 @@
     <None Remove="Areas\AppAdmin\Views\View\" />
     <None Remove="Areas\AppAdmin\Views\Service\" />
     <None Remove="ViewModels\Service\" />
+    <None Remove="Models\Blog\" />
+    <None Remove="Models\Commentary\" />
+    <None Remove="Models\Reservations\" />
+    <None Remove="Views\Blog\" />
+    <None Remove="Areas\AppAdmin\Views\Blogger\" />
+    <None Remove="ViewModels\Blog\" />
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="Microsoft.EntityFrameworkCore" Version="7.0.7" />
@@ -80,5 +94,6 @@
     <PackageReference Include="FluentValidation.AspNetCore" Version="11.3.0" />
     <PackageReference Include="AutoMapper" Version="12.0.1" />
     <PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="12.0.1" />
+    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="7.0.0" />
   </ItemGroup>
 </Project>

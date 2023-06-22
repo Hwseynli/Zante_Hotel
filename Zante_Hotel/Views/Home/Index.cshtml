@@ -1,9 +1,467 @@
-﻿@{
-    ViewData["Title"] = "Home Page";
-}
+﻿         <!-- ========== REVOLUTION SLIDER ========== -->
+<div class="rev_slider_wrapper fullscreen-container">
+    <div id="fullscreen_hero_video" class="rev_slider fullscreenbanner gradient_slider" style="display:none">
+        <ul>
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+            <li data-transition="fade">
+                <!-- MAIN IMAGE -->
+                <img src="~/assets/assets/images/slider/video_fullscreen.jpg"
+                     alt="Image"
+                     data-bgposition="center center"
+                     data-bgfit="cover"
+                     data-bgrepeat="no-repeat"
+                     data-bgparallax="3"
+                     class="rev-slidebg"
+                     data-no-retina>
+                <!-- VIDEO -->
+                <div class="rs-background-video-layer"
+                     data-forcerewind="on"
+                     data-volume="mute"
+                     data-videomp4="assets/assets/videos/hero_video.mp4"
+                     data-videoattributes="title=0&amp;byline=0&amp;portrait=0&amp;api=1"
+                     data-videowidth="100%"
+                     data-videoheight="100%"
+                     data-videocontrols="none"
+                     data-videostartat="00:00"
+                     data-videoendat=""
+                     data-videoloop="loop"
+                     data-forceCover="1"
+                     data-aspectratio="4:3"
+                     data-autoplay="true"
+                     data-autoplayonlyfirsttime="false"
+                     data-nextslideatend="true">
+                </div>
+                <!-- LAYER NR. 1 -->
+                <div class="tp-caption gradient_overlay"
+                     data-x="['center','center','center','center']"
+                     data-hoffset="['0','0','0','0']"
+                     data-y="['middle','middle','middle','middle']"
+                     data-voffset="['0','0','0','0']"
+                     data-width="full"
+                     data-height="full"
+                     data-whitespace="nowrap"
+                     data-transform_idle="o:1;"
+                     data-transform_in="opacity:0;s:1500;e:Power3.easeInOut;"
+                     data-transform_out="opacity:0;s:500;s:500;"
+                     data-start="0"
+                     data-basealign="slide"
+                     data-responsive_offset="off"
+                     data-responsive="off"
+                     style="z-index: 7;border-color:rgba(0, 0, 0, 0);">
+                </div>
+                <!-- LAYER NR. 2 -->
+                <div class="tp-caption tp-resizeme"
+                     data-x="center"
+                     data-hoffset=""
+                     data-y="middle"
+                     data-voffset=""
+                     data-fontsize="['100','90','70','60']"
+                     data-lineheight="['100','90','70','60']"
+                     data-whitespace="nowrap"
+                     data-responsive_offset="on"
+                     data-frames='[{"delay":1000,"speed":1500,"frame":"0","from":"y:[100%];z:0;rX:0deg;rY:0;rZ:0;sX:1;sY:1;skX:0;skY:0;opacity:0;","mask":"x:0px;y:[100%];s:inherit;e:inherit;","to":"o:1;","ease":"Power2.easeInOut"},{"delay":"wait","speed":500,"frame":"999","to":"auto:auto;","ease":"Power3.easeInOut"}]'
+                     style="z-index: 99; color: #fff; font-weight: 900;">
+                    HOTEL ZANTE
+                </div>
+                <!-- LAYER NR. 3 -->
+                <div class="tp-caption tp-resizeme"
+                     data-x="['center','center','center','center']"
+                     data-hoffset="['-300','-270','-200','-160']"
+                     data-y="middle"
+                     data-voffset="['-12','-15','-24','-28']"
+                     data-fontsize="['11','10','7','6']"
+                     data-lineheight="['11','10','7','6']"
+                     data-whitespace="nowrap"
+                     data-width="100"
+                     data-height="100"
+                     data-responsive_offset="on"
+                     data-frames='[{"delay":2500,"speed":1500,"frame":"0","from":"x:[40%];z:0;rX:0deg;rY:0;rZ:-90;sX:1;sY:1;skX:0;skY:0;opacity:0;","mask":"x:0px;y:0px;s:inherit;e:inherit;","to":"o:1;rZ:-90","ease":"Power3.easeInOut"},{"delay":"wait","speed":300,"frame":"999","to":"auto:auto;","ease":"Power3.easeInOut"}]'
+                     style="z-index: 11; color: #fff; font-weight: 900; ">
+                    WELCOME TO
+                </div>
+                <!-- LAYER NR. 4 -->
+                <a class="tp-caption button btn_yellow"
+                   href="booking-form.html"
+                   data-x="center"
+                   data-hoffset=""
+                   data-y="middle"
+                   data-voffset="120"
+                   data-fontsize="14"
+                   data-responsive_offset="on"
+                   data-whitespace="nowrap"
+                   data-frames='[{"delay":2500,"speed":1500,"frame":"0","from":"y:[100%];z:0;rX:0deg;rY:0;rZ:0;sX:1;sY:1;skX:0;skY:0;opacity:0;","mask":"x:0px;y:[100%];s:inherit;e:inherit;","to":"o:1;","ease":"Power2.easeInOut"},{"delay":"wait","speed":500,"frame":"999","to":"auto:auto;","ease":"Power3.easeInOut"}]'
+                   style="z-index: 11; ">
+                    <i class="fa fa-calendar"></i>BOOK A ROOM NOW
+                </a>
+
+            </li>
+        </ul>
+    </div>
 </div>
 
+<!-- ========== BOOKING FORM ========== -->
+<div class="hbf_3">
+    <div class="container">
+        <div class="inner">
+            <form id="booking-form">
+                <div class="row">
+                    <div class="col-md-2 md_pr5">
+                        <div class="form-group">
+                            <input class="form-control" name="booking-email" type="email" placeholder="Your Email Address">
+                        </div>
+                    </div>
+                    <div class="col-md-2 md_p5">
+                        <div class="form-group">
+                            <div class="form_select">
+                                <select name="booking-roomtype" class="form-control" title="Room Type" data-header="Room Type">
+                                    <option value="Single">Single Room</option>
+                                    <option value="Double">Double Room</option>
+                                    <option value="Deluxe">Deluxe Room</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="row">
+                            <div class="col-md-6 col-sm-6 arrival_date md_pl5 md_nopadding_right">
+                                <div class="form-group">
+                                    <div class="form_date">
+                                        <input type="text" class="datepicker form-control md_noborder_right" name="booking-checkin" placeholder="Arrival Date" readonly>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6 col-sm-6 departure_date md_pr5 md_nopadding_left">
+                                <div class="form-group">
+                                    <div class="form_date departure">
+                                        <input type="text" class="datepicker form-control" name="booking-checkout" placeholder="Departure Date" readonly>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="row">
+                            <div class="col-md-6 col-sm-6 adults md_pl5 md_nopadding_right">
+                                <div class="form-group">
+                                    <div class="form_select">
+                                        <select name="booking-adults" class="form-control md_noborder_right" title="Adults" data-header="Adults">
+                                            <option value="0">0</option>
+                                            <option value="1">1</option>
+                                            <option value="2">2</option>
+                                            <option value="3">3</option>
+                                            <option value="4">4</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6 col-sm-6 children md_pr5 md_nopadding_left">
+                                <div class="form-group">
+                                    <div class="form_select childrens_select">
+                                        <select name="booking-children" class="form-control" data-size="5" title="Children" data-header="Children">
+                                            <option value="0">0</option>
+                                            <option value="1">1</option>
+                                            <option value="2">2</option>
+                                            <option value="3">3</option>
+                                            <option value="4">4</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-2 md_pl5">
+                        <button type="submit" class="button btn_blue btn_full">BOOK A ROOM</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<!-- ========== ROOMS ========== -->
+<section class="white_bg" id="rooms">
+    <div class="container">
+        <div class="main_title mt_wave mt_blue a_center">
+            <h2>OUR FAVORITE ROOMS</h2>
+        </div>
+        <p class="main_description a_center">Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit.</p>
+        <div class="row">
+            <!-- ITEM -->
+            <div class="col-md-4">
+                <article class="room">
+                    <figure>
+                        <div class="price">€89 <span>/ night</span></div>
+                        <a class="hover_effect h_blue h_link" href="room.html">
+                            <img src="~/assets/assets/images/rooms/single-room.jpg" class="img-responsive" alt="Image">
+                        </a>
+                        <figcaption>
+                            <h4><a href="room.html">Single Room</a></h4>
+                            <span class="f_right"><a href="rooms-list.html" class="button btn_sm btn_blue">VIEW DETAILS</a></span>
+                        </figcaption>
+                    </figure>
+                </article>
+            </div>
+            <!-- ITEM -->
+            <div class="col-md-4">
+                <article class="room">
+                    <figure>
+                        <div class="price">€129 <span>/ night</span></div>
+                        <a class="hover_effect h_blue h_link" href="room.html">
+                            <img src="~/assets/assets/images/rooms/double-room.jpg" class="img-responsive" alt="Image">
+                        </a>
+                        <figcaption>
+                            <h4><a href="room.html">Double Room</a></h4>
+                            <span class="f_right"><a href="room.html" class="button btn_sm btn_blue">VIEW DETAILS</a></span>
+                        </figcaption>
+                    </figure>
+                </article>
+            </div>
+            <!-- ITEM -->
+            <div class="col-md-4">
+                <article class="room">
+                    <figure>
+                        <div class="price"> € 189 <span>/ night</span></div>
+                        <a class="hover_effect h_blue h_link" href="room.html">
+                            <img src="~/assets/assets/images/rooms/deluxe-room.jpg" class="img-responsive" alt="Image">
+                        </a>
+                        <figcaption>
+                            <h4><a href="room.html">Delux Room</a></h4>
+                            <span class="f_right"><a href="room.html" class="button btn_sm btn_blue">VIEW DETAILS</a></span>
+                        </figcaption>
+                    </figure>
+                </article>
+            </div>
+        </div>
+        <div class="mt40 a_center">
+            <a class="button btn_sm btn_yellow" href="rooms-list.html">VIEW ROOMS LIST</a>
+        </div>
+    </div>
+</section>
+
+<!-- ========== FEATURES ========== -->
+<section class="lightgrey_bg" id="features">
+    <div class="container">
+        <div class="main_title mt_wave mt_blue a_center">
+            <h2>OUR AWESOME SERVICES</h2>
+        </div>
+        <p class="main_description a_center">Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit.</p>
+
+        <div class="row">
+            <div class="col-md-7">
+                <div data-slider-id="features" id="features_slider" class="owl-carousel">
+                    <div><img src="~/assets/assets/images/restaurant.jpg" class="img-responsive" alt="Image"></div>
+                    <div><img src="~/assets/assets/images/spa.jpg" class="img-responsive" alt="Image"></div>
+                    <div><img src="~/assets/assets/images/conference.jpg" class="img-responsive" alt="Image"></div>
+                    <div><img src="~/assets/assets/images/swimming.jpg" class="img-responsive" alt="Image"></div>
+                </div>
+            </div>
+            <div class="col-md-5">
+                <div class="owl-thumbs" data-slider-id="features">
+                    <div class="owl-thumb-item">
+                        <span class="media-left"><i class="flaticon-food"></i></span>
+                        <div class="media-body">
+                            <h5>Restaurant</h5>
+                            <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet.</p>
+                        </div>
+                    </div>
+                    <div class="owl-thumb-item">
+                        <span class="media-left"><i class="flaticon-person"></i></span>
+                        <div class="media-body">
+                            <h5>Spa - Beauty &amp; Health</h5>
+                            <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet.</p>
+                        </div>
+                    </div>
+                    <div class="owl-thumb-item">
+                        <span class="media-left"><i class="flaticon-business"></i></span>
+                        <div class="media-body">
+                            <h5>Conference Room</h5>
+                            <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet.</p>
+                        </div>
+                    </div>
+                    <div class="owl-thumb-item">
+                        <span class="media-left"><i class="flaticon-beach"></i></span>
+                        <div class="media-body">
+                            <h5>Swimming Pool</h5>
+                            <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ========== GALLERY ========== -->
+<section id="gallery_style_2" class="white_bg">
+    <div class="container">
+        <div class="main_title mt_wave mt_blue a_center">
+            <h2>IMAGE GALLERY</h2>
+        </div>
+        <p class="main_description a_center">Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit.</p>
+        <div class="row">
+            <div class="image-gallery">
+                <!-- ITEM -->
+                <div class="col-md-3 col-sm-4">
+                    <figure class="gs2_item">
+                        <a href="~/assets/assets/images/gallery/gallery1.jpg" class="hover_effect h_lightbox h_blue">
+                            <img src="~/assets/assets/images/gallery/gallery1.jpg" class="img-responsive" alt="Image">
+                        </a>
+                    </figure>
+                </div>
+                <!-- ITEM -->
+                <div class="col-md-3 col-sm-4">
+                    <figure class="gs2_item">
+                        <a href="~/assets/assets/images/gallery/gallery2.jpg" class="hover_effect h_lightbox h_blue">
+                            <img src="~/assets/assets/images/gallery/gallery2.jpg" class="img-responsive" alt="Image">
+                        </a>
+                    </figure>
+                </div>
+                <!-- ITEM -->
+                <div class="col-md-3 col-sm-4">
+                    <figure class="gs2_item">
+                        <a href="~/assets/assets/images/gallery/gallery3.jpg" class="hover_effect h_lightbox h_blue">
+                            <img src="~/assets/assets/images/gallery/gallery3.jpg" class="img-responsive" alt="Image">
+                        </a>
+                    </figure>
+                </div>
+                <!-- ITEM -->
+                <div class="col-md-3 col-sm-4">
+                    <figure class="gs2_item">
+                        <a href="~/assets/assets/images/gallery/gallery4.jpg" class="hover_effect h_lightbox h_blue">
+                            <img src="~/assets/assets/images/gallery/gallery4.jpg" class="img-responsive" alt="Image">
+                        </a>
+                    </figure>
+                </div>
+                <!-- ITEM -->
+                <div class="col-md-3 col-sm-4">
+                    <figure class="gs2_item">
+                        <a href="~/assets/assets/images/gallery/gallery5.jpg" class="hover_effect h_lightbox h_blue">
+                            <img src="~/assets/assets/images/gallery/gallery5.jpg" class="img-responsive" alt="Image">
+                        </a>
+                    </figure>
+                </div>
+                <!-- ITEM -->
+                <div class="col-md-3 col-sm-4">
+                    <figure class="gs2_item">
+                        <a href="~/assets/assets/images/gallery/gallery6.jpg" class="hover_effect h_lightbox h_blue">
+                            <img src="~/assets/assets/images/gallery/gallery6.jpg" class="img-responsive" alt="Image">
+                        </a>
+                    </figure>
+                </div>
+                <!-- ITEM -->
+                <div class="col-md-3 col-sm-4">
+                    <figure class="gs2_item">
+                        <a href="~/assets/assets/images/gallery/gallery7.jpg" class="hover_effect h_lightbox h_blue">
+                            <img src="~/assets/assets/images/gallery/gallery7.jpg" class="img-responsive" alt="Image">
+                        </a>
+                    </figure>
+                </div>
+                <!-- ITEM -->
+                <div class="col-md-3 col-sm-4">
+                    <figure class="gs2_item">
+                        <a href="~/assets/assets/images/gallery/gallery8.jpg" class="hover_effect h_lightbox h_blue">
+                            <img src="~/assets/assets/images/gallery/gallery8.jpg" class="img-responsive" alt="Image">
+                        </a>
+                    </figure>
+                </div>
+                <!-- ITEM -->
+                <div class="col-md-3 col-sm-4">
+                    <figure class="gs2_item">
+                        <a href="~/assets/assets/images/gallery/gallery9.jpg" class="hover_effect h_lightbox h_blue">
+                            <img src="~/assets/assets/images/gallery/gallery9.jpg" class="img-responsive" alt="Image">
+                        </a>
+                    </figure>
+                </div>
+                <!-- ITEM -->
+                <div class="col-md-3 col-sm-4">
+                    <figure class="gs2_item">
+                        <a href="~/assets/assets/images/gallery/gallery10.jpg" class="hover_effect h_lightbox h_blue">
+                            <img src="~/assets/assets/images/gallery/gallery10.jpg" class="img-responsive" alt="Image">
+                        </a>
+                    </figure>
+                </div>
+                <!-- ITEM -->
+                <div class="col-md-3 col-sm-4">
+                    <figure class="gs2_item">
+                        <a href="~/assets/assets/images/gallery/gallery11.jpg" class="hover_effect h_lightbox h_blue">
+                            <img src="~/assets/assets/images/gallery/gallery11.jpg" class="img-responsive" alt="Image">
+                        </a>
+                    </figure>
+                </div>
+                <!-- ITEM -->
+                <div class="col-md-3 col-sm-4">
+                    <figure class="gs2_item">
+                        <a href="~/assets/assets/images/gallery/gallery12.jpg" class="hover_effect h_lightbox h_blue">
+                            <img src="~/assets/assets/images/gallery/gallery12.jpg" class="img-responsive" alt="Image">
+                        </a>
+                    </figure>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ========== VIDEO ========== -->
+<section id="video">
+    <div class="inner gradient_overlay">
+        <div class="container">
+            <div class="video_popup">
+                <a class="popup-vimeo" href="~/assets/assets/videos/hero_video.mp4"><i class="fa fa-play"></i></a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ========== CONTACT ========== -->
+<section class="white_bg" id="contact">
+    <div class="container">
+        <div class="main_title mt_wave mt_blue a_center">
+            <h2 class="c_title">LOCATION - CONTACT US</h2>
+        </div>
+        <p class="main_description a_center">Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit.</p>
+        <div class="row">
+            <div class="col-md-6">
+                <div>
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2990.274257380938!2d-70.56068388481569!3d41.45496659976631!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89e52963ac45bbcb%3A0xf05e8d125e82af10!2sDos%20Mas!5e0!3m2!1sen!2sus!4v1671220374408!5m2!1sen!2sus" width="100%" height="400" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="row">
+                    <div class="contact-items">
+                        <div class="col-md-4 col-sm-4">
+                            <div class="contact-item">
+                                <i class="glyphicon glyphicon-map-marker"></i>
+                                <h6>Navagio Zakynthos</h6>
+                            </div>
+                        </div>
+                        <div class="col-md-4 col-sm-4">
+                            <div class="contact-item">
+                                <i class="glyphicon glyphicon-phone-alt"></i>
+                                <h6>1-888-123-4567</h6>
+                            </div>
+                        </div>
+                        <div class="col-md-4 col-sm-4">
+                            <div class="contact-item">
+                                <i class="fa fa-envelope"></i>
+                                <h6>contact@site.com</h6>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <form id="contact-form" name="contact-form">
+                    <div id="contact-result"></div>
+                    <div class="form-group">
+                        <input class="form-control" name="name" placeholder="Your Name" type="text">
+                    </div>
+                    <div class="form-group">
+                        <input class="form-control" name="email" type="email" placeholder="Your Email Address">
+                    </div>
+                    <div class="form-group">
+                        <textarea class="form-control" name="message" placeholder="Your Message"></textarea>
+                    </div>
+                    <button class="button btn_lg btn_blue btn_full upper" type="submit"><i class="fa fa-location-arrow"></i>Send Message</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>

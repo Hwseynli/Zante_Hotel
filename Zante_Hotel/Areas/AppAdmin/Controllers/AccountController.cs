@@ -1,11 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Reflection;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
-
+﻿using Microsoft.AspNetCore.Mvc;
 // For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 namespace Zante_Hotel.Areas.AppAdmin.Controllers
 {
@@ -15,15 +8,13 @@ namespace Zante_Hotel.Areas.AppAdmin.Controllers
     {
         private readonly UserManager<AppUser> _userManager;
         private readonly SignInManager<AppUser> _signInManager;
-        private readonly AppDbContext _dbContext;
         private readonly IWebHostEnvironment _env;
         public readonly string fileaddress = @"admin/images/user-images";
-        public AccountController(UserManager<AppUser> userManager, SignInManager<AppUser> signInManager, AppDbContext dbContext, IWebHostEnvironment env)
+        public AccountController(UserManager<AppUser> userManager, SignInManager<AppUser> signInManager, IWebHostEnvironment env)
         {
             _userManager = userManager;
             _signInManager = signInManager;
             _env = env;
-            _dbContext = dbContext;
         }
         public IActionResult Registr()
         {
@@ -40,8 +31,6 @@ namespace Zante_Hotel.Areas.AppAdmin.Controllers
                 Surname = newuser.Surname,
                 UserName = newuser.Username
             };
-            //Age = newuser.Age,
-            //                 Gender = newuser.Gender,
 
             if (newuser.Age < 0) return View();
             user.Age = newuser.Age;

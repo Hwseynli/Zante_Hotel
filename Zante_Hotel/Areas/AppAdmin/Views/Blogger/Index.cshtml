@@ -1,0 +1,78 @@
+﻿@{
+    int count = 0;
+}
+@model ICollection<Blog>
+<div class="breadcrumbs">
+    <div class="breadcrumbs-inner">
+        <div class="row m-0">
+            <div class="col-sm-4">
+                <div class="page-header float-left">
+                    <div class="page-title">
+                        <h1>Blogs</h1>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-8">
+                <div class="page-header float-right">
+                    <div class="page-title">
+                        <ol class="breadcrumb text-right">
+                            <li><a href="#">AppAdmin</a></li>
+                            <li><a href="#">Authors</a></li>
+                            <li class="active">Blogs</li>
+                        </ol>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="content">
+    <div class="animated fadeIn">
+        <div class="row">
+            <div class="col-lg-6">
+                <div class="card">
+                    <div class="card-header">
+                        <strong class="card-title">Blogs Table</strong>
+                    </div>
+                    <div class="table-stats order-table ov-h">
+                        <table class="table ">
+                            <thead>
+                                <tr>
+                                    <th class="serial">Id</th>
+                                    <th class="avatar">Image</th>
+                                    <th>Name</th>
+                                    <th>Description</th>
+                                    <th>Tags Count</th>
+                                    <th>Comments Count</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach (var item in Model)
+                                {
+                                    count++;
+                                    <tr>
+                                        <td class="serial">@count</td>
+                                        <td class="avatar">
+                                            <div class="round-img">
+                                                <a href="#"><img class="rounded-circle" src="~/assets/assets/images/blog/@item.ImgUrl" alt=""></a>
+                                            </div>
+                                        </td>
+                                        <td>  <span class="name">@item.Name</span> </td>
+                                        <td><p>@item.Description.Substring(0, 100) ...</p> </td>
+                                        <td><span class="count">@item.Tags.Count</span></td>
+                                        <td><span class="count">@item.Comments.Count</span></td>
+                                    </tr>
+
+                                }
+
+                            </tbody>
+                        </table>
+                    </div> <!-- /.table-stats -->
+                </div>
+            </div>
+        </div>
+    </div><!-- .animated -->
+</div><!-- .content -->
+
+<div class="clearfix"></div>
