@@ -4,10 +4,12 @@
 	{
 		[Required]
 		public Guid BlogId { get; set; }
-		public Blog Blog { get; set; }
+		[ForeignKey("BlogId")]
+        public Blog Blog { get; set; }
 		[Required]
-		public int TagId { get; set; }
-		public Tag Tag { get; set; }
+		public Guid TagId { get; set; }
+		[ForeignKey("TagId")]
+        public Tag Tag { get; set; }
 
 	}
 }

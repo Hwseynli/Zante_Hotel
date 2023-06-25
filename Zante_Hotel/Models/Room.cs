@@ -7,8 +7,10 @@
         public decimal Price { get; set; }
         public ICollection<Service> Services { get; set; }
         public Guid CategoryId { get; set; }
+        [ForeignKey("CategoryId")]
         public Category Category { get; set; }
         public Guid ViewId { get; set; }
+        [ForeignKey("ViewId")]
         public View View { get; set; }
 
     }

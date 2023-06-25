@@ -1,5 +1,4 @@
-﻿using System;
-namespace Zante_Hotel.ViewModels
+﻿namespace Zante_Hotel.ViewModels
 {
     public class CreateCategoryVM
     {

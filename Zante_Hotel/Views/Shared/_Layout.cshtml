@@ -32,8 +32,21 @@
     <link href="~/assets/assets/fonts/font-awesome.min.css" rel="stylesheet">
     <link href="~/assets/assets/fonts/flaticon.css" rel="stylesheet">
 
+
     <!-- ========== GOOGLE FONTS ========== -->
     <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700,900%7cRaleway:400,500,600,700" rel="stylesheet">
+
+
+
+    <!--        -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.4.1/css/mdb.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.4.1/js/mdb.min.js"></script>
+    <!--         -->
+
+    
+
 
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -157,10 +170,52 @@
                             </ul>
                         </li>
                         <li><a href="contact.html">CONTACT US</a></li>
-                        <li><a href="blog.html">BLOG</a></li>
+                        <li><a asp-action="index" asp-controller="blog">BLOGS</a></li>
                         <li class="menu_button">
                             <a href="booking-form.html" class="button  btn_yellow"><i class="fa fa-calendar"></i>BOOK ONLINE</a>
                         </li>
+                        @if (!User.Identity.IsAuthenticated)
+                        {
+                            <li>
+                                <div class="user-area dropdown float-right">
+                                    <a asp-action="Login" asp-controller="Account" asp-area="AppAdmin" asp-route-ReturnUrl="@Context.Request.Path.Value" class="dropdown-toggle active" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                        <img class="user-avatar rounded-circle" style="vertical-align: middle; width: 40px; height: 40px; border-radius: 100%;" src="~/admin/images/user-images/images.jpeg " alt="User Avatar">
+                                    </a>
+                                    <div class="user-menu dropdown-menu" style="background:none">
+                                        <ul>
+                                            <li>
+                                                <a class="nav-link ml-2 mt-4" asp-action="Login" asp-controller="Account" asp-area="AppAdmin" asp-route-ReturnUrl="@Context.Request.Path.Value"><i class="fa fa- user"></i>Login</a>
+                                            </li>
+                                            <li>
+                                                <a class="nav-link ml-2 mb-4" asp-action="Registr" asp-controller="Account" asp-area="AppAdmin" asp-route-ReturnUrl="@Context.Request.Path.Value"><i class="fa fa- user"></i>Registr</a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </li>
+                        }
+                        else
+                        {
+                            @inject LayoutService service;
+                            AppUser user = await service.GetUser();
+                            <li>
+                                <div class="user-area dropdown float-right">
+                                    <a href="#" class="dropdown-toggle active" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                        <img class="user-avatar rounded-circle" style="vertical-align: middle; width: 40px; height: 40px; border-radius: 100%;" src="~/admin/images/user-images/@user.UserImgUrl " alt="User Avatar">
+                                    </a>
+                                    <div class="user-menu dropdown-menu" style="background:none">
+                                        <ul>
+                                            <li>
+                                                <a class="nav-link ml-2 mt-4" href="#"><i class="fa fa- user"></i>@user.UserName</a>
+                                            </li>
+                                            <li>
+                                                <a class="nav-link ml-2 mb-4" asp-action="Logout" asp-controller="Account" asp-area="AppAdmin"><i class="fa fa- user"></i>Logout</a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </li>
+                        }
                     </ul>
                 </nav>
             </div>

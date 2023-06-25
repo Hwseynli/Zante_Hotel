@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace Zante_Hotel.Migrations
 {
     /// <inheritdoc />
-    public partial class CreateDatabaseHotelBookComentary : Migration
+    public partial class createdatabasehotelbookagainblogger : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -238,8 +238,8 @@ namespace Zante_Hotel.Migrations
                 columns: table => new
                 {
                     Id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
-                    AuthorId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
-                    AuthorId1 = table.Column<string>(type: "nvarchar(450)", nullable: true),
+                    SubTitle = table.Column<string>(type: "nvarchar(100)", maxLength: 100, nullable: false),
+                    AuthorId = table.Column<string>(type: "nvarchar(450)", nullable: true),
                     ImgUrl = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Description = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Name = table.Column<string>(type: "nvarchar(25)", maxLength: 25, nullable: false)
@@ -248,8 +248,27 @@ namespace Zante_Hotel.Migrations
                 {
                     table.PrimaryKey("PK_Blogs", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_Blogs_AspNetUsers_AuthorId1",
-                        column: x => x.AuthorId1,
+                        name: "FK_Blogs_AspNetUsers_AuthorId",
+                        column: x => x.AuthorId,
+                        principalTable: "AspNetUsers",
+                        principalColumn: "Id");
+                });
+
+            migrationBuilder.CreateTable(
+                name: "Comments",
+                columns: table => new
+                {
+                    Id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    Text = table.Column<string>(type: "nvarchar(500)", maxLength: 500, nullable: false),
+                    UserId = table.Column<string>(type: "nvarchar(450)", nullable: true),
+                    CreateOn = table.Column<DateTime>(type: "datetime2", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Comments", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_Comments_AspNetUsers_UserId",
+                        column: x => x.UserId,
                         principalTable: "AspNetUsers",
                         principalColumn: "Id");
                 });
@@ -283,37 +302,12 @@ namespace Zante_Hotel.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "BlogTag",
-                columns: table => new
-                {
-                    BlogsId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
-                    TagsId = table.Column<Guid>(type: "uniqueidentifier", nullable: false)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_BlogTag", x => new { x.BlogsId, x.TagsId });
-                    table.ForeignKey(
-                        name: "FK_BlogTag_Blogs_BlogsId",
-                        column: x => x.BlogsId,
-                        principalTable: "Blogs",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
-                    table.ForeignKey(
-                        name: "FK_BlogTag_Tags_TagsId",
-                        column: x => x.TagsId,
-                        principalTable: "Tags",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
-                });
-
-            migrationBuilder.CreateTable(
                 name: "BlogTags",
                 columns: table => new
                 {
                     Id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
                     BlogId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
-                    TagId = table.Column<int>(type: "int", nullable: false),
-                    TagId1 = table.Column<Guid>(type: "uniqueidentifier", nullable: true)
+                    TagId = table.Column<Guid>(type: "uniqueidentifier", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -325,35 +319,37 @@ namespace Zante_Hotel.Migrations
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
-                        name: "FK_BlogTags_Tags_TagId1",
-                        column: x => x.TagId1,
+                        name: "FK_BlogTags_Tags_TagId",
+                        column: x => x.TagId,
                         principalTable: "Tags",
-                        principalColumn: "Id");
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateTable(
-                name: "Comments",
+                name: "Replies",
                 columns: table => new
                 {
                     Id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
-                    Text = table.Column<string>(type: "nvarchar(500)", maxLength: 500, nullable: false),
-                    UserId = table.Column<string>(type: "nvarchar(450)", nullable: true),
+                    Text = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    CommentId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
                     CreateOn = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    BlogId = table.Column<Guid>(type: "uniqueidentifier", nullable: true)
+                    UserId = table.Column<string>(type: "nvarchar(450)", nullable: true)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Comments", x => x.Id);
+                    table.PrimaryKey("PK_Replies", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_Comments_AspNetUsers_UserId",
+                        name: "FK_Replies_AspNetUsers_UserId",
                         column: x => x.UserId,
                         principalTable: "AspNetUsers",
                         principalColumn: "Id");
                     table.ForeignKey(
-                        name: "FK_Comments_Blogs_BlogId",
-                        column: x => x.BlogId,
-                        principalTable: "Blogs",
-                        principalColumn: "Id");
+                        name: "FK_Replies_Comments_CommentId",
+                        column: x => x.CommentId,
+                        principalTable: "Comments",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateTable(
@@ -405,32 +401,6 @@ namespace Zante_Hotel.Migrations
                         onDelete: ReferentialAction.Cascade);
                 });
 
-            migrationBuilder.CreateTable(
-                name: "Replies",
-                columns: table => new
-                {
-                    Id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
-                    Text = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    CommentId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
-                    CreateOn = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    UserId = table.Column<string>(type: "nvarchar(450)", nullable: true)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_Replies", x => x.Id);
-                    table.ForeignKey(
-                        name: "FK_Replies_AspNetUsers_UserId",
-                        column: x => x.UserId,
-                        principalTable: "AspNetUsers",
-                        principalColumn: "Id");
-                    table.ForeignKey(
-                        name: "FK_Replies_Comments_CommentId",
-                        column: x => x.CommentId,
-                        principalTable: "Comments",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
-                });
-
             migrationBuilder.CreateIndex(
                 name: "IX_AspNetRoleClaims_RoleId",
                 table: "AspNetRoleClaims",
@@ -471,14 +441,9 @@ namespace Zante_Hotel.Migrations
                 filter: "[NormalizedUserName] IS NOT NULL");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Blogs_AuthorId1",
+                name: "IX_Blogs_AuthorId",
                 table: "Blogs",
-                column: "AuthorId1");
-
-            migrationBuilder.CreateIndex(
-                name: "IX_BlogTag_TagsId",
-                table: "BlogTag",
-                column: "TagsId");
+                column: "AuthorId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_BlogTags_BlogId",
@@ -486,14 +451,9 @@ namespace Zante_Hotel.Migrations
                 column: "BlogId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_BlogTags_TagId1",
+                name: "IX_BlogTags_TagId",
                 table: "BlogTags",
-                column: "TagId1");
-
-            migrationBuilder.CreateIndex(
-                name: "IX_Comments_BlogId",
-                table: "Comments",
-                column: "BlogId");
+                column: "TagId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_Comments_UserId",
@@ -555,9 +515,6 @@ namespace Zante_Hotel.Migrations
                 name: "AspNetUserTokens");
 
             migrationBuilder.DropTable(
-                name: "BlogTag");
-
-            migrationBuilder.DropTable(
                 name: "BlogTags");
 
             migrationBuilder.DropTable(
@@ -579,6 +536,9 @@ namespace Zante_Hotel.Migrations
                 name: "AspNetRoles");
 
             migrationBuilder.DropTable(
+                name: "Blogs");
+
+            migrationBuilder.DropTable(
                 name: "Tags");
 
             migrationBuilder.DropTable(
@@ -591,16 +551,13 @@ namespace Zante_Hotel.Migrations
                 name: "Services");
 
             migrationBuilder.DropTable(
-                name: "Blogs");
+                name: "AspNetUsers");
 
             migrationBuilder.DropTable(
                 name: "Categories");
 
             migrationBuilder.DropTable(
                 name: "Views");
-
-            migrationBuilder.DropTable(
-                name: "AspNetUsers");
         }
     }
 }

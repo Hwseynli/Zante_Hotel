@@ -1,4 +1,5 @@
 ﻿using FluentValidation.AspNetCore;
+using Zante_Hotel.Services;
 using Zante_Hotel.Validators;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -18,6 +19,7 @@ builder.Services.AddIdentity<AppUser, IdentityRole>(ops =>
     ops.Lockout.MaxFailedAccessAttempts = 3;
 }).AddEntityFrameworkStores<AppDbContext>().AddDefaultTokenProviders();
 // Add services to the container.
+builder.Services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
 builder.Services.AddControllersWithViews()
      .AddFluentValidation(c => c.RegisterValidatorsFromAssemblyContaining<RegistrUserValidator>())
     .AddFluentValidation(c => c.RegisterValidatorsFromAssemblyContaining<LoginUserValidator>());
@@ -27,7 +29,7 @@ builder.Services.AddDbContext<AppDbContext>(ops =>
 {
     ops.UseSqlServer(builder.Configuration.GetConnectionString("Default"));
 });
-//builder.Services.AddScoped<LayoutService>();
+builder.Services.AddScoped<LayoutService>();
 var app = builder.Build();
 
 app.UseHttpsRedirection();

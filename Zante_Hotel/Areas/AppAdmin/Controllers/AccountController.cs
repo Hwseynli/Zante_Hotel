@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿
+using Microsoft.AspNetCore.Mvc;
 // For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 namespace Zante_Hotel.Areas.AppAdmin.Controllers
 {
@@ -21,7 +22,7 @@ namespace Zante_Hotel.Areas.AppAdmin.Controllers
             return View();
         }
         [HttpPost]
-        public async Task<IActionResult> Registr(RegistrVM newuser)
+        public async Task<IActionResult> Registr(RegistrVM newuser,string ReturnUrl)
         {
             if (!ModelState.IsValid) return View();
             AppUser user = new AppUser
@@ -62,14 +63,21 @@ namespace Zante_Hotel.Areas.AppAdmin.Controllers
                 return View();
             }
             await _signInManager.SignInAsync(user, false);
-            return RedirectToAction("Index", "Home", new { area = "" });
+            if (ReturnUrl is null)
+            {
+                return RedirectToAction("Index", "Home", new { area = "" });
+            }
+            else
+            {
+                return Redirect(ReturnUrl);
+            }
         }
         public IActionResult Login()
         {
             return View();
         }
         [HttpPost]
-        public async Task<IActionResult> Login(LoginVM user)
+        public async Task<IActionResult> Login(LoginVM user, string ReturnUrl)
         {
             if (!ModelState.IsValid) return View();
             AppUser existed = await _userManager.FindByEmailAsync(user.UsernameOrEmail);
@@ -92,12 +100,26 @@ namespace Zante_Hotel.Areas.AppAdmin.Controllers
             {
                 ModelState.AddModelError(string.Empty, "You are Blocked");
             }
-            return RedirectToAction("Index", "Home", new { area = "" });
+            if (ReturnUrl is null)
+            {
+                return RedirectToAction("Index", "Home", new { area = "" });
+            }
+            else
+            {
+                return Redirect(ReturnUrl);
+            }
         }
-        public async Task<IActionResult> Logout()
+        public async Task<IActionResult> Logout(string ReturnUrl)
         {
             await _signInManager.SignOutAsync();
-            return RedirectToAction("Index", "Home", new { area = "" });
+            if (ReturnUrl is null)
+            {
+                return RedirectToAction("Index", "Home", new { area = "" });
+            }
+            else
+            {
+                return Redirect(ReturnUrl);
+            }
         }
     }
 }

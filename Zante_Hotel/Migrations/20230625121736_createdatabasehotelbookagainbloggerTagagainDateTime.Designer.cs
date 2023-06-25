@@ -12,8 +12,8 @@ using Zante_Hotel.Areas.AppAdmin.DAL;
 namespace Zante_Hotel.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20230620142324_CreateDatabaseHotelBookComentary")]
-    partial class CreateDatabaseHotelBookComentary
+    [Migration("20230625121736_createdatabasehotelbookagainbloggerTagagainDateTime")]
+    partial class createdatabasehotelbookagainbloggerTagagainDateTime
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -24,21 +24,6 @@ namespace Zante_Hotel.Migrations
                 .HasAnnotation("Relational:MaxIdentifierLength", 128);
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
-
-            modelBuilder.Entity("BlogTag", b =>
-                {
-                    b.Property<Guid>("BlogsId")
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<Guid>("TagsId")
-                        .HasColumnType("uniqueidentifier");
-
-                    b.HasKey("BlogsId", "TagsId");
-
-                    b.HasIndex("TagsId");
-
-                    b.ToTable("BlogTag");
-                });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRole", b =>
                 {
@@ -278,11 +263,14 @@ namespace Zante_Hotel.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uniqueidentifier");
 
-                    b.Property<Guid>("AuthorId")
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<string>("AuthorId1")
+                    b.Property<string>("AithorId")
                         .HasColumnType("nvarchar(450)");
+
+                    b.Property<string>("AuthorId")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime>("CreateOn")
+                        .HasColumnType("datetime2");
 
                     b.Property<string>("Description")
                         .IsRequired()
@@ -297,9 +285,19 @@ namespace Zante_Hotel.Migrations
                         .HasMaxLength(25)
                         .HasColumnType("nvarchar(25)");
 
+                    b.Property<string>("SubTitle")
+                        .IsRequired()
+                        .HasMaxLength(100)
+                        .HasColumnType("nvarchar(100)");
+
+                    b.Property<Guid?>("TagId")
+                        .HasColumnType("uniqueidentifier");
+
                     b.HasKey("Id");
 
-                    b.HasIndex("AuthorId1");
+                    b.HasIndex("AithorId");
+
+                    b.HasIndex("TagId");
 
                     b.ToTable("Blogs");
                 });
@@ -313,17 +311,14 @@ namespace Zante_Hotel.Migrations
                     b.Property<Guid>("BlogId")
                         .HasColumnType("uniqueidentifier");
 
-                    b.Property<int>("TagId")
-                        .HasColumnType("int");
-
-                    b.Property<Guid?>("TagId1")
+                    b.Property<Guid>("TagId")
                         .HasColumnType("uniqueidentifier");
 
                     b.HasKey("Id");
 
                     b.HasIndex("BlogId");
 
-                    b.HasIndex("TagId1");
+                    b.HasIndex("TagId");
 
                     b.ToTable("BlogTags");
                 });
@@ -532,21 +527,6 @@ namespace Zante_Hotel.Migrations
                     b.ToTable("Views");
                 });
 
-            modelBuilder.Entity("BlogTag", b =>
-                {
-                    b.HasOne("Zante_Hotel.Models.Blog", null)
-                        .WithMany()
-                        .HasForeignKey("BlogsId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("Zante_Hotel.Models.Tag", null)
-                        .WithMany()
-                        .HasForeignKey("TagsId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-                });
-
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
                 {
                     b.HasOne("Microsoft.AspNetCore.Identity.IdentityRole", null)
@@ -617,7 +597,11 @@ namespace Zante_Hotel.Migrations
                 {
                     b.HasOne("Zante_Hotel.Areas.AppAdmin.Models.AppUser", "Author")
                         .WithMany()
-                        .HasForeignKey("AuthorId1");
+                        .HasForeignKey("AithorId");
+
+                    b.HasOne("Zante_Hotel.Models.Tag", null)
+                        .WithMany("Blogs")
+                        .HasForeignKey("TagId");
 
                     b.Navigation("Author");
                 });
@@ -625,14 +609,16 @@ namespace Zante_Hotel.Migrations
             modelBuilder.Entity("Zante_Hotel.Models.BlogTag", b =>
                 {
                     b.HasOne("Zante_Hotel.Models.Blog", "Blog")
-                        .WithMany()
+                        .WithMany("Tags")
                         .HasForeignKey("BlogId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
                     b.HasOne("Zante_Hotel.Models.Tag", "Tag")
                         .WithMany()
-                        .HasForeignKey("TagId1");
+                        .HasForeignKey("TagId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
                     b.Navigation("Blog");
 
@@ -710,6 +696,8 @@ namespace Zante_Hotel.Migrations
             modelBuilder.Entity("Zante_Hotel.Models.Blog", b =>
                 {
                     b.Navigation("Comments");
+
+                    b.Navigation("Tags");
                 });
 
             modelBuilder.Entity("Zante_Hotel.Models.Category", b =>
@@ -720,6 +708,11 @@ namespace Zante_Hotel.Migrations
             modelBuilder.Entity("Zante_Hotel.Models.Comment", b =>
                 {
                     b.Navigation("Replies");
+                });
+
+            modelBuilder.Entity("Zante_Hotel.Models.Tag", b =>
+                {
+                    b.Navigation("Blogs");
                 });
 
             modelBuilder.Entity("Zante_Hotel.Models.View", b =>

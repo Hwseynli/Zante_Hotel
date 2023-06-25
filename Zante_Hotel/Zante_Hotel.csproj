@@ -50,6 +50,9 @@
     <Folder Include="Views\Blog\" />
     <Folder Include="Areas\AppAdmin\Views\Blogger\" />
     <Folder Include="ViewModels\Blog\" />
+    <Folder Include="Services\" />
+    <Folder Include="ViewModels\Tag\" />
+    <Folder Include="Areas\AppAdmin\Views\Tag\" />
   </ItemGroup>
   <ItemGroup>
     <None Remove="Models\" />
@@ -80,6 +83,9 @@
     <None Remove="Views\Blog\" />
     <None Remove="Areas\AppAdmin\Views\Blogger\" />
     <None Remove="ViewModels\Blog\" />
+    <None Remove="Services\" />
+    <None Remove="ViewModels\Tag\" />
+    <None Remove="Areas\AppAdmin\Views\Tag\" />
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="Microsoft.EntityFrameworkCore" Version="7.0.7" />
