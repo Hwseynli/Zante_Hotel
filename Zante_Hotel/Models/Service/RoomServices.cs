@@ -2,10 +2,14 @@
 {
 	public class RoomServices:BaseEntity
 	{
+		[Required]
 		public Guid RoomId { get; set; }
+		[ForeignKey("RoomId")]
 		public Room Room { get; set; }
+		[Required]
 		public Guid ServiceId { get; set; }
-		public Service Service { get; set; }
+        [ForeignKey("ServiceId")]
+        public Service Service { get; set; }
 	}
 }
 

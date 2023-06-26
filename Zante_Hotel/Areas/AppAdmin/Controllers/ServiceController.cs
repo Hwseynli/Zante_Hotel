@@ -1,9 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+﻿
 using Microsoft.AspNetCore.Mvc;
-using Zante_Hotel.Models;
 
 //// For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
@@ -20,7 +16,7 @@ namespace Zante_Hotel.Areas.AppAdmin.Controllers
         }
         public async Task<IActionResult> Index()
         {
-            ICollection<Service> services = await _context.Services.Include(c => c.Rooms).ToListAsync();
+            ICollection<Service> services = await _context.Services.Include(c => c.Rooms).ThenInclude(r=>r.Room).ToListAsync();
             return View(services);
         }
         public IActionResult Create()

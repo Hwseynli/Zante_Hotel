@@ -155,21 +155,6 @@ namespace Zante_Hotel.Migrations
                     b.ToTable("AspNetUserTokens", (string)null);
                 });
 
-            modelBuilder.Entity("RoomService", b =>
-                {
-                    b.Property<Guid>("RoomsId")
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<Guid>("ServicesId")
-                        .HasColumnType("uniqueidentifier");
-
-                    b.HasKey("RoomsId", "ServicesId");
-
-                    b.HasIndex("ServicesId");
-
-                    b.ToTable("RoomService");
-                });
-
             modelBuilder.Entity("Zante_Hotel.Areas.AppAdmin.Models.AppUser", b =>
                 {
                     b.Property<string>("Id")
@@ -284,14 +269,9 @@ namespace Zante_Hotel.Migrations
                         .HasMaxLength(100)
                         .HasColumnType("nvarchar(100)");
 
-                    b.Property<Guid?>("TagId")
-                        .HasColumnType("uniqueidentifier");
-
                     b.HasKey("Id");
 
                     b.HasIndex("AuthorId");
-
-                    b.HasIndex("TagId");
 
                     b.ToTable("Blogs");
                 });
@@ -396,12 +376,35 @@ namespace Zante_Hotel.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uniqueidentifier");
 
-                    b.Property<string>("Name")
+                    b.Property<DateTime>("ArrivalDateTime")
+                        .HasColumnType("datetime2");
+
+                    b.Property<DateTime>("DepartureDateTime")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("Email")
                         .IsRequired()
-                        .HasMaxLength(25)
-                        .HasColumnType("nvarchar(25)");
+                        .HasMaxLength(100)
+                        .HasColumnType("nvarchar(100)");
+
+                    b.Property<string>("FullName")
+                        .IsRequired()
+                        .HasMaxLength(100)
+                        .HasColumnType("nvarchar(100)");
+
+                    b.Property<int>("NumberOfPeople")
+                        .HasColumnType("int");
+
+                    b.Property<string>("PhoneNumber")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<Guid>("RoomId")
+                        .HasColumnType("uniqueidentifier");
 
                     b.HasKey("Id");
+
+                    b.HasIndex("RoomId");
 
                     b.ToTable("Reservations");
                 });
@@ -415,6 +418,10 @@ namespace Zante_Hotel.Migrations
                     b.Property<Guid>("CategoryId")
                         .HasColumnType("uniqueidentifier");
 
+                    b.Property<string>("Description")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<bool>("IsReservation")
                         .HasColumnType("bit");
 
@@ -422,6 +429,9 @@ namespace Zante_Hotel.Migrations
                         .IsRequired()
                         .HasMaxLength(25)
                         .HasColumnType("nvarchar(25)");
+
+                    b.Property<int>("NumberOfPeople")
+                        .HasColumnType("int");
 
                     b.Property<decimal>("Price")
                         .HasColumnType("decimal(18,2)");
@@ -438,15 +448,27 @@ namespace Zante_Hotel.Migrations
                     b.ToTable("Rooms");
                 });
 
-            modelBuilder.Entity("Zante_Hotel.Models.RoomReservation", b =>
+            modelBuilder.Entity("Zante_Hotel.Models.RoomImage", b =>
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uniqueidentifier");
 
+                    b.Property<string>("ImageUrl")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<bool>("IsPrimary")
+                        .HasColumnType("bit");
+
+                    b.Property<Guid>("RoomId")
+                        .HasColumnType("uniqueidentifier");
+
                     b.HasKey("Id");
 
-                    b.ToTable("RoomReservations");
+                    b.HasIndex("RoomId");
+
+                    b.ToTable("RoomImages");
                 });
 
             modelBuilder.Entity("Zante_Hotel.Models.RoomServices", b =>
@@ -572,30 +594,11 @@ namespace Zante_Hotel.Migrations
                         .IsRequired();
                 });
 
-            modelBuilder.Entity("RoomService", b =>
-                {
-                    b.HasOne("Zante_Hotel.Models.Room", null)
-                        .WithMany()
-                        .HasForeignKey("RoomsId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("Zante_Hotel.Models.Service", null)
-                        .WithMany()
-                        .HasForeignKey("ServicesId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-                });
-
             modelBuilder.Entity("Zante_Hotel.Models.Blog", b =>
                 {
                     b.HasOne("Zante_Hotel.Areas.AppAdmin.Models.AppUser", "Author")
                         .WithMany()
                         .HasForeignKey("AuthorId");
-
-                    b.HasOne("Zante_Hotel.Models.Tag", null)
-                        .WithMany("Blogs")
-                        .HasForeignKey("TagId");
 
                     b.Navigation("Author");
                 });
@@ -609,7 +612,7 @@ namespace Zante_Hotel.Migrations
                         .IsRequired();
 
                     b.HasOne("Zante_Hotel.Models.Tag", "Tag")
-                        .WithMany()
+                        .WithMany("Blogs")
                         .HasForeignKey("TagId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
@@ -649,6 +652,17 @@ namespace Zante_Hotel.Migrations
                     b.Navigation("User");
                 });
 
+            modelBuilder.Entity("Zante_Hotel.Models.Reservation", b =>
+                {
+                    b.HasOne("Zante_Hotel.Models.Room", "Room")
+                        .WithMany("ReservationsDate")
+                        .HasForeignKey("RoomId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Room");
+                });
+
             modelBuilder.Entity("Zante_Hotel.Models.Room", b =>
                 {
                     b.HasOne("Zante_Hotel.Models.Category", "Category")
@@ -668,16 +682,27 @@ namespace Zante_Hotel.Migrations
                     b.Navigation("View");
                 });
 
+            modelBuilder.Entity("Zante_Hotel.Models.RoomImage", b =>
+                {
+                    b.HasOne("Zante_Hotel.Models.Room", "Room")
+                        .WithMany("Images")
+                        .HasForeignKey("RoomId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Room");
+                });
+
             modelBuilder.Entity("Zante_Hotel.Models.RoomServices", b =>
                 {
                     b.HasOne("Zante_Hotel.Models.Room", "Room")
-                        .WithMany()
+                        .WithMany("Services")
                         .HasForeignKey("RoomId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
                     b.HasOne("Zante_Hotel.Models.Service", "Service")
-                        .WithMany()
+                        .WithMany("Rooms")
                         .HasForeignKey("ServiceId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
@@ -702,6 +727,20 @@ namespace Zante_Hotel.Migrations
             modelBuilder.Entity("Zante_Hotel.Models.Comment", b =>
                 {
                     b.Navigation("Replies");
+                });
+
+            modelBuilder.Entity("Zante_Hotel.Models.Room", b =>
+                {
+                    b.Navigation("Images");
+
+                    b.Navigation("ReservationsDate");
+
+                    b.Navigation("Services");
+                });
+
+            modelBuilder.Entity("Zante_Hotel.Models.Service", b =>
+                {
+                    b.Navigation("Rooms");
                 });
 
             modelBuilder.Entity("Zante_Hotel.Models.Tag", b =>

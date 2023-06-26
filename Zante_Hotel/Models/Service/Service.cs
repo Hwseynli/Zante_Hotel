@@ -3,7 +3,7 @@
 	public class Service:BaseNameableEntity
 	{
         public string Icon { get; set; }
-        public ICollection<Room> Rooms { get; set; }
+        public ICollection<RoomServices> Rooms { get; set; }
     }
 }
 

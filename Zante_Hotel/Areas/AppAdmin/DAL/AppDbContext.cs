@@ -11,7 +11,7 @@
         public DbSet<View> Views { get; set; }
         public DbSet<RoomServices> RoomServices { get; set; }
         public DbSet<Reservation> Reservations { get; set; }
-        public DbSet<RoomReservation> RoomReservations { get; set; }
+        public DbSet<RoomImage> RoomImages { get; set; }
         public DbSet<Comment> Comments { get; set; }
         public DbSet<Reply> Replies { get; set; }
         public DbSet<Blog> Blogs { get; set; }

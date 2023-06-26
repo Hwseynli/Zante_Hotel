@@ -10,6 +10,8 @@
         public virtual Comment Comment { get; set; }
         [ScaffoldColumn(false)]
         public DateTime CreateOn { get; set; }
-        public virtual AppUser User { get; set; }
+        public string UserId { get; set; }
+        [ForeignKey("UserId")]
+        public AppUser User { get; set; }
     }
 }

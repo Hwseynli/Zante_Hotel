@@ -45,7 +45,6 @@
     <Folder Include="ViewModels\Service\" />
     <Folder Include="Models\Blog\" />
     <Folder Include="Models\Commentary\" />
-    <Folder Include="Models\Reservations\" />
     <Folder Include="wwwroot\assets\" />
     <Folder Include="Views\Blog\" />
     <Folder Include="Areas\AppAdmin\Views\Blogger\" />
@@ -53,6 +52,9 @@
     <Folder Include="Services\" />
     <Folder Include="ViewModels\Tag\" />
     <Folder Include="Areas\AppAdmin\Views\Tag\" />
+    <Folder Include="ViewModels\Room\" />
+    <Folder Include="Models\Service\" />
+    <Folder Include="Models\Room\" />
   </ItemGroup>
   <ItemGroup>
     <None Remove="Models\" />
@@ -79,13 +81,15 @@
     <None Remove="ViewModels\Service\" />
     <None Remove="Models\Blog\" />
     <None Remove="Models\Commentary\" />
-    <None Remove="Models\Reservations\" />
     <None Remove="Views\Blog\" />
     <None Remove="Areas\AppAdmin\Views\Blogger\" />
     <None Remove="ViewModels\Blog\" />
     <None Remove="Services\" />
     <None Remove="ViewModels\Tag\" />
     <None Remove="Areas\AppAdmin\Views\Tag\" />
+    <None Remove="ViewModels\Room\" />
+    <None Remove="Models\Service\" />
+    <None Remove="Models\Room\" />
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="Microsoft.EntityFrameworkCore" Version="7.0.7" />

@@ -2,7 +2,7 @@
 {
 	public class Tag:BaseNameableEntity
 	{
-		public ICollection<Blog> Blogs { get; set; }
+		public ICollection<BlogTag> Blogs { get; set; }
 	}
 }
 
