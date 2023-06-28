@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 
 // For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
@@ -138,7 +139,7 @@ namespace Zante_Hotel.Areas.AppAdmin.Controllers
             ViewBag.Views = await _dbContext.Views.ToListAsync();
             ViewBag.Services = await _dbContext.Services.ToListAsync();
             if (id is null) return BadRequest();
-            Room existed = await _dbContext.Rooms.Where(r=>r.Id==id).Include(r=>r.Images).Include(r=>r.Category).Include(r => r.Services).Include(r => r.View).Include(r => r.ReservationsDate).FirstOrDefaultAsync();
+            Room existed = await _dbContext.Rooms.Where(r=>r.Id==id).Include(r=>r.Images).Include(r=>r.Category).Include(r => r.Services).Include(r => r.View).FirstOrDefaultAsync();
             if (existed == null) return NotFound();
             UpdateRoomVM roomVM = new UpdateRoomVM
             {
@@ -228,33 +229,33 @@ namespace Zante_Hotel.Areas.AppAdmin.Controllers
                 };
                 existed.Images.Add(roomImage);
             }
-
             List<RoomImage> removeImageList = existed.Images.Where(pi => !roomVM.ImagesIds.Contains(pi.Id) && pi.IsPrimary == false).ToList();
             foreach (RoomImage rImage in removeImageList)
             {
-                rImage.ImageUrl.DeleteFile(_env.WebRootPath, "assets/images/website-images");
+                rImage.ImageUrl.DeleteFile(_env.WebRootPath, "assets/assets/images/rooms");
                 existed.Images.Remove(rImage);
             }
-            foreach (IFormFile photo in roomVM.Photos)
+            if (roomVM.Photos != null && roomVM.Photos.Count > 0)
             {
-                if (!photo.CheckFileType("image/"))
+                foreach (var photo in roomVM.Photos)
                 {
-                    ModelState.AddModelError("Photos", "File tipi uygun deyil");
-                    return View();
+                    if (!photo.CheckFileType("image/"))
+                    {
+                        ModelState.AddModelError("Photos", "File tipi uygun deyil");
+                        return View();
+                    }
+                    if (!photo.CheckFileSize(20000))
+                    {
+                        ModelState.AddModelError("Photos", "File olcusu uygun deyil");
+                        return View();
+                    }
+                    existed.Images.Add(new RoomImage
+                    {
+                        ImageUrl = await photo.CreateFileAsync(_env.WebRootPath, "assets/assets/images/rooms"),
+                        IsPrimary = false,
+                        RoomId = existed.Id
+                    });
                 }
-                if (!photo.CheckFileSize(20000))
-                {
-                    ModelState.AddModelError("Photos", "File olcusu uygun deyil");
-                    return View();
-                }
-                RoomImage addImage = new RoomImage
-                {
-                    ImageUrl = await photo.CreateFileAsync(_env.WebRootPath, "assets/images/website-images"),
-                    IsPrimary = false,
-                    RoomId = existed.Id
-                };
-
-                existed.Images.Add(addImage);
             }
             await _dbContext.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
@@ -262,11 +263,34 @@ namespace Zante_Hotel.Areas.AppAdmin.Controllers
         public async Task<IActionResult> Delete(Guid? id)
         {
             if (id is null) return BadRequest();
-            Room existed = await _dbContext.Rooms.Where(r => r.Id == id).Include(r => r.Images).Include(r => r.Category).Include(r => r.Services).Include(r => r.View).Include(r => r.ReservationsDate).FirstOrDefaultAsync();
+            Room existed = await _dbContext.Rooms.Include(r=>r.Images).FirstOrDefaultAsync(r=>r.Id==id);
             if (existed == null) return NotFound();
-
-            return View();
+            if (existed.Images.Count>0)
+            {
+                foreach (var item in existed.Images)
+                {
+                    item.ImageUrl.DeleteFile(_env.WebRootPath, @"assets/assets/images/rooms");
+                    _dbContext.RoomImages.Remove(item);
+                }
+            }
+            _dbContext.Rooms.Remove(existed);
+            await _dbContext.SaveChangesAsync();
+            return RedirectToAction(nameof(Index));
         }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
         public UpdateRoomVM MapImages(UpdateRoomVM roomVM, Room room)
         {
@@ -285,4 +309,3 @@ namespace Zante_Hotel.Areas.AppAdmin.Controllers
         }
     }
 }
-
