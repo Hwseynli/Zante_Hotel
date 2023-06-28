@@ -10,15 +10,15 @@
         public decimal Price { get; set; }
         [Required]
         public int NumberOfPeople { get; set; }
-        public ICollection<RoomServices> RoomServices { get; set; }
-        public ICollection<RoomImage> Images { get; set; }
+        [Required]
+        public IFormFile MainPhoto { get; set; }
+        public ICollection<IFormFile> Photos { get; set; }
         [Required]
         public Guid CategoryId { get; set; }
         [Required]
         public Guid ViewId { get; set; }
-        public bool IsReservation { get; set; } = false;
         public ICollection<Reservation> ReservationsDate { get; set; }
-       
+        public ICollection<Guid> ServiceIds { get; set; }
     }
 }
 

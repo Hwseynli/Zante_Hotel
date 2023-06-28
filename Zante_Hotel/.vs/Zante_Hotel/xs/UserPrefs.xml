@@ -1,27 +1,36 @@
 ﻿<Properties StartupConfiguration="{6E2AD9F4-671F-4A46-82C7-E15857056413}|https">
-  <MultiItemStartupConfigurations />
-  <MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.Workbench ActiveDocument="Areas/AppAdmin/Controllers/RoomController.cs">
+    <Files>
+      <File FileName="Areas/AppAdmin/Controllers/RoomController.cs" Line="136" Column="1" />
+      <File FileName="Models/Room/Room.cs" />
+    </Files>
     <Pads>
       <Pad Id="ProjectPad">
         <State name="__root__">
           <Node name="Zante_Hotel">
-            <Node name="Zante_Hotel">
+            <Node name="Zante_Hotel" expanded="True">
               <Node name="Areas" expanded="True">
                 <Node name="AppAdmin" expanded="True">
-                  <Node name="DAL" expanded="True" />
-                  <Node name="Views" expanded="True">
-                    <Node name="Service" expanded="True" />
+                  <Node name="Controllers" expanded="True">
+                    <Node name="RoomController.cs" selected="True" />
                   </Node>
+                  <Node name="DAL" expanded="True" />
                 </Node>
               </Node>
-              <Node name="Migrations" expanded="True" />
               <Node name="Models" expanded="True">
                 <Node name="Blog" expanded="True" />
                 <Node name="Room" expanded="True" />
-                <Node name="Service" expanded="True" />
               </Node>
-              <Node name="appsettings.json">
-                <Node name="appsettings.Development.json" selected="True" />
+              <Node name="wwwroot" expanded="True">
+                <Node name="assets" expanded="True">
+                  <Node name="assets" expanded="True">
+                    <Node name="images" expanded="True" />
+                  </Node>
+                </Node>
               </Node>
             </Node>
           </Node>
@@ -29,10 +38,7 @@
       </Pad>
     </Pads>
   </MonoDevelop.Ide.Workbench>
-  <MonoDevelop.Ide.DebuggingService.Breakpoints>
-    <BreakpointStore />
-  </MonoDevelop.Ide.DebuggingService.Breakpoints>
-  <MonoDevelop.Ide.ItemProperties.Zante__Hotel PreferredExecutionTarget="/Applications/Google Chrome.app" />
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.ItemProperties.Zante__Hotel PreferredExecutionTarget="/Applications/Google Chrome.app" />
+  <MultiItemStartupConfigurations />
 </Properties>

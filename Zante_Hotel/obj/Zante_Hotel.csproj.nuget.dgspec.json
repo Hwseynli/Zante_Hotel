@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "/Users/zeyneb/Desktop/Zante_Hotel/Zante_Hotel/Zante_Hotel.csproj": {}
+    "/Users/zeyneb/Zante_Hotel/Zante_Hotel/Zante_Hotel.csproj": {}
   },
   "projects": {
-    "/Users/zeyneb/Desktop/Zante_Hotel/Zante_Hotel/Zante_Hotel.csproj": {
+    "/Users/zeyneb/Zante_Hotel/Zante_Hotel/Zante_Hotel.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/Users/zeyneb/Desktop/Zante_Hotel/Zante_Hotel/Zante_Hotel.csproj",
+        "projectUniqueName": "/Users/zeyneb/Zante_Hotel/Zante_Hotel/Zante_Hotel.csproj",
         "projectName": "Zante_Hotel",
-        "projectPath": "/Users/zeyneb/Desktop/Zante_Hotel/Zante_Hotel/Zante_Hotel.csproj",
+        "projectPath": "/Users/zeyneb/Zante_Hotel/Zante_Hotel/Zante_Hotel.csproj",
         "packagesPath": "/Users/zeyneb/.nuget/packages/",
-        "outputPath": "/Users/zeyneb/Desktop/Zante_Hotel/Zante_Hotel/obj/",
+        "outputPath": "/Users/zeyneb/Zante_Hotel/Zante_Hotel/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "/Users/zeyneb/.nuget/NuGet/NuGet.Config"

@@ -6,13 +6,22 @@
         public string Description { get; set; }
         public decimal Price { get; set; }
         public int NumberOfPeople { get; set; }
-        public ICollection<RoomServices> RoomServices { get; set; }
-        public ICollection<RoomImage> Images { get; set; }
+        public IFormFile MainPhoto { get; set; }
+        public ICollection<IFormFile> Photos { get; set; }
         public Guid CategoryId { get; set; }
         public Guid ViewId { get; set; }
-        public bool IsReservation { get; set; } = false;
         public ICollection<Reservation> ReservationsDate { get; set; }
-  
+        public ICollection<Guid> ServiceIds { get; set; }
+        public List<RoomImageVM> RoomImageVMs { get; set; }
+        public List<Guid> ImagesIds { get; set; }
+
+    }
+
+    public class RoomImageVM
+    {
+        public Guid Id { get; set; }
+        public string ImageUrl { get; set; }
+        public bool IsPrimary { get; set; }
     }
 }
 
