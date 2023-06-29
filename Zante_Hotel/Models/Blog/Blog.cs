@@ -14,6 +14,10 @@
         public string Description { get; set; }
         public ICollection<Comment> Comments { get; set; }
         public ICollection<BlogTag> Tags { get; set; }
+        [Required]
+        public Guid HotelId { get; set; }
+        [ForeignKey("HotelId")]
+        public Hotel Hotel { get; set; }
     }
 }
 

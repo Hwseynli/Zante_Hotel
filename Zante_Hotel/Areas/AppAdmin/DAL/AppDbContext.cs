@@ -19,6 +19,14 @@
         public DbSet<BlogTag> BlogTags { get; set; }
         public DbSet<Gallery> Galleries { get; set; }
         public DbSet<Slider> Sliders { get; set; }
+        public DbSet<Food> Foods { get; set; }
+        public DbSet<Spa> Spas { get; set; }
+        public DbSet<SpaImage> SpaImages { get; set; }
+        public DbSet<Restaurant> Restaurants { get; set; }
+        public DbSet<RestaurantImage> RestaurantImages { get; set; }
+        public DbSet<Hotel> Hotels { get; set; }
+        public DbSet<HotelService> HotelServices { get; set; }
+        public DbSet<HotelComment> HotelComments { get; set; }
     }
 }
 

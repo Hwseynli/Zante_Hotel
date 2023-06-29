@@ -15,6 +15,8 @@
 
         public async Task<AppUser> GetUser()
         {
+            AppUser user1 = await _dbContext.Users.FirstOrDefaultAsync();
+            if (user1 == null) return user1;
             if (_http.HttpContext.User.Identity.IsAuthenticated)
             {
                 AppUser user = await _manager.FindByNameAsync(_http.HttpContext.User.Identity.Name);
@@ -22,6 +24,7 @@
             }
             return new AppUser();
         }
+
     }
 }
 

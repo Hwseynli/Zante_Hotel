@@ -2,10 +2,10 @@
 {
 	public class HomeVM
 	{
-		public List<Room> Rooms { get; set; }
+		public ICollection<Room> Rooms { get; set; }
 		public Room Room { get; set; }
-        public List<Gallery> Galleries { get; set; }
-
+        public ICollection<Gallery> Galleries { get; set; }
+        public Slider Slider { get; set; }
     }
 }
 

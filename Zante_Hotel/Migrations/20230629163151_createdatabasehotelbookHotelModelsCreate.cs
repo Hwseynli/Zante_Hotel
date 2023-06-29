@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace Zante_Hotel.Migrations
 {
     /// <inheritdoc />
-    public partial class createdatabasehotelbookagainRoomReservationModelsCreateagain : Migration
+    public partial class createdatabasehotelbookHotelModelsCreate : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -68,6 +68,26 @@ namespace Zante_Hotel.Migrations
                 });
 
             migrationBuilder.CreateTable(
+                name: "Hotels",
+                columns: table => new
+                {
+                    Id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    Logo = table.Column<string>(type: "nvarchar(200)", maxLength: 200, nullable: false),
+                    Type = table.Column<string>(type: "nvarchar(200)", maxLength: 200, nullable: false),
+                    City = table.Column<string>(type: "nvarchar(100)", maxLength: 100, nullable: false),
+                    Address = table.Column<string>(type: "nvarchar(200)", maxLength: 200, nullable: false),
+                    Rating = table.Column<byte>(type: "tinyint", nullable: false),
+                    Description = table.Column<string>(type: "nvarchar(1000)", maxLength: 1000, nullable: false),
+                    PhoneNumber = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Email = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Name = table.Column<string>(type: "nvarchar(25)", maxLength: 25, nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Hotels", x => x.Id);
+                });
+
+            migrationBuilder.CreateTable(
                 name: "Services",
                 columns: table => new
                 {
@@ -78,6 +98,22 @@ namespace Zante_Hotel.Migrations
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Services", x => x.Id);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "Sliders",
+                columns: table => new
+                {
+                    Id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    Title = table.Column<string>(type: "nvarchar(100)", maxLength: 100, nullable: false),
+                    SubTitle = table.Column<string>(type: "nvarchar(35)", maxLength: 35, nullable: false),
+                    ImageUrl = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    VideoUrl = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    ButtonTitle = table.Column<string>(type: "nvarchar(25)", maxLength: 25, nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Sliders", x => x.Id);
                 });
 
             migrationBuilder.CreateTable(
@@ -220,6 +256,7 @@ namespace Zante_Hotel.Migrations
                     AuthorId = table.Column<string>(type: "nvarchar(450)", nullable: true),
                     ImgUrl = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Description = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    HotelId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
                     Name = table.Column<string>(type: "nvarchar(25)", maxLength: 25, nullable: false)
                 },
                 constraints: table =>
@@ -230,6 +267,100 @@ namespace Zante_Hotel.Migrations
                         column: x => x.AuthorId,
                         principalTable: "AspNetUsers",
                         principalColumn: "Id");
+                    table.ForeignKey(
+                        name: "FK_Blogs_Hotels_HotelId",
+                        column: x => x.HotelId,
+                        principalTable: "Hotels",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "Galleries",
+                columns: table => new
+                {
+                    Id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    Url = table.Column<string>(type: "nvarchar(200)", maxLength: 200, nullable: false),
+                    HotelId = table.Column<Guid>(type: "uniqueidentifier", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Galleries", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_Galleries_Hotels_HotelId",
+                        column: x => x.HotelId,
+                        principalTable: "Hotels",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "Restaurants",
+                columns: table => new
+                {
+                    Id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    SubTitle = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Description = table.Column<string>(type: "nvarchar(2000)", maxLength: 2000, nullable: false),
+                    MaxPeople = table.Column<int>(type: "int", nullable: false),
+                    HotelId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    Name = table.Column<string>(type: "nvarchar(25)", maxLength: 25, nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Restaurants", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_Restaurants_Hotels_HotelId",
+                        column: x => x.HotelId,
+                        principalTable: "Hotels",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "Spas",
+                columns: table => new
+                {
+                    Id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    SubTitle = table.Column<string>(type: "nvarchar(200)", maxLength: 200, nullable: false),
+                    Title = table.Column<string>(type: "nvarchar(200)", maxLength: 200, nullable: false),
+                    Decription = table.Column<string>(type: "nvarchar(max)", maxLength: 20000, nullable: false),
+                    HotelId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    Name = table.Column<string>(type: "nvarchar(25)", maxLength: 25, nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Spas", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_Spas_Hotels_HotelId",
+                        column: x => x.HotelId,
+                        principalTable: "Hotels",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "HotelServices",
+                columns: table => new
+                {
+                    Id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    ServiceId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    HotelId = table.Column<Guid>(type: "uniqueidentifier", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_HotelServices", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_HotelServices_Hotels_HotelId",
+                        column: x => x.HotelId,
+                        principalTable: "Hotels",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                    table.ForeignKey(
+                        name: "FK_HotelServices_Services_ServiceId",
+                        column: x => x.ServiceId,
+                        principalTable: "Services",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateTable(
@@ -237,13 +368,13 @@ namespace Zante_Hotel.Migrations
                 columns: table => new
                 {
                     Id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    Number = table.Column<string>(type: "nvarchar(20)", maxLength: 20, nullable: false),
                     Price = table.Column<decimal>(type: "decimal(18,2)", nullable: false),
                     NumberOfPeople = table.Column<int>(type: "int", nullable: false),
                     CategoryId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
                     ViewId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
-                    IsReservation = table.Column<bool>(type: "bit", nullable: false),
-                    Description = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    Name = table.Column<string>(type: "nvarchar(25)", maxLength: 25, nullable: false)
+                    Description = table.Column<string>(type: "nvarchar(2000)", maxLength: 2000, nullable: false),
+                    HotelId = table.Column<Guid>(type: "uniqueidentifier", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -252,6 +383,12 @@ namespace Zante_Hotel.Migrations
                         name: "FK_Rooms_Categories_CategoryId",
                         column: x => x.CategoryId,
                         principalTable: "Categories",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                    table.ForeignKey(
+                        name: "FK_Rooms_Hotels_HotelId",
+                        column: x => x.HotelId,
+                        principalTable: "Hotels",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
@@ -310,6 +447,67 @@ namespace Zante_Hotel.Migrations
                         column: x => x.BlogId,
                         principalTable: "Blogs",
                         principalColumn: "Id");
+                });
+
+            migrationBuilder.CreateTable(
+                name: "Foods",
+                columns: table => new
+                {
+                    Id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    Description = table.Column<string>(type: "nvarchar(500)", maxLength: 500, nullable: false),
+                    ImgUrl = table.Column<string>(type: "nvarchar(200)", maxLength: 200, nullable: false),
+                    Price = table.Column<decimal>(type: "decimal(18,2)", nullable: false),
+                    RestaurantId = table.Column<Guid>(type: "uniqueidentifier", nullable: true),
+                    Name = table.Column<string>(type: "nvarchar(25)", maxLength: 25, nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Foods", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_Foods_Restaurants_RestaurantId",
+                        column: x => x.RestaurantId,
+                        principalTable: "Restaurants",
+                        principalColumn: "Id");
+                });
+
+            migrationBuilder.CreateTable(
+                name: "RestaurantImages",
+                columns: table => new
+                {
+                    Id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    ImageUrl = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    IsPrimary = table.Column<bool>(type: "bit", nullable: false),
+                    RestaurantId = table.Column<Guid>(type: "uniqueidentifier", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_RestaurantImages", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_RestaurantImages_Restaurants_RestaurantId",
+                        column: x => x.RestaurantId,
+                        principalTable: "Restaurants",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "SpaImages",
+                columns: table => new
+                {
+                    Id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    ImageUrl = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    IsPrimary = table.Column<bool>(type: "bit", nullable: false),
+                    SpaId = table.Column<Guid>(type: "uniqueidentifier", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_SpaImages", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_SpaImages_Spas_SpaId",
+                        column: x => x.SpaId,
+                        principalTable: "Spas",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateTable(
@@ -377,6 +575,31 @@ namespace Zante_Hotel.Migrations
                         name: "FK_RoomServices_Services_ServiceId",
                         column: x => x.ServiceId,
                         principalTable: "Services",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "HotelComments",
+                columns: table => new
+                {
+                    Id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    HotelId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    CommentId = table.Column<Guid>(type: "uniqueidentifier", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_HotelComments", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_HotelComments_Comments_HotelId",
+                        column: x => x.HotelId,
+                        principalTable: "Comments",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                    table.ForeignKey(
+                        name: "FK_HotelComments_Hotels_HotelId",
+                        column: x => x.HotelId,
+                        principalTable: "Hotels",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                 });
@@ -452,6 +675,11 @@ namespace Zante_Hotel.Migrations
                 column: "AuthorId");
 
             migrationBuilder.CreateIndex(
+                name: "IX_Blogs_HotelId",
+                table: "Blogs",
+                column: "HotelId");
+
+            migrationBuilder.CreateIndex(
                 name: "IX_BlogTags_BlogId",
                 table: "BlogTags",
                 column: "BlogId");
@@ -472,6 +700,31 @@ namespace Zante_Hotel.Migrations
                 column: "UserId");
 
             migrationBuilder.CreateIndex(
+                name: "IX_Foods_RestaurantId",
+                table: "Foods",
+                column: "RestaurantId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Galleries_HotelId",
+                table: "Galleries",
+                column: "HotelId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_HotelComments_HotelId",
+                table: "HotelComments",
+                column: "HotelId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_HotelServices_HotelId",
+                table: "HotelServices",
+                column: "HotelId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_HotelServices_ServiceId",
+                table: "HotelServices",
+                column: "ServiceId");
+
+            migrationBuilder.CreateIndex(
                 name: "IX_Replies_CommentId",
                 table: "Replies",
                 column: "CommentId");
@@ -487,6 +740,16 @@ namespace Zante_Hotel.Migrations
                 column: "RoomId");
 
             migrationBuilder.CreateIndex(
+                name: "IX_RestaurantImages_RestaurantId",
+                table: "RestaurantImages",
+                column: "RestaurantId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Restaurants_HotelId",
+                table: "Restaurants",
+                column: "HotelId");
+
+            migrationBuilder.CreateIndex(
                 name: "IX_RoomImages_RoomId",
                 table: "RoomImages",
                 column: "RoomId");
@@ -495,6 +758,11 @@ namespace Zante_Hotel.Migrations
                 name: "IX_Rooms_CategoryId",
                 table: "Rooms",
                 column: "CategoryId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Rooms_HotelId",
+                table: "Rooms",
+                column: "HotelId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_Rooms_ViewId",
@@ -510,6 +778,16 @@ namespace Zante_Hotel.Migrations
                 name: "IX_RoomServices_ServiceId",
                 table: "RoomServices",
                 column: "ServiceId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_SpaImages_SpaId",
+                table: "SpaImages",
+                column: "SpaId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Spas_HotelId",
+                table: "Spas",
+                column: "HotelId");
         }
 
         /// <inheritdoc />
@@ -534,16 +812,37 @@ namespace Zante_Hotel.Migrations
                 name: "BlogTags");
 
             migrationBuilder.DropTable(
+                name: "Foods");
+
+            migrationBuilder.DropTable(
+                name: "Galleries");
+
+            migrationBuilder.DropTable(
+                name: "HotelComments");
+
+            migrationBuilder.DropTable(
+                name: "HotelServices");
+
+            migrationBuilder.DropTable(
                 name: "Replies");
 
             migrationBuilder.DropTable(
                 name: "Reservations");
 
             migrationBuilder.DropTable(
+                name: "RestaurantImages");
+
+            migrationBuilder.DropTable(
                 name: "RoomImages");
 
             migrationBuilder.DropTable(
                 name: "RoomServices");
+
+            migrationBuilder.DropTable(
+                name: "Sliders");
+
+            migrationBuilder.DropTable(
+                name: "SpaImages");
 
             migrationBuilder.DropTable(
                 name: "AspNetRoles");
@@ -555,10 +854,16 @@ namespace Zante_Hotel.Migrations
                 name: "Comments");
 
             migrationBuilder.DropTable(
+                name: "Restaurants");
+
+            migrationBuilder.DropTable(
                 name: "Rooms");
 
             migrationBuilder.DropTable(
                 name: "Services");
+
+            migrationBuilder.DropTable(
+                name: "Spas");
 
             migrationBuilder.DropTable(
                 name: "Blogs");
@@ -571,6 +876,9 @@ namespace Zante_Hotel.Migrations
 
             migrationBuilder.DropTable(
                 name: "AspNetUsers");
+
+            migrationBuilder.DropTable(
+                name: "Hotels");
         }
     }
 }

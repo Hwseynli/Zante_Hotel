@@ -1,4 +1,8 @@
-﻿<!DOCTYPE html>
+﻿@inject LayoutService service;
+@{
+    AppUser user = await service.GetUser();
+}
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="utf-8">
@@ -32,21 +36,8 @@
     <link href="~/assets/assets/fonts/font-awesome.min.css" rel="stylesheet">
     <link href="~/assets/assets/fonts/flaticon.css" rel="stylesheet">
 
-
     <!-- ========== GOOGLE FONTS ========== -->
     <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700,900%7cRaleway:400,500,600,700" rel="stylesheet">
-
-
-
-    <!--        -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.4.1/css/mdb.min.css">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.4.1/js/mdb.min.js"></script>
-    <!--         -->
-
-    
-
 
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -91,24 +82,11 @@
                     <ul class="nav navbar-nav">
                         <li class="mobile_menu_title" style="display:none;">MENU</li>
                         <li class="dropdown simple_menu active">
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">HOME <b class="caret"></b></a>
-                            <ul class="dropdown-menu">
-                                <li><a href="index.html">Home Version 1</a></li>
-                                <li><a href="index2.html">Home Version 2</a></li>
-                                <li><a href="index3.html">Home Version 3</a></li>
-                                <li><a href="index4.html">Home Version 4</a></li>
-                                <li><a href="boxed.html">Boxed Layout</a></li>
-                            </ul>
+                            <a asp-action="Index" asp-controller="Home">HOME<b class="caret"></b></a>
                         </li>
                         <li class="dropdown simple_menu">
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">ROOMS <b class="caret"></b></a>
-                            <ul class="dropdown-menu">
-                                <li><a href="rooms-list.html">Rooms List View</a></li>
-                                <li><a href="rooms-grid.html">Rooms Grid View</a></li>
-                                <li><a href="rooms-block.html">Rooms Block View</a></li>
-                                <li><a href="room.html">Room Details 1</a></li>
-                                <li><a href="room2.html">Room Details 2</a></li>
-                            </ul>
+                            <a asp-action="RoomList" asp-controller="Room">ROOMS <b class="caret"></b></a>
+
                         </li>
                         <li class="dropdown mega_menu mega_menu_fullwidth">
                             <a href="#" data-toggle="dropdown" class="dropdown-toggle" aria-expanded="true">PAGES <b class="caret"></b></a>
@@ -161,20 +139,32 @@
                                 </li>
                             </ul>
                         </li>
-                        <li class="dropdown simple_menu">
-                            <a href="#" data-toggle="dropdown" class="dropdown-toggle" aria-expanded="true">ELEMENTS <b class="caret"></b></a>
-                            <ul class="dropdown-menu">
-                                <li><a href="typography.html">Typography</a></li>
-                                <li><a href="buttons.html">Buttons</a></li>
-                                <li><a href="icons.html">Icons</a></li>
-                            </ul>
-                        </li>
                         <li><a href="contact.html">CONTACT US</a></li>
-                        <li><a asp-action="index" asp-controller="blog">BLOGS</a></li>
+                        <li><a href="blog.html">BLOG</a></li>
                         <li class="menu_button">
                             <a href="booking-form.html" class="button  btn_yellow"><i class="fa fa-calendar"></i>BOOK ONLINE</a>
                         </li>
-                        @if (!User.Identity.IsAuthenticated)
+                        @if (user != null && User.Identity.IsAuthenticated)
+                        {
+                            <li>
+                                <div class="user-area dropdown float-right">
+                                    <a href="#" class="dropdown-toggle active" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                        <img class="user-avatar rounded-circle" style="vertical-align: middle; width: 40px; height: 40px; border-radius: 100%;" src="~/admin/images/user-images/@user.UserImgUrl " alt="User Avatar">
+                                    </a>
+                                    <div class="user-menu dropdown-menu" style="background:none">
+                                        <ul>
+                                            <li>
+                                                <a class="nav-link ml-2 mt-4" href="#"><i class="fa fa- user"></i>@user.UserName</a>
+                                            </li>
+                                            <li>
+                                                <a class="nav-link ml-2 mb-4" asp-action="Logout" asp-controller="Account" asp-area="AppAdmin"><i class="fa fa- user"></i>Logout</a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </li>
+                        }
+                        else
                         {
                             <li>
                                 <div class="user-area dropdown float-right">
@@ -194,100 +184,78 @@
                                 </div>
                             </li>
                         }
-                        else
-                        {
-                            @inject LayoutService service;
-                            AppUser user = await service.GetUser();
-                            <li>
-                                <div class="user-area dropdown float-right">
-                                    <a href="#" class="dropdown-toggle active" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                        <img class="user-avatar rounded-circle" style="vertical-align: middle; width: 40px; height: 40px; border-radius: 100%;" src="~/admin/images/user-images/@user.UserImgUrl " alt="User Avatar">
-                                    </a>
-                                    <div class="user-menu dropdown-menu" style="background:none">
-                                        <ul>
-                                            <li>
-                                                <a class="nav-link ml-2 mt-4" href="#"><i class="fa fa- user"></i>@user.UserName</a>
-                                            </li>
-                                            <li>
-                                                <a class="nav-link ml-2 mb-4" asp-action="Logout" asp-controller="Account" asp-area="AppAdmin"><i class="fa fa- user"></i>Logout</a>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </li>
-                        }
                     </ul>
                 </nav>
             </div>
         </header>
-
         @RenderBody()
-        <!-- ========== FOOTER ========== -->
-        <footer>
-            <div class="inner">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-md-3 col-sm-6 widget">
-                            <div class="about">
-                                <a href="index.html"><img class="logo" src="images/logo.svg" height="32" alt="Logo"></a>
-                                <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet.</p>
-                                <p>Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip.</p>
-                            </div>
+    </div>
+    <!-- ========== FOOTER ========== -->
+    <footer>
+        <div class="inner">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-3 col-sm-6 widget">
+                        <div class="about">
+                            <a href="index.html"><img class="logo" src="images/logo.svg" height="32" alt="Logo"></a>
+                            <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet.</p>
+                            <p>Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip.</p>
                         </div>
-                        <div class="col-md-3 col-sm-6 widget">
-                            <h5>Latest News</h5>
-                            <ul class="blog_posts">
-                                <li><a href="blog-post.html">Live your myth in Greece</a> <small>AUGUST 13, 2017</small></li>
-                                <li><a href="blog-post.html">Hotel Zante in pictures</a> <small>AUGUST 16, 2017</small></li>
-                                <li><a href="blog-post.html">Hotel Zante family party</a> <small>SEPTEMBER 15, 2017</small></li>
+                    </div>
+                    <div class="col-md-3 col-sm-6 widget">
+                        <h5>Latest News</h5>
+                        <ul class="blog_posts">
+                            <li><a href="blog-post.html">Live your myth in Greece</a> <small>AUGUST 13, 2017</small></li>
+                            <li><a href="blog-post.html">Hotel Zante in pictures</a> <small>AUGUST 16, 2017</small></li>
+                            <li><a href="blog-post.html">Hotel Zante family party</a> <small>SEPTEMBER 15, 2017</small></li>
+                        </ul>
+                    </div>
+                    <div class="col-md-3 col-sm-6 widget">
+                        <h5>Useful Links</h5>
+                        <ul class="useful_links">
+                            <li><a href="#">About us</a></li>
+                            <li><a href="#">Contact us</a></li>
+                            <li><a href="#">History</a></li>
+                            <li><a href="#">Gallery</a></li>
+                            <li><a href="#">Location</a></li>
+                        </ul>
+                    </div>
+                    <div class="col-md-3 col-sm-6 widget">
+                        <h5>Contact Us</h5>
+                        <address>
+                            <ul class="address_details">
+                                <li><i class="glyphicon glyphicon-map-marker"></i> 25, Navagio Zakynthos, Greece</li>
+                                <li><i class="glyphicon glyphicon-phone-alt"></i> Phone: 800 123 3456 </li>
+                                <li><i class="fa fa-fax"></i> Fax: 800 123 3456</li>
+                                <li><i class="fa fa-envelope"></i> Email: <a href="mailto:info@site.com">contact@site.com</a></li>
                             </ul>
+                        </address>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="subfooter">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-6 col-sm-6">
+                        <div class="copyrights">
+                            Copyright 2017 <a href="index.html">Hotel Zante</a> All Rights Reserved.
                         </div>
-                        <div class="col-md-3 col-sm-6 widget">
-                            <h5>Useful Links</h5>
-                            <ul class="useful_links">
-                                <li><a href="#">About us</a></li>
-                                <li><a href="#">Contact us</a></li>
-                                <li><a href="#">History</a></li>
-                                <li><a href="#">Gallery</a></li>
-                                <li><a href="#">Location</a></li>
-                            </ul>
-                        </div>
-                        <div class="col-md-3 col-sm-6 widget">
-                            <h5>Contact Us</h5>
-                            <address>
-                                <ul class="address_details">
-                                    <li><i class="glyphicon glyphicon-map-marker"></i> 25, Navagio Zakynthos, Greece</li>
-                                    <li><i class="glyphicon glyphicon-phone-alt"></i> Phone: 800 123 3456 </li>
-                                    <li><i class="fa fa-fax"></i> Fax: 800 123 3456</li>
-                                    <li><i class="fa fa-envelope"></i> Email: <a href="mailto:info@site.com">contact@site.com</a></li>
-                                </ul>
-                            </address>
+                    </div>
+                    <div class="col-md-6 col-sm-6">
+                        <div class="social_media">
+                            <a class="facebook" data-original-title="Facebook" data-toggle="tooltip" href="#"><i class="fa fa-facebook"></i></a>
+                            <a class="twitter" data-original-title="Twitter" data-toggle="tooltip" href="#"><i class="fa fa-twitter"></i></a>
+                            <a class="googleplus" data-original-title="Google Plus" data-toggle="tooltip" href="#"><i class="fa fa-google-plus"></i></a>
+                            <a class="pinterest" data-original-title="Pinterest" data-toggle="tooltip" href="#"><i class="fa fa-pinterest"></i></a>
+                            <a class="linkedin" data-original-title="Linkedin" data-toggle="tooltip" href="#"><i class="fa fa-linkedin"></i></a>
+                            <a class="instagram" data-original-title="Instagram" data-toggle="tooltip" href="#"><i class="fa fa-instagram"></i></a>
                         </div>
                     </div>
                 </div>
             </div>
-            <div class="subfooter">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-md-6 col-sm-6">
-                            <div class="copyrights">
-                                Copyright 2017 <a href="index.html">Hotel Zante</a> All Rights Reserved.
-                            </div>
-                        </div>
-                        <div class="col-md-6 col-sm-6">
-                            <div class="social_media">
-                                <a class="facebook" data-original-title="Facebook" data-toggle="tooltip" href="#"><i class="fa fa-facebook"></i></a>
-                                <a class="twitter" data-original-title="Twitter" data-toggle="tooltip" href="#"><i class="fa fa-twitter"></i></a>
-                                <a class="googleplus" data-original-title="Google Plus" data-toggle="tooltip" href="#"><i class="fa fa-google-plus"></i></a>
-                                <a class="pinterest" data-original-title="Pinterest" data-toggle="tooltip" href="#"><i class="fa fa-pinterest"></i></a>
-                                <a class="linkedin" data-original-title="Linkedin" data-toggle="tooltip" href="#"><i class="fa fa-linkedin"></i></a>
-                                <a class="instagram" data-original-title="Instagram" data-toggle="tooltip" href="#"><i class="fa fa-instagram"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </footer>
+        </div>
+    </footer>
 
     </div>
 
@@ -301,7 +269,7 @@
 
     <!-- ========== JAVASCRIPT ========== -->
     <script type="text/javascript" src="~/assets/assets/js/jquery.min.js"></script>
-    <script type="text/javascript" src="https://maps.google.com/maps/api/js?key=YOUR_API_KEY"></script>
+    <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY"></script>
     <script type="text/javascript" src="~/assets/assets/js/bootstrap.min.js"></script>
     <script type="text/javascript" src="~/assets/assets/js/bootstrap-datepicker.min.js"></script>
     <script type="text/javascript" src="~/assets/assets/js/bootstrap-select.min.js"></script>

@@ -19,8 +19,12 @@
         public View View { get; set; }
         public ICollection<Reservation> ReservationsDate { get; set; }
         public ICollection<RoomImage> Images { get; set; }
-        [Required]
+        [Required,StringLength(2000)]
         public string Description { get; set; }
+        [Required]
+        public Guid HotelId { get; set; }
+        [ForeignKey("HotelId")]
+        public Hotel Hotel { get; set; }
     }
 }
 

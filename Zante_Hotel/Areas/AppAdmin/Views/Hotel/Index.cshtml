@@ -1,0 +1,69 @@
+﻿@{
+    int count = 0;
+}
+@model ICollection<Hotel>
+
+<div class="clearfix"></div>
+<div class="content">
+    <div class="animated fadeIn">
+        <!-- Orders -->
+        <div class="orders">
+            <div class="row">
+                <div class="col-xl-15">
+                    <div class="card">
+                        <div class="card-body">
+                            <h4 class="box-title">Create Hotel</h4>
+                            <div class="col-lg-4">
+                                <a asp-action="Create" asp-controller="Hotel" asp-area="AppAdmin" class="btn btn-danger">Create</a>
+                            </div>
+                        </div>
+                        <div class="card-body--">
+                            <div class="table-stats order-table ov-h">
+                                <table class="table ">
+                                    <thead>
+                                        <tr>
+                                            <th class="serial">Id</th>
+                                            <th class="avatar">Logo</th>
+                                            <th>Name</th>
+                                            <th>Room Count</th>
+                                            <th>Services</th>
+                                            <th>Type</th>
+                                            <th>Reating</th>
+                                            <th>Description</th>
+                                            <th>Settings</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        @foreach (var item in Model)
+                                        {
+                                            count++;
+                                            <tr>
+                                                <td class="serial">@count.</td>
+                                                <td class="avatar">
+                                                    <div class="round-img">
+                                                        <a href="#"><img class="rounded-circle" src="~/assets/assets/images/@item.Logo" alt=""></a>
+                                                    </div>
+                                                </td>
+                                                <td>  <span class="name">@item.Name</span> </td>
+                                                <td> <span class="product">@item.Rooms.Count</span> </td>
+                                                <td> <span class="product">@item.Services.Count</span> </td>
+                                                <td> <span class="product">@item.Type</span> </td>
+                                                <td><span class="product">@item.Rating</span> </td>
+                                                <td><p>@item.Description.Substring(0, 100)</p></td>
+                                                <td>
+                                                    <a class="text-warning btn btn-dark" asp-action="Update" asp-controller="Hotel" asp-area="AppAdmin" asp-route-id="@item.Id"><b>Update</b></a>
+                                                    <a class="text-danger btn btn-dark" asp-action="Delete" asp-controller="Hotel" asp-area="AppAdmin" asp-route-id="@item.Id"><b> Delete</b></a>
+                                                </td>
+                                            </tr>
+                                        }
+                                    </tbody>
+                                </table>
+                            </div> <!-- /.table-stats -->
+                        </div>
+                    </div> <!-- /.card -->
+                </div>  <!-- /.col-lg-8 -->
+            </div>
+        </div>
+        <!-- /.orders -->
+    </div><!-- .animated -->
+</div><!-- .content -->

@@ -61,6 +61,9 @@
     <Folder Include="Areas\AppAdmin\Views\Gallery\" />
     <Folder Include="ViewModels\Slider\" />
     <Folder Include="Areas\AppAdmin\Views\Slider\" />
+    <Folder Include="Models\Hotel\" />
+    <Folder Include="ViewModels\Hotel\" />
+    <Folder Include="Areas\AppAdmin\Views\Hotel\" />
   </ItemGroup>
   <ItemGroup>
     <None Remove="Models\" />
@@ -102,6 +105,9 @@
     <None Remove="Areas\AppAdmin\Views\Gallery\" />
     <None Remove="ViewModels\Slider\" />
     <None Remove="Areas\AppAdmin\Views\Slider\" />
+    <None Remove="Models\Hotel\" />
+    <None Remove="ViewModels\Hotel\" />
+    <None Remove="Areas\AppAdmin\Views\Hotel\" />
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="Microsoft.EntityFrameworkCore" Version="7.0.7" />

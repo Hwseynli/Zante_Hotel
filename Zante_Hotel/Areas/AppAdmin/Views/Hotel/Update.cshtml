@@ -1,0 +1,82 @@
+﻿@model UpdateHotelVM
+<section>
+    <div class="pcoded-content">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="mt-5">Create Hotel</h5>
+                        <hr>
+                        <form method="post" enctype="multipart/form-data">
+                            <div class="form-row">
+                                <div class="form-group col-md-6">
+                                    <img src="~/assets/assets/images/@Model.LogoUrl" />
+                                    <label asp-for="Logo">Logo</label>
+                                    <input asp-for="Logo" class="form-control" placeholder="Logo" accept="image/*" />
+                                    <span asp-validation-for="Logo"></span>
+                                </div>
+                                <div class="form-group col-md-6">
+                                    <label asp-for="Name">Name</label>
+                                    <input asp-for="Name" class="form-control" placeholder="Name" value="@Model.Name"/>
+                                    <span asp-validation-for="Name"></span>
+                                </div>
+                                <div class="form-group col-md-6">
+                                    <label asp-for="Description">Description</label>
+                                    <input asp-for="Description" class="form-control" placeholder="Description" value="@Model.Description"/>
+                                    <span asp-validation-for="Description"></span>
+                                </div>
+                                <div class="form-group col-md-6">
+                                    <label asp-for="Email">Email</label>
+                                    <input type="email" asp-for="Email" class="form-control" placeholder="Email" value="@Model.Email"/>
+                                    <span asp-validation-for="Email"></span>
+                                </div>
+                                <div class="form-group col-md-6">
+                                    <label asp-for="PhoneNumber">PhoneNumber</label>
+                                    <input type="tel" asp-for="PhoneNumber" class="form-control" placeholder="PhoneNumber" value="@Model.PhoneNumber"/>
+                                    <span asp-validation-for="PhoneNumber"></span>
+                                </div>
+                                <div class="form-group col-md-6">
+                                    <label asp-for="Rating">Rating</label>
+                                    <input asp-for="Rating" class="form-control" placeholder="Rating" value="@Model.Rating"/>
+                                    <span asp-validation-for="Rating"></span>
+                                </div>
+                                <div class="form-group col-md-6">
+                                    <label asp-for="Type">Type</label>
+                                    <input asp-for="Type" class="form-control" placeholder="Type" value="@Model.Type"/>
+                                    <span asp-validation-for="Type"></span>
+                                </div>
+                                <div class="form-group col-md-6">
+                                    <label asp-for="Address">Address</label>
+                                    <input asp-for="Address" class="form-control" placeholder="Address" value="@Model.Address"/>
+                                    <span asp-validation-for="Address"></span>
+                                </div>
+                                <div class="form-group col-md-6">
+                                    <label asp-for="MapLink">MapLink</label>
+                                    <input asp-for="MapLink" class="form-control" placeholder="MapLink" value="@Model.MapLink"/>
+                                    <span asp-validation-for="MapLink"></span>
+                                </div>
+                                <div class="form-group col-md-6">
+                                    <label asp-for="WebSite">WebSite</label>
+                                    <input asp-for="WebSite" class="form-control" placeholder="WebSite" value="@Model.WebSite"/>
+                                    <span asp-validation-for="WebSite"></span>
+                                </div>
+                                <div class="form-group col-md-6">
+                                    <label asp-for="ServiceIds">Services</label>
+                                    <select asp-for="ServiceIds" class="form-control" asp-items="new SelectList(ViewBag.Services,nameof(Service.Id),nameof(Service.Name))">
+                                    </select>
+                                    <span class="text-danger" asp-validation-for="ServiceIds"></span>
+                                </div>
+                            </div>
+                            <button type="submit" class="btn  btn-primary">Create</button>
+                            <div class="form-group col-md-6" asp-validation-summary="ModelOnly">
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <!--[ form-element ] end-->
+        </div>
+        <!--[ Main Content ] end-->
+
+    </div>
+</section>
