@@ -56,6 +56,11 @@
     <Folder Include="Models\Service\" />
     <Folder Include="Models\Room\" />
     <Folder Include="Areas\AppAdmin\Views\Room\" />
+    <Folder Include="Views\Room\" />
+    <Folder Include="ViewModels\Galary\" />
+    <Folder Include="Areas\AppAdmin\Views\Gallery\" />
+    <Folder Include="ViewModels\Slider\" />
+    <Folder Include="Areas\AppAdmin\Views\Slider\" />
   </ItemGroup>
   <ItemGroup>
     <None Remove="Models\" />
@@ -92,6 +97,11 @@
     <None Remove="Models\Service\" />
     <None Remove="Models\Room\" />
     <None Remove="Areas\AppAdmin\Views\Room\" />
+    <None Remove="Views\Room\" />
+    <None Remove="ViewModels\Galary\" />
+    <None Remove="Areas\AppAdmin\Views\Gallery\" />
+    <None Remove="ViewModels\Slider\" />
+    <None Remove="Areas\AppAdmin\Views\Slider\" />
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="Microsoft.EntityFrameworkCore" Version="7.0.7" />

@@ -1,0 +1,71 @@
+﻿@{
+    int count = 0;
+}
+@model ICollection<Slider>
+
+<div class="clearfix"></div>
+<div class="content">
+    <div class="animated fadeIn">
+        <!-- Orders -->
+        <div class="orders">
+            <div class="row">
+                <div class="col-xl-15">
+                    <div class="card">
+                        <div class="card-body">
+                            <h4 class="box-title">Create Slider</h4>
+                            <div class="col-lg-4">
+                                <a asp-action="Create" asp-controller="Slider" asp-area="AppAdmin" class="btn btn-danger">Create</a>
+                            </div>
+                        </div>
+                        <div class="card-body--">
+                            <div class="table-stats order-table ov-h">
+                                <table class="table ">
+                                    <thead>
+                                        <tr>
+                                            <th class="serial">Id</th>
+                                            <th class="avatar">Image</th>
+                                            <th class="avatar">Video</th>
+                                            <th>Title</th>
+                                            <th>Subtitle</th>
+                                            <th>ButtonTitle</th>
+                                            <th>Settings</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        @foreach (var item in Model)
+                                        {
+                                            count++;
+                                            <tr>
+                                                <td class="serial">@count.</td>
+                                                <td class="avatar">
+                                                    <div class="round-img">
+                                                        <a href="#"><img class="rounded-circle" src="~/assets/assets/images/slider/@item.ImageUrl" alt="image"></a>
+                                                    </div>
+                                                </td>
+                                                <td class="avatar">
+                                                    <div class="round-img">
+                                                        <a href="#">
+                                                            <iframe width="160" height="95" src="https://preview.eagle-themes.com/html/zante/videos/hero_video.mp4" frameborder="0" allowfullscreen></iframe>
+                                                        </a>
+                                                    </div>
+                                                </td>
+                                                <td>  <span class="name">@item.Title</span> </td>
+                                                <td>  <span class="name">@item.SubTitle</span> </td>
+                                                <td>  <span class="name">@item.ButtonTitle</span> </td>
+                                                <td>
+                                                    <a class="text-warning btn btn-dark" asp-action="Update" asp-controller="Slider" asp-area="AppAdmin" asp-route-id="@item.Id"><b>Update</b></a>
+                                                    <a class="text-danger btn btn-dark" asp-action="Delete" asp-controller="Slider" asp-area="AppAdmin" asp-route-id="@item.Id"><b>Delete</b></a>
+                                                </td>
+                                            </tr>
+                                        }
+                                    </tbody>
+                                </table>
+                            </div> <!-- /.table-stats -->
+                        </div>
+                    </div> <!-- /.card -->
+                </div>  <!-- /.col-lg-8 -->
+            </div>
+        </div>
+        <!-- /.orders -->
+    </div><!-- .animated -->
+</div><!-- .content -->

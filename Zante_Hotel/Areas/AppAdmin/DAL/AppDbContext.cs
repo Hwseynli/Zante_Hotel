@@ -17,6 +17,8 @@
         public DbSet<Blog> Blogs { get; set; }
         public DbSet<Tag> Tags { get; set; }
         public DbSet<BlogTag> BlogTags { get; set; }
+        public DbSet<Gallery> Galleries { get; set; }
+        public DbSet<Slider> Sliders { get; set; }
     }
 }
 

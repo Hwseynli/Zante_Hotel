@@ -1,10 +1,8 @@
-﻿
-
+﻿@model HomeVM
          <!-- ========== REVOLUTION SLIDER ========== -->
 <div class="rev_slider_wrapper fullscreen-container">
     <div id="fullscreen_hero_video" class="rev_slider fullscreenbanner gradient_slider" style="display:none">
         <ul>
-
             <li data-transition="fade">
                 <!-- MAIN IMAGE -->
                 <img src="~/assets/assets/images/slider/video_fullscreen.jpg"
@@ -188,54 +186,29 @@
         </div>
         <p class="main_description a_center">Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit.</p>
         <div class="row">
-            <!-- ITEM -->
-            <div class="col-md-4">
-                <article class="room">
-                    <figure>
-                        <div class="price">€89 <span>/ night</span></div>
-                        <a class="hover_effect h_blue h_link" href="room.html">
-                            <img src="~/assets/assets/images/rooms/single-room.jpg" class="img-responsive" alt="Image">
-                        </a>
-                        <figcaption>
-                            <h4><a href="room.html">Single Room</a></h4>
-                            <span class="f_right"><a href="rooms-list.html" class="button btn_sm btn_blue">VIEW DETAILS</a></span>
-                        </figcaption>
-                    </figure>
-                </article>
-            </div>
-            <!-- ITEM -->
-            <div class="col-md-4">
-                <article class="room">
-                    <figure>
-                        <div class="price">€129 <span>/ night</span></div>
-                        <a class="hover_effect h_blue h_link" href="room.html">
-                            <img src="~/assets/assets/images/rooms/double-room.jpg" class="img-responsive" alt="Image">
-                        </a>
-                        <figcaption>
-                            <h4><a href="room.html">Double Room</a></h4>
-                            <span class="f_right"><a href="room.html" class="button btn_sm btn_blue">VIEW DETAILS</a></span>
-                        </figcaption>
-                    </figure>
-                </article>
-            </div>
-            <!-- ITEM -->
-            <div class="col-md-4">
-                <article class="room">
-                    <figure>
-                        <div class="price"> € 189 <span>/ night</span></div>
-                        <a class="hover_effect h_blue h_link" href="room.html">
-                            <img src="~/assets/assets/images/rooms/deluxe-room.jpg" class="img-responsive" alt="Image">
-                        </a>
-                        <figcaption>
-                            <h4><a href="room.html">Delux Room</a></h4>
-                            <span class="f_right"><a href="room.html" class="button btn_sm btn_blue">VIEW DETAILS</a></span>
-                        </figcaption>
-                    </figure>
-                </article>
-            </div>
+            @foreach (var item in Model.Rooms.Take(3).ToList())
+            {
+                <!-- ITEM -->
+                <div class="col-md-4">
+                    <article class="room">
+                        <figure>
+                            <div class="price">$ @item.Price <span>/ night</span></div>
+                            <a class="hover_effect h_blue h_link" href="room.html">
+                                <img src="~/assets/assets/images/rooms/@item.Images.FirstOrDefault(i=>i.IsPrimary).ImageUrl" class="img-responsive" alt="Image">
+                            </a>
+                            <figcaption>
+                                <h4><a asp-action="Detail" asp-controller="Room">@item.Category.Name</a></h4>
+                                <span class="f_right"><a asp-action="Detail" asp-controller="Room" asp-route-id="@item.Id" class="button btn_sm btn_blue">VIEW DETAILS</a></span>
+                            </figcaption>
+                        </figure>
+                    </article>
+                </div>
+                <!-- ITEM -->
+            }
+
         </div>
         <div class="mt40 a_center">
-            <a class="button btn_sm btn_yellow" href="rooms-list.html">VIEW ROOMS LIST</a>
+            <a class="button btn_sm btn_yellow" asp-action="RoomList" asp-controller="Room">VIEW ROOMS LIST</a>
         </div>
     </div>
 </section>

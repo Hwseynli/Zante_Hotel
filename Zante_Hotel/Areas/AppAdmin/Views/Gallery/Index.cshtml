@@ -1,0 +1,30 @@
+﻿
+@model ICollection<Gallery>
+
+<div class="content">
+    <div class="animated fadeIn">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="card">
+                    <div class="card-header">
+                        <strong class="card-title">Gallery Table</strong>
+                    </div>
+                    <div class="col-lg-4">
+                        <a asp-action="Create" asp-controller="Gallery" asp-area="AppAdmin" class="btn btn-danger">Create</a>
+                    </div>
+                    <div class="card-body">
+                        @foreach (var item in Model)
+                        {
+                            <div class="col-3 position-relative">
+                                <img style="width:100%;height:150px;" src="~/assets/assets/images/gallery/@item.Url" />
+                                <a style="right:36px;" class="btn btn-warning position-absolute" asp-action="Update" asp-controller="Gallery" asp-route-id="@item.Id"><i class='fas fa-pen' style='color: white'></i></a>
+                                <a style="right:8px;" class="btn btn-danger position-absolute" asp-action="Delete" asp-controller="Gallery" asp-route-id="@item.Id">X</a>
+                            </div>
+                        }
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div><!-- .animated -->
+</div><!-- .content -->

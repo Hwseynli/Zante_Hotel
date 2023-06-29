@@ -1,36 +1,37 @@
 ﻿<Properties StartupConfiguration="{6E2AD9F4-671F-4A46-82C7-E15857056413}|https">
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
-    <BreakpointStore />
+    <BreakpointStore>
+      <Breakpoint file="/Users/zeyneb/Zante_Hotel/Zante_Hotel/Areas/AppAdmin/Controllers/RoomController.cs" relfile="Areas/AppAdmin/Controllers/RoomController.cs" line="159" column="1" />
+      <Breakpoint file="/Users/zeyneb/Zante_Hotel/Zante_Hotel/Areas/AppAdmin/Controllers/RoomController.cs" relfile="Areas/AppAdmin/Controllers/RoomController.cs" line="263" column="1" />
+      <Breakpoint file="/Users/zeyneb/Zante_Hotel/Zante_Hotel/Controllers/RoomController.cs" relfile="Controllers/RoomController.cs" line="26" column="1" />
+    </BreakpointStore>
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
-  <MonoDevelop.Ide.Workbench ActiveDocument="Areas/AppAdmin/Controllers/RoomController.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Views/Room/Detail.cshtml">
     <Files>
-      <File FileName="Areas/AppAdmin/Controllers/RoomController.cs" Line="136" Column="1" />
-      <File FileName="Models/Room/Room.cs" />
+      <File FileName="Controllers/ReservationController.cs" Line="1" Column="1" />
+      <File FileName="Controllers/HomeController.cs" Line="22" Column="4" />
+      <File FileName="Views/Home/Index.cshtml" Line="201" Column="123" />
+      <File FileName="Views/Room/RoomList.cshtml" Line="1" Column="3" />
+      <File FileName="Views/Room/Detail.cshtml" Line="52" Column="92" />
+      <File FileName="Controllers/RoomController.cs" Line="26" Column="1" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
         <State name="__root__">
           <Node name="Zante_Hotel">
-            <Node name="Zante_Hotel" expanded="True">
+            <Node name="Zante_Hotel">
               <Node name="Areas" expanded="True">
                 <Node name="AppAdmin" expanded="True">
-                  <Node name="Controllers" expanded="True">
-                    <Node name="RoomController.cs" selected="True" />
-                  </Node>
-                  <Node name="DAL" expanded="True" />
+                  <Node name="Controllers" expanded="True" />
                 </Node>
               </Node>
-              <Node name="Models" expanded="True">
-                <Node name="Blog" expanded="True" />
-                <Node name="Room" expanded="True" />
-              </Node>
-              <Node name="wwwroot" expanded="True">
-                <Node name="assets" expanded="True">
-                  <Node name="assets" expanded="True">
-                    <Node name="images" expanded="True" />
-                  </Node>
+              <Node name="ViewModels" expanded="True" />
+              <Node name="Views">
+                <Node name="Room" expanded="True">
+                  <Node name="Detail.cshtml" selected="True" />
                 </Node>
+                <Node name="Shared" expanded="True" />
               </Node>
             </Node>
           </Node>

@@ -58,7 +58,6 @@ namespace Zante_Hotel.Areas.AppAdmin.Controllers
             }
             Room room = new Room
             {
-                Number = roomVM.Name,
                 Description = roomVM.Description,
                 Price=roomVM.Price,
                 CategoryId=roomVM.CategoryId,
