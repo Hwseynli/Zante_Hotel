@@ -14,10 +14,12 @@ namespace Zante_Hotel.Controllers
         }
 
         // GET: /<controller>/
-        public async Task<IActionResult> Index()
+        public async Task<IActionResult> Index(int take = 2, int page = 1)
         {
+            ViewBag.TotalPage = (int)Math.Ceiling((double)_dbContext.Blogs.Count() / take);
+            ViewBag.CurrentPage = page;
             ICollection<Comment> comments = await _dbContext.Comments.Include(c => c.Replies).ToListAsync();
-            ICollection<Blog> blogs = await _dbContext.Blogs.Include(b => b.Author).Include(b => b.Comments).Include(b => b.Tags).ToListAsync();
+            ICollection<Blog> blogs = await _dbContext.Blogs.Where(b=>b.CreateOn<DateTime.Now).Include(b => b.Author).Include(b => b.Comments).Include(b => b.Tags).Skip((page - 1) * take).Take(take).ToListAsync();
             BlogVM BlogVM = new BlogVM
             {
                 Blogs = blogs,

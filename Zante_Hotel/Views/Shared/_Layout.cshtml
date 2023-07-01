@@ -80,10 +80,10 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-                    <a class="navbar-brand light" href="index.html">
+                    <a class="navbar-brand light" asp-action="Index" asp-controller="Home">
                         <img src="~/assets/assets/images/logo_light.svg" height="32" alt="Logo">
                     </a>
-                    <a class="navbar-brand dark nodisplay" href="index.html">
+                    <a class="navbar-brand dark nodisplay" asp-action="Index" asp-controller="Home">
                         <img src="~/assets/assets/images/@hotel.Logo" height="32" alt="Logo">
                     </a>
                 </div>
@@ -104,22 +104,22 @@
                                     <div class="mega_menu_inner">
                                             <ul>
                                                 <li class="list_title">PAGES</li>
-                                                <li><a href="gallery.html">Galaries</a></li>
-                                                <li><a href="gallery-3columns.html">Restaurant</a></li>
-                                                <li><a href="gallery-2columns.html">Gallery 2 Columns</a></li>
-                                                <li><a href="gallery-withoutdetails.html">Spa</a></li>
-                                                <li><a href="gallery-withoutfilters.html"></a></li>
-                                                <li><a href="gallery-slider.html">Checkout</a></li>
-                                                <li><a href="gallery2.html">Reservation</a></li>
+                                                <li><a asp-action="">Galaries</a></li>
+                                                <li><a href="#">Restaurant</a></li>
+                                                <li><a href="#">Galleries</a></li>
+                                                <li><a href="#">Spa</a></li>
+                                                <li><a href="#"></a></li>
+                                                <li><a href="#">Checkout</a></li>
+                                                <li><a href="#">Reservation</a></li>
                                             </ul>
                                      </div>
                                 </li>
                             </ul>
                         </li>
-                        <li><a href="contact.html">CONTACT US</a></li>
-                        <li><a href="blog.html">BLOG</a></li>
+                        <li><a asp-action="ContactUs" asp-controller="Home">CONTACT US</a></li>
+                        <li><a asp-action="Index" asp-controller="Blog">BLOGS</a></li>
                         <li class="menu_button">
-                            <a href="booking-form.html" class="button  btn_yellow"><i class="fa fa-calendar"></i>BOOK ONLINE</a>
+                            <a href="#" class="button  btn_yellow"><i class="fa fa-calendar"></i>BOOK ONLINE</a>
                         </li>
                         @if (user != null && User.Identity.IsAuthenticated)
                         {
@@ -225,7 +225,7 @@
                     <div class="col-md-6 col-sm-6">
                         @if(hotel!=null){
                         <div class="copyrights">
-                            Copyright 2017 <a href="index.html">@hotel.Name</a> All Rights Reserved.
+                            Copyright 2017 <a asp-action="Index" asp-controller="Home">@hotel.Name</a> All Rights Reserved.
                         </div>
                         }
                     </div>

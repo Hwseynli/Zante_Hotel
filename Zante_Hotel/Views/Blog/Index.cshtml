@@ -27,7 +27,7 @@
                     <article class="blog_list">
                         <figure>
                             <a href="blog-post.html" class="hover_effect h_link h_blue">
-                                <img src="~/assets/assets/images/blog/@item.ImgUrl" class="img-responsive" alt="Image">
+                                <img width="800px" height="300" src="~/assets/assets/images/blog/@item.ImgUrl" class="img-responsive" alt="Image">
                             </a>
                         </figure>
                         <div class="details">
@@ -38,22 +38,34 @@
                                 <span class="meta_part"><a href="#"><i class="fa fa-comment-o"></i>@item.Comments.Count Comments</a></span>
                                 <span class="meta_part"><i class="fa fa-folder-open-o"></i><a href="#">@item.Name.</a>, <a href="#">Events</a></span>
                             </div>
-                            <p>@item.Description.Substring(0,100) ...</p>
+                            <p>@item.Description.Substring(0, 100) ...</p>
                             <a class="button btn_blue " asp-action="BlogPost" asp-controller="Blog" asp-route-id="@item.Id"><i class="fa fa-angle-double-right"></i> Read More </a>
                         </div>
                     </article>
 
                 }
-                <nav>
-                    <ul class="pagination">
-                        <li class="prev_pagination"><a href="#"><i class="fa fa-angle-left"></i></a></li>
-                        <li class="active"><a href="#">1</a></li>
-                        <li><a href="#">2</a></li>
-                        <li><a href="#">3</a></li>
-                        <li><a href="#">4</a></li>
-                        <li><a href="#">5</a></li>
-                        <li><a href="#">6</a></li>
-                        <li class="next_pagination"><a href="#"><i class="fa fa-angle-right"></i></a></li>
+                <nav class="a_center">
+                    <ul class="pagination mt50 mb0">
+                        @if (ViewBag.CurrentPage - 1 != 0)
+                        {
+                            <li class="prev_pagination"><a asp-route-page="@(ViewBag.CurrentPage - 1)"><i class="fa fa-angle-left"></i></a></li>
+                        }
+                        else
+                        {
+                            <li class="prev_pagination"><a asp-route-page="@(ViewBag.CurrentPage)"><i class="fa fa-angle-left"></i></a></li>
+                        }
+                        @for (int i = 1; i < ViewBag.TotalPage; i++)
+                        {
+                            <li class="@(i == ViewBag.CurrentPage ? "active" : "")"><a asp-route-page="@i">@i</a></li>
+                        }
+                        @if (ViewBag.TotalPage >= (ViewBag.CurrentPage + 1))
+                        {
+                            <li class="next_pagination"><a asp-route-page="@(ViewBag.CurrentPage + 1)"><i class="fa fa-angle-right"></i></a></li>
+                        }
+                        else
+                        {
+                            <li class="prev_pagination"><a asp-route-page="@(ViewBag.CurrentPage)"><i class="fa fa-angle-right"></i></a></li>
+                        }
                     </ul>
                 </nav>
             </div>
@@ -84,66 +96,20 @@
                     <aside class="widget">
                         <h4>Latest Posts</h4>
                         <div class="latest_posts">
-                            <!-- ITEM -->
-                            <article class="latest_post">
-                                <figure>
-                                    <a href="blog-post.html" class="hover_effect h_link h_blue">
-                                        <img src="images/blog/thumb1.jpg" alt="Image">
-                                    </a>
-                                </figure>
-                                <div class="details">
-                                    <h6><a href="blog-post.html">Live your myth in Greece</a></h6>
-                                    <span><i class="fa fa-calendar"></i>23/11/2017</span>
-                                </div>
-                            </article>
-                            <!-- ITEM -->
-                            <article class="latest_post">
-                                <figure>
-                                    <a href="blog-post.html" class="hover_effect h_link h_blue">
-                                        <img src="images/blog/thumb2.jpg" alt="Image">
-                                    </a>
-                                </figure>
-                                <div class="details">
-                                    <h6><a href="blog-post.html">Hotel Zante in pictures</a></h6>
-                                    <span><i class="fa fa-calendar"></i>18/10/2017</span>
-                                </div>
-                            </article>
-                            <!-- ITEM -->
-                            <article class="latest_post">
-                                <figure>
-                                    <a href="blog-post.html" class="hover_effect h_link h_blue">
-                                        <img src="images/blog/thumb3.jpg" alt="Image">
-                                    </a>
-                                </figure>
-                                <div class="details">
-                                    <h6><a href="blog-post.html">Hotel Zante family party</a></h6>
-                                    <span><i class="fa fa-calendar"></i>13/08/2017</span>
-                                </div>
-                            </article>
-                            <!-- ITEM -->
-                            <article class="latest_post">
-                                <figure>
-                                    <a href="blog-post.html" class="hover_effect h_link h_blue">
-                                        <img src="images/blog/thumb4.jpg" alt="Image">
-                                    </a>
-                                </figure>
-                                <div class="details">
-                                    <h6><a href="blog-post.html">Hotel Zante weddings</a></h6>
-                                    <span><i class="fa fa-calendar"></i>13/08/2017</span>
-                                </div>
-                            </article>
-                            <!-- ITEM -->
-                            <article class="latest_post">
-                                <figure>
-                                    <a href="blog-post.html" class="hover_effect h_link h_blue">
-                                        <img src="images/blog/thumb5.jpg" alt="Image">
-                                    </a>
-                                </figure>
-                                <div class="details">
-                                    <h6><a href="blog-post.html">10 things you should know</a></h6>
-                                    <span><i class="fa fa-calendar"></i>13/08/2017</span>
-                                </div>
-                            </article>
+                            @foreach (var item in Model.Blogs)
+                            {
+                                <article class="latest_post">
+                                    <figure>
+                                        <a asp-action="BlogPost" asp-controller="Blog" asp-route-id="@item.Id" class="hover_effect h_link h_blue">
+                                            <img height="100px" width="150px" src="~/assets/assets/images/blog/@item.ImgUrl" alt="Image">
+                                        </a>
+                                    </figure>
+                                    <div class="details">
+                                        <h6><a asp-action="BlogPost" asp-controller="Blog" asp-route-id="@item.Id">@item.SubTitle</a></h6>
+                                        <span><i class="fa fa-calendar"></i>@item.CreateOn.Date</span>
+                                    </div>
+                                </article>
+                            }
                         </div>
                     </aside>
                     <aside class="widget">

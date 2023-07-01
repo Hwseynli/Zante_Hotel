@@ -8,16 +8,16 @@
         <div class="inner">
             <div class="row">
                 <div class="col-md-6 col-sm-6">
-                    <h1>Single Room</h1>
+                    <h1>@Model.Room.Category.Name</h1>
                     <ol class="breadcrumb">
-                        <li><a href="index.html">Home</a></li>
+                        <li><a asp-action="Index" asp-controller="Home">Home</a></li>
                         <li>Rooms</li>
-                        <li>Single Room</li>
+                        <li>@Model.Room.Category.Name</li>
                     </ol>
                 </div>
                 <div class="col-md-6 col-sm-6">
                     <div class="price">
-                        <div class="inner">
+                        <div class="inner" style="width:100px">
                             €@Model.Room.Price <span>per night</span>
                         </div>
                     </div>
@@ -85,39 +85,21 @@
                         </div>
                     </div>
                     <div class="row">
-                        <div class="col-md-4">
-                            <article>
-                                <figure>
-                                    <a href="room.html" class="hover_effect h_blue h_link"><img src="images/rooms/single-room.jpg" alt="Image" class="img-responsive"></a>
-                                    <div class="price">€99<span> night</span></div>
-                                    <figcaption>
-                                        <h4><a href="room.html">Double Room</a></h4>
-                                    </figcaption>
-                                </figure>
-                            </article>
-                        </div>
-                        <div class="col-md-4">
-                            <article>
-                                <figure>
-                                    <a href="room.html" class="hover_effect h_blue h_link"><img src="images/rooms/double-room.jpg" alt="Image" class="img-responsive"></a>
-                                    <div class="price">€129<span> night</span></div>
-                                    <figcaption>
-                                        <h4><a href="room.html">Single Room </a></h4>
-                                    </figcaption>
-                                </figure>
-                            </article>
-                        </div>
-                        <div class="col-md-4">
-                            <article>
-                                <figure>
-                                    <a href="room.html" class="hover_effect h_blue h_link"><img src="images/rooms/deluxe-room.jpg" alt="Image" class="img-responsive"></a>
-                                    <div class="price">€189<span> night</span></div>
-                                    <figcaption>
-                                        <h4><a href="room.html">Deluxe Room </a></h4>
-                                    </figcaption>
-                                </figure>
-                            </article>
-                        </div>
+                        @foreach (Room item in Model.Rooms)
+                        {
+                            <div class="col-md-4">
+                                <article>
+                                    <figure>
+                                        <a asp-action="Detait" asp-controller="Room" asp-route-id="@item.Id" class="hover_effect h_blue h_link"><img src="~/assets/assets/images/rooms/@item.Images.FirstOrDefault().ImageUrl" alt="Image" class="img-responsive"/></a>
+                                        <div class="price" style="width:auto">€@item.Price<span> night</span></div>
+
+                                        <figcaption>
+                                            <h4><a asp-action="Detait" asp-controller="Room" asp-route-id="@item.Id">@item.Category.Name</a></h4>
+                                        </figcaption>
+                                    </figure>
+                                </article>
+                            </div>
+                        }
                     </div>
                 </div>
             </div>
@@ -192,68 +174,27 @@
                         <h4>NEED HELP?</h4>
                         <div class="help">
                             If you have any question please don't hesitate to contact us
-                            <div class="phone"><i class="fa  fa-phone"></i><a href="tel:18475555555"> 1-888-123-4567 </a></div>
-                            <div class="email"><i class="fa  fa-envelope-o "></i><a href="mailto:contact@site.com">contact@site.com</a> or use <a href="contact.html"> contact form</a></div>
+                            <div class="phone"><i class="fa  fa-phone"></i><a href="tel:@Model.Room.Hotel.PhoneNumber"> @Model.Room.Hotel.PhoneNumber </a></div>
+                            <div class="email"><i class="fa  fa-envelope-o "></i><a href="mailto:@Model.Room.Hotel.Email">@Model.Room.Hotel.Email</a> or use <a asp-action="ContactUs" asp-controller="Home"> contact form</a></div>
                         </div>
                     </aside>
                     <aside class="widget">
                         <h4>Latest Posts</h4>
                         <div class="latest_posts">
-                            <article class="latest_post">
-                                <figure>
-                                    <a href="blog-post.html" class="hover_effect h_link h_blue">
-                                        <img src="images/blog/thumb1.jpg" alt="Image">
-                                    </a>
-                                </figure>
-                                <div class="details">
-                                    <h6><a href="blog-post.html">Live your myth in Greece</a></h6>
-                                    <span><i class="fa fa-calendar"></i>23/11/2017</span>
-                                </div>
-                            </article>
-                            <article class="latest_post">
-                                <figure>
-                                    <a href="blog-post.html" class="hover_effect h_link h_blue">
-                                        <img src="images/blog/thumb2.jpg" alt="Image">
-                                    </a>
-                                </figure>
-                                <div class="details">
-                                    <h6><a href="blog-post.html">Hotel Zante in pictures</a></h6>
-                                    <span><i class="fa fa-calendar"></i>18/10/2017</span>
-                                </div>
-                            </article>
-                            <article class="latest_post">
-                                <figure>
-                                    <a href="blog-post.html" class="hover_effect h_link h_blue">
-                                        <img src="images/blog/thumb3.jpg" alt="Image">
-                                    </a>
-                                </figure>
-                                <div class="details">
-                                    <h6><a href="blog-post.html">Hotel Zante family party</a></h6>
-                                    <span><i class="fa fa-calendar"></i>13/08/2017</span>
-                                </div>
-                            </article>
-                            <article class="latest_post">
-                                <figure>
-                                    <a href="blog-post.html" class="hover_effect h_link h_blue">
-                                        <img src="images/blog/thumb4.jpg" alt="Image">
-                                    </a>
-                                </figure>
-                                <div class="details">
-                                    <h6><a href="blog-post.html">Hotel Zante weddings</a></h6>
-                                    <span><i class="fa fa-calendar"></i>13/08/2017</span>
-                                </div>
-                            </article>
-                            <article class="latest_post">
-                                <figure>
-                                    <a href="blog-post.html" class="hover_effect h_link h_blue">
-                                        <img src="images/blog/thumb5.jpg" alt="Image">
-                                    </a>
-                                </figure>
-                                <div class="details">
-                                    <h6><a href="blog-post.html">10 things you should know</a></h6>
-                                    <span><i class="fa fa-calendar"></i>13/08/2017</span>
-                                </div>
-                            </article>
+                            @foreach (var item in Model.Blogs)
+                            {
+                                <article class="latest_post">
+                                    <figure>
+                                        <a asp-action="BlogPost" asp-controller="Blog" asp-route-id="@item.Id" class="hover_effect h_link h_blue">
+                                            <img height="100px" width="150px" src="~/assets/assets/images/blog/@item.ImgUrl" alt="Image">
+                                        </a>
+                                    </figure>
+                                    <div class="details">
+                                        <h6><a asp-action="BlogPost" asp-controller="Blog" asp-route-id="@item.Id">@item.SubTitle</a></h6>
+                                        <span><i class="fa fa-calendar"></i>@item.CreateOn.Date</span>
+                                    </div>
+                                </article>
+                            }
                         </div>
                     </aside>
                 </div>

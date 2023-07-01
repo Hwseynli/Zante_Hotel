@@ -6,6 +6,7 @@
 		public Room Room { get; set; }
         public ICollection<Gallery> Galleries { get; set; }
         public Slider Slider { get; set; }
-    }
+		public ICollection<Blog> Blogs { get; set; }
+	}
 }
 
