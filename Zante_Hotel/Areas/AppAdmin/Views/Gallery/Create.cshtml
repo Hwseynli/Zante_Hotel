@@ -11,8 +11,15 @@
                             <div class="form-row">
                                 <div class="form-group col-md-6">
                                     <label asp-for="Photo">Photo</label>
-                                    <input asp-for="Photo" class="form-control" placeholder="Photo" accept="image/*"/>
+                                    <input asp-for="Photo" class="form-control" placeholder="Photo" accept="image/*" />
                                     <span asp-validation-for="Photo"></span>
+                                </div>
+                                <div class="form-group col-md-6">
+                                    <label asp-for="HotelId">Hotel</label>
+                                    <select asp-for="HotelId" class="form-control" asp-items="new SelectList(ViewBag.Hotels,nameof(Hotel.Id),nameof(Hotel.Name))">
+                                        <option disabled selected>Select Hotel please</option>
+                                    </select>
+                                    <span class="text-danger" asp-validation-for="HotelId"></span>
                                 </div>
                             </div>
                             <button type="submit" class="btn  btn-primary">Create</button>

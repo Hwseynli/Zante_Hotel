@@ -1,4 +1,6 @@
-﻿namespace Zante_Hotel.Services
+﻿using Zante_Hotel.Areas.AppAdmin.Models;
+
+namespace Zante_Hotel.Services
 {
 	public class LayoutService
 	{
@@ -24,7 +26,11 @@
             }
             return new AppUser();
         }
-
+        public async Task<Hotel> GetHotel()
+        {
+            Hotel hotel1 = await _dbContext.Hotels.FirstOrDefaultAsync();
+            if (hotel1 != null) return hotel1;
+            return new Hotel();
+        }
     }
 }
-

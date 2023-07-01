@@ -10,6 +10,8 @@
         public IFormFile Photo { get; set; }
         [Required,MinLength(3),MaxLength(2000)]
         public string Description { get; set; }
+        [Required]
+        public Guid HotelId { get; set; }
         public ICollection<Comment> Comments { get; set; }
         [Required]
         public ICollection<Guid> TagIds { get; set; }

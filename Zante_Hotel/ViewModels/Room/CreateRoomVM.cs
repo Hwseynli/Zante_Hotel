@@ -17,6 +17,8 @@
         public Guid CategoryId { get; set; }
         [Required]
         public Guid ViewId { get; set; }
+        [Required]
+        public Guid HotelId { get; set; }
         public ICollection<Reservation> ReservationsDate { get; set; }
         public ICollection<Guid> ServiceIds { get; set; }
     }

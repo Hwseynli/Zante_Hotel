@@ -1,45 +1,37 @@
 ﻿<Properties StartupConfiguration="{6E2AD9F4-671F-4A46-82C7-E15857056413}|https">
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.DebuggingService.Breakpoints>
-    <BreakpointStore>
-      <Breakpoint file="/Users/zeyneb/Zante_Hotel/Zante_Hotel/Areas/AppAdmin/Controllers/RoomController.cs" relfile="Areas/AppAdmin/Controllers/RoomController.cs" line="159" column="1" />
-      <Breakpoint file="/Users/zeyneb/Zante_Hotel/Zante_Hotel/Areas/AppAdmin/Controllers/RoomController.cs" relfile="Areas/AppAdmin/Controllers/RoomController.cs" line="263" column="1" />
-      <Breakpoint file="/Users/zeyneb/Zante_Hotel/Zante_Hotel/Controllers/RoomController.cs" relfile="Controllers/RoomController.cs" line="26" column="1" />
-    </BreakpointStore>
-  </MonoDevelop.Ide.DebuggingService.Breakpoints>
-  <MonoDevelop.Ide.Workbench ActiveDocument="Views/Room/Detail.cshtml">
+  <MultiItemStartupConfigurations />
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Models/Service/Service.cs">
     <Files>
-      <File FileName="Controllers/ReservationController.cs" Line="1" Column="1" />
-      <File FileName="Controllers/HomeController.cs" Line="22" Column="4" />
-      <File FileName="Views/Home/Index.cshtml" Line="201" Column="123" />
-      <File FileName="Views/Room/RoomList.cshtml" Line="1" Column="3" />
-      <File FileName="Views/Room/Detail.cshtml" Line="52" Column="92" />
-      <File FileName="Controllers/RoomController.cs" Line="26" Column="1" />
+      <File FileName="Views/Home/Index.cshtml" Line="24" Column="53" />
+      <File FileName="Views/Shared/_BlogLayout.cshtml" Line="1" Column="1" />
+      <File FileName="Views/Shared/_Layout.cshtml" Line="1" Column="1" />
+      <File FileName="Areas/AppAdmin/Controllers/HotelController.cs" Line="36" Column="71" />
+      <File FileName="Program.cs" Line="50" Column="1" />
+      <File FileName="Models/Service/Service.cs" Line="1" Column="1" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
         <State name="__root__">
           <Node name="Zante_Hotel">
             <Node name="Zante_Hotel">
-              <Node name="Areas" expanded="True">
-                <Node name="AppAdmin" expanded="True">
-                  <Node name="Controllers" expanded="True" />
+              <Node name="Migrations" expanded="True" />
+              <Node name="Models">
+                <Node name="Service">
+                  <Node name="Service.cs" selected="True" />
                 </Node>
               </Node>
-              <Node name="ViewModels" expanded="True" />
-              <Node name="Views">
-                <Node name="Room" expanded="True">
-                  <Node name="Detail.cshtml" selected="True" />
-                </Node>
-                <Node name="Shared" expanded="True" />
-              </Node>
+              <Node name="Views" expanded="True" />
             </Node>
           </Node>
         </State>
       </Pad>
     </Pads>
   </MonoDevelop.Ide.Workbench>
-  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
   <MonoDevelop.Ide.ItemProperties.Zante__Hotel PreferredExecutionTarget="/Applications/Google Chrome.app" />
-  <MultiItemStartupConfigurations />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <Breakpoint file="/Users/zeyneb/Desktop/Zante_Hotel/Zante_Hotel/Controllers/RoomController.cs" relfile="Controllers/RoomController.cs" line="26" column="1" />
+    <Breakpoint file="/Users/zeyneb/Desktop/Zante_Hotel/Zante_Hotel/Areas/AppAdmin/Controllers/HotelController.cs" relfile="Areas/AppAdmin/Controllers/HotelController.cs" line="34" column="1" />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
 </Properties>

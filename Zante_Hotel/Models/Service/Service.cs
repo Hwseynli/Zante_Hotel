@@ -4,6 +4,8 @@
 	{
         public string Icon { get; set; }
         public ICollection<RoomServices> Rooms { get; set; }
+        public ICollection<HotelService> Hotels { get; set; }
+
     }
 }
 

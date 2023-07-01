@@ -5,6 +5,7 @@ namespace Zante_Hotel.ViewModels
 	{
 		public IFormFile Photo { get; set; }
 		public string Url { get; set; }
+		public Guid HotelId { get; set; }
 	}
 }
 

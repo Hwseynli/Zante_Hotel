@@ -51,6 +51,12 @@
                                     <span asp-validation-for="NumberOfPeople"></span>
                                 </div>
                                 <div class="form-group col-md-6">
+                                    <label asp-for="HotelId">Hotel</label>
+                                    <select asp-for="HotelId" class="form-control" asp-items="new SelectList(ViewBag.Hotels,nameof(Hotel.Id),nameof(Hotel.Name))">
+                                    </select>
+                                    <span class="text-danger" asp-validation-for="HotelId"></span>
+                                </div>
+                                <div class="form-group col-md-6">
                                     <label asp-for="CategoryId">Category</label>
                                     <select asp-for="CategoryId" class="form-control" asp-items="new SelectList(ViewBag.Categories,nameof(Category.Id),nameof(Category.Name))">
                                     </select>

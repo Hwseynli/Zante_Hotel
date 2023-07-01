@@ -257,8 +257,8 @@ namespace Zante_Hotel.Migrations
 
                     b.Property<string>("Name")
                         .IsRequired()
-                        .HasMaxLength(25)
-                        .HasColumnType("nvarchar(25)");
+                        .HasMaxLength(55)
+                        .HasColumnType("nvarchar(55)");
 
                     b.Property<decimal>("Price")
                         .HasColumnType("decimal(18,2)");
@@ -305,8 +305,8 @@ namespace Zante_Hotel.Migrations
 
                     b.Property<string>("Name")
                         .IsRequired()
-                        .HasMaxLength(25)
-                        .HasColumnType("nvarchar(25)");
+                        .HasMaxLength(55)
+                        .HasColumnType("nvarchar(55)");
 
                     b.Property<string>("PhoneNumber")
                         .IsRequired()
@@ -349,8 +349,8 @@ namespace Zante_Hotel.Migrations
 
                     b.Property<string>("Name")
                         .IsRequired()
-                        .HasMaxLength(25)
-                        .HasColumnType("nvarchar(25)");
+                        .HasMaxLength(55)
+                        .HasColumnType("nvarchar(55)");
 
                     b.Property<string>("SubTitle")
                         .IsRequired()
@@ -358,7 +358,8 @@ namespace Zante_Hotel.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("HotelId");
+                    b.HasIndex("HotelId")
+                        .IsUnique();
 
                     b.ToTable("Restaurants");
                 });
@@ -402,8 +403,8 @@ namespace Zante_Hotel.Migrations
 
                     b.Property<string>("Name")
                         .IsRequired()
-                        .HasMaxLength(25)
-                        .HasColumnType("nvarchar(25)");
+                        .HasMaxLength(55)
+                        .HasColumnType("nvarchar(55)");
 
                     b.Property<string>("SubTitle")
                         .IsRequired()
@@ -417,7 +418,8 @@ namespace Zante_Hotel.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("HotelId");
+                    b.HasIndex("HotelId")
+                        .IsUnique();
 
                     b.ToTable("Spas");
                 });
@@ -471,8 +473,8 @@ namespace Zante_Hotel.Migrations
 
                     b.Property<string>("Name")
                         .IsRequired()
-                        .HasMaxLength(25)
-                        .HasColumnType("nvarchar(25)");
+                        .HasMaxLength(55)
+                        .HasColumnType("nvarchar(55)");
 
                     b.Property<string>("SubTitle")
                         .IsRequired()
@@ -517,8 +519,8 @@ namespace Zante_Hotel.Migrations
 
                     b.Property<string>("Name")
                         .IsRequired()
-                        .HasMaxLength(25)
-                        .HasColumnType("nvarchar(25)");
+                        .HasMaxLength(55)
+                        .HasColumnType("nvarchar(55)");
 
                     b.HasKey("Id");
 
@@ -779,8 +781,8 @@ namespace Zante_Hotel.Migrations
 
                     b.Property<string>("Name")
                         .IsRequired()
-                        .HasMaxLength(25)
-                        .HasColumnType("nvarchar(25)");
+                        .HasMaxLength(55)
+                        .HasColumnType("nvarchar(55)");
 
                     b.HasKey("Id");
 
@@ -829,8 +831,8 @@ namespace Zante_Hotel.Migrations
 
                     b.Property<string>("Name")
                         .IsRequired()
-                        .HasMaxLength(25)
-                        .HasColumnType("nvarchar(25)");
+                        .HasMaxLength(55)
+                        .HasColumnType("nvarchar(55)");
 
                     b.HasKey("Id");
 
@@ -845,8 +847,8 @@ namespace Zante_Hotel.Migrations
 
                     b.Property<string>("Name")
                         .IsRequired()
-                        .HasMaxLength(25)
-                        .HasColumnType("nvarchar(25)");
+                        .HasMaxLength(55)
+                        .HasColumnType("nvarchar(55)");
 
                     b.HasKey("Id");
 
@@ -914,8 +916,8 @@ namespace Zante_Hotel.Migrations
             modelBuilder.Entity("Zante_Hotel.Areas.AppAdmin.Models.Restaurant", b =>
                 {
                     b.HasOne("Zante_Hotel.Areas.AppAdmin.Models.Hotel", "Hotel")
-                        .WithMany()
-                        .HasForeignKey("HotelId")
+                        .WithOne("Restaurant")
+                        .HasForeignKey("Zante_Hotel.Areas.AppAdmin.Models.Restaurant", "HotelId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
@@ -936,8 +938,8 @@ namespace Zante_Hotel.Migrations
             modelBuilder.Entity("Zante_Hotel.Areas.AppAdmin.Models.Spa", b =>
                 {
                     b.HasOne("Zante_Hotel.Areas.AppAdmin.Models.Hotel", "Hotel")
-                        .WithMany()
-                        .HasForeignKey("HotelId")
+                        .WithOne("Spa")
+                        .HasForeignKey("Zante_Hotel.Areas.AppAdmin.Models.Spa", "HotelId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
@@ -1043,7 +1045,7 @@ namespace Zante_Hotel.Migrations
                         .IsRequired();
 
                     b.HasOne("Zante_Hotel.Models.Service", "Service")
-                        .WithMany()
+                        .WithMany("Hotels")
                         .HasForeignKey("ServiceId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
@@ -1146,9 +1148,13 @@ namespace Zante_Hotel.Migrations
 
                     b.Navigation("Galleries");
 
+                    b.Navigation("Restaurant");
+
                     b.Navigation("Rooms");
 
                     b.Navigation("Services");
+
+                    b.Navigation("Spa");
                 });
 
             modelBuilder.Entity("Zante_Hotel.Areas.AppAdmin.Models.Restaurant", b =>
@@ -1191,6 +1197,8 @@ namespace Zante_Hotel.Migrations
 
             modelBuilder.Entity("Zante_Hotel.Models.Service", b =>
                 {
+                    b.Navigation("Hotels");
+
                     b.Navigation("Rooms");
                 });
 

@@ -1,5 +1,6 @@
 ﻿
 using Microsoft.AspNetCore.Mvc;
+using Zante_Hotel.Models;
 
 //// For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
@@ -41,6 +42,7 @@ namespace Zante_Hotel.Areas.AppAdmin.Controllers
             {
                 Name = serviceVM.Name
             };
+            if (serviceVM.Icon != null) service.Icon = serviceVM.Icon;
             await _context.Services.AddAsync(service);
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
@@ -51,7 +53,12 @@ namespace Zante_Hotel.Areas.AppAdmin.Controllers
             if (id == null) return BadRequest();
             Service existed = await _context.Services.FirstOrDefaultAsync(c => c.Id == id);
             if (existed == null) return NotFound();
-            return View(existed);
+            UpdateServiceVM serviceVM = new UpdateServiceVM
+            {
+                Name = existed.Name,
+                Icon=existed.Icon
+            };
+            return View(serviceVM);
         }
 
         [HttpPost]
@@ -60,21 +67,10 @@ namespace Zante_Hotel.Areas.AppAdmin.Controllers
             if (id == null) return BadRequest();
             Service existed = await _context.Services.FirstOrDefaultAsync(c => c.Id == id);
             if (existed == null) return NotFound();
-            if (existed.Name == serviceVM.Name)
-            {
-                return RedirectToAction(nameof(Index));
-            }
-            if (!ModelState.IsValid)
-            {
-                return View(existed);
-            }
-            bool result = _context.Services.Any(c => c.Name.Trim().ToLower() == serviceVM.Name.Trim().ToLower() && c.Id != id);
-            if (result)
-            {
-                ModelState.AddModelError("Name", "Bu adda service artiq movcuddur");
-                return View(existed);
-            }
-            existed.Name = serviceVM.Name;
+            if (!ModelState.IsValid) return View();
+            if (serviceVM.Icon != null && existed.Icon != serviceVM.Icon) existed.Icon = serviceVM.Icon;
+            if (existed.Name != null && existed.Name != serviceVM.Name && !await _context.Services.AnyAsync(c => c.Name.Trim().ToLower() == serviceVM.Name.Trim().ToLower() && c.Id != id))
+                existed.Name = serviceVM.Name;
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }

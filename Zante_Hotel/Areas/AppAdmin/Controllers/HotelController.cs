@@ -44,13 +44,14 @@ namespace Zante_Hotel.Areas.AppAdmin.Controllers
             Hotel hotel = new Hotel
             {
                 Name = hotelVM.Name,
-                Description=hotelVM.Description,
-                Address=hotelVM.Address,
-                Email=hotelVM.Email,
-                MapLink=hotelVM.MapLink,
-                PhoneNumber=hotelVM.PhoneNumber,
-                Type=hotelVM.Type,
-                WebSite=hotelVM.WebSite
+                Description = hotelVM.Description,
+                Address = hotelVM.Address,
+                Email = hotelVM.Email,
+                MapLink = hotelVM.MapLink,
+                PhoneNumber = hotelVM.PhoneNumber,
+                Type = hotelVM.Type,
+                WebSite = hotelVM.WebSite,
+                Services = new List<HotelService>()
             };
             if (hotelVM.Logo != null)
             {
@@ -77,8 +78,7 @@ namespace Zante_Hotel.Areas.AppAdmin.Controllers
             }
             foreach (Guid serviceId in hotelVM.ServiceIds)
             {
-                bool serviceResult = await _dbContext.Services.AnyAsync(t => t.Id == serviceId);
-                if (!serviceResult)
+                if (!await _dbContext.Services.AnyAsync(t => t.Id == serviceId))
                 {
                     ModelState.AddModelError("ServiceId", $"{serviceId} id-li service movcud deyil");
                     return View();
@@ -115,7 +115,7 @@ namespace Zante_Hotel.Areas.AppAdmin.Controllers
                 WebSite = existed.WebSite,
                 ServiceIds = existed.Services.Select(hs => hs.ServiceId).ToList()
             };
-            return View(existed);
+            return View(hotelVM);
         }
         [HttpPost]
         public async Task<IActionResult> Update(Guid? id, UpdateHotelVM HotelVM)
@@ -124,7 +124,7 @@ namespace Zante_Hotel.Areas.AppAdmin.Controllers
             if (id == null) return BadRequest();
             Hotel existed = await _dbContext.Hotels.Where(h => h.Id == id).Include(h => h.Rooms).Include(h => h.Services).FirstOrDefaultAsync();
             if (existed == null) return NotFound();
-            if (!ModelState.IsValid) return View(existed);
+            if (!ModelState.IsValid) return View();
             if (HotelVM.Name != null && !(await _dbContext.Hotels.AnyAsync(c => c.Name.Trim().ToLower() == HotelVM.Name.Trim().ToLower()))) existed.Name = HotelVM.Name;
             if (HotelVM.Type != null && existed.Type.Trim().ToLower() != HotelVM.Type.Trim().ToLower()) existed.Type = HotelVM.Type;
             if (HotelVM.Email != null && !(await _dbContext.Hotels.AnyAsync(c => c.Email.Trim().ToLower() == HotelVM.Email.Trim().ToLower()))) existed.Email = HotelVM.Email;
@@ -147,29 +147,27 @@ namespace Zante_Hotel.Areas.AppAdmin.Controllers
                 existed.Logo.DeleteFile(_env.WebRootPath, "assets/assets/images");
                 existed.Logo = await HotelVM.Logo.CreateFileAsync(_env.WebRootPath, "assets/assets/images");
             }
-            if (HotelVM.ServiceIds is null)
+            if (HotelVM.ServiceIds != null && HotelVM.ServiceIds.Count > 0)
             {
-                ModelState.AddModelError("ServiceIds", "En azi 1 service secin");
-                return View(HotelVM);
-            }
-            List<Guid> createList = HotelVM.ServiceIds.Where(t => !existed.Services.Any(pt => pt.ServiceId == t)).ToList();
-            foreach (Guid serviceId in createList)
-            {
-                bool tagResult = await _dbContext.Services.AnyAsync(pt => pt.Id == serviceId);
-                if (!tagResult)
+                List<Guid> createList = HotelVM.ServiceIds.Where(t => !existed.Services.Any(pt => pt.ServiceId == t)).ToList();
+                foreach (Guid serviceId in createList)
                 {
-                    ModelState.AddModelError("ServicesId", "Bele service movcud deyil");
-                    return View(HotelVM);
+                    bool tagResult = await _dbContext.Services.AnyAsync(pt => pt.Id == serviceId);
+                    if (tagResult)
+                    {
+
+                        HotelService hotelService = new HotelService
+                        {
+                            HotelId = existed.Id,
+                            ServiceId = serviceId
+                        };
+                        existed.Services.Add(hotelService);
+                    }
                 }
-                HotelService roomService = new HotelService
-                {
-                    HotelId = existed.Id,
-                    ServiceId = serviceId
-                };
-                existed.Services.Add(roomService);
+                List<HotelService> removeList = existed.Services.Where(pt => !HotelVM.ServiceIds.Contains(pt.ServiceId)).ToList();
+                _dbContext.HotelServices.RemoveRange(removeList);
             }
-            List<HotelService> removeList = existed.Services.Where(pt => !HotelVM.ServiceIds.Contains(pt.ServiceId)).ToList();
-            _dbContext.HotelServices.RemoveRange(removeList);
+
             await _dbContext.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
@@ -178,7 +176,7 @@ namespace Zante_Hotel.Areas.AppAdmin.Controllers
             if (id == null) return BadRequest();
             Hotel existed = await _dbContext.Hotels.Where(h => h.Id == id).Include(h=>h.Spa).ThenInclude(s => s.Images).Include(h=>h.Restaurant).ThenInclude(r=>r.Images).FirstOrDefaultAsync();
             if (existed == null) return NotFound();
-            Spa spa = await _dbContext.Spas.Where(h => h.Id == existed.Spa.Id).FirstOrDefaultAsync();
+            Spa spa = await _dbContext.Spas.Where(h => h.HotelId == existed.Id).FirstOrDefaultAsync();
             if (spa != null)
             {
                 if (spa.Images.Count > 0)
@@ -191,7 +189,7 @@ namespace Zante_Hotel.Areas.AppAdmin.Controllers
                 }
                 _dbContext.Spas.Remove(spa);
             }
-            Restaurant restaurant = await _dbContext.Restaurants.Where(h => h.Id == existed.Restaurant.Id).FirstOrDefaultAsync();
+            Restaurant restaurant = await _dbContext.Restaurants.Where(h => h.HotelId == existed.Id).FirstOrDefaultAsync();
             if (restaurant != null)
             {
                 if (restaurant.Images.Count > 0)
@@ -203,6 +201,18 @@ namespace Zante_Hotel.Areas.AppAdmin.Controllers
                     }
                 }
                 _dbContext.Restaurants.Remove(restaurant);
+            }
+            List<Gallery> galleries = await _dbContext.Galleries.Where(h => h.HotelId == existed.Id).ToListAsync();
+            if (galleries != null )
+            {
+                if (galleries.Count > 0)
+                {
+                    foreach (var item in galleries)
+                    {
+                        item.Url.DeleteFile(_env.WebRootPath, @"assets/assets/images/restaurant");
+                        _dbContext.Galleries.Remove(item);
+                    }
+                }
             }
             if (existed.Logo != null)
             {

@@ -27,6 +27,7 @@ namespace Zante_Hotel.Areas.AppAdmin.Controllers
         }
         public async Task<IActionResult> Create()
         {
+            ViewBag.Hotels = await _dbContext.Hotels.ToListAsync();
             ViewBag.Categories = await _dbContext.Categories.ToListAsync();
             ViewBag.Views = await _dbContext.Views.ToListAsync();
             ViewBag.Services = await _dbContext.Services.ToListAsync();
@@ -35,6 +36,7 @@ namespace Zante_Hotel.Areas.AppAdmin.Controllers
         [HttpPost]
         public async Task<IActionResult> Create(CreateRoomVM roomVM)
         {
+            ViewBag.Hotels = await _dbContext.Hotels.ToListAsync();
             ViewBag.Categories = await _dbContext.Categories.ToListAsync();
             ViewBag.Views = await _dbContext.Views.ToListAsync();
             ViewBag.Services = await _dbContext.Services.ToListAsync();
@@ -56,8 +58,15 @@ namespace Zante_Hotel.Areas.AppAdmin.Controllers
                 ModelState.AddModelError("Name", "Bu adli otaq artiq movcuddur");
                 return View();
             }
+            if (!await _dbContext.Hotels.AnyAsync(h => h.Id == roomVM.HotelId))
+            {
+                ModelState.AddModelError("HotelId", "Bu id-li view movcud deyil");
+                return View();
+            }
             Room room = new Room
             {
+                Number=roomVM.Name,
+                HotelId=roomVM.HotelId,
                 Description = roomVM.Description,
                 Price=roomVM.Price,
                 CategoryId=roomVM.CategoryId,
@@ -65,6 +74,7 @@ namespace Zante_Hotel.Areas.AppAdmin.Controllers
                 Services=new List<RoomServices>(),
                 Images=new List<RoomImage>()
             };
+          
             if (roomVM.NumberOfPeople < 0 && roomVM.NumberOfPeople > 10)
             {
                 ModelState.AddModelError("NumberOfPeople", "Sayi duzgun daxil edin");
@@ -134,6 +144,7 @@ namespace Zante_Hotel.Areas.AppAdmin.Controllers
         }
         public async Task<IActionResult> Update(Guid? id)
         {
+            ViewBag.Hotels = await _dbContext.Hotels.ToListAsync();
             ViewBag.Categories = await _dbContext.Categories.ToListAsync();
             ViewBag.Views = await _dbContext.Views.ToListAsync();
             ViewBag.Services = await _dbContext.Services.ToListAsync();
@@ -142,6 +153,7 @@ namespace Zante_Hotel.Areas.AppAdmin.Controllers
             if (existed == null) return NotFound();
             UpdateRoomVM roomVM = new UpdateRoomVM
             {
+                HotelId=existed.HotelId,
                 Name = existed.Number,
                 Price = existed.Price,
                 NumberOfPeople = existed.NumberOfPeople,
@@ -157,6 +169,7 @@ namespace Zante_Hotel.Areas.AppAdmin.Controllers
         [HttpPost]
         public async Task<IActionResult> Update(Guid? id,UpdateRoomVM roomVM)
         {
+            ViewBag.Hotels = await _dbContext.Hotels.ToListAsync();
             ViewBag.Categories = await _dbContext.Categories.ToListAsync();
             ViewBag.Views = await _dbContext.Views.ToListAsync();
             ViewBag.Services = await _dbContext.Services.ToListAsync();
@@ -165,46 +178,33 @@ namespace Zante_Hotel.Areas.AppAdmin.Controllers
             if (existed == null) return NotFound();
             roomVM = MapImages(roomVM, existed);
             if (!ModelState.IsValid) return View(roomVM);
-            if (!await _dbContext.Categories.AnyAsync(c => c.Id == roomVM.CategoryId))
-            {
-                ModelState.AddModelError("CategoryId", "Bele bir category yoxdur");
-                return View(roomVM);
-            }
-            existed.CategoryId = roomVM.CategoryId;
-            if (!await _dbContext.Views.AnyAsync(v => v.Id == roomVM.ViewId))
-            {
-                ModelState.AddModelError("ViewId", "Bele bir view yoxdur");
-                return View(roomVM);
-            }
-            existed.ViewId = roomVM.ViewId;
+            if (await _dbContext.Hotels.AnyAsync(h=>h.Id==roomVM.HotelId) && roomVM.HotelId != existed.HotelId) existed.HotelId = roomVM.HotelId;
+            if (await _dbContext.Views.AnyAsync(h => h.Id == roomVM.ViewId) && roomVM.ViewId != existed.ViewId) existed.ViewId = roomVM.ViewId;
+            if (await _dbContext.Categories.AnyAsync(h => h.Id == roomVM.CategoryId) && roomVM.CategoryId != existed.CategoryId) existed.CategoryId = roomVM.CategoryId;
             if (roomVM.Name != null && roomVM.Name != existed.Number) existed.Number = roomVM.Name;
             if (roomVM.Description != null && roomVM.Description != existed.Description) existed.Description = roomVM.Description;
             if (roomVM.Price > 0 && roomVM.Price != existed.Price) existed.Price = roomVM.Price;
             if (roomVM.NumberOfPeople > 0 && roomVM.NumberOfPeople < 10 && roomVM.NumberOfPeople != existed.NumberOfPeople) existed.NumberOfPeople = roomVM.NumberOfPeople;
-            if (roomVM.ServiceIds is null)
+            if (roomVM.ServiceIds != null && roomVM.ServiceIds.Count>0)
             {
-                ModelState.AddModelError("ServiceIds", "En azi 1 service secin");
-                return View(roomVM);
-            }
-            List<Guid> createList = roomVM.ServiceIds.Where(t => !existed.Services.Any(pt => pt.ServiceId == t)).ToList();
-            foreach (Guid serviceId in createList)
-            {
-                bool tagResult = await _dbContext.Services.AnyAsync(pt => pt.Id == serviceId);
-                if (!tagResult)
+                List<Guid> createList = roomVM.ServiceIds.Where(t => !existed.Services.Any(pt => pt.ServiceId == t)).ToList();
+                foreach (Guid serviceId in createList)
                 {
-                    ModelState.AddModelError("ServicesId", "Bele service movcud deyil");
-                    return View(roomVM);
-                }
-                RoomServices roomService = new RoomServices
-                {
-                    RoomId = existed.Id,
-                    ServiceId = serviceId
-                };
-                existed.Services.Add(roomService);
-            }
-            List<RoomServices> removeList = existed.Services.Where(pt => !roomVM.ServiceIds.Contains(pt.ServiceId)).ToList();
-            _dbContext.RoomServices.RemoveRange(removeList);
+                    bool tagResult = await _dbContext.Services.AnyAsync(pt => pt.Id == serviceId);
+                    if (tagResult)
+                    {
 
+                        RoomServices roomService = new RoomServices
+                        {
+                            RoomId = existed.Id,
+                            ServiceId = serviceId
+                        };
+                        existed.Services.Add(roomService);
+                    }
+                }
+                List<RoomServices> removeList = existed.Services.Where(pt => !roomVM.ServiceIds.Contains(pt.ServiceId)).ToList();
+                _dbContext.RoomServices.RemoveRange(removeList);
+            }
             if (roomVM.MainPhoto != null)
             {
                 if (!roomVM.MainPhoto.CheckFileType("image/"))
@@ -276,19 +276,6 @@ namespace Zante_Hotel.Areas.AppAdmin.Controllers
             await _dbContext.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
         public UpdateRoomVM MapImages(UpdateRoomVM roomVM, Room room)

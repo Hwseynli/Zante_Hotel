@@ -24,13 +24,23 @@ namespace Zante_Hotel.Areas.AppAdmin.Controllers
         }
         public async Task<IActionResult> Create()
         {
+            ViewBag.Hotels = await _dbContext.Hotels.ToListAsync();
             return View();
         }
         [HttpPost]
         public async Task<IActionResult> Create(CreateGalleryVM galleryVM)
         {
+            ViewBag.Hotels = await _dbContext.Hotels.ToListAsync();
             if (!ModelState.IsValid) return View();
-            Gallery gallery = new Gallery();
+            if (!await _dbContext.Hotels.AnyAsync(h => h.Id == galleryVM.HotelId))
+            {
+                ModelState.AddModelError("HotelId", "Bu Id li hotel tapilmadi");
+                return View();
+            }
+            Gallery gallery = new Gallery
+            {
+                HotelId=galleryVM.HotelId
+            };
             if (galleryVM.Photo != null)
             {
                 if (!galleryVM.Photo.CheckFileType("image/"))
@@ -51,11 +61,13 @@ namespace Zante_Hotel.Areas.AppAdmin.Controllers
         }
         public async Task<IActionResult> Update(Guid? id)
         {
+            ViewBag.Hotels = await _dbContext.Hotels.ToListAsync();
             if (id is null) return BadRequest();
             Gallery gallery = await _dbContext.Galleries.FirstOrDefaultAsync(g => g.Id == id);
             if (gallery is null) return NotFound();
             UpdateGalleryVM galleryVM = new UpdateGalleryVM
             {
+                HotelId=gallery.HotelId,
                 Url = gallery.Url
             };
             return View(galleryVM);
@@ -63,10 +75,12 @@ namespace Zante_Hotel.Areas.AppAdmin.Controllers
         [HttpPost]
         public async Task<IActionResult> Update(Guid? id, UpdateGalleryVM galleryVM)
         {
+            ViewBag.Hotels = await _dbContext.Hotels.ToListAsync();
             if (id is null) return BadRequest();
             Gallery gallery = await _dbContext.Galleries.FirstOrDefaultAsync(g => g.Id == id);
             if (gallery is null) return NotFound();
             if (!ModelState.IsValid) return View();
+            if (galleryVM.HotelId != gallery.HotelId && await _dbContext.Hotels.AnyAsync(h => h.Id == galleryVM.HotelId)) gallery.HotelId = galleryVM.HotelId;
             if (galleryVM.Photo != null)
             {
                 if (!galleryVM.Photo.CheckFileType("image/"))
@@ -87,6 +101,7 @@ namespace Zante_Hotel.Areas.AppAdmin.Controllers
         }
         public async Task<IActionResult> Delete(Guid? id)
         {
+            ViewBag.Hotels = await _dbContext.Hotels.ToListAsync();
             if (id is null) return BadRequest();
             Gallery gallery = await _dbContext.Galleries.FirstOrDefaultAsync(g => g.Id == id);
             if (gallery is null) return NotFound();

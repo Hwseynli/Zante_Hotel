@@ -30,12 +30,14 @@ namespace Zante_Hotel.Areas.AppAdmin.Controllers
         }
         public async Task<IActionResult> Create()
         {
+            ViewBag.Hotels = await _dbContext.Hotels.ToListAsync();
             ViewBag.Tags = await _dbContext.Tags.ToListAsync();
             return View();
         }
         [HttpPost]
         public async Task<IActionResult> Create(CreateBlogVM blogVM)
         {
+            ViewBag.Hotels = await _dbContext.Hotels.ToListAsync();
             ViewBag.Tags = await _dbContext.Tags.ToListAsync();
             if (!ModelState.IsValid) return View();
             if (!blogVM.Photo.CheckFileType("image/"))
@@ -64,13 +66,19 @@ namespace Zante_Hotel.Areas.AppAdmin.Controllers
                 ModelState.AddModelError("Name", "Basqqa ad qoymalisiniz bloga");
                 return View();
                 }
-            if (_dbContext.Blogs.Any(b => b.AuthorId == user.Id && b.SubTitle == blogVM.SubTitle))
+            if (await _dbContext.Blogs.AnyAsync(b => b.AuthorId == user.Id && b.SubTitle == blogVM.SubTitle))
             {
                 ModelState.AddModelError("SubTitle", "Basqqa basliq qoymalisiniz bloga");
                 return View();
             }
+            if (!await _dbContext.Hotels.AnyAsync(h => h.Id == blogVM.HotelId))
+            {
+                ModelState.AddModelError("HotelId", "Bu id li hotel tapilmadi");
+                return View();
+            }
             Blog blog = new Blog
             {
+                HotelId=blogVM.HotelId,
                 Name = blogVM.Name,
                 CreateOn=DateTime.Now,
                 SubTitle=blogVM.SubTitle,
@@ -84,8 +92,6 @@ namespace Zante_Hotel.Areas.AppAdmin.Controllers
                 bool tagResult = await _dbContext.Tags.AnyAsync(t => t.Id == tagId);
                 if (!tagResult)
                 {
-                    ViewBag.Categories = await _dbContext.Categories.ToListAsync();
-                    ViewBag.Tags = await _dbContext.Tags.ToListAsync();
                     ModelState.AddModelError("TagIds", $"{tagId} id-li Tag movcud deyil");
                     return View();
                 }
@@ -104,7 +110,8 @@ namespace Zante_Hotel.Areas.AppAdmin.Controllers
         }
         public async Task<IActionResult> Update(Guid? id)
         {
-           ViewBag.Tags = await _dbContext.Tags.Include(c => c.Blogs).ToListAsync();
+            ViewBag.Hotels = await _dbContext.Hotels.ToListAsync();
+            ViewBag.Tags = await _dbContext.Tags.Include(c => c.Blogs).ToListAsync();
             if (id == null) return BadRequest();
             Blog blog = await _dbContext.Blogs.Where(b => b.Id == id).Include(b=>b.Tags).FirstOrDefaultAsync();
             if (blog == null) return NotFound();
@@ -115,6 +122,7 @@ namespace Zante_Hotel.Areas.AppAdmin.Controllers
             }
             UpdateBlogVM updateBlog = new UpdateBlogVM
             {
+                HotelId=blog.HotelId,
                 Name = blog.Name,
                 SubTitle=blog.SubTitle,
                 Description = blog.Description,
@@ -126,7 +134,8 @@ namespace Zante_Hotel.Areas.AppAdmin.Controllers
         [HttpPost]
         public async Task<IActionResult> Update(Guid? id, UpdateBlogVM blogVM)
         {
-           ViewBag.Tags = await _dbContext.Tags.Include(c => c.Blogs).ToListAsync();
+            ViewBag.Hotels = await _dbContext.Hotels.ToListAsync();
+            ViewBag.Tags = await _dbContext.Tags.Include(c => c.Blogs).ToListAsync();
             if (id == null) return BadRequest();
             Blog existed = await _dbContext.Blogs.Where(b => b.Id == id).Include(b => b.Tags).FirstOrDefaultAsync();
             if (existed == null) return NotFound();
@@ -154,7 +163,7 @@ namespace Zante_Hotel.Areas.AppAdmin.Controllers
                 existed.ImgUrl.DeleteFile(_env.WebRootPath, @"assets/assets/images/blog");
                 existed.ImgUrl = await blogVM.Photo.CreateFileAsync(_env.WebRootPath, @"assets/assets/images/blog");
             }
-
+            if (blogVM.HotelId != existed.HotelId && await _dbContext.Hotels.AnyAsync(h => h.Id == blogVM.HotelId)) existed.HotelId = blogVM.HotelId;
             if (blogVM.Name != null && blogVM.Name != existed.Name && !( _dbContext.Blogs.Any(b => b.AuthorId == user.Id && b.Name == blogVM.Name))) existed.Name = blogVM.Name;
             if (blogVM.SubTitle != null && blogVM.SubTitle != existed.SubTitle && !( _dbContext.Blogs.Any(b => b.AuthorId == user.Id && b.Name == blogVM.Name))) existed.SubTitle = blogVM.SubTitle;
             if (blogVM.Description != null && blogVM.Description != existed.Description) existed.Description = blogVM.Description;
@@ -182,7 +191,6 @@ namespace Zante_Hotel.Areas.AppAdmin.Controllers
             }
 
             List<BlogTag> removeList = existed.Tags.Where(pt => !blogVM.TagIds.Contains(pt.TagId)).ToList();
-
             _dbContext.BlogTags.RemoveRange(removeList);
             await _dbContext.SaveChangesAsync();
             return RedirectToAction(nameof(Index));

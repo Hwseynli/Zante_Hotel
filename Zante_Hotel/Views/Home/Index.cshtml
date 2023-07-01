@@ -6,7 +6,7 @@
 <div class="rev_slider_wrapper fullscreen-container">
     <div id="fullscreen_hero_video" class="rev_slider fullscreenbanner gradient_slider" style="display:none">
         <ul>
-
+            @if (Model.Slider!=null) {
             <li data-transition="fade">
                 <!-- MAIN IMAGE -->
                 <img src="images/slider/@Model.Slider.ImageUrl"
@@ -99,6 +99,7 @@
                 </a>
 
             </li>
+                }
         </ul>
     </div>
 </div>
@@ -294,7 +295,8 @@
         </div>
     </div>
 </section>
-
+@if (Model.Slider != null)
+    {
 <!-- ========== VIDEO ========== -->
 <section id="video">
     <div class="inner gradient_overlay">
@@ -305,7 +307,7 @@
         </div>
     </div>
 </section>
-
+    }
 <!-- ========== CONTACT ========== -->
 <section class="white_bg" id="contact">
     <div class="container">
