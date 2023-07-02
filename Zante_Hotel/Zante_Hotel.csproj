@@ -67,6 +67,9 @@
     <Folder Include="Areas\AppAdmin\Views\Hotel\" />
     <Folder Include="Views\Reservation\" />
     <Folder Include="wwwroot\assets\reservation\" />
+    <Folder Include="Middlewares\" />
+    <Folder Include="Utilities\" />
+    <Folder Include="Utilities\Exceptions\" />
   </ItemGroup>
   <ItemGroup>
     <None Remove="Models\" />
@@ -112,6 +115,8 @@
     <None Remove="ViewModels\Hotel\" />
     <None Remove="Areas\AppAdmin\Views\Hotel\" />
     <None Remove="Views\Reservation\" />
+    <None Remove="Middlewares\" />
+    <None Remove="Utilities\Exceptions\" />
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="Microsoft.EntityFrameworkCore" Version="7.0.7" />
