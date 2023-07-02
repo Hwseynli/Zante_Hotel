@@ -1,0 +1,73 @@
+﻿@{
+    Layout = null;
+}
+@model ReservationVM
+<!DOCTYPE html>
+<!-- Designined by CodingLab - youtube.com/codinglabyt -->
+<html lang="en" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <title> Reservation</title>
+    <link rel="stylesheet" href="~/admin/login/registr.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+    <div class="container">
+        <div class="title">Reservation Toom</div>
+        <div class="content">
+            <form method="post" enctype="multipart/form-data">
+                <div class="user-details">
+                    <div class="input-box">
+                        <span class="details">Name</span>
+                        <input asp-for="Name" placeholder="Enter your name" required>
+                        <span asp-validation-for="Name"></span>
+                    </div>
+                    <div class="input-box">
+                        <span class="details">Surname</span>
+                        <input asp-for="Surname" placeholder="Enter your Surname" required>
+                        <span asp-validation-for="Surname"></span>
+                    </div>
+                    <div class="input-box">
+                        <span class="details">Phone Number</span>
+                        <input asp-for="PhoneNumber" placeholder="Enter your Phone Number" required>
+                        <span asp-validation-for="PhoneNumber"></span>
+                    </div>
+
+                    <div class="input-box">
+                        <span class="details">Email</span>
+                        <input asp-for="Email" placeholder="Enter your Email" required>
+                        <span asp-validation-for="Email"></span>
+                    </div>
+                    <div class="input-box">
+                        <span class="details">ArrivalDateTime</span>
+                        <input asp-for="ArrivalDateTime" placeholder="Enter ArrivalDate" required>
+                        <span asp-validation-for="ArrivalDateTime"></span>
+                    </div>
+                    <div class="input-box">
+                        <span class="details">DepartureDateTime</span>
+                        <input type="datetime-local" asp-for="DepartureDateTime" placeholder="Enter DepartureDateTime" required>
+                        <span asp-validation-for="DepartureDateTime"></span>
+                    </div>
+                    <div class="input-box">
+                        <span class="details">NumberOfPeople</span>
+                        <input asp-for="NumberOfPeople" placeholder="Enter your count" required>
+                        <span asp-validation-for="NumberOfPeople"></span>
+                    </div>
+                    <div class="input-box">
+                        <label asp-for="RoomId">Select Room Number</label>
+                        <select asp-for="RoomId" class="form-control" asp-items="new SelectList(ViewBag.Rooms,nameof(Room.Id),nameof(Room.Number))">
+                            <option disabled selected>Select Room please</option>
+                        </select>
+                        <span class="text-danger" asp-validation-for="RoomId"></span>
+                    </div>
+                </div>
+                <div class="button">
+                    <input type="submit" value="Book Now" />
+                </div>
+                <div class="text-danger" asp-validation-summary="ModelOnly">
+                </div>
+            </form>
+        </div>
+    </div>
+</body>
+</html>

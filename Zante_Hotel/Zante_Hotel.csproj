@@ -15,6 +15,7 @@
     <Content Remove="wwwroot\Admin\login\" />
     <Content Remove="wwwroot\admin\adminform\" />
     <Content Remove="wwwroot\assets\" />
+    <Content Remove="wwwroot\assets\reservation\" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="wwwroot\" />
@@ -64,6 +65,8 @@
     <Folder Include="Models\Hotel\" />
     <Folder Include="ViewModels\Hotel\" />
     <Folder Include="Areas\AppAdmin\Views\Hotel\" />
+    <Folder Include="Views\Reservation\" />
+    <Folder Include="wwwroot\assets\reservation\" />
   </ItemGroup>
   <ItemGroup>
     <None Remove="Models\" />
@@ -108,6 +111,7 @@
     <None Remove="Models\Hotel\" />
     <None Remove="ViewModels\Hotel\" />
     <None Remove="Areas\AppAdmin\Views\Hotel\" />
+    <None Remove="Views\Reservation\" />
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="Microsoft.EntityFrameworkCore" Version="7.0.7" />

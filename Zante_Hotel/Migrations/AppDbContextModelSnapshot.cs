@@ -654,6 +654,9 @@ namespace Zante_Hotel.Migrations
                     b.Property<DateTime>("ArrivalDateTime")
                         .HasColumnType("datetime2");
 
+                    b.Property<string>("Comment")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<DateTime>("DepartureDateTime")
                         .HasColumnType("datetime2");
 

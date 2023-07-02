@@ -3281,6 +3281,10 @@
       "PackagePath": "staticwebassets/assets/assets/videos/hero_video.mp4"
     },
     {
+      "Id": "/Users/zeyneb/Desktop/Zante_Hotel/Zante_Hotel/wwwroot/assets/reservation/css/font-awesome.css",
+      "PackagePath": "staticwebassets/assets/reservation/css/font-awesome.css"
+    },
+    {
       "Id": "/Users/zeyneb/Desktop/Zante_Hotel/Zante_Hotel/wwwroot/assets/reservation/css/jquery-ui.css",
       "PackagePath": "staticwebassets/assets/reservation/css/jquery-ui.css"
     },
@@ -3289,28 +3293,68 @@
       "PackagePath": "staticwebassets/assets/reservation/css/style.css"
     },
     {
-      "Id": "/Users/zeyneb/Desktop/Zante_Hotel/Zante_Hotel/wwwroot/assets/reservation/images/1.jpg",
-      "PackagePath": "staticwebassets/assets/reservation/images/1.jpg"
+      "Id": "/Users/zeyneb/Desktop/Zante_Hotel/Zante_Hotel/wwwroot/assets/reservation/css/wickedpicker.css",
+      "PackagePath": "staticwebassets/assets/reservation/css/wickedpicker.css"
     },
     {
-      "Id": "/Users/zeyneb/Desktop/Zante_Hotel/Zante_Hotel/wwwroot/assets/reservation/images/a.png",
-      "PackagePath": "staticwebassets/assets/reservation/images/a.png"
+      "Id": "/Users/zeyneb/Desktop/Zante_Hotel/Zante_Hotel/wwwroot/assets/reservation/fonts/FontAwesome.otf",
+      "PackagePath": "staticwebassets/assets/reservation/fonts/FontAwesome.otf"
     },
     {
-      "Id": "/Users/zeyneb/Desktop/Zante_Hotel/Zante_Hotel/wwwroot/assets/reservation/images/arrow1.png",
-      "PackagePath": "staticwebassets/assets/reservation/images/arrow1.png"
+      "Id": "/Users/zeyneb/Desktop/Zante_Hotel/Zante_Hotel/wwwroot/assets/reservation/fonts/fontawesome-webfont.eot",
+      "PackagePath": "staticwebassets/assets/reservation/fonts/fontawesome-webfont.eot"
     },
     {
-      "Id": "/Users/zeyneb/Desktop/Zante_Hotel/Zante_Hotel/wwwroot/assets/reservation/images/b.png",
-      "PackagePath": "staticwebassets/assets/reservation/images/b.png"
+      "Id": "/Users/zeyneb/Desktop/Zante_Hotel/Zante_Hotel/wwwroot/assets/reservation/fonts/fontawesome-webfont.svg",
+      "PackagePath": "staticwebassets/assets/reservation/fonts/fontawesome-webfont.svg"
     },
     {
-      "Id": "/Users/zeyneb/Desktop/Zante_Hotel/Zante_Hotel/wwwroot/assets/reservation/js/jquery-1.11.1.min.js",
-      "PackagePath": "staticwebassets/assets/reservation/js/jquery-1.11.1.min.js"
+      "Id": "/Users/zeyneb/Desktop/Zante_Hotel/Zante_Hotel/wwwroot/assets/reservation/fonts/fontawesome-webfont.ttf",
+      "PackagePath": "staticwebassets/assets/reservation/fonts/fontawesome-webfont.ttf"
+    },
+    {
+      "Id": "/Users/zeyneb/Desktop/Zante_Hotel/Zante_Hotel/wwwroot/assets/reservation/fonts/fontawesome-webfont.woff",
+      "PackagePath": "staticwebassets/assets/reservation/fonts/fontawesome-webfont.woff"
+    },
+    {
+      "Id": "/Users/zeyneb/Desktop/Zante_Hotel/Zante_Hotel/wwwroot/assets/reservation/fonts/fontawesome-webfont.woff2",
+      "PackagePath": "staticwebassets/assets/reservation/fonts/fontawesome-webfont.woff2"
+    },
+    {
+      "Id": "/Users/zeyneb/Desktop/Zante_Hotel/Zante_Hotel/wwwroot/assets/reservation/fonts/fontello.eot",
+      "PackagePath": "staticwebassets/assets/reservation/fonts/fontello.eot"
+    },
+    {
+      "Id": "/Users/zeyneb/Desktop/Zante_Hotel/Zante_Hotel/wwwroot/assets/reservation/fonts/fontello.svg",
+      "PackagePath": "staticwebassets/assets/reservation/fonts/fontello.svg"
+    },
+    {
+      "Id": "/Users/zeyneb/Desktop/Zante_Hotel/Zante_Hotel/wwwroot/assets/reservation/fonts/fontello.ttf",
+      "PackagePath": "staticwebassets/assets/reservation/fonts/fontello.ttf"
+    },
+    {
+      "Id": "/Users/zeyneb/Desktop/Zante_Hotel/Zante_Hotel/wwwroot/assets/reservation/fonts/fontello.woff",
+      "PackagePath": "staticwebassets/assets/reservation/fonts/fontello.woff"
+    },
+    {
+      "Id": "/Users/zeyneb/Desktop/Zante_Hotel/Zante_Hotel/wwwroot/assets/reservation/images/banner3.jpg",
+      "PackagePath": "staticwebassets/assets/reservation/images/banner3.jpg"
+    },
+    {
+      "Id": "/Users/zeyneb/Desktop/Zante_Hotel/Zante_Hotel/wwwroot/assets/reservation/images/c-arrows.png",
+      "PackagePath": "staticwebassets/assets/reservation/images/c-arrows.png"
+    },
+    {
+      "Id": "/Users/zeyneb/Desktop/Zante_Hotel/Zante_Hotel/wwwroot/assets/reservation/js/jquery-2.1.4.min.js",
+      "PackagePath": "staticwebassets/assets/reservation/js/jquery-2.1.4.min.js"
     },
     {
       "Id": "/Users/zeyneb/Desktop/Zante_Hotel/Zante_Hotel/wwwroot/assets/reservation/js/jquery-ui.js",
       "PackagePath": "staticwebassets/assets/reservation/js/jquery-ui.js"
+    },
+    {
+      "Id": "/Users/zeyneb/Desktop/Zante_Hotel/Zante_Hotel/wwwroot/assets/reservation/js/wickedpicker.js",
+      "PackagePath": "staticwebassets/assets/reservation/js/wickedpicker.js"
     },
     {
       "Id": "/Users/zeyneb/Desktop/Zante_Hotel/Zante_Hotel/wwwroot/assets/reservation/w3layouts-License.txt",

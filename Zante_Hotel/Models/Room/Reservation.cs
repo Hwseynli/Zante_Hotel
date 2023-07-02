@@ -18,6 +18,7 @@
         public Room Room { get; set; }
         [Required]
         public int NumberOfPeople { get; set; }
+        public string Comment { get; set; }
         [NotMapped]
         public string ArrivalDate => ArrivalDateTime.ToString("MM/dd/yyyy");
         [NotMapped]

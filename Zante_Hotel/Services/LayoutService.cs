@@ -1,5 +1,4 @@
-﻿using Zante_Hotel.Areas.AppAdmin.Models;
-
+﻿
 namespace Zante_Hotel.Services
 {
 	public class LayoutService

@@ -1,7 +1,6 @@
 ﻿using FluentValidation.AspNetCore;
 using Zante_Hotel.Services;
 using Zante_Hotel.Validators;
-
 var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddIdentity<AppUser, IdentityRole>(ops =>
 {
@@ -24,7 +23,7 @@ builder.Services.AddControllersWithViews()
      .AddFluentValidation(c => c.RegisterValidatorsFromAssemblyContaining<RegistrUserValidator>())
     .AddFluentValidation(c => c.RegisterValidatorsFromAssemblyContaining<LoginUserValidator>());
 
-//builder.Services.AddAutoMapper(typeof(MapperProfile).Assembly);
+builder.Services.AddAutoMapper(typeof(MapperProfile).Assembly);
 builder.Services.AddDbContext<AppDbContext>(ops =>
 {
     ops.UseSqlServer(builder.Configuration.GetConnectionString("Default"));

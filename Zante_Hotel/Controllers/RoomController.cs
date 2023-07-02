@@ -37,6 +37,7 @@ namespace Zante_Hotel.Controllers
             };
             return View(homeVM);
         }
+      
     }
 }
 
