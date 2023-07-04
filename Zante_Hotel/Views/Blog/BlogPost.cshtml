@@ -36,14 +36,13 @@
                                 <span class="meta_part"><a href="#"><i class="fa fa-comment-o"></i>@Model.Blog.Comments.Count Comments</a></span>
                                 <span class="meta_part"><i class="fa fa-folder-open-o"></i><a href="#">News</a>, <a href="#">Events</a></span>
                             </div>
-                            <p>@Model.Blog.Description.Substring(0,200) ...</p>
-                            <p>@Model.Blog.Description.Substring(201,300) .</p>
+                            <p>@Model.Blog.Description.Substring(0) ...</p>
                             <blockquote>
                                 <i class="fa fa-quote-left"></i>
-                                <span class="quote_text">@Model.Blog.Description.Substring(301,375) .</span>
+                                <span class="quote_text">@Model.Blog.Description.Substring(0) .</span>
 
                             </blockquote>
-                            <p> @Model.Blog.Description.Substring(376) .</p>
+                            <p> @Model.Blog.Description.Substring(0) .</p>
                             <div class="meta_post">
                                 <div class="tags">
                                     <span><i class="fa fa-tags"></i> TAGS</span>
@@ -63,126 +62,6 @@
                             </div>
                         </div>
                     </article>
-                    <div class="comments">
-                        <div class="main_title t_style3">
-                            <h2>COMMENTS (4)</h2>
-                        </div>
-                        <ol class="comments_list clearfix">
-                            <li class="comment single_comment">
-                                <!-- Comment -->
-                                <div class="comment-container comment-box">
-                                    <a href="#" class="avatar">
-                                        <img width="80" height="80" src="images/users/user1.jpg" alt="Image">
-                                    </a>
-                                    <div class="comment_content">
-                                        <h4 class="author_name"><a href="#">@Model.Blog.Author.Name @Model.Blog.Author.Surname</a></h4>
-                                        <a href="#comment-form" class="reply_link">Reply</a>
-                                        <span class="comment_info">
-                                            <i class="fa fa-calendar"></i>
-                                            <a href="#">
-                                                <time datetime="2017-10-01T19:56:36+00:00">October 1, 2017 at 7:56 pm</time>
-                                            </a>
-                                        </span>
-                                        <div class="comment_said_text">
-                                            <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.</p>
-                                        </div>
-                                    </div>
-                                </div>
-                                <ol class="children">
-                                    <li class="comment single_comment">
-                                        <!-- Comment -->
-                                        <div class="comment-box">
-                                            <a href="#" class="avatar">
-                                                <img width="80" height="80" src="images/users/user2.jpg" alt="Image">
-                                            </a>
-                                            <div class="comment_content">
-                                                <h4 class="author_name"><a href="#">Ina Aldrich</a></h4>
-                                                <a href="#comment-form" class="reply_link">Reply</a>
-                                                <span class="comment_info">
-                                                    <i class="fa fa-calendar"></i>
-                                                    <a href="#">
-                                                        <time datetime="2017-10-01T19:56:36+00:00">August 1, 2017 at 10:56 pm</time>
-                                                    </a>
-                                                </span>
-                                                <div class="comment_said_text">
-                                                    <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.</p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <ol class="children">
-                                            <li class="comment single_comment">
-                                                <!-- Comment -->
-                                                <div class="comment-box">
-                                                    <a href="#" class="avatar">
-                                                        <img width="80" height="80" src="images/users/user3.jpg" alt="Image">
-                                                    </a>
-                                                    <div class="comment_content">
-                                                        <h4 class="author_name"><a href="#">William Whiten</a></h4>
-                                                        <a href="#comment-form" class="reply_link">Reply</a>
-                                                        <span class="comment_info">
-                                                            <i class="fa fa-calendar"></i>
-                                                            <a href="#">
-                                                                <time datetime="2017-10-01T19:56:36+00:00">October 1, 2017 at 7:56 pm</time>
-                                                            </a>
-                                                        </span>
-                                                        <div class="comment_said_text">
-                                                            <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.</p>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <ol class="children">
-                                                    <li class="comment single_comment">
-
-                                                    </li>
-                                                </ol>
-                                            </li>
-                                        </ol>
-                                    </li>
-                                </ol>
-                            </li>
-                            <li class="comment single_comment">
-                                <!-- Comment -->
-                                <div class="comment-box">
-                                    <a href="#" class="avatar">
-                                        <img width="80" height="80" src="images/users/user4.jpg" alt="Image">
-                                    </a>
-                                    <div class="comment_content">
-                                        <h4 class="author_name"><a href="#">Amy Ellison</a></h4>
-                                        <a href="#comment-form" class="reply_link">Reply</a>
-                                        <span class="comment_info">
-                                            <i class="fa fa-calendar"></i>
-                                            <a href="#">
-                                                <time datetime="2017-10-01T19:56:36+00:00">October 1, 2017 at 7:56 pm</time>
-                                            </a>
-                                        </span>
-                                        <div class="comment_said_text">
-                                            <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.</p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </li>
-                        </ol>
-                        <div class="main_title mt40">
-                            <h2>LEAVE YOUR COMMENT</h2>
-                        </div>
-                        <div class="row">
-                            <form id="comment-form" class="comment-form">
-                                <div class="col-md-6">
-                                    <input type="text" class="form-control" placeholder="Name">
-                                </div>
-                                <div class="col-md-6">
-                                    <input type="email" class="form-control" placeholder="Email">
-                                </div>
-                                <div class="col-md-12">
-                                    <textarea class="form-control" placeholder="Write Your Comment"></textarea>
-                                </div>
-                                <div class="col-md-12">
-                                    <button class="button  btn_blue pull-right"><i class="fa fa-paper-plane-o"></i> POST YOUR COMMENT </button>
-                                    <span class="a_left">*Your email address will not be published.</span>
-                                </div>
-                            </form>
-                        </div>
-                    </div>
                 </div>
                 <div class="col-md-3">
                     <div class="sidebar">

@@ -9,6 +9,7 @@ namespace Zante_Hotel.ViewModels
         public string SubTitle { get; set; }
         [StringLength(200)]
         public string Title { get; set; }
+        public int MaxPeple { get; set; }
         [StringLength(20000)]
         public string Decription { get; set; }
         public Guid HotelId { get; set; }

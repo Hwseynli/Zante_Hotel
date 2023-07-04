@@ -1,0 +1,78 @@
+﻿@model UpdateRestaurantVM
+<section>
+    <div class="pcoded-content">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="mt-5">Update Restaurant</h5>
+                        <hr>
+                        <form method="post" enctype="multipart/form-data">
+                            <div class="form-row">
+                                <div class="form-group col-md-6">
+                                    <img src="~/assets/assets/images/restaurant/@Model.ImageVMs.FirstOrDefault(r=>r.IsPrimary==true)?.ImageUrl" />
+                                    <label asp-for="MainPhoto">Photo</label>
+                                    <input asp-for="MainPhoto" class="form-control" placeholder="MainPhoto" accept="image/*" />
+                                    <span asp-validation-for="MainPhoto"></span>
+                                </div>
+                                <div class="form-group col-md-6">
+                                    <div class="row">
+                                        @foreach (RestaurantImageVM imageVM in Model.ImageVMs.Where(p => p.IsPrimary == false).ToList())
+                                        {
+                                            <div class="col-3 position-relative">
+                                                <img style="width:100%;height:150px;" src="~/assets/assets/images/restaurant/@imageVM.ImageUrl" />
+                                                <input type="hidden" name="ImagesIds" value="@imageVM.Id" class="form-control" />
+                                                <button type="button" style="right:8px;" class="btn btn-danger position-absolute custom-delete">X</button>
+                                            </div>
+                                        }
+                                    </div>
+                                    <label asp-for="Photos">Additional Photos</label>
+                                    <input asp-for="Photos" class="form-control" placeholder="Photos" accept="image/*" />
+                                    <span asp-validation-for="Photos"></span>
+                                </div>
+                                <div class="form-group col-md-6">
+                                    <label asp-for="Name">Name</label>
+                                    <input asp-for="Name" class="form-control" placeholder="Name" value="@Model.Name"/>
+                                    <span asp-validation-for="Name"></span>
+                                </div>
+                                <div class="form-group col-md-6">
+                                    <label asp-for="SubTitle">SubTitle</label>
+                                    <input asp-for="SubTitle" class="form-control" placeholder="SubTitle" value="@Model.SubTitle"/>
+                                    <span asp-validation-for="SubTitle"></span>
+                                </div>
+                                <div class="form-group col-md-6">
+                                    <label asp-for="Description">Description</label>
+                                    <input asp-for="Description" class="form-control" placeholder="Description" value="@Model.Description"/>
+                                    <span asp-validation-for="Description"></span>
+                                </div>
+                                <div class="form-group col-md-6">
+                                    <label asp-for="MaxPeople">Max People Count</label>
+                                    <input asp-for="MaxPeople" class="form-control" placeholder="Max People Count" value="@Model.MaxPeople"/>
+                                    <span asp-validation-for="MaxPeople"></span>
+                                </div>
+                                <div class="form-group col-md-6">
+                                    <label asp-for="HotelId">Hotel</label>
+                                    <select asp-for="HotelId" class="form-control" asp-items="new SelectList(ViewBag.Hotels,nameof(Hotel.Id),nameof(Hotel.Name))">
+                                    </select>
+                                    <span class="text-danger" asp-validation-for="HotelId"></span>
+                                </div>
+                                <div class="form-group col-md-6">
+                                    <label asp-for="FoodIds">Foods</label>
+                                    <select asp-for="FoodIds" class="form-control" asp-items="new SelectList(ViewBag.Foods,nameof(Food.Id),nameof(Food.Name))">
+                                    </select>
+                                    <span class="text-danger" asp-validation-for="FoodIds"></span>
+                                </div>
+                            </div>
+                            <button type="submit" class="btn  btn-primary">Update</button>
+                            <div class="form-group col-md-6" asp-validation-summary="ModelOnly">
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <!--[ form-element ] end-->
+        </div>
+        <!--[ Main Content ] end-->
+
+    </div>
+</section>

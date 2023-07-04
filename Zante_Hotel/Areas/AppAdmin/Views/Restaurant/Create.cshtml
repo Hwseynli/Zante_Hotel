@@ -1,0 +1,69 @@
+﻿@model CreateRestaurantVM
+<section>
+    <div class="pcoded-content">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="mt-5">Create Restaurant</h5>
+                        <hr>
+                        <form method="post" enctype="multipart/form-data">
+                            <div class="form-row">
+                                <div class="form-group col-md-6">
+                                    <label asp-for="MainPhoto">Photo</label>
+                                    <input asp-for="MainPhoto" class="form-control" placeholder="MainPhoto" accept="image/*" />
+                                    <span asp-validation-for="MainPhoto"></span>
+                                </div>
+                                <div class="form-group col-md-6">
+                                    <label asp-for="Photos">Additional Photos</label>
+                                    <input asp-for="Photos" class="form-control" placeholder="Photos" accept="image/*" />
+                                    <span asp-validation-for="Photos"></span>
+                                </div>
+                                <div class="form-group col-md-6">
+                                    <label asp-for="Name">Name</label>
+                                    <input asp-for="Name" class="form-control" placeholder="Name">
+                                    <span asp-validation-for="Name"></span>
+                                </div>
+                                <div class="form-group col-md-6">
+                                    <label asp-for="SubTitle">SubTitle</label>
+                                    <input asp-for="SubTitle" class="form-control" placeholder="SubTitle">
+                                    <span asp-validation-for="SubTitle"></span>
+                                </div>
+                                <div class="form-group col-md-6">
+                                    <label asp-for="Description">Description</label>
+                                    <input asp-for="Description" class="form-control" placeholder="Description">
+                                    <span asp-validation-for="Description"></span>
+                                </div>
+                                <div class="form-group col-md-6">
+                                    <label asp-for="MaxPeople">Max People Count</label>
+                                    <input asp-for="MaxPeople" class="form-control" placeholder="Max People Count">
+                                    <span asp-validation-for="MaxPeople"></span>
+                                </div>
+                                <div class="form-group col-md-6">
+                                    <label asp-for="HotelId">Hotel</label>
+                                    <select asp-for="HotelId" class="form-control" asp-items="new SelectList(ViewBag.Hotels,nameof(Hotel.Id),nameof(Hotel.Name))">
+                                        <option disabled selected>Select Hotel please</option>
+                                    </select>
+                                    <span class="text-danger" asp-validation-for="HotelId"></span>
+                                </div>
+                                <div class="form-group col-md-6">
+                                    <label asp-for="FoodIds">Foods</label>
+                                    <select asp-for="FoodIds" class="form-control" asp-items="new SelectList(ViewBag.Foods,nameof(Food.Id),nameof(Food.Name))">
+                                        <option disabled selected>Select Food please</option>
+                                    </select>
+                                    <span class="text-danger" asp-validation-for="FoodIds"></span>
+                                </div>
+                            </div>
+                            <button type="submit" class="btn  btn-primary">Create</button>
+                            <div class="form-group col-md-6" asp-validation-summary="ModelOnly">
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <!--[ form-element ] end-->
+        </div>
+        <!--[ Main Content ] end-->
+
+    </div>
+</section>

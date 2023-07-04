@@ -75,6 +75,7 @@
     <Folder Include="wwwroot\assets\assets\images\foods\" />
     <Folder Include="Areas\AppAdmin\Views\Food\" />
     <Folder Include="Areas\AppAdmin\Views\Spa\" />
+    <Folder Include="Areas\AppAdmin\Views\Restaurant\" />
   </ItemGroup>
   <ItemGroup>
     <None Remove="Models\" />
@@ -127,6 +128,7 @@
     <None Remove="ViewModels\Restaurant\" />
     <None Remove="Areas\AppAdmin\Views\Food\" />
     <None Remove="Areas\AppAdmin\Views\Spa\" />
+    <None Remove="Areas\AppAdmin\Views\Restaurant\" />
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="Microsoft.EntityFrameworkCore" Version="7.0.7" />

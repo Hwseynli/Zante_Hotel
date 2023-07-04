@@ -1,129 +1,268 @@
-﻿//using Microsoft.AspNetCore.Authorization;
-//using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 
-//// For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+// For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
-//namespace Zante_Hotel.Areas.AppAdmin.Controllers
-//{
-//    [Area("AppAdmin")]
-//    [AutoValidateAntiforgeryToken]
-//    [Authorize]
-//    public class RestaurantController : Controller
-//    {
-//        private readonly IWebHostEnvironment _env;
-//        private readonly AppDbContext _dbContext;
-//        public RestaurantController(IWebHostEnvironment env, AppDbContext dbContext)
-//        {
-//            _env = env;
-//            _dbContext = dbContext;
-//        }
-//        // GET: /<controller>/
-//        public async Task<IActionResult> Index()
-//        {
-//            Hotel hotel = await _dbContext.Hotels.FirstOrDefaultAsync();
-//            ICollection<Restaurant> restaurants = await _dbContext.Restaurants.Where(r => r.HotelId == hotel.Id).Include(r => r.RestFoods).Include(r=>r.Hotel).Include(r => r.Images).ToListAsync();
-//            return View(restaurants);
-//        }
-//        public async Task<IActionResult> Create()
-//        {
-//            ViewBag.Hotels = await _dbContext.Hotels.ToListAsync();
-//            ViewBag.Foods = await _dbContext.Foods.ToListAsync();
-//            return View();
-//        }
-//        [HttpPost]
-//        public async Task<IActionResult> Create(CreateFoodVM foodVM)
-//        {
-//            if (!ModelState.IsValid) return View();
-//            Food food = new Food
-//            {
-//                About = foodVM.About,
-//                Name = foodVM.Name,
-//            };
-//            if (foodVM.Photo != null)
-//            {
-//                if (!foodVM.Photo.CheckFileType("image/"))
-//                {
-//                    ModelState.AddModelError("Photo", "File tipi uygun deyil");
-//                    return View();
-//                }
-//                if (!foodVM.Photo.CheckFileSize(20000))
-//                {
-//                    ModelState.AddModelError("Photo", "File olcusu uygun deyil");
-//                    return View();
-//                }
-//                food.ImageUrl = await foodVM.Photo.CreateFileAsync(_env.WebRootPath, "assets/assets/images/foods");
-//            }
-//            if (foodVM.Price < 0)
-//            {
-//                ModelState.AddModelError("Price", "Duzgun qiymat daxil edin");
-//                return View();
-//            }
-//            food.Price = foodVM.Price;
-//            await _dbContext.Foods.AddAsync(food);
-//            await _dbContext.SaveChangesAsync();
-//            return RedirectToAction(nameof(Index));
-//        }
-//        public async Task<IActionResult> Update(Guid? id)
-//        {
-//            if (id == null) return BadRequest();
-//            Food food = await _dbContext.Foods.Where(b => b.Id == id).FirstOrDefaultAsync();
-//            if (food == null) return NotFound();
-//            UpdateFoodVM foodVM = new UpdateFoodVM
-//            {
-//                About = food.About,
-//                Price = food.Price,
-//                ImgUrl = food.ImageUrl,
-//                Name = food.Name
-//            };
-//            return View(foodVM);
-//        }
-//        [HttpPost]
-//        public async Task<IActionResult> Update(Guid? id, UpdateFoodVM foodVM)
-//        {
-//            if (id == null) return BadRequest();
-//            Food existed = await _dbContext.Foods.Where(b => b.Id == id).FirstOrDefaultAsync();
-//            if (existed == null) return NotFound();
-//            if (!ModelState.IsValid) return View();
-//            if (foodVM.Photo != null)
-//            {
-//                if (!foodVM.Photo.CheckFileType("image/"))
-//                {
-//                    ModelState.AddModelError("Photo", "File tipi uygun deyil");
-//                    return View();
-//                }
-//                if (!foodVM.Photo.CheckFileSize(200))
-//                {
-//                    ModelState.AddModelError("Photo", "File hecmi 200 kb den cox olmamalidir");
-//                    return View();
-//                }
-//                existed.ImageUrl.DeleteFile(_env.WebRootPath, @"assets/assets/images/foods");
-//                existed.ImageUrl = await foodVM.Photo.CreateFileAsync(_env.WebRootPath, @"assets/assets/images/foods");
-//            }
-//            if (foodVM.Name != null && foodVM.Name != existed.Name && !(_dbContext.Blogs.Any(b => b.Name == foodVM.Name))) existed.Name = foodVM.Name;
-//            if (foodVM.About != null && foodVM.About != existed.About && !(_dbContext.Foods.Any(b => b.Name == foodVM.Name))) existed.About = foodVM.About;
-//            if (foodVM.Price > 0 && foodVM.Price != existed.Price) existed.Price = foodVM.Price;
-//            await _dbContext.SaveChangesAsync();
-//            return RedirectToAction(nameof(Index));
-//        }
-//        public async Task<IActionResult> Delete(Guid? id)
-//        {
-//            if (id == null) return BadRequest();
-//            Food food = await _dbContext.Foods.Where(b => b.Id == id).FirstOrDefaultAsync();
-//            if (food == null) return NotFound();
-//            if (!await _dbContext.Foods.AnyAsync(f => f.Id == food.Id))
-//            {
-//                ModelState.AddModelError(string.Empty, "Bele bir food yoxdur");
-//                return View();
-//            }
-//            if (food.ImageUrl != null)
-//            {
-//                food.ImageUrl.DeleteFile(_env.WebRootPath, @"assets/assets/images/foods");
-//                _dbContext.Foods.Remove(food);
-//            }
-//            _dbContext.Foods.Remove(food);
-//            await _dbContext.SaveChangesAsync();
-//            return RedirectToAction(nameof(Index));
-//        }
-//    }
-//}
+namespace Zante_Hotel.Areas.AppAdmin.Controllers
+{
+    [Area("AppAdmin")]
+    [AutoValidateAntiforgeryToken]
+    [Authorize]
+    public class RestaurantController : Controller
+    {
+        private readonly IWebHostEnvironment _env;
+        private readonly AppDbContext _dbContext;
+        public RestaurantController(IWebHostEnvironment env, AppDbContext dbContext)
+        {
+            _env = env;
+            _dbContext = dbContext;
+        }
+        // GET: /<controller>/
+        public async Task<IActionResult> Index()
+        {
+            ICollection<Restaurant> restaurants = await _dbContext.Restaurants.Include(s => s.Images).Include(s => s.Hotel).ToListAsync();
+            return View(restaurants);
+        }
+        public async Task<IActionResult> Create()
+        {
+            ViewBag.Hotels = await _dbContext.Hotels.ToListAsync();
+            ViewBag.Foods = await _dbContext.Foods.ToListAsync();
+            return View();
+        }
+        [HttpPost]
+        public async Task<IActionResult> Create(CreateRestaurantVM restaurantVM)
+        {
+            ViewBag.Hotels = await _dbContext.Hotels.ToListAsync();
+            ViewBag.Foods = await _dbContext.Foods.ToListAsync();
+            if (!ModelState.IsValid) return View();
+            bool resultcat = await _dbContext.Hotels.AnyAsync(c => c.Id == restaurantVM.HotelId);
+            if (!resultcat)
+            {
+                ModelState.AddModelError("HotelId", "Bu id-li hotel movcud deyil");
+                return View();
+            }
+            if (await _dbContext.Restaurants.AnyAsync(c => c.Name == restaurantVM.Name))
+            {
+                ModelState.AddModelError("Name", "Bu adli otaq artiq movcuddur");
+                return View();
+            }
+            Restaurant restaurant = new Restaurant
+            {
+                SubTitle = restaurantVM.SubTitle,
+                Name = restaurantVM.Name,
+                HotelId = restaurantVM.HotelId,
+                Description = restaurantVM.Description,
+                Images = new List<RestaurantImage>(),
+                RestFoods=new List<RestaurantFood>()
+            };
 
+            if (restaurantVM.MaxPeople > 0) restaurant.MaxPeople = restaurantVM.MaxPeople;
+            foreach (Guid foodId in restaurantVM.FoodIds)
+            {
+                bool foodResult = await _dbContext.Services.AnyAsync(t => t.Id == foodId);
+                if (!foodResult)
+                {
+                    ModelState.AddModelError("FoodIds", $"{foodId} id-li service movcud deyil");
+                    return View();
+                }
+                RestaurantFood restaurantFood = new RestaurantFood
+                {
+                    Restaurant = restaurant,
+                    FoodId = foodId
+                };
+                restaurant.RestFoods.Add(restaurantFood);
+            }
+            if (restaurantVM.MainPhoto != null)
+            {
+                if (!restaurantVM.MainPhoto.CheckFileType("image/"))
+                {
+                    ModelState.AddModelError("MainPhoto", "File tipi uygun deyil");
+                    return View();
+                }
+                if (!restaurantVM.MainPhoto.CheckFileSize(20000))
+                {
+                    ModelState.AddModelError("MainPhoto", "File olcusu uygun deyil");
+                    return View();
+                }
+
+                restaurant.Images.Add(new RestaurantImage
+                {
+                    ImageUrl = await restaurantVM.MainPhoto.CreateFileAsync(_env.WebRootPath, "assets/assets/images/restaurant"),
+                    IsPrimary = true,
+                    Restourant = restaurant
+                });
+            }
+            foreach (IFormFile photo in restaurantVM.Photos)
+            {
+                if (photo != null)
+                {
+                    if (!photo.CheckFileType("image/"))
+                    {
+                        ModelState.AddModelError("Photos", "File tipi uygun deyil");
+                        return View();
+                    }
+                    if (!photo.CheckFileSize(20000))
+                    {
+                        ModelState.AddModelError("Photos", "File olcusu uygun deyil");
+                        return View();
+                    }
+                    RestaurantImage addImage = new RestaurantImage
+                    {
+                        ImageUrl = await photo.CreateFileAsync(_env.WebRootPath, "assets/assets/images/restaurant"),
+                        Restourant = restaurant,
+                        IsPrimary = false
+                    };
+                    restaurant.Images.Add(addImage);
+                }
+            }
+            await _dbContext.Restaurants.AddAsync(restaurant);
+            await _dbContext.SaveChangesAsync();
+            return RedirectToAction(nameof(Index));
+        }
+        public async Task<IActionResult> Update(Guid? id)
+        {
+            ViewBag.Foods = await _dbContext.Foods.ToListAsync();
+            ViewBag.Hotels = await _dbContext.Hotels.ToListAsync();
+            if (id is null) return BadRequest();
+            Restaurant existed = await _dbContext.Restaurants.Where(r => r.Id == id).Include(r => r.Images).Include(s => s.Hotel).FirstOrDefaultAsync();
+            if (existed == null) return NotFound();
+            UpdateRestaurantVM restaurantVM = new UpdateRestaurantVM
+            {
+                MaxPeople = existed.MaxPeople,
+                HotelId = existed.HotelId,
+                Name = existed.Name,
+                SubTitle = existed.SubTitle,
+                Description = existed.Description,
+                FoodIds= existed.RestFoods.Select(rs => rs.FoodId).ToList()
+            };
+            restaurantVM = MapImages(restaurantVM, existed);
+            return View(restaurantVM);
+        }
+        [HttpPost]
+        public async Task<IActionResult> Update(Guid? id, UpdateRestaurantVM restaurantVM)
+        {
+            ViewBag.Foods = await _dbContext.Foods.ToListAsync();
+            ViewBag.Hotels = await _dbContext.Hotels.ToListAsync();
+            if (id is null) return BadRequest();
+            Restaurant existed = await _dbContext.Restaurants.Where(r => r.Id == id).Include(r => r.Images).Include(s => s.Hotel).FirstOrDefaultAsync();
+            if (existed == null) return NotFound();
+            restaurantVM = MapImages(restaurantVM, existed);
+            if (!ModelState.IsValid) return View(restaurantVM);
+            if (await _dbContext.Hotels.AnyAsync(h => h.Id == restaurantVM.HotelId) && restaurantVM.HotelId != existed.HotelId) existed.HotelId = restaurantVM.HotelId;
+            if (restaurantVM.Description != null && restaurantVM.Description != existed.Description) existed.Description = restaurantVM.Description;
+            if (restaurantVM.Name != null && restaurantVM.Name != existed.Name) existed.Name = restaurantVM.Name;
+            if (restaurantVM.MaxPeople > 0 && restaurantVM.MaxPeople != existed.MaxPeople) existed.MaxPeople = restaurantVM.MaxPeople;
+            if (restaurantVM.SubTitle != null && restaurantVM.SubTitle != existed.SubTitle) existed.SubTitle = restaurantVM.SubTitle;
+            if (restaurantVM.FoodIds != null && restaurantVM.FoodIds.Count > 0)
+            {
+                List<Guid> createList = restaurantVM.FoodIds.Where(t => !existed.RestFoods.Any(pt => pt.FoodId == t)).ToList();
+                foreach (Guid foodId in createList)
+                {
+                    bool tagResult = await _dbContext.Foods.AnyAsync(pt => pt.Id == foodId);
+                    if (tagResult)
+                    {
+
+                        RestaurantFood restaurantFood = new RestaurantFood
+                        {
+                            RestaurantId = existed.Id,
+                            FoodId = foodId
+                        };
+                        existed.RestFoods.Add(restaurantFood);
+                    }
+                }
+                List<RestaurantFood> removeList = existed.RestFoods.Where(pt => !restaurantVM.FoodIds.Contains(pt.FoodId)).ToList();
+                _dbContext.RestaurantFoods.RemoveRange(removeList);
+            }
+            if (restaurantVM.MainPhoto != null)
+            {
+                if (!restaurantVM.MainPhoto.CheckFileType("image/"))
+                {
+                    ModelState.AddModelError("MainPhoto", "Sheklin novu uygun deyil");
+                    return View(restaurantVM);
+                }
+                if (!restaurantVM.MainPhoto.CheckFileSize(200))
+                {
+                    ModelState.AddModelError("MainPhoto", "Sheklin olcusu uygun deyil");
+                    return View(restaurantVM);
+                }
+                var mainImage = existed.Images.FirstOrDefault(pi => pi.IsPrimary == true);
+                mainImage.ImageUrl.DeleteFile(_env.WebRootPath, "assets/assets/images/restaurant");
+                existed.Images.Remove(mainImage);
+                RestaurantImage restaurantImage = new RestaurantImage
+                {
+                    RestaurantId = existed.Id,
+                    ImageUrl = await restaurantVM.MainPhoto.CreateFileAsync(_env.WebRootPath, "assets/assets/images/restaurant"),
+                    IsPrimary = true
+                };
+                existed.Images.Add(restaurantImage);
+            }
+            List<RestaurantImage> removeImageList = existed.Images.Where(pi => !restaurantVM.ImageIds.Contains(pi.Id) && pi.IsPrimary == false).ToList();
+            foreach (RestaurantImage rImage in removeImageList)
+            {
+                rImage.ImageUrl.DeleteFile(_env.WebRootPath, "assets/assets/images/restaurant");
+                existed.Images.Remove(rImage);
+            }
+            if (restaurantVM.Photos != null && restaurantVM.Photos.Count > 0)
+            {
+                foreach (var photo in restaurantVM.Photos)
+                {
+                    if (!photo.CheckFileType("image/"))
+                    {
+                        ModelState.AddModelError("Photos", "File tipi uygun deyil");
+                        return View();
+                    }
+                    if (!photo.CheckFileSize(20000))
+                    {
+                        ModelState.AddModelError("Photos", "File olcusu uygun deyil");
+                        return View();
+                    }
+                    existed.Images.Add(new RestaurantImage
+                    {
+                        ImageUrl = await photo.CreateFileAsync(_env.WebRootPath, "assets/assets/images/restaurant"),
+                        IsPrimary = false,
+                        RestaurantId = existed.Id
+                    });
+                }
+            }
+            await _dbContext.SaveChangesAsync();
+            return RedirectToAction(nameof(Index));
+        }
+
+        public async Task<IActionResult> Delete(Guid? id)
+        {
+            if (id is null) return BadRequest();
+            Restaurant existed = await _dbContext.Restaurants.Include(r => r.Images).FirstOrDefaultAsync(r => r.Id == id);
+            if (existed == null) return NotFound();
+            if (existed.Images.Count > 0)
+            {
+                foreach (var item in existed.Images)
+                {
+                    item.ImageUrl.DeleteFile(_env.WebRootPath, @"assets/assets/images/restaurant");
+                    _dbContext.RestaurantImages.Remove(item);
+                }
+            }
+            ICollection<RestaurantFood> removeList= existed.RestFoods.ToList();
+            _dbContext.RestaurantFoods.RemoveRange(removeList);
+            _dbContext.Restaurants.Remove(existed);
+            await _dbContext.SaveChangesAsync();
+            return RedirectToAction(nameof(Index));
+        }
+
+        public UpdateRestaurantVM MapImages(UpdateRestaurantVM restaurantVM, Restaurant restaurant)
+        {
+            restaurantVM.ImageVMs = new List<RestaurantImageVM>();
+            foreach (RestaurantImage image in restaurant.Images)
+            {
+                RestaurantImageVM imageVM = new RestaurantImageVM
+                {
+                    Id = image.Id,
+                    ImageUrl = image.ImageUrl,
+                    IsPrimary = image.IsPrimary,
+                };
+                restaurantVM.ImageVMs.Add(imageVM);
+            }
+            return restaurantVM;
+        }
+    }
+
+}
