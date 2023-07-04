@@ -1,0 +1,63 @@
+﻿@model CreateSpaVM
+<section>
+    <div class="pcoded-content">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="mt-5">Create Spa</h5>
+                        <hr>
+                        <form method="post" enctype="multipart/form-data">
+                            <div class="form-row">
+                                <div class="form-group col-md-6">
+                                    <label asp-for="MainPhoto">Photo</label>
+                                    <input asp-for="MainPhoto" class="form-control" placeholder="MainPhoto" accept="image/*" />
+                                    <span asp-validation-for="MainPhoto"></span>
+                                </div>
+                                <div class="form-group col-md-6">
+                                    <label asp-for="Photos">Additional Photos</label>
+                                    <input asp-for="Photos" class="form-control" placeholder="Photos" accept="image/*" />
+                                    <span asp-validation-for="Photos"></span>
+                                </div>
+                                <div class="form-group col-md-6">
+                                    <label asp-for="Name">Name</label>
+                                    <input asp-for="Name" class="form-control" placeholder="Name">
+                                    <span asp-validation-for="Name"></span>
+                                </div>
+                                <div class="form-group col-md-6">
+                                    <label asp-for="Decription">Description</label>
+                                    <input asp-for="Decription" class="form-control" placeholder="Description">
+                                    <span asp-validation-for="Decription"></span>
+                                </div>
+                                <div class="form-group col-md-6">
+                                    <label asp-for="Title">Title</label>
+                                    <input asp-for="Title" class="form-control" placeholder="Title">
+                                    <span asp-validation-for="Title"></span>
+                                </div>
+                                <div class="form-group col-md-6">
+                                    <label asp-for="SubTitle">SubTitle</label>
+                                    <input asp-for="SubTitle" class="form-control" placeholder="SubTitle">
+                                    <span asp-validation-for="SubTitle"></span>
+                                </div>
+                                <div class="form-group col-md-6">
+                                    <label asp-for="HotelId">Hotel</label>
+                                    <select asp-for="HotelId" class="form-control" asp-items="new SelectList(ViewBag.Hotels,nameof(Hotel.Id),nameof(Hotel.Name))">
+                                        <option disabled selected>Select Hotel please</option>
+                                    </select>
+                                    <span class="text-danger" asp-validation-for="HotelId"></span>
+                                </div>
+
+                            </div>
+                            <button type="submit" class="btn  btn-primary">Create</button>
+                            <div class="form-group col-md-6" asp-validation-summary="ModelOnly">
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <!--[ form-element ] end-->
+        </div>
+        <!--[ Main Content ] end-->
+
+    </div>
+</section>
