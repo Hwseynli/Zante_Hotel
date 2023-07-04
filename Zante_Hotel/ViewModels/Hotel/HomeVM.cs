@@ -2,7 +2,9 @@
 {
 	public class HomeVM
 	{
-		public Hotel Hotel { get; set; }
+		public Spa Spa { get; set; }
+		public Restaurant Restaurant { get; set; }
+        public Hotel Hotel { get; set; }
 		public ICollection<Room> Rooms { get; set; }
 		public Room Room { get; set; }
         public ICollection<Gallery> Galleries { get; set; }

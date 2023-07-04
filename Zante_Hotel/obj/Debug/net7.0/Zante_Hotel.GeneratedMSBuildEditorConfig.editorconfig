@@ -224,6 +224,14 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3MvSG9tZS9JbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
+[/Users/zeyneb/Desktop/Zante_Hotel/Zante_Hotel/Views/Home/Restaurant.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvSG9tZS9SZXN0YXVyYW50LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/zeyneb/Desktop/Zante_Hotel/Zante_Hotel/Views/Home/Spa.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvSG9tZS9TcGEuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
 [/Users/zeyneb/Desktop/Zante_Hotel/Zante_Hotel/Views/Reservation/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3MvUmVzZXJ2YXRpb24vQ3JlYXRlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 

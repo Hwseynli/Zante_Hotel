@@ -1,5 +1,4 @@
-﻿using System;
-namespace Zante_Hotel.ViewModels
+﻿namespace Zante_Hotel.ViewModels
 {
 	public class UpdateRestaurantVM
 	{
@@ -28,7 +27,6 @@ namespace Zante_Hotel.ViewModels
         public string ImageUrl { get; set; }
         public bool? IsPrimary { get; set; }
         public Guid RestaurantId { get; set; }
-
     }
 }
 

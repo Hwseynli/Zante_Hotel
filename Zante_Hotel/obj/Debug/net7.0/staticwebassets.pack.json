@@ -1769,6 +1769,14 @@
       "PackagePath": "staticwebassets/assets/assets/images/restaurant.jpg"
     },
     {
+      "Id": "/Users/zeyneb/Desktop/Zante_Hotel/Zante_Hotel/wwwroot/assets/assets/images/restaurant/.DS_Store",
+      "PackagePath": "staticwebassets/assets/assets/images/restaurant/.DS_Store"
+    },
+    {
+      "Id": "/Users/zeyneb/Desktop/Zante_Hotel/Zante_Hotel/wwwroot/assets/assets/images/restaurant/e2b569ed-b2ad-4c10-94a5-d61bb10fe32erestaurant_hero.jpg",
+      "PackagePath": "staticwebassets/assets/assets/images/restaurant/e2b569ed-b2ad-4c10-94a5-d61bb10fe32erestaurant_hero.jpg"
+    },
+    {
       "Id": "/Users/zeyneb/Desktop/Zante_Hotel/Zante_Hotel/wwwroot/assets/assets/images/restaurant/restaurant1 2.jpg",
       "PackagePath": "staticwebassets/assets/assets/images/restaurant/restaurant1 2.jpg"
     },

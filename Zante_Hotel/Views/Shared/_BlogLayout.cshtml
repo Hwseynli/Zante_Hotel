@@ -107,11 +107,8 @@
                                     <div class="mega_menu_inner">
                                         <ul>
                                             <li class="list_title">PAGES</li>
-                                            <li><a href="#">Galaries</a></li>
-                                            <li><a href="#">Restaurant</a></li>
-                                            <li><a href="#">Galleries</a></li>
-                                            <li><a href="#">Spa</a></li>
-                                            <li><a href="#">Reservation</a></li>
+                                            <li><a asp-action="Restaurant" asp-controller="Home">Restaurant</a></li>
+                                            <li><a asp-action="Spa" asp-controller="Home">Spa</a></li>
                                         </ul>
                                     </div>
                                 </li>
@@ -120,7 +117,7 @@
                         <li><a asp-action="ContactUs" asp-controller="Home">CONTACT US</a></li>
                         <li><a asp-action="Index" asp-controller="Blog">BLOGS</a></li>
                         <li class="menu_button">
-                            <a asp-action="Create" asp-controller="Reservation" class="button btn_yellow"><i class="fa fa-calendar"></i>BOOK ONLINE</a>
+                            <a asp-action="Create" asp-controller="Reservation" class="button btn_yellow"><i class="fa fa-calendar"></i>Reservation</a>
                         </li>
                         @if (user != null && User.Identity.IsAuthenticated)
                         {
@@ -180,18 +177,6 @@
                                     <p>@hotel.Description.Substring(0, 100)</p>
                                 }
                             </div>
-                        </div>
-                        <div class="col-md-3 col-sm-6 widget">
-                            <h5>Latest News</h5>
-                            <ul class="blog_posts">
-                                @if (hotel.Blogs != null)
-                                {
-                                    @foreach (var item in hotel.Blogs)
-                                    {
-                                        <li><a asp-action="BlogPost" asp-controller="Blog" asp-route-id="@item.Id">@item.Name</a> <small>@item.CreateOn</small></li>
-                                    }
-                                }
-                            </ul>
                         </div>
                         <div class="col-md-3 col-sm-6 widget">
                             <h5>Useful Links</h5>

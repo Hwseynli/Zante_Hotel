@@ -102,23 +102,19 @@
                             <ul class="dropdown-menu">
                                 <li>
                                     <div class="mega_menu_inner">
-                                            <ul>
-                                                <li class="list_title">PAGES</li>
-                                                <li><a href="#">Galaries</a></li>
-                                                <li><a href="#">Restaurant</a></li>
-                                                <li><a href="#">Galleries</a></li>
-                                                <li><a href="#">Spa</a></li>
-                                                <li><a href="#">Checkout</a></li>
-                                                <li><a href="#">Reservation</a></li>
-                                            </ul>
-                                     </div>
+                                        <ul>
+                                            <li class="list_title">PAGES</li>
+                                            <li><a asp-action="Restaurant" asp-controller="Home">Restaurants</a></li>
+                                            <li><a asp-action="Spa" asp-controller="Home">Spa</a></li>
+                                        </ul>
+                                    </div>
                                 </li>
                             </ul>
                         </li>
                         <li><a asp-action="ContactUs" asp-controller="Home">CONTACT US</a></li>
                         <li><a asp-action="Index" asp-controller="Blog">BLOGS</a></li>
                         <li class="menu_button">
-                            <a href="#" class="button  btn_yellow"><i class="fa fa-calendar"></i>BOOK ONLINE</a>
+                            <a asp-action="Create" asp-controller="Reservation" class="button  btn_yellow"><i class="fa fa-calendar"></i>Reservation</a>
                         </li>
                         @if (user != null && User.Identity.IsAuthenticated)
                         {
@@ -171,27 +167,16 @@
         <div class="inner">
             <div class="container">
                 <div class="row">
-                    <div class="col-md-3 col-sm-6 widget">
+                    <div class="col-md-4 col-sm-6 widget">
                         <div class="about">
                             @if (hotel != null)
-                                {
-                            <a asp-action="Index" asp-controller="Home"><img class="logo" src="~/assets/assets/images/@hotel.Logo" height="32" alt="Logo"></a>
-                            <p>@hotel.Description.Substring(0, 100)</p>
-                                }
+                            {
+                                <a asp-action="Index" asp-controller="Home"><img class="logo" src="~/assets/assets/images/@hotel.Logo" height="32" alt="Logo"></a>
+                                <p>@hotel.Description.Substring(0, 100)</p>
+                            }
                         </div>
                     </div>
-                    <div class="col-md-3 col-sm-6 widget">
-                        <h5>Latest News</h5>
-                        <ul class="blog_posts">
-                            @if (hotel.Blogs !=null) {
-                            @foreach (var item in hotel.Blogs)
-                                {
-                                <li><a asp-action="BlogPost" asp-controller="Blog" asp-route-id="@item.Id">@item.Name</a> <small>@item.CreateOn</small></li>
-                                }
-                                }
-                        </ul>
-                    </div>
-                    <div class="col-md-3 col-sm-6 widget">
+                    <div class="col-md-4 col-sm-6 widget">
                         <h5>Useful Links</h5>
                         <ul class="useful_links">
                             <li><a href="#">About us</a></li>
@@ -201,18 +186,18 @@
                             <li><a href="#">Location</a></li>
                         </ul>
                     </div>
-                    <div class="col-md-3 col-sm-6 widget">
+                    <div class="col-md-4 col-sm-6 widget">
                         <h5>Contact Us</h5>
                         <address>
                             @if (hotel != null)
-                                {
-                            <ul class="address_details">
-                                <li><i class="glyphicon glyphicon-map-marker"></i> @hotel.Address</li>
-                                <li><i class="glyphicon glyphicon-phone-alt"></i> Phone: @hotel.PhoneNumber </li>
-                                <li><i class="fa fa-fax"></i> Fax: 800 123 3456</li>
-                                <li><i class="fa fa-envelope"></i> Email: <a href="mailto:info@site.com">@hotel.Email</a></li>
-                            </ul>
-                                }
+                            {
+                                <ul class="address_details">
+                                    <li><i class="glyphicon glyphicon-map-marker"></i> @hotel.Address</li>
+                                    <li><i class="glyphicon glyphicon-phone-alt"></i> Phone: @hotel.PhoneNumber </li>
+                                    <li><i class="fa fa-fax"></i> Fax: 800 123 3456</li>
+                                    <li><i class="fa fa-envelope"></i> Email: <a href="mailto:info@site.com">@hotel.Email</a></li>
+                                </ul>
+                            }
                         </address>
                     </div>
                 </div>
@@ -222,10 +207,11 @@
             <div class="container">
                 <div class="row">
                     <div class="col-md-6 col-sm-6">
-                        @if(hotel!=null){
-                        <div class="copyrights">
-                            Copyright 2017 <a asp-action="Index" asp-controller="Home">@hotel.Name</a> All Rights Reserved.
-                        </div>
+                        @if (hotel != null)
+                        {
+                            <div class="copyrights">
+                                Copyright 2017 <a asp-action="Index" asp-controller="Home">@hotel.Name</a> All Rights Reserved.
+                            </div>
                         }
                     </div>
                     <div class="col-md-6 col-sm-6">

@@ -1,0 +1,160 @@
+﻿@{
+    Layout = "_Layout";
+}
+@model HomeVM
+<!-- ========== REVOLUTION SLIDER ========== -->
+<div id="hero_restaurant" class="rev_slider gradient_slider" data-version="5.0.7">
+    <ul>
+        <!-- SLIDE  -->
+        <li data-transition="fade">
+            <!-- MAIN IMAGE -->
+            <img src="~/assets/assets/images/restaurant/@Model.Restaurant.Images.Where(i=>i.IsPrimary==true).FirstOrDefault().ImageUrl"
+                 alt="Image"
+                 data-bgposition="center center"
+                 data-bgfit="cover"
+                 data-bgrepeat="no-repeat"
+                 data-bgparallax="5"
+                 class="rev-slidebg"
+                 data-no-retina>
+            <!-- LAYER NR. 1 -->
+            <div class="tp-caption"
+                 data-x="['center','center','center','center']"
+                 data-hoffset=""
+                 data-y="['250','250','350','350']"
+                 data-voffset=""
+                 data-responsive_offset="on"
+                 data-fontsize="['40','32','28','22']"
+                 data-lineheight="['40','32','28','22']"
+                 data-whitespace="nowrap"
+                 data-frames='[{"delay":0,"speed":1500,"frame":"0","from":"y:[100%];z:0;rX:0deg;rY:0;rZ:0;sX:1;sY:1;skX:0;skY:0;opacity:0;","mask":"x:0px;y:[100%];s:inherit;e:inherit;","to":"o:1;","ease":"Power2.easeInOut"},{"delay":"wait","speed":300,"frame":"999","to":"auto:auto;","ease":"Power3.easeInOut"}]'
+                 style="color: #fff; font-weight: 700; font-family: 'Raleway', sans-serif;">
+                @Model.Restaurant.Name
+            </div>
+        </li>
+    </ul>
+</div>
+
+<!-- ========== MAIN ========== -->
+<main id="restaurant_page">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-7">
+                <div class="main_title">
+                    <h2> OUR RESTAURANT</h2>
+                </div>
+                @if (Model.Restaurant.Description.Length > 200)
+                {
+                    <p>@Model.Restaurant.Description.Substring(0, 200). </p>
+                    <p>@Model.Restaurant.Description.Substring(0, 200). </p>
+
+                }
+                else
+                {
+                    <p>@Model.Restaurant.Description.Substring(0). </p>
+                }
+            </div>
+            <div class="col-md-5">
+                <div class="row">
+                    @if (Model.Restaurant.RestFoods != null || Model.Restaurant.RestFoods.Count > 0)
+                    {
+                        @foreach (var item in Model.Restaurant.RestFoods)
+                        {
+                            <div class="col-md-6 col-sm-6 restaurant_img md_pr5">
+                                <img src="~/assets/assets/images/foods/@item.Food.ImageUrl" class="img-responsive full_width" alt="Image">
+                            </div>
+                        }
+                    }
+                </div>
+            </div>
+        </div>
+        @if (Model.Restaurant.Description.Length > 400)
+        {
+            <p>@Model.Restaurant.Description.Substring(200, 400). </p>
+        }
+        else if (Model.Restaurant.Description.Length < 400 && Model.Restaurant.Description.Length > 200)
+        {
+            <p>@Model.Restaurant.Description.Substring(200). </p>
+        }
+        else
+        {
+            <p>@Model.Restaurant.Description.Substring(0). </p>
+        }
+        <div class="main_title mt50 mb30">
+            <h2>
+                OUR MENU
+            </h2>
+        </div>
+        <div class="row">
+            @foreach (var item in Model.Restaurant.RestFoods)
+            {
+                <!-- ITEM -->
+                <div class="col-md-6 col-sm-6">
+                    <div class="menu_item">
+                        <div class="row">
+                            <div class="col-lg-4 col-md-6">
+                                <figure>
+                                    <a href="#">
+                                        <img src="~/assets/assets/images/foods/@item.Food.ImageUrl" class="img-responsive full_width" alt="Image">
+                                    </a>
+                                </figure>
+                            </div>
+                            <div class="col-lg-8 col-md-6">
+                                <div class="info">
+                                    <div class="title">
+                                        <a href="#" class="name">@item.Food.Name</a>
+                                        <span class="price">
+                                            <span class="amount">€@item.Food.Price</span>
+                                        </span>
+                                    </div>
+                                    <p>@item.Food.About ... </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            }
+
+
+        </div>
+        @if (Model.Restaurant.Description.Length > 600)
+        {
+            <p>@Model.Restaurant.Description.Substring(400, 600). </p>
+        }
+        else if (Model.Restaurant.Description.Length < 600 && Model.Restaurant.Description.Length > 400)
+        {
+            <p>@Model.Restaurant.Description.Substring(400). </p>
+
+        }
+        else
+        {
+            if (Model.Restaurant.Description.Length > 400)
+            {
+                <p>@Model.Restaurant.Description.Substring(200, 400). </p>
+            }
+            else if (Model.Restaurant.Description.Length < 400 && Model.Restaurant.Description.Length > 200)
+            {
+                <p>@Model.Restaurant.Description.Substring(200). </p>
+            }
+            else
+            {
+                <p>@Model.Restaurant.Description.Substring(0). </p>
+            }
+        }
+        <blockquote>
+            <i class="fa fa-quote-left"></i>
+            <span class="quote_text">@Model.Restaurant.SubTitle</span>
+        </blockquote>
+        <div class="row image-gallery">
+            @foreach (var item in Model.Restaurant.Images.Where(i=>i.IsPrimary==false).ToList())
+            {
+                <!-- ITEM -->
+                <div class="col-md-3 col-sm-6 mt20 mb20">
+                    <a href="~/assets/assets/images/restaurant/@item.ImageUrl" class="hover_effect h_lightbox h_blue">
+                        <img src="~/assets/assets/images/restaurant/@item.ImageUrl" class="img-responsive br2 full_width" alt="Image">
+                    </a>
+                </div>
+            }
+        </div>
+        <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi. Nam liber tempor cum soluta nobis eleifend option congue nihil imperdiet doming id quod mazim placerat facer possim assum. Typi non habent claritatem insitam; est usus legentis in iis qui facit eorum claritatem. Investigationes demonstraverunt lectores legere me lius quod ii legunt saepius. Claritas est etiam processus dynamicus, qui sequitur mutationem consuetudium lectorum. Mirum est notare quam littera gothica, quam nunc putamus parum claram, anteposuerit litterarum formas humanitatis</p>
+    </div>
+</main>

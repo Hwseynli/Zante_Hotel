@@ -1,0 +1,114 @@
+﻿@{
+    Layout = "_Layout";
+}
+@model HomeVM
+<!-- ========== REVOLUTION SLIDER ========== -->
+<div id="hero_spa" class="rev_slider gradient_slider" data-version="5.0.7">
+    <ul>
+        <!-- SLIDE  -->
+        <li data-transition="fade">
+            <!-- MAIN IMAGE -->
+            <img src="~/assets/assets/images/spa/@Model.Spa.Images.Where(i=>i.IsPrimary).FirstOrDefault().ImageUrl"
+                 alt="Image"
+                 data-bgposition="center center"
+                 data-bgfit="cover"
+                 data-bgrepeat="no-repeat"
+                 data-bgparallax="5"
+                 class="rev-slidebg"
+                 data-no-retina>
+            <!-- LAYER NR. 1 -->
+            <div class="tp-caption"
+                 data-x="['center','center','center','center']"
+                 data-hoffset=""
+                 data-y="['250','250','350','350']"
+                 data-voffset=""
+                 data-responsive_offset="on"
+                 data-fontsize="['40','32','28','22']"
+                 data-lineheight="['40','32','28','22']"
+                 data-whitespace="nowrap"
+                 data-frames='[{"delay":0,"speed":1500,"frame":"0","from":"y:[100%];z:0;rX:0deg;rY:0;rZ:0;sX:1;sY:1;skX:0;skY:0;opacity:0;","mask":"x:0px;y:[100%];s:inherit;e:inherit;","to":"o:1;","ease":"Power2.easeInOut"},{"delay":"wait","speed":300,"frame":"999","to":"auto:auto;","ease":"Power3.easeInOut"}]'
+                 style="color: #fff; font-weight: 700; font-family: 'Raleway', sans-serif;">
+                @Model.Spa.Name
+            </div>
+        </li>
+    </ul>
+</div>
+
+<main id="spa_page">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-7">
+                <div class="main_title">
+                    <h2>@Model.Spa.Title</h2>
+                </div>
+                @if (Model.Spa.Decription.Length > 200)
+                {
+                    <p>@Model.Spa.Decription.Substring(0, 200). </p>
+                    <p>@Model.Spa.Decription.Substring(0, 200). </p>
+
+                }
+                else
+                {
+                    <p>@Model.Spa.Decription.Substring(0). </p>
+                }
+            </div>
+            <div class="col-md-5">
+                <img src="~/assets/assets/images/spa/@Model.Spa.Images.Where(i=>i.IsPrimary==false).FirstOrDefault().ImageUrl" class="img-responsive full_width" alt="Image">
+            </div>
+        </div>
+
+        @if (Model.Spa.Decription.Length > 400)
+        {
+            <p>@Model.Spa.Decription.Substring(200, 400). </p>
+        }
+        else if (Model.Spa.Decription.Length < 400 && Model.Spa.Decription.Length > 200)
+        {
+            <p>@Model.Spa.Decription.Substring(200). </p>
+        }
+        else
+        {
+            <p>@Model.Spa.Decription.Substring(0). </p>
+        }
+        <div class="row image-gallery">
+            @if (Model.Spa.Images.Where(s => s.IsPrimary == false).ToList().Count > 1)
+            {
+                for (int i = 1; i < Model.Spa.Images.Where(s => s.IsPrimary == false).ToList().Count; i++)
+                {
+                    <div class="col-md-3 col-sm-6 mt20 mb20">
+                        <a href="images/spa/@Model.Spa.Images.Where(s => s.IsPrimary == false).ToList().ElementAtOrDefault(i).ImageUrl" class="hover_effect h_lightbox h_blue">
+                            <img src="~/assets/assets/images/spa/@Model.Spa.Images.Where(s => s.IsPrimary == false).ToList().ElementAtOrDefault(i).ImageUrl" class="img-responsive full_width br2" alt="Image">
+                        </a>
+                    </div>
+                }
+            }
+        </div>
+        <blockquote>
+            <i class="fa fa-quote-left"></i>
+            <span class="quote_text">@Model.Spa.SubTitle</span>
+        </blockquote>
+        @if (Model.Spa.Decription.Length > 600)
+        {
+            <p>@Model.Spa.Decription.Substring(400, 600). </p>
+        }
+        else if (Model.Spa.Decription.Length < 600 && Model.Spa.Decription.Length > 400)
+        {
+            <p>@Model.Spa.Decription.Substring(400). </p>
+
+        }
+        else
+        {
+            if (Model.Spa.Decription.Length > 400)
+            {
+                <p>@Model.Spa.Decription.Substring(200, 400). </p>
+            }
+            else if (Model.Spa.Decription.Length < 400 && Model.Spa.Decription.Length > 200)
+            {
+                <p>@Model.Spa.Decription.Substring(200). </p>
+            }
+            else
+            {
+                <p>@Model.Spa.Decription.Substring(0). </p>
+            }
+        }
+    </div>
+</main>

@@ -72,5 +72,21 @@ public class HomeController : Controller
         ModelState.AddModelError(string.Empty, "Please Firstly Sign in or Sign Up");
         return View();
     }
+    public async Task<IActionResult> Spa()
+    {
+        HomeVM homeVM = new HomeVM
+        {
+            Spa = await _dbContext.Spas.Include(s=>s.Hotel).Include(s=>s.Images).FirstOrDefaultAsync()
+        };
+        return View(homeVM);
+    }
+    public async Task<IActionResult> Restaurant()
+    {
+        HomeVM homeVM = new HomeVM
+        {
+            Restaurant = await _dbContext.Restaurants.Include(r => r.Hotel).Include(r=>r.RestFoods).ThenInclude(rf=>rf.Food).Include(s => s.Images).FirstOrDefaultAsync()
+        };
+        return View(homeVM);
+    }
 }
 

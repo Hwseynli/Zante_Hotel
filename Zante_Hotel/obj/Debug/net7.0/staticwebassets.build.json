@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "iIfMM01orK9WMn7TzRrLKi/V9xNGVSgHmzEc3uii6VY=",
+  "Hash": "+jlGB2IurnglSWoitN4AlYMXoS7mZg9NYPlZge+XBAY=",
   "Source": "Zante_Hotel",
   "BasePath": "_content/Zante_Hotel",
   "Mode": "Default",
@@ -7529,6 +7529,40 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot/assets/assets/images/restaurant.jpg"
+    },
+    {
+      "Identity": "/Users/zeyneb/Desktop/Zante_Hotel/Zante_Hotel/wwwroot/assets/assets/images/restaurant/.DS_Store",
+      "SourceId": "Zante_Hotel",
+      "SourceType": "Discovered",
+      "ContentRoot": "/Users/zeyneb/Desktop/Zante_Hotel/Zante_Hotel/wwwroot/",
+      "BasePath": "_content/Zante_Hotel",
+      "RelativePath": "assets/assets/images/restaurant/.DS_Store",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot/assets/assets/images/restaurant/.DS_Store"
+    },
+    {
+      "Identity": "/Users/zeyneb/Desktop/Zante_Hotel/Zante_Hotel/wwwroot/assets/assets/images/restaurant/e2b569ed-b2ad-4c10-94a5-d61bb10fe32erestaurant_hero.jpg",
+      "SourceId": "Zante_Hotel",
+      "SourceType": "Discovered",
+      "ContentRoot": "/Users/zeyneb/Desktop/Zante_Hotel/Zante_Hotel/wwwroot/",
+      "BasePath": "_content/Zante_Hotel",
+      "RelativePath": "assets/assets/images/restaurant/e2b569ed-b2ad-4c10-94a5-d61bb10fe32erestaurant_hero.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot/assets/assets/images/restaurant/e2b569ed-b2ad-4c10-94a5-d61bb10fe32erestaurant_hero.jpg"
     },
     {
       "Identity": "/Users/zeyneb/Desktop/Zante_Hotel/Zante_Hotel/wwwroot/assets/assets/images/restaurant/restaurant_hero 2.jpg",

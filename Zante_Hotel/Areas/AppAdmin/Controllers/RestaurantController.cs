@@ -43,7 +43,7 @@ namespace Zante_Hotel.Areas.AppAdmin.Controllers
             }
             if (await _dbContext.Restaurants.AnyAsync(c => c.Name == restaurantVM.Name))
             {
-                ModelState.AddModelError("Name", "Bu adli otaq artiq movcuddur");
+                ModelState.AddModelError("Name", "Bu adli restaurant artiq movcuddur");
                 return View();
             }
             Restaurant restaurant = new Restaurant
@@ -59,10 +59,10 @@ namespace Zante_Hotel.Areas.AppAdmin.Controllers
             if (restaurantVM.MaxPeople > 0) restaurant.MaxPeople = restaurantVM.MaxPeople;
             foreach (Guid foodId in restaurantVM.FoodIds)
             {
-                bool foodResult = await _dbContext.Services.AnyAsync(t => t.Id == foodId);
+                bool foodResult = await _dbContext.Foods.AnyAsync(t => t.Id == foodId);
                 if (!foodResult)
                 {
-                    ModelState.AddModelError("FoodIds", $"{foodId} id-li service movcud deyil");
+                    ModelState.AddModelError("FoodIds", $"{foodId} id-li food movcud deyil");
                     return View();
                 }
                 RestaurantFood restaurantFood = new RestaurantFood
@@ -92,27 +92,30 @@ namespace Zante_Hotel.Areas.AppAdmin.Controllers
                     Restourant = restaurant
                 });
             }
-            foreach (IFormFile photo in restaurantVM.Photos)
+            if (restaurantVM.Photos != null && restaurantVM.Photos.Count > 0)
             {
-                if (photo != null)
+                foreach (var photo in restaurantVM.Photos)
                 {
-                    if (!photo.CheckFileType("image/"))
+                    if (photo != null)
                     {
-                        ModelState.AddModelError("Photos", "File tipi uygun deyil");
-                        return View();
+                        if (!photo.CheckFileType("image/"))
+                        {
+                            ModelState.AddModelError("Photos", "File tipi uygun deyil");
+                            return View();
+                        }
+                        if (!photo.CheckFileSize(20000))
+                        {
+                            ModelState.AddModelError("Photos", "File olcusu uygun deyil");
+                            return View();
+                        }
+                        RestaurantImage addImage = new RestaurantImage
+                        {
+                            ImageUrl = await photo.CreateFileAsync(_env.WebRootPath, "assets/assets/images/restaurant"),
+                            Restourant = restaurant,
+                            IsPrimary = false
+                        };
+                        restaurant.Images.Add(addImage);
                     }
-                    if (!photo.CheckFileSize(20000))
-                    {
-                        ModelState.AddModelError("Photos", "File olcusu uygun deyil");
-                        return View();
-                    }
-                    RestaurantImage addImage = new RestaurantImage
-                    {
-                        ImageUrl = await photo.CreateFileAsync(_env.WebRootPath, "assets/assets/images/restaurant"),
-                        Restourant = restaurant,
-                        IsPrimary = false
-                    };
-                    restaurant.Images.Add(addImage);
                 }
             }
             await _dbContext.Restaurants.AddAsync(restaurant);
