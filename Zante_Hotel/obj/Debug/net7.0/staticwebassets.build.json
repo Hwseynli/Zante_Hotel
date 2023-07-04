@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "+jlGB2IurnglSWoitN4AlYMXoS7mZg9NYPlZge+XBAY=",
+  "Hash": "eooLuCETlM61ByJW6f6RVS9Bva7olC/SYcUCKcWjWGU=",
   "Source": "Zante_Hotel",
   "BasePath": "_content/Zante_Hotel",
   "Mode": "Default",
@@ -4418,6 +4418,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot/admin/images/user-images/6eea2287-134d-40e1-94b2-eebb59634266admin.jpg"
+    },
+    {
+      "Identity": "/Users/zeyneb/Desktop/Zante_Hotel/Zante_Hotel/wwwroot/admin/images/user-images/8d13a723-f6b5-4766-936e-1e514d09ed9b5.jpg",
+      "SourceId": "Zante_Hotel",
+      "SourceType": "Discovered",
+      "ContentRoot": "/Users/zeyneb/Desktop/Zante_Hotel/Zante_Hotel/wwwroot/",
+      "BasePath": "_content/Zante_Hotel",
+      "RelativePath": "admin/images/user-images/8d13a723-f6b5-4766-936e-1e514d09ed9b5.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot/admin/images/user-images/8d13a723-f6b5-4766-936e-1e514d09ed9b5.jpg"
     },
     {
       "Identity": "/Users/zeyneb/Desktop/Zante_Hotel/Zante_Hotel/wwwroot/admin/images/user-images/images.jpeg",

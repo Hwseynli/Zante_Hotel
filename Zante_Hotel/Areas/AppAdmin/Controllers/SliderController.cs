@@ -8,7 +8,7 @@ namespace Zante_Hotel.Areas.AppAdmin.Controllers
 {
     [Area("AppAdmin")]
     [AutoValidateAntiforgeryToken]
-    [Authorize]
+    [Authorize(Roles = $"Admin")]
     public class SliderController : Controller
     {
         private string urlimgroot = @"assets/assets/images/slider";

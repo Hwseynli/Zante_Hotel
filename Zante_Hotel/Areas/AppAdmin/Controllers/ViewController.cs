@@ -7,7 +7,7 @@ namespace Zante_Hotel.Areas.AppAdmin.Controllers
 {
     [Area("AppAdmin")]
     [AutoValidateAntiforgeryToken]
-    [Authorize]
+    [Authorize(Roles = $"Admin")]
     public class ViewController : Controller
     {
         private readonly AppDbContext _context;

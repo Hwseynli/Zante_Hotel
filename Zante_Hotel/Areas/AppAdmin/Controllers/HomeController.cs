@@ -7,16 +7,13 @@ using Microsoft.AspNetCore.Mvc;
 namespace Zante_Hotel.Areas.AppAdmin.Controllers
 {
     [Area("AppAdmin")]
-    [AutoValidateAntiforgeryToken]
-    [Authorize]
+    [Authorize(Roles = $"Admin")]
     public class HomeController : Controller
     {
-
         // GET: /<controller>/
-        public async Task<IActionResult> Index()
+        public IActionResult Index()
         {
             return View();
-            //return View();
         }
     }
 }

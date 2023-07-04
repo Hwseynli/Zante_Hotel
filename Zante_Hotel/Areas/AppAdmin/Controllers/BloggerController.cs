@@ -5,7 +5,7 @@ namespace Zante_Hotel.Areas.AppAdmin.Controllers
 {
     [Area("AppAdmin")]
     [AutoValidateAntiforgeryToken]
-    [Authorize]
+    [Authorize(Roles =$"Admin, Blogger")]
     public class BloggerController : Controller
     {
         private readonly AppDbContext _dbContext;

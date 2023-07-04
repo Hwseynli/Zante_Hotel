@@ -119,26 +119,52 @@
                         <li class="menu_button">
                             <a asp-action="Create" asp-controller="Reservation" class="button btn_yellow"><i class="fa fa-calendar"></i>Reservation</a>
                         </li>
+
                         @if (user != null && User.Identity.IsAuthenticated)
                         {
-                            <li>
-                                <div class="user-area dropdown float-right">
-                                    <a href="#" class="dropdown-toggle active" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                        <img class="user-avatar rounded-circle" style="vertical-align: middle; width: 40px; height: 40px; border-radius: 100%;" src="~/admin/images/user-images/@user.UserImgUrl " alt="User Avatar">
-                                    </a>
-                                    <div class="user-menu dropdown-menu" style="background:none">
-                                        <ul>
-                                            <li>
-                                                <a class="nav-link ml-2 mt-4" href="#"><i class="fa fa- user"></i>@user.UserName</a>
-                                            </li>
-                                            <li>
-                                                <a class="nav-link ml-2 mb-4" asp-action="Logout" asp-controller="Account" asp-area="AppAdmin"><i class="fa fa- user"></i>Logout</a>
-                                            </li>
-                                        </ul>
+                            @if (User.IsInRole("Admin"))
+                            {
+                                <li>
+                                    <div class="user-area dropdown float-right">
+                                        <a href="#" class="dropdown-toggle active" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                            <img class="user-avatar rounded-circle" style="vertical-align: middle; width: 40px; height: 40px; border-radius: 100%;" src="~/admin/images/user-images/@user.UserImgUrl " alt="User Avatar">
+                                        </a>
+                                        <div class="user-menu dropdown-menu" style="background:none">
+                                            <ul>
+                                                <li>
+                                                    <a class="nav-link ml-2 mt-4" href="#"><i class="fa fa- user"></i>@user.UserName</a><br>
+                                                </li>
+                                                <li>
+                                                    <a class="nav-link ml-2 mb-4" asp-action="Index" asp-controller="Home" asp-area="AppAdmin"><i class="fa fa- user"></i>Settings</a><br>
+                                                </li>
+                                                <li>
+                                                    <a class="nav-link ml-2 mb-4" asp-action="Logout" asp-controller="Account" asp-area="AppAdmin"><i class="fa fa- user"></i>Logout</a>
+                                                </li>
+                                            </ul>
+                                        </div>
                                     </div>
-                                </div>
-                            </li>
-                        }
+                                </li>
+                            }
+                            else
+                            {
+                                <li>
+                                    <div class="user-area dropdown float-right">
+                                        <a href="#" class="dropdown-toggle active" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                            <img class="user-avatar rounded-circle" style="vertical-align: middle; width: 40px; height: 40px; border-radius: 100%;" src="~/admin/images/user-images/@user.UserImgUrl " alt="User Avatar">
+                                        </a>
+                                        <div class="user-menu dropdown-menu" style="background:none">
+                                            <ul>
+                                                <li>
+                                                    <a class="nav-link ml-2 mt-4" href="#"><i class="fa fa- user"></i>@user.UserName</a>
+                                                </li>
+                                                <li>
+                                                    <a class="nav-link ml-2 mb-4" asp-action="Logout" asp-controller="Account" asp-area="AppAdmin"><i class="fa fa- user"></i>Logout</a>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </li>
+                            } }
                         else
                         {
                             <li>

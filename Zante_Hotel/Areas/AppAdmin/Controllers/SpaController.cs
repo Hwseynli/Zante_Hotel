@@ -8,7 +8,7 @@ namespace Zante_Hotel.Areas.AppAdmin.Controllers
 {
     [Area("AppAdmin")]
     [AutoValidateAntiforgeryToken]
-    [Authorize]
+    [Authorize(Roles = $"Admin")]
     public class SpaController : Controller
     {
         private readonly IWebHostEnvironment _env;
