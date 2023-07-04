@@ -20,7 +20,7 @@ namespace Zante_Hotel.Areas.AppAdmin.Models
         [Required]
         public string ImageUrl { get; set; }
         [Required]
-        public bool? IsPrimary { get; set; }
+        public bool IsPrimary { get; set; }
         public Guid SpaId { get; set; }
         [ForeignKey("SpaId")]
         public Spa Spa { get; set; }

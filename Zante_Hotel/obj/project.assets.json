@@ -10853,11 +10853,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/Users/zeyneb/Desktop/bas/Zante_Hotel/Zante_Hotel/Zante_Hotel.csproj",
+      "projectUniqueName": "/Users/zeyneb/Desktop/Zante_Hotel/Zante_Hotel/Zante_Hotel.csproj",
       "projectName": "Zante_Hotel",
-      "projectPath": "/Users/zeyneb/Desktop/bas/Zante_Hotel/Zante_Hotel/Zante_Hotel.csproj",
+      "projectPath": "/Users/zeyneb/Desktop/Zante_Hotel/Zante_Hotel/Zante_Hotel.csproj",
       "packagesPath": "/Users/zeyneb/.nuget/packages/",
-      "outputPath": "/Users/zeyneb/Desktop/bas/Zante_Hotel/Zante_Hotel/obj/",
+      "outputPath": "/Users/zeyneb/Desktop/Zante_Hotel/Zante_Hotel/obj/",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "/Users/zeyneb/.nuget/NuGet/NuGet.Config"

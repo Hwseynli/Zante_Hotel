@@ -146,7 +146,7 @@ namespace Zante_Hotel.Areas.AppAdmin.Controllers
             }
             if (!ModelState.IsValid)
             {
-                return View(existed);
+                return View();
             }
             if (blogVM.Photo != null)
             {
@@ -218,10 +218,10 @@ namespace Zante_Hotel.Areas.AppAdmin.Controllers
             }
             if (blog.ImgUrl!=null) { 
                 blog.ImgUrl.DeleteFile(_env.WebRootPath, @"assets/assets/images/blog");
-            _dbContext.Blogs.Remove(blog);
             }
-                ICollection<BlogTag> removeList = blog.Tags.ToList();
-                _dbContext.BlogTags.RemoveRange(removeList);
+            ICollection<BlogTag> removeList = blog.Tags.ToList();
+            _dbContext.BlogTags.RemoveRange(removeList);
+            _dbContext.Blogs.Remove(blog);
             await _dbContext.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }

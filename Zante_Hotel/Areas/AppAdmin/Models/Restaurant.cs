@@ -7,7 +7,7 @@ namespace Zante_Hotel.Areas.AppAdmin.Models
         public string SubTitle { get; set; }
         [Required, MinLength(3), MaxLength(2000)]
         public string Description { get; set; }
-        public ICollection<Food> Foods { get; set; }
+        public ICollection<RestaurantFood> RestFoods { get; set; }
         public ICollection<RestaurantImage> Images { get; set; }
         public int MaxPeople { get; set; }
         [Required]
@@ -21,7 +21,7 @@ namespace Zante_Hotel.Areas.AppAdmin.Models
         [Required]
         public string ImageUrl { get; set; }
         [Required]
-        public bool IsPrimary { get; set; }
+        public bool? IsPrimary { get; set; }
         public Guid RestaurantId { get; set; }
         [ForeignKey("RestaurantId")]
         public Restaurant Restourant { get; set; }

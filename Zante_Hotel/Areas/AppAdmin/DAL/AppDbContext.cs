@@ -25,6 +25,7 @@
         public DbSet<Spa> Spas { get; set; }
         public DbSet<SpaImage> SpaImages { get; set; }
         public DbSet<Restaurant> Restaurants { get; set; }
+        public DbSet<RestaurantFood> RestaurantFoods { get; set; }
         public DbSet<RestaurantImage> RestaurantImages { get; set; }
         public DbSet<Hotel> Hotels { get; set; }
         public DbSet<HotelService> HotelServices { get; set; }

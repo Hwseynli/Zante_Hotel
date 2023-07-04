@@ -16,7 +16,7 @@ public class HomeController : Controller
     }
     public async Task<IActionResult> Index()
     {
-        Hotel hotel = await _dbContext.Hotels.Include(h => h.Spa).ThenInclude(s => s.Images.Where(i => i.IsPrimary == true)).Include(h => h.Restaurant).ThenInclude(s => s.Images.Where(i=>i.IsPrimary)).Include(h=>h.Services.Where(s=>s.Service.Id== Guid.Parse("665a630b-4176-443b-4992-08db79a850c0"))).ThenInclude(s=>s.Service).Include(h=>h.Rooms.Where(c=>c.CategoryId== Guid.Parse("98d2f19f-3e82-44d6-ea49-08db79bd8445"))).ThenInclude(r => r.Images.Where(i=>i.IsPrimary)).FirstOrDefaultAsync();
+        Hotel hotel = await _dbContext.Hotels.Include(h => h.Spa).ThenInclude(s => s.Images.Where(i => i.IsPrimary == true)).Include(h => h.Restaurant).ThenInclude(s => s.Images.Where(i=>i.IsPrimary==true)).Include(h=>h.Services.Where(s=>s.Service.Id== Guid.Parse("665a630b-4176-443b-4992-08db79a850c0"))).ThenInclude(s=>s.Service).Include(h=>h.Rooms.Where(c=>c.CategoryId== Guid.Parse("98d2f19f-3e82-44d6-ea49-08db79bd8445"))).ThenInclude(r => r.Images.Where(i=>i.IsPrimary)).FirstOrDefaultAsync();
         ICollection<Gallery> galleries = await _dbContext.Galleries.Take(12).ToListAsync();
         Slider slider = await _dbContext.Sliders.Where(s => s.VideoUrl != null).FirstOrDefaultAsync();
         ICollection<Room> rooms = await _dbContext.Rooms.Take(3).Include(r => r.Images.Where(ri => ri.IsPrimary)).Include(r => r.Category).Include(r => r.View).Include(r => r.Services).ToListAsync();
