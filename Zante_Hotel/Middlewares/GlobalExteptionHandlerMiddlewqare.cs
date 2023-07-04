@@ -13,7 +13,6 @@ namespace Zante_Hotel.Middlewares
         }
         public async Task InvokeAsync(HttpContext context)
         {
-
             try
             {
                 await _next.Invoke(context);

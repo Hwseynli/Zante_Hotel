@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Zante_Hotel.Utilities.Exceptions;
 
 // For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
@@ -29,8 +30,9 @@ namespace Zante_Hotel.Controllers
         }
         public async Task<IActionResult> BlogPost(Guid? id)
         {
+            if (id is null) throw new BadRequestException();
             Blog blog = await _dbContext.Blogs.Where(b => b.Id == id).Include(b => b.Tags).Include(b => b.Comments).Include(b => b.Author).FirstOrDefaultAsync();
-
+            if (blog is null) throw new NotFoundException();
             BlogVM blogVM = new BlogVM
             {
                 Blog = blog

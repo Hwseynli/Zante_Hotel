@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using Zante_Hotel.Utilities.Exceptions;
 
 
 // For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
@@ -64,9 +65,9 @@ namespace Zante_Hotel.Areas.AppAdmin.Controllers
         }
         public async Task<IActionResult> Update(Guid? id)
         {
-            if (id == null) return BadRequest();
+            if (id == null) throw new BadRequestException();
             Food food = await _dbContext.Foods.Where(b => b.Id == id).FirstOrDefaultAsync();
-            if (food == null) return NotFound();
+            if (food == null) throw new NotFoundException();
             UpdateFoodVM foodVM = new UpdateFoodVM
             {
                 About = food.About,
@@ -79,9 +80,9 @@ namespace Zante_Hotel.Areas.AppAdmin.Controllers
         [HttpPost]
         public async Task<IActionResult> Update(Guid? id,UpdateFoodVM foodVM)
         {
-            if (id == null) return BadRequest();
+            if (id == null) throw new BadRequestException();
             Food existed = await _dbContext.Foods.Where(b => b.Id == id).FirstOrDefaultAsync();
-            if (existed == null) return NotFound();
+            if (existed == null) throw new NotFoundException();
             if (!ModelState.IsValid) return View();
             if (foodVM.Photo != null)
             {
@@ -106,9 +107,9 @@ namespace Zante_Hotel.Areas.AppAdmin.Controllers
         }
         public async Task<IActionResult> Delete(Guid? id)
         {
-            if (id == null) return BadRequest();
+            if (id == null) throw new BadRequestException();
             Food food = await _dbContext.Foods.Where(b => b.Id == id).FirstOrDefaultAsync();
-            if (food == null) return NotFound();
+            if (food == null) throw new NotFoundException();
             if (!await _dbContext.Foods.AnyAsync(f=>f.Id==food.Id))
             {
                 ModelState.AddModelError(string.Empty, "Bele bir food yoxdur");

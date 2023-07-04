@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using Zante_Hotel.Utilities.Exceptions;
 
 namespace Zante_Hotel.Areas.AppAdmin.Controllers
 {
@@ -112,9 +113,9 @@ namespace Zante_Hotel.Areas.AppAdmin.Controllers
         {
             ViewBag.Hotels = await _dbContext.Hotels.ToListAsync();
             ViewBag.Tags = await _dbContext.Tags.Include(c => c.Blogs).ToListAsync();
-            if (id == null) return BadRequest();
+            if (id == null) throw new BadRequestException();
             Blog blog = await _dbContext.Blogs.Where(b => b.Id == id).Include(b=>b.Tags).FirstOrDefaultAsync();
-            if (blog == null) return NotFound();
+            if (blog == null) throw new NotFoundException();
             AppUser user = await _userManager.FindByNameAsync(_http.HttpContext.User.Identity.Name);
             if (user.Id != blog.AuthorId)
             {
@@ -136,9 +137,9 @@ namespace Zante_Hotel.Areas.AppAdmin.Controllers
         {
             ViewBag.Hotels = await _dbContext.Hotels.ToListAsync();
             ViewBag.Tags = await _dbContext.Tags.Include(c => c.Blogs).ToListAsync();
-            if (id == null) return BadRequest();
+            if (id == null) throw new BadRequestException();
             Blog existed = await _dbContext.Blogs.Where(b => b.Id == id).Include(b => b.Tags).FirstOrDefaultAsync();
-            if (existed == null) return NotFound();
+            if (existed == null) throw new NotFoundException();
             AppUser user = await _userManager.FindByNameAsync(_http.HttpContext.User.Identity.Name);
             if (user.Id!=existed.AuthorId)
             {
@@ -197,9 +198,9 @@ namespace Zante_Hotel.Areas.AppAdmin.Controllers
         }
         public async Task<IActionResult> Delete(Guid? id)
         {
-            if (id == null) return BadRequest();
+            if (id == null) throw new BadRequestException();
             Blog blog = await _dbContext.Blogs.Where(b => b.Id == id).Include(b=>b.Author).Include(b=>b.Tags).FirstOrDefaultAsync();
-            if (blog == null) return NotFound();
+            if (blog == null) throw new NotFoundException();
             if (_http.HttpContext.User.Identity.Name == null)
             {
                 ModelState.AddModelError(string.Empty, "Login olunmalisiniz");

@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Zante_Hotel.Utilities.Exceptions;
 
 // For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
@@ -26,9 +27,9 @@ namespace Zante_Hotel.Controllers
         }
         public async Task<IActionResult> Detail(Guid? id)
         {
-            if (id is null) return View();
+            if (id is null) throw new BadRequestException();
             Room room = await _dbContext.Rooms.Where(r => r.Id == id).Include(r=>r.Hotel).Include(r => r.Category).Include(r => r.View).Include(r => r.Images).Include(r => r.Services).ThenInclude(s=>s.Service).FirstOrDefaultAsync();
-            if (room is null) return View();
+            if (room is null) throw new NotFoundException();
             HomeVM homeVM = new HomeVM
             {
                 Blogs=await _dbContext.Blogs.Where(b=>b.HotelId==room.HotelId).ToListAsync(),

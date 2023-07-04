@@ -76,6 +76,7 @@
     <Folder Include="Areas\AppAdmin\Views\Food\" />
     <Folder Include="Areas\AppAdmin\Views\Spa\" />
     <Folder Include="Areas\AppAdmin\Views\Restaurant\" />
+    <Folder Include="Utilities\Exceptions\" />
   </ItemGroup>
   <ItemGroup>
     <None Remove="Models\" />
@@ -129,6 +130,7 @@
     <None Remove="Areas\AppAdmin\Views\Food\" />
     <None Remove="Areas\AppAdmin\Views\Spa\" />
     <None Remove="Areas\AppAdmin\Views\Restaurant\" />
+    <None Remove="Utilities\Exceptions\" />
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="Microsoft.EntityFrameworkCore" Version="7.0.7" />

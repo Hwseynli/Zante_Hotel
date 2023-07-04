@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using Zante_Hotel.Utilities.Exceptions;
 
 // For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
@@ -97,9 +98,9 @@ namespace Zante_Hotel.Areas.AppAdmin.Controllers
         {
             ViewBag.Services = await _dbContext.Services.ToListAsync();
 
-            if (id == null) return BadRequest();
+            if (id == null) throw new BadRequestException();
             Hotel existed = await _dbContext.Hotels.Where(h => h.Id == id).Include(h=>h.Rooms).Include(h => h.Services).FirstOrDefaultAsync();
-            if (existed == null) return NotFound();
+            if (existed == null) throw new NotFoundException();
             UpdateHotelVM hotelVM = new UpdateHotelVM
             {
                 Rating = existed.Rating,
@@ -120,9 +121,9 @@ namespace Zante_Hotel.Areas.AppAdmin.Controllers
         public async Task<IActionResult> Update(Guid? id, UpdateHotelVM HotelVM)
         {
             ViewBag.Services = await _dbContext.Services.ToListAsync();
-            if (id == null) return BadRequest();
+            if (id == null) throw new BadRequestException();
             Hotel existed = await _dbContext.Hotels.Where(h => h.Id == id).Include(h => h.Rooms).Include(h => h.Services).FirstOrDefaultAsync();
-            if (existed == null) return NotFound();
+            if (existed == null) throw new NotFoundException();
             if (!ModelState.IsValid) return View();
             if (HotelVM.Name != null && !(await _dbContext.Hotels.AnyAsync(c => c.Name.Trim().ToLower() == HotelVM.Name.Trim().ToLower()))) existed.Name = HotelVM.Name;
             if (HotelVM.Type != null && existed.Type.Trim().ToLower() != HotelVM.Type.Trim().ToLower()) existed.Type = HotelVM.Type;
@@ -172,9 +173,9 @@ namespace Zante_Hotel.Areas.AppAdmin.Controllers
         }
         public async Task<IActionResult> Delete(Guid? id)
         {
-            if (id == null) return BadRequest();
+            if (id == null) throw new BadRequestException();
             Hotel existed = await _dbContext.Hotels.Where(h => h.Id == id).Include(h=>h.Spa).ThenInclude(s => s.Images).Include(h=>h.Restaurant).ThenInclude(r=>r.Images).FirstOrDefaultAsync();
-            if (existed == null) return NotFound();
+            if (existed == null) throw new NotFoundException();
             Spa spa = await _dbContext.Spas.Where(h => h.HotelId == existed.Id).FirstOrDefaultAsync();
             if (spa != null)
             {

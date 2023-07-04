@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using Zante_Hotel.Utilities.Exceptions;
 
 // For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
@@ -148,9 +149,9 @@ namespace Zante_Hotel.Areas.AppAdmin.Controllers
             ViewBag.Categories = await _dbContext.Categories.ToListAsync();
             ViewBag.Views = await _dbContext.Views.ToListAsync();
             ViewBag.Services = await _dbContext.Services.ToListAsync();
-            if (id is null) return BadRequest();
+            if (id is null) throw new BadRequestException();
             Room existed = await _dbContext.Rooms.Where(r=>r.Id==id).Include(r=>r.Images).Include(r=>r.Category).Include(r => r.Services).Include(r => r.View).FirstOrDefaultAsync();
-            if (existed == null) return NotFound();
+            if (existed == null) throw new NotFoundException();
             UpdateRoomVM roomVM = new UpdateRoomVM
             {
                 HotelId=existed.HotelId,
@@ -173,9 +174,9 @@ namespace Zante_Hotel.Areas.AppAdmin.Controllers
             ViewBag.Categories = await _dbContext.Categories.ToListAsync();
             ViewBag.Views = await _dbContext.Views.ToListAsync();
             ViewBag.Services = await _dbContext.Services.ToListAsync();
-            if (id is null) return BadRequest();
+            if (id is null) throw new BadRequestException();
             Room existed = await _dbContext.Rooms.Where(r => r.Id == id).Include(r => r.Images).Include(r => r.Category).Include(r => r.Services).Include(r => r.View).Include(r => r.ReservationsDate).FirstOrDefaultAsync();
-            if (existed == null) return NotFound();
+            if (existed == null) throw new NotFoundException();
             roomVM = MapImages(roomVM, existed);
             if (!ModelState.IsValid) return View(roomVM);
             if (await _dbContext.Hotels.AnyAsync(h=>h.Id==roomVM.HotelId) && roomVM.HotelId != existed.HotelId) existed.HotelId = roomVM.HotelId;
@@ -261,9 +262,9 @@ namespace Zante_Hotel.Areas.AppAdmin.Controllers
         }
         public async Task<IActionResult> Delete(Guid? id)
         {
-            if (id is null) return BadRequest();
+            if (id is null) throw new BadRequestException();
             Room existed = await _dbContext.Rooms.Include(r=>r.Images).FirstOrDefaultAsync(r=>r.Id==id);
-            if (existed == null) return NotFound();
+            if (existed == null) throw new NotFoundException();
             if (existed.Images.Count>0)
             {
                 foreach (var item in existed.Images)

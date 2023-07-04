@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using Zante_Hotel.Utilities.Exceptions;
 
 // For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
@@ -49,18 +50,18 @@ namespace Zante_Hotel.Areas.AppAdmin.Controllers
 
         public async Task<IActionResult> Update(Guid? id)
         {
-            if (id == null ) return BadRequest();
+            if (id == null ) throw new BadRequestException();
             Category existed = await _context.Categories.FirstOrDefaultAsync(c => c.Id == id);
-            if (existed == null) return NotFound();
+            if (existed == null) throw new NotFoundException();
             return View(existed);
         }
 
         [HttpPost]
         public async Task<IActionResult> Update(Guid? id, UpdateCategoryVM categoryVM)
         {
-            if (id == null) return BadRequest();
+            if (id == null) throw new BadRequestException();
             Category existed = await _context.Categories.FirstOrDefaultAsync(c => c.Id == id);
-            if (existed == null) return NotFound();
+            if (existed == null) throw new NotFoundException();
             if (existed.Name == categoryVM.Name)
             {
                 return RedirectToAction(nameof(Index));
@@ -82,9 +83,9 @@ namespace Zante_Hotel.Areas.AppAdmin.Controllers
 
         public async Task<IActionResult> Delete(Guid? id)
         {
-            if (id == null) return BadRequest();
+            if (id == null) throw new BadRequestException();
             Category existed = await _context.Categories.FirstOrDefaultAsync(c => c.Id == id);
-            if (existed == null) return NotFound();
+            if (existed == null) throw new NotFoundException();
             _context.Categories.Remove(existed);
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));

@@ -1,4 +1,5 @@
 ﻿using FluentValidation.AspNetCore;
+using Zante_Hotel.Middlewares;
 using Zante_Hotel.Services;
 using Zante_Hotel.Validators;
 var builder = WebApplication.CreateBuilder(args);
@@ -38,6 +39,7 @@ app.UseRouting();
 
 app.UseAuthentication();
 app.UseAuthorization();
+app.UseMiddleware<GlobalExteptionHandlerMiddlewqare>();
 
 app.MapControllerRoute(
     name: "Area",

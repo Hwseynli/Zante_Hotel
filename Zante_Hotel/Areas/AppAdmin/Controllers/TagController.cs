@@ -1,6 +1,7 @@
 ﻿
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using Zante_Hotel.Utilities.Exceptions;
 
 // For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
@@ -50,9 +51,9 @@ namespace Zante_Hotel.Areas.AppAdmin.Controllers
 
         public async Task<IActionResult> Update(Guid? id)
         {
-            if (id == null) return BadRequest();
+            if (id == null) throw new BadRequestException();
             Tag existed = await _context.Tags.FirstOrDefaultAsync(c => c.Id == id);
-            if (existed == null) return NotFound();
+            if (existed == null) throw new NotFoundException();
             return View(existed);
         }
 

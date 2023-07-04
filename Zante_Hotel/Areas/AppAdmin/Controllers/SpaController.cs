@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Zante_Hotel.Models;
+using Zante_Hotel.Utilities.Exceptions;
 
 // For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
@@ -105,9 +106,9 @@ namespace Zante_Hotel.Areas.AppAdmin.Controllers
         public async Task<IActionResult> Update(Guid? id)
         {
             ViewBag.Hotels = await _dbContext.Hotels.ToListAsync();
-            if (id is null) return BadRequest();
+            if (id is null) throw new BadRequestException();
             Spa existed = await _dbContext.Spas.Where(r => r.Id == id).Include(r => r.Images).Include(s=>s.Hotel).FirstOrDefaultAsync();
-            if (existed == null) return NotFound();
+            if (existed == null) throw new NotFoundException();
             UpdateSpaVM spaVM = new UpdateSpaVM
             {
                 HotelId = existed.HotelId,
@@ -123,9 +124,9 @@ namespace Zante_Hotel.Areas.AppAdmin.Controllers
         public async Task<IActionResult> Update(Guid? id,UpdateSpaVM spaVM)
         {
             ViewBag.Hotels = await _dbContext.Hotels.ToListAsync();
-            if (id is null) return BadRequest();
+            if (id is null) throw new BadRequestException();
             Spa existed = await _dbContext.Spas.Where(r => r.Id == id).Include(r => r.Images).Include(s=>s.Hotel).FirstOrDefaultAsync();
-            if (existed == null) return NotFound();
+            if (existed == null) throw new NotFoundException();
             spaVM = MapImages(spaVM, existed);
             if (!ModelState.IsValid) return View(spaVM);
             if (await _dbContext.Hotels.AnyAsync(h => h.Id == spaVM.HotelId) && spaVM.HotelId != existed.HotelId) existed.HotelId = spaVM.HotelId;
@@ -190,9 +191,9 @@ namespace Zante_Hotel.Areas.AppAdmin.Controllers
         
         public async Task<IActionResult> Delete(Guid? id)
         {
-            if (id is null) return BadRequest();
+            if (id is null) throw new BadRequestException();
             Spa existed = await _dbContext.Spas.Include(r => r.Images).FirstOrDefaultAsync(r => r.Id == id);
-            if (existed == null) return NotFound();
+            if (existed == null) throw new NotFoundException();
             if (existed.Images.Count > 0)
             {
                 foreach (var item in existed.Images)

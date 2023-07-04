@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using Zante_Hotel.Utilities.Exceptions;
 
 // For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
@@ -126,9 +127,9 @@ namespace Zante_Hotel.Areas.AppAdmin.Controllers
         {
             ViewBag.Foods = await _dbContext.Foods.ToListAsync();
             ViewBag.Hotels = await _dbContext.Hotels.ToListAsync();
-            if (id is null) return BadRequest();
+            if (id is null) throw new BadRequestException();
             Restaurant existed = await _dbContext.Restaurants.Where(r => r.Id == id).Include(r => r.Images).Include(s => s.Hotel).FirstOrDefaultAsync();
-            if (existed == null) return NotFound();
+            if (existed == null) throw new NotFoundException();
             UpdateRestaurantVM restaurantVM = new UpdateRestaurantVM
             {
                 MaxPeople = existed.MaxPeople,
@@ -146,9 +147,9 @@ namespace Zante_Hotel.Areas.AppAdmin.Controllers
         {
             ViewBag.Foods = await _dbContext.Foods.ToListAsync();
             ViewBag.Hotels = await _dbContext.Hotels.ToListAsync();
-            if (id is null) return BadRequest();
+            if (id is null) throw new BadRequestException();
             Restaurant existed = await _dbContext.Restaurants.Where(r => r.Id == id).Include(r => r.Images).Include(s => s.Hotel).FirstOrDefaultAsync();
-            if (existed == null) return NotFound();
+            if (existed == null) throw new NotFoundException();
             restaurantVM = MapImages(restaurantVM, existed);
             if (!ModelState.IsValid) return View(restaurantVM);
             if (await _dbContext.Hotels.AnyAsync(h => h.Id == restaurantVM.HotelId) && restaurantVM.HotelId != existed.HotelId) existed.HotelId = restaurantVM.HotelId;
@@ -233,9 +234,9 @@ namespace Zante_Hotel.Areas.AppAdmin.Controllers
 
         public async Task<IActionResult> Delete(Guid? id)
         {
-            if (id is null) return BadRequest();
+            if (id is null) throw new BadRequestException();
             Restaurant existed = await _dbContext.Restaurants.Include(r => r.Images).FirstOrDefaultAsync(r => r.Id == id);
-            if (existed == null) return NotFound();
+            if (existed == null) throw new NotFoundException();
             if (existed.Images.Count > 0)
             {
                 foreach (var item in existed.Images)

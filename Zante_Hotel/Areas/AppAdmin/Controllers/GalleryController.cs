@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using Zante_Hotel.Utilities.Exceptions;
 
 // For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
@@ -64,9 +65,9 @@ namespace Zante_Hotel.Areas.AppAdmin.Controllers
         public async Task<IActionResult> Update(Guid? id)
         {
             ViewBag.Hotels = await _dbContext.Hotels.ToListAsync();
-            if (id is null) return BadRequest();
+            if (id is null) throw new BadRequestException();
             Gallery gallery = await _dbContext.Galleries.FirstOrDefaultAsync(g => g.Id == id);
-            if (gallery is null) return NotFound();
+            if (gallery is null) throw new NotFoundException();
             UpdateGalleryVM galleryVM = new UpdateGalleryVM
             {
                 HotelId=gallery.HotelId,
@@ -78,9 +79,9 @@ namespace Zante_Hotel.Areas.AppAdmin.Controllers
         public async Task<IActionResult> Update(Guid? id, UpdateGalleryVM galleryVM)
         {
             ViewBag.Hotels = await _dbContext.Hotels.ToListAsync();
-            if (id is null) return BadRequest();
+            if (id is null) throw new BadRequestException();
             Gallery gallery = await _dbContext.Galleries.FirstOrDefaultAsync(g => g.Id == id);
-            if (gallery is null) return NotFound();
+            if (gallery is null) throw new NotFoundException();
             if (!ModelState.IsValid) return View();
             if (galleryVM.HotelId != gallery.HotelId && await _dbContext.Hotels.AnyAsync(h => h.Id == galleryVM.HotelId)) gallery.HotelId = galleryVM.HotelId;
             if (galleryVM.Photo != null)
@@ -104,9 +105,9 @@ namespace Zante_Hotel.Areas.AppAdmin.Controllers
         public async Task<IActionResult> Delete(Guid? id)
         {
             ViewBag.Hotels = await _dbContext.Hotels.ToListAsync();
-            if (id is null) return BadRequest();
+            if (id is null) throw new BadRequestException();
             Gallery gallery = await _dbContext.Galleries.FirstOrDefaultAsync(g => g.Id == id);
-            if (gallery is null) return NotFound();
+            if (gallery is null) throw new NotFoundException();
             if (gallery.Url != null)
             {
                 gallery.Url.DeleteFile(_env.WebRootPath, @"assets/assets/images/gallery");

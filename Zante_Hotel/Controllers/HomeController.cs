@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using System;
+using Microsoft.AspNetCore.Mvc;
 
 namespace Zante_Hotel.Controllers;
 
@@ -87,6 +88,10 @@ public class HomeController : Controller
             Restaurant = await _dbContext.Restaurants.Include(r => r.Hotel).Include(r=>r.RestFoods).ThenInclude(rf=>rf.Food).Include(s => s.Images).FirstOrDefaultAsync()
         };
         return View(homeVM);
+    }
+    public IActionResult ErrorPage(string errorMessage="Xeta bas verdi")
+    {
+        return View(model:errorMessage);
     }
 }
 

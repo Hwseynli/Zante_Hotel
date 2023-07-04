@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using Zante_Hotel.Utilities.Exceptions;
 
 // For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
@@ -57,9 +58,9 @@ namespace Zante_Hotel.Areas.AppAdmin.Controllers
         }
         public async Task<IActionResult> Update(Guid? id)
         {
-            if (id == null) return BadRequest(ModelState);
+            if (id == null) throw new BadRequestException();
             Setting setting = await _dbContext.Settings.FirstOrDefaultAsync(p => p.Id == id);
-            if (setting == null) return NotFound();
+            if (setting == null) throw new NotFoundException();
             UpdateSettingVM updateSetting = new UpdateSettingVM
             {
                 Key = setting.Key,
@@ -69,9 +70,9 @@ namespace Zante_Hotel.Areas.AppAdmin.Controllers
         }
         public async Task<IActionResult> Update(Guid? id, UpdateSettingVM settingVM)
         {
-            if (id == null) return BadRequest(ModelState);
+            if (id == null) throw new BadRequestException();
             Setting existed = await _dbContext.Settings.FirstOrDefaultAsync(p => p.Id == id);
-            if (existed == null) return NotFound();
+            if (existed == null) throw new NotFoundException();
             if (!ModelState.IsValid) return View(existed);
             existed.Value = settingVM.Value;
             await _dbContext.SaveChangesAsync();
