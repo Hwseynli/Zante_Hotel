@@ -1,0 +1,38 @@
+﻿@model UpdateSettingVM
+<section>
+    <div class="pcoded-content">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="mt-5"> Update Setting</h5>
+                        <hr>
+                        <form method="post">
+                            <div class="form-row">
+                                <div class="form-group col-md-6">
+                                    <label asp-for="Key">Key</label>
+                                    <input asp-for="Key" class="form-control" placeholder="Key" value="@Model.Key" />
+                                    <span asp-validation-for="Key"></span>
+                                </div>
+                            </div>
+                            <div class="form-row">
+                                <div class="form-group col-md-6">
+                                    @Html.Raw(@Model.Value);
+                                    <label asp-for="Value">Value</label>
+                                    <input asp-for="Value" class="form-control" placeholder="Value" value="@Model.Value" />
+                                    <span asp-validation-for="Value"></span>
+                                </div>
+                            </div>
+                            <button type="submit" class="btn  btn-primary">Update</button>
+                            <a asp-action="index" asp-controller="Setting" class="btn btn-light">Cancel</a>
+                            <div class="form-group col-md-6" asp-validation-summary="ModelOnly">
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <!-- [ form-element ] end -->
+        </div>
+        <!-- [ Main Content ] end -->
+    </div>
+</section>

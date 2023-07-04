@@ -1,4 +1,5 @@
-﻿      <!-- =========== PAGE TITLE ========== -->
+﻿@model Message
+   <!-- =========== PAGE TITLE ========== -->
 <div class="page_title gradient_overlay" style="background: url(~/assets/assets/images/page_title_bg.jpg);">
     <div class="container">
         <div class="inner">
@@ -20,31 +21,62 @@
                 <div class="main_title  a_left">
                     <h2>CONTACT US</h2>
                 </div>
-                <form id="contact-form-page">
-                    <div class="row">
-                        <div class="form-group col-md-6 col-sm-6">
-                            <label class="control-label">Name</label>
-                            <input type="text" class="form-control" name="name" placeholder="Your Name">
+                <form method="post">
+                    <!-- 2 column grid layout with text inputs for the first and last names -->
+                    <div class="row mb-4">
+                        <div class="col">
+                            <div class="form-outline">
+                                <label asp-for="Name" class="form-label" for="form6Example1">First name</label>
+                                <input asp-for="Name" id="form6Example1" class="form-control" />
+                                <span asp-validation-for="Name" class="text-danger"></span>
+                            </div>
                         </div>
-                        <div class="form-group col-md-6 col-sm-6">
-                            <label class="control-label">Phone</label>
-                            <input type="text" class="form-control" name="phone" placeholder="Phone">
+                        <div class="col">
+                            <div class="form-outline">
+                                <label asp-for="Surname" class="form-label" for="form6Example2">Last name</label>
+                                <input asp-for="Surname" type="text" id="form6Example2" class="form-control" />
+                                <span asp-validation-for="Surname" class="text-danger"></span>
+                            </div>
+
+                            <!-- Number input -->
+                            <div class="form-outline mb-4">
+                                <label asp-for="PhoneNumber" class="form-label" for="form6Example4">Phone Number</label>
+                                <input type="tel" asp-for="PhoneNumber" id="form6Example4" class="form-control" />
+                                <span asp-validation-for="PhoneNumber" class="text-danger"></span>
+                            </div>
+
+                            <!-- Email input -->
+                            <div class="form-outline mb-4">
+                                <label asp-for="Email" class="form-label" for="form6Example5">Email Adress</label>
+                                <input type="email" asp-for="Email" id="form6Example5" class="form-control" />
+                                <span asp-validation-for="Email" class="text-danger"></span>
+                            </div>
+
+                            <!-- Subject input -->
+                            <div class="form-outline mb-4">
+                                <label asp-for="Subject" class="form-label" for="form6Example6">Additional Subject</label>
+                                <input asp-for="Subject" class="form-control" id="form6Example6" rows="4" />
+                                <span asp-validation-for="Subject" class="text-danger"></span>
+                            </div>
+
+                            <!-- Message input -->
+                            <div class="form-outline mb-4">
+                                <label asp-for="Body" class="form-label" for="form6Example7">Additional Message</label>
+                                <textarea asp-for="Body" class="form-control" id="form6Example7" rows="4"></textarea>
+                                <span asp-validation-for="Body" class="text-danger"></span>
+                            </div>
+                            <div class="mt-4">
+                                <!-- Submit button -->
+                                <button type="submit" class="btn btn-primary btn-block mb-4 ">Place order</button>
+                            </div>
+                            <div class="mb-4" asp-validation-summary="ModelOnly">
+                            </div>
                         </div>
-                        <div class="form-group col-md-6 col-sm-6">
-                            <label class="control-label">Email</label>
-                            <input type="email" class="form-control" name="email" placeholder="Your Email">
-                        </div>
-                        <div class="form-group col-md-6 col-sm-6">
-                            <label class="control-label">Subject</label>
-                            <input type="text" class="form-control" name="subject" placeholder="Subject">
-                        </div>
-                        <div class="form-group col-md-12 col-sm-12 col-xs-12">
-                            <label class="control-label">Message</label>
-                            <textarea class="form-control" name="message" placeholder="Your Message..."></textarea>
-                        </div>
-                        <div class="form-group col-md-12 col-sm-12 col-xs-12">
-                            <button type="submit" class="button  btn_blue mt35 upper pull-right"> <i class="fa fa-paper-plane-o" aria-hidden="true"></i> Send Your Message </button>
-                        </div>
+                    </div>
+                    <div class="mb-4">
+                        <span class="text-primary">
+                            @ViewBag.Message
+                        </span>
                     </div>
                 </form>
             </div>

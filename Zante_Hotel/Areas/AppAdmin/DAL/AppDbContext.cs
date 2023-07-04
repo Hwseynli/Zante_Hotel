@@ -9,6 +9,8 @@
         public DbSet<Category> Categories { get; set; }
         public DbSet<Service> Services { get; set; }
         public DbSet<View> Views { get; set; }
+        public DbSet<Message> Messages { get; set; }
+        public DbSet<Setting> Settings { get; set; }
         public DbSet<RoomServices> RoomServices { get; set; }
         public DbSet<Reservation> Reservations { get; set; }
         public DbSet<RoomImage> RoomImages { get; set; }

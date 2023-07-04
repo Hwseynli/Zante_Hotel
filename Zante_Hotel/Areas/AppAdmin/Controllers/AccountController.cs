@@ -1,5 +1,5 @@
-﻿
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
+using Zante_Hotel.Utilities.Enums;
 // For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 namespace Zante_Hotel.Areas.AppAdmin.Controllers
 {
@@ -7,12 +7,14 @@ namespace Zante_Hotel.Areas.AppAdmin.Controllers
     [AutoValidateAntiforgeryToken]
     public class AccountController : Controller
     {
+        private readonly RoleManager<IdentityRole> _roleManager;
         private readonly UserManager<AppUser> _userManager;
         private readonly SignInManager<AppUser> _signInManager;
         private readonly IWebHostEnvironment _env;
         public readonly string fileaddress = @"admin/images/user-images";
-        public AccountController(UserManager<AppUser> userManager, SignInManager<AppUser> signInManager, IWebHostEnvironment env)
+        public AccountController(UserManager<AppUser> userManager, SignInManager<AppUser> signInManager, IWebHostEnvironment env, RoleManager<IdentityRole> roleManager)
         {
+            _roleManager = roleManager;
             _userManager = userManager;
             _signInManager = signInManager;
             _env = env;
@@ -62,6 +64,7 @@ namespace Zante_Hotel.Areas.AppAdmin.Controllers
                 }
                 return View();
             }
+            await _userManager.AddToRoleAsync(user, UserRole.Costumer.ToString());
             await _signInManager.SignInAsync(user, false);
             if (ReturnUrl is null)
             {
@@ -121,6 +124,18 @@ namespace Zante_Hotel.Areas.AppAdmin.Controllers
                 return Redirect(ReturnUrl);
             }
         }
+        public async Task<IActionResult> CreateRoles()
+        {
+            foreach (var role in Enum.GetValues(typeof(UserRole)))
+            {
+                if (!(await _roleManager.RoleExistsAsync(role.ToString())))
+                {
+                    await _roleManager.CreateAsync(new IdentityRole { Name = role.ToString() });
+                }
+            }
+            return RedirectToAction(nameof(Index), "Home");
+        }
+
     }
 }
 

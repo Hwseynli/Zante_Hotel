@@ -104,85 +104,6 @@
     </div>
 </div>
 
-<!-- ========== BOOKING FORM ========== -->
-<div class="hbf_3">
-    <div class="container">
-        <div class="inner">
-            <form id="booking-form">
-                <div class="row">
-                    <div class="col-md-2 md_pr5">
-                        <div class="form-group">
-                            <input class="form-control" name="booking-email" type="email" placeholder="Your Email Address">
-                        </div>
-                    </div>
-                    <div class="col-md-2 md_p5">
-                        <div class="form-group">
-                            <div class="form_select">
-                                <select name="booking-roomtype" class="form-control" title="Room Type" data-header="Room Type">
-                                    <option value="Single">Single Room</option>
-                                    <option value="Double">Double Room</option>
-                                    <option value="Deluxe">Deluxe Room</option>
-                                </select>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-3">
-                        <div class="row">
-                            <div class="col-md-6 col-sm-6 arrival_date md_pl5 md_nopadding_right">
-                                <div class="form-group">
-                                    <div class="form_date">
-                                        <input type="text" class="datepicker form-control md_noborder_right" name="booking-checkin" placeholder="Arrival Date" readonly>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-md-6 col-sm-6 departure_date md_pr5 md_nopadding_left">
-                                <div class="form-group">
-                                    <div class="form_date departure">
-                                        <input type="text" class="datepicker form-control" name="booking-checkout" placeholder="Departure Date" readonly>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-3">
-                        <div class="row">
-                            <div class="col-md-6 col-sm-6 adults md_pl5 md_nopadding_right">
-                                <div class="form-group">
-                                    <div class="form_select">
-                                        <select name="booking-adults" class="form-control md_noborder_right" title="Adults" data-header="Adults">
-                                            <option value="0">0</option>
-                                            <option value="1">1</option>
-                                            <option value="2">2</option>
-                                            <option value="3">3</option>
-                                            <option value="4">4</option>
-                                        </select>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-md-6 col-sm-6 children md_pr5 md_nopadding_left">
-                                <div class="form-group">
-                                    <div class="form_select childrens_select">
-                                        <select name="booking-children" class="form-control" data-size="5" title="Children" data-header="Children">
-                                            <option value="0">0</option>
-                                            <option value="1">1</option>
-                                            <option value="2">2</option>
-                                            <option value="3">3</option>
-                                            <option value="4">4</option>
-                                        </select>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-2 md_pl5">
-                        <button type="submit" class="button btn_blue btn_full">BOOK A ROOM</button>
-                    </div>
-                </div>
-            </form>
-        </div>
-    </div>
-</div>
-
 <!-- ========== ROOMS ========== -->
 <section class="white_bg" id="rooms">
     <div class="container">
@@ -229,43 +150,67 @@
         <div class="row">
             <div class="col-md-7">
                 <div data-slider-id="features" id="features_slider" class="owl-carousel">
-                    <div><img src="~/assets/assets/images/restaurant.jpg" class="img-responsive" alt="Image"></div>
-                    <div><img src="~/assets/assets/images/spa.jpg" class="img-responsive" alt="Image"></div>
-                    <div><img src="~/assets/assets/images/conference.jpg" class="img-responsive" alt="Image"></div>
-                    <div><img src="~/assets/assets/images/swimming.jpg" class="img-responsive" alt="Image"></div>
-                </div>
+                    @if (@Model.Hotel.Restaurant != null)
+                    {
+                        <div><img src="~/assets/assets/images/@Model.Hotel.Restaurant.Images.FirstOrDefault()" class="img-responsive" alt="Image"></div>
+                    }
+                    @if (@Model.Hotel.Spa != null)
+                    {
+                        <div><img src="~/assets/assets/images/@Model.Hotel.Spa.Images.FirstOrDefault(i=>i.IsPrimary==true).ImageUrl" class="img-responsive" alt="Image"></div>
+                    }
+                    @if (Model.Hotel.Rooms.Any(r=>r.Category.Name=="Confrance"))
+                        {
+                        <div><img src="~/assets/assets/images/@Model.Hotel.Rooms.FirstOrDefault(r=>r.Category.Name=="Confrance").Images.FirstOrDefault(i=>i.IsPrimary).ImageUrl" class="img-responsive" alt="Image"></div>
+                        }
+                     @if (Model.Hotel.Services.Any(s=>s.Service.Name=="Pool"))
+                         {
+                        <div><img src="~/assets/assets/images/@Model.Hotel.Services.FirstOrDefault().Service.Icon" class="img-responsive" alt="Image"></div>
+                         }
+                    </div>
             </div>
             <div class="col-md-5">
                 <div class="owl-thumbs" data-slider-id="features">
-                    <div class="owl-thumb-item">
-                        <span class="media-left"><i class="flaticon-food"></i></span>
-                        <div class="media-body">
-                            <h5>Restaurant</h5>
-                            <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet.</p>
+                    @if (@Model.Hotel.Restaurant != null)
+                    {
+                        <div class="owl-thumb-item">
+                            <span class="media-left"><i class="flaticon-food"></i></span>
+                            <div class="media-body">
+                                <h5>Restaurant</h5>
+                                <p>@Model.Hotel.Restaurant.Description.Substring(0,100).</p>
+                            </div>
                         </div>
-                    </div>
-                    <div class="owl-thumb-item">
-                        <span class="media-left"><i class="flaticon-person"></i></span>
-                        <div class="media-body">
-                            <h5>Spa - Beauty &amp; Health</h5>
-                            <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet.</p>
+                    }
+                    @if (@Model.Hotel.Spa != null)
+                    {
+                        <div class="owl-thumb-item">
+                            <span class="media-left"><i class="flaticon-person"></i></span>
+                            <div class="media-body">
+                                <h5>Spa - Beauty &amp; Health</h5>
+                                <p>@Model.Hotel.Spa.Decription.Substring(0, 100).</p>
+                            </div>
                         </div>
-                    </div>
-                    <div class="owl-thumb-item">
-                        <span class="media-left"><i class="flaticon-business"></i></span>
-                        <div class="media-body">
-                            <h5>Conference Room</h5>
-                            <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet.</p>
+                    }
+                    @if (Model.Hotel.Rooms.Any(r => r.Category.Name == "Confrance"))
+                    {
+                        <div class="owl-thumb-item">
+                            <span class="media-left"><i class="flaticon-business"></i></span>
+                            <div class="media-body">
+                                <h5>Conference Room</h5>
+                                <p>@Model.Hotel.Rooms.FirstOrDefault(r=>r.Category.Name=="Confrance").Description.Substring(0,100)</p>
+                            </div>
                         </div>
-                    </div>
-                    <div class="owl-thumb-item">
-                        <span class="media-left"><i class="flaticon-beach"></i></span>
-                        <div class="media-body">
-                            <h5>Swimming Pool</h5>
-                            <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet.</p>
+                    }
+                    @if (Model.Hotel.Services.Any(s => s.Service.Name == "Pool"))
+                        {
+                        <div class="owl-thumb-item">
+                            <span class="media-left"><i class="flaticon-beach"></i></span>
+                            <div class="media-body">
+                                <h5>Swimming Pool</h5>
+                                <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet.</p>
+                            </div>
                         </div>
+                        }
                     </div>
-                </div>
             </div>
         </div>
     </div>
@@ -327,36 +272,23 @@
                         <div class="col-md-4 col-sm-4">
                             <div class="contact-item">
                                 <i class="glyphicon glyphicon-map-marker"></i>
-                                <h6>Navagio Zakynthos</h6>
+                                <h6>@Model.Hotel.Address</h6>
                             </div>
                         </div>
                         <div class="col-md-4 col-sm-4">
                             <div class="contact-item">
                                 <i class="glyphicon glyphicon-phone-alt"></i>
-                                <h6>1-888-123-4567</h6>
+                                <h6>@Model.Hotel.PhoneNumber</h6>
                             </div>
                         </div>
                         <div class="col-md-4 col-sm-4">
                             <div class="contact-item">
                                 <i class="fa fa-envelope"></i>
-                                <h6>contact@site.com</h6>
+                                <h6>@Model.Hotel.Email</h6>
                             </div>
                         </div>
                     </div>
                 </div>
-                <form id="contact-form" name="contact-form">
-                    <div id="contact-result"></div>
-                    <div class="form-group">
-                        <input class="form-control" name="name" placeholder="Your Name" type="text">
-                    </div>
-                    <div class="form-group">
-                        <input class="form-control" name="email" type="email" placeholder="Your Email Address">
-                    </div>
-                    <div class="form-group">
-                        <textarea class="form-control" name="message" placeholder="Your Message"></textarea>
-                    </div>
-                    <button class="button btn_lg btn_blue btn_full upper" type="submit"><i class="fa fa-location-arrow"></i>Send Message</button>
-                </form>
             </div>
         </div>
     </div>

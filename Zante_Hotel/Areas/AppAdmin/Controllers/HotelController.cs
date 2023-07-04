@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Zante_Hotel.Areas.AppAdmin.Models;
 using Zante_Hotel.Models;
@@ -9,6 +10,7 @@ namespace Zante_Hotel.Areas.AppAdmin.Controllers
 {
     [Area("AppAdmin")]
     [AutoValidateAntiforgeryToken]
+    [Authorize]
     public class HotelController : Controller
     {
         private readonly AppDbContext _dbContext;

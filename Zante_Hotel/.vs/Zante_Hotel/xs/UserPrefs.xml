@@ -1,22 +1,31 @@
 ﻿<Properties StartupConfiguration="{6E2AD9F4-671F-4A46-82C7-E15857056413}|https">
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Views/Reservation/Create.cshtml">
-    <Files>
-      <File FileName="Views/Reservation/Create.cshtml" Line="4" Column="1" />
-      <File FileName="Views/Shared/_ReservationLayout.cshtml" Line="43" Column="39" />
-    </Files>
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.Workbench>
     <Pads>
       <Pad Id="ProjectPad">
         <State name="__root__">
           <Node name="Zante_Hotel">
-            <Node name="Zante_Hotel">
-              <Node name="Areas" expanded="True" />
-              <Node name="Views">
-                <Node name="Reservation" expanded="True">
-                  <Node name="Create.cshtml" selected="True" />
+            <Node name="Zante_Hotel" expanded="True">
+              <Node name="Areas" expanded="True">
+                <Node name="AppAdmin" expanded="True">
+                  <Node name="Views" expanded="True">
+                    <Node name="Category" expanded="True" />
+                    <Node name="Home" expanded="True" />
+                    <Node name="Setting" expanded="True" />
+                    <Node name="Shared" expanded="True" />
+                    <Node name="View" expanded="True" />
+                  </Node>
                 </Node>
-                <Node name="Room" expanded="True" />
+              </Node>
+              <Node name="Utilities" expanded="True">
+                <Node name="Enums" expanded="True" />
+              </Node>
+              <Node name="ViewModels" expanded="True" />
+              <Node name="Views" expanded="True">
+                <Node name="Home" expanded="True" />
                 <Node name="Shared" expanded="True" />
               </Node>
             </Node>
@@ -26,11 +35,6 @@
     </Pads>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.ItemProperties.Zante__Hotel PreferredExecutionTarget="/Applications/Google Chrome.app" />
-  <MonoDevelop.Ide.DebuggingService.Breakpoints>
-    <BreakpointStore>
-      <Breakpoint file="/Users/zeyneb/Desktop/Zante_Hotel/Zante_Hotel/Areas/AppAdmin/Controllers/HotelController.cs" relfile="Areas/AppAdmin/Controllers/HotelController.cs" line="175" column="1" />
-      <Breakpoint file="/Users/zeyneb/Desktop/Zante_Hotel/Zante_Hotel/Controllers/ReservationController.cs" relfile="Controllers/ReservationController.cs" line="31" column="1" />
-    </BreakpointStore>
-  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
   <MultiItemStartupConfigurations />
 </Properties>
