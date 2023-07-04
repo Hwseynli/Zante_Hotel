@@ -25,7 +25,7 @@
                 <div class="row row-flex">
                     <div class="col-lg-4 col-md-5 col-sm-12">
                         <figure>
-                            <a href="room.html" class="hover_effect h_link h_blue">
+                            <a asp-action="Detail" asp-controller="Room" asp-route-id="@item.Id" class="hover_effect h_link h_blue">
                                 <img src="~/assets/assets/images/rooms/@item.Images.FirstOrDefault().ImageUrl" class="img-responsive" alt="Image">
                             </a>
                         </figure>
@@ -34,7 +34,7 @@
                         <div class="room_details row-flex">
                             <div class="col-md-9 col-sm-9 col-xs-12 room_desc">
                                 <h3><a href="room.html"> @item.Category.Name </a></h3>
-                                <p>@item.Description.Substring(0, 100).</p>
+                                <p>@item.Description.Substring(0,100).</p>
                                 <div class="room_services">
                                     @foreach (var service in item.Services)
                                     {
@@ -49,7 +49,7 @@
                                 <div class="room_price_inner">
                                     <span class="room_price_number"> €@item.Price  </span>
                                     <small class="upper"> per night </small>
-                                    <a href="room.html" class="button  btn_blue btn_full upper">Book Now</a>
+                                    <a asp-action="Detail" asp-controller="Room" asp-route-id="@item.Id" class="button  btn_blue btn_full upper">Book Now</a>
                                 </div>
                             </div>
                         </div>

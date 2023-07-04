@@ -3,36 +3,23 @@
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
-  <MonoDevelop.Ide.Workbench ActiveDocument="Areas/AppAdmin/Controllers/FoodController.cs">
-    <Files>
-      <File FileName="Areas/AppAdmin/Controllers/SpaController.cs" Line="1" Column="1" />
-      <File FileName="Areas/AppAdmin/Controllers/BloggerController.cs" Line="8" Column="4" />
-      <File FileName="Areas/AppAdmin/Controllers/AccountController.cs" Line="1" Column="1" />
-      <File FileName="Areas/AppAdmin/Controllers/CategoryController.cs" Line="11" Column="1" />
-      <File FileName="Areas/AppAdmin/Controllers/GalleryController.cs" Line="11" Column="1" />
-      <File FileName="Areas/AppAdmin/Controllers/HomeController.cs" Line="12" Column="1" />
-      <File FileName="Areas/AppAdmin/Controllers/HotelController.cs" Line="2" Column="32" />
-      <File FileName="Areas/AppAdmin/Controllers/RoomController.cs" Line="12" Column="1" />
-      <File FileName="Areas/AppAdmin/Controllers/ServiceController.cs" Line="13" Column="1" />
-      <File FileName="Areas/AppAdmin/Controllers/SettingController.cs" Line="12" Column="1" />
-      <File FileName="Areas/AppAdmin/Controllers/SliderController.cs" Line="12" Column="1" />
-      <File FileName="Areas/AppAdmin/Controllers/TagController.cs" Line="12" Column="1" />
-      <File FileName="Areas/AppAdmin/Controllers/ViewController.cs" Line="11" Column="1" />
-      <File FileName="Areas/AppAdmin/Controllers/FoodController.cs" Line="1" Column="1" />
-    </Files>
+  <MonoDevelop.Ide.Workbench>
     <Pads>
       <Pad Id="ProjectPad">
         <State name="__root__">
           <Node name="Zante_Hotel">
-            <Node name="Zante_Hotel">
-              <Node name="Areas">
-                <Node name="AppAdmin">
-                  <Node name="DAL" expanded="True" />
-                </Node>
-              </Node>
+            <Node name="Zante_Hotel" expanded="True">
+              <Node name="Controllers" expanded="True" />
               <Node name="Views" expanded="True">
+                <Node name="Blog" expanded="True" />
                 <Node name="Home" expanded="True" />
-                <Node name="Shared" expanded="True" />
+              </Node>
+              <Node name="wwwroot" expanded="True">
+                <Node name="assets" expanded="True">
+                  <Node name="assets" expanded="True">
+                    <Node name="images" expanded="True" />
+                  </Node>
+                </Node>
               </Node>
             </Node>
           </Node>
