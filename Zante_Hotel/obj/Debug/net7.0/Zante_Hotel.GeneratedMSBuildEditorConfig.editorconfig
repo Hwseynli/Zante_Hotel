@@ -16,14 +16,6 @@ build_property.GenerateRazorMetadataSourceChecksumAttributes =
 build_property.MSBuildProjectDirectory = /Users/zeyneb/Desktop/Zante_Hotel/Zante_Hotel
 build_property._RazorSourceGeneratorDebug = 
 
-[/Users/zeyneb/Desktop/Zante_Hotel/Zante_Hotel/Areas/AppAdmin/Views/Account/Login.cshtml]
-build_metadata.AdditionalFiles.TargetPath = QXJlYXMvQXBwQWRtaW4vVmlld3MvQWNjb3VudC9Mb2dpbi5jc2h0bWw=
-build_metadata.AdditionalFiles.CssScope = 
-
-[/Users/zeyneb/Desktop/Zante_Hotel/Zante_Hotel/Areas/AppAdmin/Views/Account/Registr.cshtml]
-build_metadata.AdditionalFiles.TargetPath = QXJlYXMvQXBwQWRtaW4vVmlld3MvQWNjb3VudC9SZWdpc3RyLmNzaHRtbA==
-build_metadata.AdditionalFiles.CssScope = 
-
 [/Users/zeyneb/Desktop/Zante_Hotel/Zante_Hotel/Areas/AppAdmin/Views/Blogger/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXMvQXBwQWRtaW4vVmlld3MvQmxvZ2dlci9DcmVhdGUuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
@@ -144,14 +136,6 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = QXJlYXMvQXBwQWRtaW4vVmlld3MvU2hhcmVkL19Gb3JtTGF5b3V0LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[/Users/zeyneb/Desktop/Zante_Hotel/Zante_Hotel/Areas/AppAdmin/Views/Shared/_LoginLayout.cshtml]
-build_metadata.AdditionalFiles.TargetPath = QXJlYXMvQXBwQWRtaW4vVmlld3MvU2hhcmVkL19Mb2dpbkxheW91dC5jc2h0bWw=
-build_metadata.AdditionalFiles.CssScope = 
-
-[/Users/zeyneb/Desktop/Zante_Hotel/Zante_Hotel/Areas/AppAdmin/Views/Shared/_RegistrLayout.cshtml]
-build_metadata.AdditionalFiles.TargetPath = QXJlYXMvQXBwQWRtaW4vVmlld3MvU2hhcmVkL19SZWdpc3RyTGF5b3V0LmNzaHRtbA==
-build_metadata.AdditionalFiles.CssScope = 
-
 [/Users/zeyneb/Desktop/Zante_Hotel/Zante_Hotel/Areas/AppAdmin/Views/Slider/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXMvQXBwQWRtaW4vVmlld3MvU2xpZGVyL0NyZWF0ZS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
@@ -208,6 +192,14 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = QXJlYXMvQXBwQWRtaW4vVmlld3MvX1ZpZXdTdGFydC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
+[/Users/zeyneb/Desktop/Zante_Hotel/Zante_Hotel/Views/Account/Login.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvQWNjb3VudC9Mb2dpbi5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/zeyneb/Desktop/Zante_Hotel/Zante_Hotel/Views/Account/Register.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvQWNjb3VudC9SZWdpc3Rlci5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
 [/Users/zeyneb/Desktop/Zante_Hotel/Zante_Hotel/Views/Blog/BlogPost.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3MvQmxvZy9CbG9nUG9zdC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
@@ -254,6 +246,14 @@ build_metadata.AdditionalFiles.CssScope =
 
 [/Users/zeyneb/Desktop/Zante_Hotel/Zante_Hotel/Views/Shared/_Layout.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3MvU2hhcmVkL19MYXlvdXQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/zeyneb/Desktop/Zante_Hotel/Zante_Hotel/Views/Shared/_LoginLayout.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvU2hhcmVkL19Mb2dpbkxheW91dC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/zeyneb/Desktop/Zante_Hotel/Zante_Hotel/Views/Shared/_RegisterLayout.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvU2hhcmVkL19SZWdpc3RlckxheW91dC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
 [/Users/zeyneb/Desktop/Zante_Hotel/Zante_Hotel/Views/_ViewImports.cshtml]

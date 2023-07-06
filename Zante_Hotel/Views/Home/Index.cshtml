@@ -2,6 +2,14 @@
     Layout = "_Layout";
 }
 @model HomeVM
+@{
+    if(Model.Hotel is null)
+    {
+        Model.Hotel = new Hotel();
+        Model.Hotel.Rooms = new List<Room>();
+        Model.Hotel.Services = new List<HotelService>();
+    }
+}
         <!-- ========== REVOLUTION SLIDER ========== -->
 <div class="rev_slider_wrapper fullscreen-container">
     <div id="fullscreen_hero_video" class="rev_slider fullscreenbanner gradient_slider" style="display:none">
@@ -150,14 +158,20 @@
         <div class="row">
             <div class="col-md-7">
                 <div data-slider-id="features" id="features_slider" class="owl-carousel">
-                    @if (@Model.Hotel.Restaurant != null)
-                    {
+                    @if (Model.Hotel.Restaurant is null)
+                        { }
+                        else
+                        {
                         <div><img src="~/assets/assets/images/@Model.Hotel.Restaurant.Images.FirstOrDefault()" class="img-responsive" alt="Image"></div>
-                    }
-                    @if (@Model.Hotel.Spa != null)
-                    {
-                        <div><img src="~/assets/assets/images/spa/@Model.Hotel.Spa.Images.FirstOrDefault(i=>i.IsPrimary==true).ImageUrl" class="img-responsive" alt="Image"></div>
-                    }
+                        }
+                    @if (Model.Hotel.Spa is null)
+                        {
+
+                        }
+                        else
+                        {
+                        <div><img src="~/assets/assets/images/spa/@Model.Hotel.Spa.Images.FirstOrDefault(i => i.IsPrimary == true).ImageUrl" class="img-responsive" alt="Image"></div>
+                        }
                     @if (Model.Hotel.Rooms.Any(r=>r.Category.Name=="Confrance"))
                         {
                         <div><img src="~/assets/assets/images/@Model.Hotel.Rooms.FirstOrDefault(r=>r.Category.Name=="Confrance").Images.FirstOrDefault(i=>i.IsPrimary).ImageUrl" class="img-responsive" alt="Image"></div>
@@ -170,26 +184,37 @@
             </div>
             <div class="col-md-5">
                 <div class="owl-thumbs" data-slider-id="features">
-                    @if (@Model.Hotel.Restaurant != null)
-                    {
+                    @if (@Model.Hotel.Restaurant is null)
+                        {
+                        }
+                        else
+                        {
                         <div class="owl-thumb-item">
                             <span class="media-left"><i class="flaticon-food"></i></span>
                             <div class="media-body">
                                 <h5>Restaurant</h5>
-                                <p>@Model.Hotel.Restaurant.Description.Substring(0,100).</p>
+                                <p>@Model.Hotel.Restaurant.Description.Substring(0, 100).</p>
                             </div>
                         </div>
-                    }
+                        }
                     @if (@Model.Hotel.Spa != null)
-                    {
-                        <div class="owl-thumb-item">
+                        { }
+                        else
+                        {
+
+
+<div class="owl-thumb-item">
                             <span class="media-left"><i class="flaticon-person"></i></span>
                             <div class="media-body">
                                 <h5>Spa - Beauty &amp; Health</h5>
-                                <p>@Model.Hotel.Spa.Decription.Substring(0, 100).</p>
+                                @if (Model.Hotel.Spa is null) { }
+                                    else
+                                    {
+                                <p>@(Model.Hotel.Spa.Decription.Length > 100 ? Model.Hotel.Spa.Decription.Substring(0, 100) : Model.Hotel.Spa.Decription).</p>
+                                    }
                             </div>
                         </div>
-                    }
+                        }
                     @if (Model.Hotel.Rooms.Any(r => r.Category.Name == "Confrance"))
                     {
                         <div class="owl-thumb-item">

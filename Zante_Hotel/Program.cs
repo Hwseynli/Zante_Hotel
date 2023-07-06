@@ -39,7 +39,7 @@ app.UseRouting();
 
 app.UseAuthentication();
 app.UseAuthorization();
-app.UseMiddleware<GlobalExteptionHandlerMiddlewqare>();
+//app.UseMiddleware<GlobalExteptionHandlerMiddlewqare>();
 
 app.MapControllerRoute(
     name: "Area",

@@ -34,7 +34,6 @@
     <Folder Include="Utilities\Extensions\" />
     <Folder Include="wwwroot\admin\images\user-images\" />
     <Folder Include="Validators\" />
-    <Folder Include="Areas\AppAdmin\Views\Account\" />
     <Folder Include="wwwroot\admin\login\" />
     <Folder Include="Areas\AppAdmin\DAL\" />
     <Folder Include="Areas\AppAdmin\Views\Category\" />
@@ -77,6 +76,7 @@
     <Folder Include="Areas\AppAdmin\Views\Spa\" />
     <Folder Include="Areas\AppAdmin\Views\Restaurant\" />
     <Folder Include="Utilities\Exceptions\" />
+    <Folder Include="Views\Account\" />
   </ItemGroup>
   <ItemGroup>
     <None Remove="Models\" />
@@ -93,7 +93,6 @@
     <None Remove="Utilities\" />
     <None Remove="Utilities\Extensions\" />
     <None Remove="Validators\" />
-    <None Remove="Areas\AppAdmin\Views\Account\" />
     <None Remove="Areas\AppAdmin\DAL\" />
     <None Remove="Areas\AppAdmin\Views\Category\" />
     <None Remove="ViewModels\Category\" />
@@ -131,6 +130,7 @@
     <None Remove="Areas\AppAdmin\Views\Spa\" />
     <None Remove="Areas\AppAdmin\Views\Restaurant\" />
     <None Remove="Utilities\Exceptions\" />
+    <None Remove="Views\Account\" />
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="Microsoft.EntityFrameworkCore" Version="7.0.7" />

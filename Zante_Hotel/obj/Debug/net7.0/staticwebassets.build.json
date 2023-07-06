@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "eooLuCETlM61ByJW6f6RVS9Bva7olC/SYcUCKcWjWGU=",
+  "Hash": "qvNdMI/rSvMDKffYJ7MidfGE49GEUkdHmTkXYZlOZ6Q=",
   "Source": "Zante_Hotel",
   "BasePath": "_content/Zante_Hotel",
   "Mode": "Default",
@@ -4420,6 +4420,23 @@
       "OriginalItemSpec": "wwwroot/admin/images/user-images/6eea2287-134d-40e1-94b2-eebb59634266admin.jpg"
     },
     {
+      "Identity": "/Users/zeyneb/Desktop/Zante_Hotel/Zante_Hotel/wwwroot/admin/images/user-images/74ca6d04-d432-4826-a955-840f159f3d271554749370_qiz-profil-sekili-6.jpg",
+      "SourceId": "Zante_Hotel",
+      "SourceType": "Discovered",
+      "ContentRoot": "/Users/zeyneb/Desktop/Zante_Hotel/Zante_Hotel/wwwroot/",
+      "BasePath": "_content/Zante_Hotel",
+      "RelativePath": "admin/images/user-images/74ca6d04-d432-4826-a955-840f159f3d271554749370_qiz-profil-sekili-6.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot/admin/images/user-images/74ca6d04-d432-4826-a955-840f159f3d271554749370_qiz-profil-sekili-6.jpg"
+    },
+    {
       "Identity": "/Users/zeyneb/Desktop/Zante_Hotel/Zante_Hotel/wwwroot/admin/images/user-images/8d13a723-f6b5-4766-936e-1e514d09ed9b5.jpg",
       "SourceId": "Zante_Hotel",
       "SourceType": "Discovered",
@@ -6084,6 +6101,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot/assets/assets/images/events/event6.jpg"
+    },
+    {
+      "Identity": "/Users/zeyneb/Desktop/Zante_Hotel/Zante_Hotel/wwwroot/assets/assets/images/f861f41c-b2fa-499d-ad60-fc21569398a7af1862ff-89b4-46c4-98b2-320f8c6a4a1clogo.svg",
+      "SourceId": "Zante_Hotel",
+      "SourceType": "Discovered",
+      "ContentRoot": "/Users/zeyneb/Desktop/Zante_Hotel/Zante_Hotel/wwwroot/",
+      "BasePath": "_content/Zante_Hotel",
+      "RelativePath": "assets/assets/images/f861f41c-b2fa-499d-ad60-fc21569398a7af1862ff-89b4-46c4-98b2-320f8c6a4a1clogo.svg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot/assets/assets/images/f861f41c-b2fa-499d-ad60-fc21569398a7af1862ff-89b4-46c4-98b2-320f8c6a4a1clogo.svg"
     },
     {
       "Identity": "/Users/zeyneb/Desktop/Zante_Hotel/Zante_Hotel/wwwroot/assets/assets/images/famfamfam-flags.png",
@@ -9314,6 +9348,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot/assets/assets/images/slider/.DS_Store"
+    },
+    {
+      "Identity": "/Users/zeyneb/Desktop/Zante_Hotel/Zante_Hotel/wwwroot/assets/assets/images/slider/b6b6d41d-918e-40ec-b84c-c76e1cf97b0dabout.jpg",
+      "SourceId": "Zante_Hotel",
+      "SourceType": "Discovered",
+      "ContentRoot": "/Users/zeyneb/Desktop/Zante_Hotel/Zante_Hotel/wwwroot/",
+      "BasePath": "_content/Zante_Hotel",
+      "RelativePath": "assets/assets/images/slider/b6b6d41d-918e-40ec-b84c-c76e1cf97b0dabout.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot/assets/assets/images/slider/b6b6d41d-918e-40ec-b84c-c76e1cf97b0dabout.jpg"
     },
     {
       "Identity": "/Users/zeyneb/Desktop/Zante_Hotel/Zante_Hotel/wwwroot/assets/assets/images/slider/d864ac58-bbb2-4395-856a-ac44bae5a763video_fullscreen.jpg",

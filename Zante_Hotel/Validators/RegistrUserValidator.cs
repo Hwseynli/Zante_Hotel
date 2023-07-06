@@ -1,9 +1,8 @@
-﻿using System;
-using FluentValidation;
+﻿using FluentValidation;
 
 namespace Zante_Hotel.Validators
 {
-	public class RegistrUserValidator:AbstractValidator<RegistrVM>
+	public class RegistrUserValidator:AbstractValidator<RegisterVM>
 	{
 		public RegistrUserValidator()
 		{
