@@ -1,0 +1,52 @@
+﻿@model ICollection<Reservation>
+@{
+    int count = 0;
+}
+
+<div class="content">
+    <div class="animated fadeIn">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="card">
+                    <div class="card-header">
+                        <strong class="card-title">Reservation Table</strong>
+                    </div>
+                    <div class="card-body">
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th scope="col">Id</th>
+                                    <th scope="col">Costumer Name</th>
+                                    <th scope="col">Room Number</th>
+                                    <th scope="col">Date begin</th>
+                                    <th scope="col">Date finish</th>
+                                    <th scope="col">Price</th>
+                                    <th scope="col">Settings</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach (var item in Model)
+                                {
+                                    count++;
+                                    <tr>
+                                        <th scope="row">@count</th>
+                                        <td>@item.FullName</td>
+                                        <td>@item.Room.Number</td>
+                                        <td>@item.ArrivalDateTime</td>
+                                        <td>@item.DepartureDateTime</td>
+                                        <td>@((item.DepartureDateTime - item.ArrivalDateTime).Days * item.Room.Price ) </td>
+                                        <td>
+                                            <a class="text-danger btn btn-dark" asp-action="Delete" asp-controller="Service" asp-area="AppAdmin" asp-route-id="@item.Id"><b> Delete</b></a>
+                                        </td>
+                                    </tr>
+                                }
+
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div><!-- .animated -->
+</div><!-- .content -->

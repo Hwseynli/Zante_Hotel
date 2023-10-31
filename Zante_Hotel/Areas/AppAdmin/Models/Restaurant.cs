@@ -1,5 +1,4 @@
-﻿using System;
-namespace Zante_Hotel.Areas.AppAdmin.Models
+﻿namespace Zante_Hotel.Areas.AppAdmin.Models
 {
 	public class Restaurant : BaseNameableEntity
     {
@@ -15,7 +14,6 @@ namespace Zante_Hotel.Areas.AppAdmin.Models
         [ForeignKey("HotelId")]
         public Hotel Hotel { get; set; }
     }
-
     public class RestaurantImage : BaseEntity
     {
         [Required]
@@ -27,4 +25,3 @@ namespace Zante_Hotel.Areas.AppAdmin.Models
         public Restaurant Restourant { get; set; }
     }
 }
-

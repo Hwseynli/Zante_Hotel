@@ -159,32 +159,34 @@
             <div class="col-md-7">
                 <div data-slider-id="features" id="features_slider" class="owl-carousel">
                     @if (Model.Hotel.Restaurant is null)
-                        { }
-                        else
-                        {
-                        <div><img src="~/assets/assets/images/@Model.Hotel.Restaurant.Images.FirstOrDefault()" class="img-responsive" alt="Image"></div>
-                        }
+                    {
+                        <div><img src="~/assets/assets/images/restaurant1.jpg" class="img-responsive" alt="Image"></div>
+                    }
+                    else
+                    {
+                        <div><img src="~/assets/assets/images/restaurant/@Model.Hotel.Restaurant.Images.FirstOrDefault().ImageUrl" class="img-responsive" alt="Image"></div>
+                    }
                     @if (Model.Hotel.Spa is null)
-                        {
-
-                        }
-                        else
-                        {
+                    {
+                        <div><img src="~/assets/assets/images/spa/spa.jpg" class="img-responsive" alt="Image"></div>
+                    }
+                    else
+                    {
                         <div><img src="~/assets/assets/images/spa/@Model.Hotel.Spa.Images.FirstOrDefault(i => i.IsPrimary == true).ImageUrl" class="img-responsive" alt="Image"></div>
-                        }
-                    @if (Model.Hotel.Rooms.Any(r=>r.Category.Name=="Confrance"))
-                        {
+                    }
+                    @if (Model.Hotel.Rooms.Any(r => r.Category.Name == "Confrance"))
+                    {
                         <div><img src="~/assets/assets/images/@Model.Hotel.Rooms.FirstOrDefault(r=>r.Category.Name=="Confrance").Images.FirstOrDefault(i=>i.IsPrimary).ImageUrl" class="img-responsive" alt="Image"></div>
-                        }
-                     @if (Model.Hotel.Services.Any(s=>s.Service.Name=="Pool"))
-                         {
+                    }
+                    @if (Model.Hotel.Services.Any(s => s.Service.Name == "Pool"))
+                    {
                         <div><img src="~/assets/assets/images/@Model.Hotel.Services.FirstOrDefault().Service.Icon" class="img-responsive" alt="Image"></div>
-                         }
-                    </div>
+                    }
+                </div>
             </div>
             <div class="col-md-5">
                 <div class="owl-thumbs" data-slider-id="features">
-                    @if (@Model.Hotel.Restaurant is null)
+                    @if (Model.Hotel.Restaurant is null)
                         {
                         }
                         else
@@ -193,27 +195,21 @@
                             <span class="media-left"><i class="flaticon-food"></i></span>
                             <div class="media-body">
                                 <h5>Restaurant</h5>
-                                <p>@Model.Hotel.Restaurant.Description.Substring(0, 100).</p>
+                                <p>@(Model.Hotel.Restaurant.Description.Length>100?Model.Hotel.Restaurant.Description.Substring(0, 100):Model.Hotel.Restaurant.Description).</p>
                             </div>
                         </div>
                         }
-                    @if (@Model.Hotel.Spa != null)
+                    @if (Model.Hotel.Spa is null)
                         { }
                         else
                         {
-
-
-<div class="owl-thumb-item">
-                            <span class="media-left"><i class="flaticon-person"></i></span>
-                            <div class="media-body">
-                                <h5>Spa - Beauty &amp; Health</h5>
-                                @if (Model.Hotel.Spa is null) { }
-                                    else
-                                    {
-                                <p>@(Model.Hotel.Spa.Decription.Length > 100 ? Model.Hotel.Spa.Decription.Substring(0, 100) : Model.Hotel.Spa.Decription).</p>
-                                    }
+                            <div class="owl-thumb-item">
+                                <span class="media-left"><i class="flaticon-person"></i></span>
+                                <div class="media-body">
+                                    <h5>Spa - Beauty &amp; Health</h5>
+                                    <p>@(Model.Hotel.Spa.Decription.Length > 100 ? Model.Hotel.Spa.Decription.Substring(0, 100) : Model.Hotel.Spa.Decription).</p>
+                                </div>
                             </div>
-                        </div>
                         }
                     @if (Model.Hotel.Rooms.Any(r => r.Category.Name == "Confrance"))
                     {
