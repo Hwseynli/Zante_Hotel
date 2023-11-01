@@ -78,6 +78,7 @@
     <Folder Include="Utilities\Exceptions\" />
     <Folder Include="Views\Account\" />
     <Folder Include="Areas\AppAdmin\Views\Reservation\" />
+    <Folder Include="Areas\AppAdmin\Views\Contactus\" />
   </ItemGroup>
   <ItemGroup>
     <None Remove="Models\" />
@@ -133,6 +134,7 @@
     <None Remove="Utilities\Exceptions\" />
     <None Remove="Views\Account\" />
     <None Remove="Areas\AppAdmin\Views\Reservation\" />
+    <None Remove="Areas\AppAdmin\Views\Contactus\" />
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="Microsoft.EntityFrameworkCore" Version="7.0.7" />

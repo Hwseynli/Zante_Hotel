@@ -40,6 +40,10 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = QXJlYXMvQXBwQWRtaW4vVmlld3MvQ2F0ZWdvcnkvVXBkYXRlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
+[/Users/zeyneb/Desktop/Zante_Hotel/Zante_Hotel/Areas/AppAdmin/Views/Contactus/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXMvQXBwQWRtaW4vVmlld3MvQ29udGFjdHVzL0luZGV4LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
 [/Users/zeyneb/Desktop/Zante_Hotel/Zante_Hotel/Areas/AppAdmin/Views/Food/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXMvQXBwQWRtaW4vVmlld3MvRm9vZC9DcmVhdGUuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 

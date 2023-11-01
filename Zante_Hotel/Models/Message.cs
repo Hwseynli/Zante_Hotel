@@ -13,6 +13,7 @@
         public string Subject { get; set; }
         [Required,StringLength(1000)]
         public string Body { get; set; }
+        
+        public DateTime CreateOn { get; set; }
     }
 }
-

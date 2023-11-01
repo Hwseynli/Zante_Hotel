@@ -33,7 +33,7 @@
                     <div class="col-lg-8 col-md-7 col-sm-12">
                         <div class="room_details row-flex">
                             <div class="col-md-9 col-sm-9 col-xs-12 room_desc">
-                                <h3><a href="room.html"> @item.Category.Name </a></h3>
+                                <h3><a asp-action="Detail" asp-controller="Room" asp-route-id="@item.Id"> @item.Category.Name </a></h3>
                                 <p>@item.Description.Substring(0,100).</p>
                                 <div class="room_services">
                                     @foreach (var service in item.Services)
@@ -57,18 +57,17 @@
                 </div>
             </article>
         }
-
         <nav class="a_center">
             <ul class="pagination mt50 mb0">
                 @if (ViewBag.CurrentPage - 1 != 0)
                 {
-                    <li class="prev_pagination"><a asp-route-page="@(ViewBag.CurrentPage - 1)"><i class="fa fa-angle-left"></i></a></li>
+                    <li class="prev_pagination"><a asp-route-page="@(ViewBag.CurrentPage-1)"><i class="fa fa-angle-left"></i></a></li>
                 }
                 else
                 {
                     <li class="prev_pagination"><a asp-route-page="@(ViewBag.CurrentPage)"><i class="fa fa-angle-left"></i></a></li>
                 }
-                @for (int i = 1; i < ViewBag.TotalPage; i++)
+                @for (int i = 1; i < ViewBag.TotalPage+1; i++)
                 {
                     <li class="@(i == ViewBag.CurrentPage ? "active" : "")"><a asp-route-page="@i">@i</a></li>
                 }

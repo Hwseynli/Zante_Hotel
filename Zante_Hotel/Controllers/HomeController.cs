@@ -49,7 +49,6 @@ public class HomeController : Controller
             }
             else
             {
-
                 Message newMessage = new Message
                 {
                     Name = message.Name,
@@ -57,7 +56,8 @@ public class HomeController : Controller
                     PhoneNumber = message.PhoneNumber,
                     Email = message.Email,
                     Subject = message.Subject,
-                    Body = message.Body
+                    Body = message.Body,
+                    CreateOn=DateTime.Now
                 };
                 if (await _dbContext.Messages.AnyAsync(m=>m.Email==user.Email))
                 {

@@ -1,26 +1,38 @@
 ﻿<Properties StartupConfiguration="{6E2AD9F4-671F-4A46-82C7-E15857056413}|https">
-  <MonoDevelop.Ide.DebuggingService.Breakpoints>
-    <BreakpointStore />
-  </MonoDevelop.Ide.DebuggingService.Breakpoints>
-  <MonoDevelop.Ide.ItemProperties.Zante__Hotel PreferredExecutionTarget="/System/Volumes/Preboot/Cryptexes/App/System/Applications/Safari.app" />
   <MultiItemStartupConfigurations />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Views/Home/Index.cshtml">
-    <Files>
-      <File FileName="Views/Shared/_Layout.cshtml" />
-      <File FileName="Areas/AppAdmin/Controllers/RestaurantController.cs" />
-      <File FileName="Areas/AppAdmin/Models/Food.cs" />
-      <File FileName="Areas/AppAdmin/Models/Hotel.cs" />
-      <File FileName="Areas/AppAdmin/Models/Restaurant.cs" />
-      <File FileName="appsettings.json" />
-      <File FileName="Views/Home/Index.cshtml" Line="165" Column="63" />
-    </Files>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore>
+      <Breakpoint file="/Users/zeyneb/Desktop/Zante_Hotel/Zante_Hotel/Controllers/HomeController.cs" relfile="Controllers/HomeController.cs" line="33" column="1" />
+      <Breakpoint file="/Users/zeyneb/Desktop/Zante_Hotel/Zante_Hotel/Controllers/HomeController.cs" relfile="Controllers/HomeController.cs" line="39" column="1" />
+      <Breakpoint file="/Users/zeyneb/Desktop/Zante_Hotel/Zante_Hotel/Views/Home/ContactUs.cshtml" relfile="Views/Home/ContactUs.cshtml" line="1" column="1" />
+    </BreakpointStore>
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.ItemProperties.Zante__Hotel PreferredExecutionTarget="/Applications/Google Chrome.app" />
+  <MonoDevelop.Ide.Workbench>
     <Pads>
       <Pad Id="ProjectPad">
         <State name="__root__">
           <Node name="Zante_Hotel">
             <Node name="Zante_Hotel">
-              <Node name="Views" expanded="True">
-                <Node name="Home" expanded="True" />
+              <Node name="Areas">
+                <Node name="AppAdmin">
+                  <Node name="Controllers">
+                    <Node name="ReservationController.cs" selected="True" />
+                  </Node>
+                  <Node name="DAL" expanded="True" />
+                  <Node name="Models" expanded="True" />
+                  <Node name="Views">
+                    <Node name="Contactus" expanded="True" />
+                    <Node name="Shared" expanded="True" />
+                  </Node>
+                </Node>
+              </Node>
+              <Node name="Models">
+                <Node name="Base" expanded="True" />
+              </Node>
+              <Node name="Services" expanded="True" />
+              <Node name="Views">
                 <Node name="Shared" expanded="True" />
               </Node>
             </Node>
@@ -29,6 +41,5 @@
       </Pad>
     </Pads>
   </MonoDevelop.Ide.Workbench>
-  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
 </Properties>
